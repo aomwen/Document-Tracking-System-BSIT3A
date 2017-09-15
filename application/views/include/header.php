@@ -15,4 +15,4 @@
 <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 
 </head>
-<body>
+<body  id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">

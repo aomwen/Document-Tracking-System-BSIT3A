@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/design.css" />
-	<title> Document Tracking System </title>
-</head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-	<div>
+<div> 
 		<div class="container-fluid" id="box-wrapper">
 			<nav class="navbar navbar-inverse navbar-fixed-top" id="header">
 				<div class="container">
@@ -36,7 +25,6 @@
 				</div>
 			</nav>
 		</div>
-
 		<div class="modal fade" id="Login" role="dialog">
 			<div class="modal-dialog modal-sm">
 				<div class ="modal-content">
@@ -45,14 +33,15 @@
 						<h3 class="text-center"> Log In </h3>
 					</div>
 					<div class="modal-body">
-						<form class="col-md-12 center-block">
+						<form class="col-md-12 center-block" method="post" action="<?php echo base_url('DTS/log_in')?>">
 							<div class="form-group">
-								<input type="text" class="form-control input-md" placeholder="Username">
+								<input type="text" class="form-control input-md" placeholder="Username" id="Username" name="Username">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control input-md" placeholder="Password">
-							</div>						
+								<input type="password" class="form-control input-md" placeholder="Password" name="Password" id="Password">
+							</div>					
 							<div class="form-group">
+								<span class="text-danger"><?php echo $this->session->flashdata("error");?></span>
 								<input type="submit" class="btn btn-block btn-md btn-primary" value="Login">
 							</div>				
 						</form>
@@ -215,5 +204,3 @@ $(document).ready(function(){
   });
 })
 </script>
-</body>
-</html>
