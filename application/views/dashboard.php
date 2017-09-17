@@ -18,8 +18,7 @@
 							<li><a href="#contact"> CONTACT </a></li>
 							<li><a href="#offices"> OFFICES </a></li>
 							<li><a href="#guide"> GUIDE </a></li>	
-							<li><a href="#" data-toggle="modal" data-target="#Login"> LOGIN </span></a></li>							
-							
+							<li><a href="#" data-toggle="modal" data-target="#Login"> LOGIN </span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -89,7 +88,45 @@
 				</a>
 			</div>
 		</div>	
+		<!-- News -->
 
+	<div class="container-default" style="background-color: #f3f2f2;padding: 2%;">
+		<div class="alert alert-danger text-center">
+			<div class="media">
+				<div class="media-left">
+					<img src="images/news.jpg" class="media-object" height="60px;">
+				</div>
+				<div class="media-body">
+					<h1 class="media-heading"> NEWS </h1>
+				</div>
+			</div>
+		</div>
+		<table class="table-striped">
+				<div class="col-md-4 text-center pull-right">
+					<thead>
+						<tr>
+							<th class="text-center">Title</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						foreach($news as $n)
+							echo'
+								<tr style="padding:2%;">
+									<td class="center">
+										<a href="#"><img src="images/closeup.jpg" height="100%"></a><br />
+										<a href="#">'.$n['ntitle'].'</a>
+									</td>
+								';
+						?>
+					</tbody>
+				</div>
+				<!-- LAGAY DITO YUNG FULLPAGE NG NEWS NA MAKIKITA YUNG DATE TITLE CONTENT AUTHOR -->
+				<div class="col-md-8 tex center">
+
+				</div>
+		</table>
+	</div>
 		<!-- SERVICES -->
 			<div class="row text-center" id="service">
 				<h2 class="page-header"> Services </h2>
