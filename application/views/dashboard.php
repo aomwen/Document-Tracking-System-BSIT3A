@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/design.css" />
-	<title> Document Tracking System </title>
-</head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-	<div>
+<div> 
 		<div class="container-fluid" id="box-wrapper">
 			<nav class="navbar navbar-inverse navbar-fixed-top" id="header">
 				<div class="container">
@@ -29,14 +18,12 @@
 							<li><a href="#contact"> CONTACT </a></li>
 							<li><a href="#offices"> OFFICES </a></li>
 							<li><a href="#guide"> GUIDE </a></li>	
-							<li><a href="#" data-toggle="modal" data-target="#Login"> LOGIN </span></a></li>							
-							
+							<li><a href="#" data-toggle="modal" data-target="#Login"> LOGIN </span></a></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</div>
-
 		<div class="modal fade" id="Login" role="dialog">
 			<div class="modal-dialog modal-sm">
 				<div class ="modal-content">
@@ -45,14 +32,15 @@
 						<h3 class="text-center"> Log In </h3>
 					</div>
 					<div class="modal-body">
-						<form class="col-md-12 center-block">
+						<form class="col-md-12 center-block" method="post" action="<?php echo base_url('DTS/log_in')?>">
 							<div class="form-group">
-								<input type="text" class="form-control input-md" placeholder="Username">
+								<input type="text" class="form-control input-md" placeholder="Username" id="Username" name="Username">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control input-md" placeholder="Password">
-							</div>						
+								<input type="password" class="form-control input-md" placeholder="Password" name="Password" id="Password">
+							</div>					
 							<div class="form-group">
+								<span class="text-danger"><?php echo $this->session->flashdata("error");?></span>
 								<input type="submit" class="btn btn-block btn-md btn-primary" value="Login">
 							</div>				
 						</form>
@@ -100,7 +88,45 @@
 				</a>
 			</div>
 		</div>	
+		<!-- News -->
 
+	<div class="container-default" style="background-color: #f3f2f2;padding: 2%;">
+		<div class="alert alert-danger text-center">
+			<div class="media">
+				<div class="media-left">
+					<img src="images/news.jpg" class="media-object" height="60px;">
+				</div>
+				<div class="media-body">
+					<h1 class="media-heading"> NEWS </h1>
+				</div>
+			</div>
+		</div>
+		<table class="table-striped">
+				<div class="col-md-4 text-center pull-right">
+					<thead>
+						<tr>
+							<th class="text-center">Title</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						foreach($news as $n)
+							echo'
+								<tr style="padding:2%;">
+									<td class="center">
+										<a href="#"><img src="images/closeup.jpg" height="100%"></a><br />
+										<a href="#">'.$n['ntitle'].'</a>
+									</td>
+								';
+						?>
+					</tbody>
+				</div>
+				<!-- LAGAY DITO YUNG FULLPAGE NG NEWS NA MAKIKITA YUNG DATE TITLE CONTENT AUTHOR -->
+				<div class="col-md-8 tex center">
+
+				</div>
+		</table>
+	</div>
 		<!-- SERVICES -->
 			<div class="row text-center" id="service">
 				<h2 class="page-header"> Services </h2>
@@ -215,5 +241,3 @@ $(document).ready(function(){
   });
 })
 </script>
-</body>
-</html>
