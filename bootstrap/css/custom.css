@@ -21,3 +21,26 @@
 	color: #e0eff1;
 }
 .clear-pad { padding: 0px!important; }
+.docu{
+	/*margin-top: 90px;
+	margin-left: 500px;
+	*/}
+.btn-file{
+	position:relative;
+	overflow: hidden;
+}
+.btn-file input{
+	position: absolute;
+	top:0;
+	right:0;
+	min-width:100%;
+	min-height:100%;
+	font-size:100px;
+	text-align:right;
+	filter: alpha(opacity=0);
+	opacity:0;
+	outline:none;
+	background:white;
+	cursor:inherit;
+	display:block;
+}

@@ -1,52 +1,54 @@
-	<div class="container-defualt" id="box-wrapper">
-		<nav class="navbar navbar-inverse" id="header">
-		  <div class="container">
-			<div class="navbar-header">
-				<img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/>
-			  	<a class="navbar-brand" href="#">Document Tracking System</a>
-			</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Accounts<span class="caret"></span></a>
-				  	<ul class="dropdown-menu">
-						<li><a href="#"> Settings</a></li>
-						<li><a href="<?php echo base_url('DTS/session_checkout')?>"> Log out</a></li>
-				  	</ul>
-				</li>
-			</ul>
-		  </div>
-		</nav>
-	</div>
-  <div class="row" style="border: yellow solid;">
-	  		<div class="col-sm-3" style="position:fixed; border:solid black;">
-					<div class="card" style="border:solid blue;">
-				  		<img src="<?php echo base_url('assets/images/if_account-circle_326497.png');?>" alt="John" style="width:100%">
-				  		<h1>Name</h1>
-				  		<p class="title">Position</p>
-				  		<p>College</p> 
-				  		<a href="#" style="color: black;"><i class="fa fa-twitter"></i></a> 
-				  		<a href="#" style="color: black;"><i class="fa fa-facebook"></i></a> 
-				  		<p><button class="w3-button w3-hover-red" style="background-color:#000; color: white;"> 
-				  			<!-- class="tablinks" onClick="openTab(event,'Guide')" --> 
-				  			Guide</button></p>
-				  		<p><button class="w3-button w3-hover-red" style="background-color:#000; color: white;">
-				  		 <!-- class="tablinks" onClick="openTab(event,'MyDocument')"> -->
-				  		 My Documents</button></p>
-				  		<p><button class="w3-button w3-hover-red" style="background-color:#000; color: white;"> 
-				  			<!-- class="tablinks" onClick="openTab(event,'Offices')"> -->
-				  			Offices</button></p>
-				  		<p><button class="w3-button w3-hover-red" style="background-color:#000; color: white;">
-				  		 <!-- class="tablinks" onClick="openTab(event,'Settings')"> -->
-				  		 Settings</button></p>
-				  		<p><button class="w3-button w3-hover-red" style="background-color:#000; color: white;"> 
-				  			<!-- class="tablinks" onClick="openTab(event,'Inbox')"> -->
-				  			Inbox</button></p>
+<div class="container-default" id="box-wrapper">
+	<nav class="navbar navbar-inverse" id="header">
+	  <div class="container">
+		<div class="navbar-header">
+			<img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/>
+		  	<a class="navbar-brand" href="#">Document Tracking System</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Accounts<span class="caret"></span></a>
+			  	<ul class="dropdown-menu">
+					<li><a href="<?php echo base_url('Dts/myaccount_view'); ?>">My Account</a></li>
+					<li><a href="<?php echo base_url('Dts/session_checkout'); ?>"> Log out</a></li>
+			  	</ul>
+			</li>
+		</ul>
+	  </div>
+	</nav>
+</div>
+	<div class="container-fluid">
+		<div class="row profile">
+			<div class="col-sm-3">
+				<div class="profile-sidebar">
+					<div class="profile-user-pic">
+						<img src="<?php echo base_url('assets/images/profile.png');?>" alt="Profile Picture" class="img-responsive" img-circle />
 					</div>
-	  		</div>
-	  		<!-- Right Column -->
-  	</div>
+					<div class="profile-user-title">
+						<?php
+						foreach($userdata as $us){
+						echo '
+						<div class="profile-user-name">'.$us['full_name'].'</div>
+						<div class="profile-user-position">'.$us['position'].' </div>
+						<div class="profile-user-position">'.$us['department'].' </div>
+						<div class="profile-user-position">'.$us['college_acronym'].' </div>';
+					}?>
+						<div class="profile-user-menu">
+							<ul class="nav">
+ 
+								<li class="active"><a href="<?php echo base_url('Dts/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span> Document Status </a></li>
+								<li ><a href="<?php echo base_url('Dts/do_upload'); ?>"><span class="glyphicon glyphicon-pencil"></span> Compose </a></li>
+								<li ><a href="<?php echo base_url('Dts/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span> Inbox </a></li>
+								<li><a href="<?php echo base_url('Dts/mysentdocuments_view'); ?>"<span class="glyphicon glyphicon-folder-open"></span> Sent Documents </a></li>
+								<li><a href=""><span class="glyphicon glyphicon-book"></span> Guide </a></li>								
+								<li><a href="<?php echo base_url('Dts/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span> Offices </a></li>
+							</ul>
+						</div>	
+					</div>	
+				</div>
+			</div>				
 
-	<script>
+<script>
 	$(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {

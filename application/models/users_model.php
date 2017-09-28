@@ -15,7 +15,6 @@ class Users_model extends CI_Model {
 		if( isset($condition) ) $this->db->where($condition);
 		
 		$query=$this->db->get();
-
 		return $query->result_array();		
 	}
 	
@@ -37,7 +36,7 @@ class Users_model extends CI_Model {
 		$query=$this->db->get("users");
 		if($query->num_rows()>0){
 		return true;
-		}
+		}	
 	return false;	
 	}
 }
