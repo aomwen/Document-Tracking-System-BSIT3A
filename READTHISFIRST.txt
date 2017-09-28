@@ -1,0 +1,14 @@
+for database
+gawa muna kayo ng DB na documenttrackingsystem. then import niyo yung nasa labas diyan mga tables po yan.
+
+login signup logic (check) need more validation
+login signup design almost need more design
+dashboard = dlawa yung design diyan gawa ni giane and abbie. ililipat muna yung newdashboard sa susunod kasi 
+nag jajumble yung css natin
+. wala pa pong about franz ikaw na bahala dun.
+
+sa loob naman naayos na yung mga logic yung document stat need more design tyaka kulang pap o yun ng function dko pa nasama.
+sa admin yung dalawang key for managing d nasama kasi d napasa ni franz. yung isa nasakin kaso wala pang form nasa loob lang ng controller ko
+. nasa controller lang lahat ng logic wala lang design yun.
+
+mostly kelangan naitn iimprove yung design. sorry test bukas kaya eto lang muna napag sama sama ko na mga gawa niyo.
