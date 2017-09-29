@@ -2,83 +2,231 @@
 	box-sizing:border-box;
 }
 body{
-	background-color:#f1f3fa;
+	background:#fff;
+}
+.navbar1{
+	background-color: #bd2031;
 }
 .profile{
-	margin-top:20px 0;
+	background-color:#160306;	
+	width:300px;
+	height:100%;
+	left:0px;
+	top:52px;
+	position:fixed;
+	display:block;
 }
 .profile-sidebar{
-	padding:20px 0 10px 0;
-	background:#fff;
+	left:0px;
+	margin-top: 25px;
 }
 .profile-user-pic{
 	float:none;
 	margin:0 auto;
-	width:50%;
-	height:50%;
+	display:block;
+	width:120px;
+	height:120px;
+	border:1px solid #fff;
+	border-radius:50%;
+}
+.profile-user-pic img{
+	border-radius:50%;
 }
 .profile-user-title{
 	text-align:center;
 	margin-top:20px;
 }
 .profile-user-name{
-	color:#5a73a1;	
+	color:#f8d3d7;	
 	font-size:18px;
 	font-weight: 600;
 	margin-bottom:7px;
 }
-.profile-user-job{
-	text-transform:uppercase;
-	color:#5babd1;
-	font-size:13px;
+.profile-user-position{
+	color:#f8d3d7;
+	font-size:14px;
 	font-weight:600;
-	margin-bottom:15px;
 }
-.profile-user-buttons{
-	text-align:center;
-	margin-top:10px;
-}
-.btn{
-	text-transform:uppercase;
-	font-size:11px;
-	font-weight:600;
-	padding:6px 15px;
-	margin-right:5px;
-}
-.btn:last-child{
-	margin-right:0;
+.profile-user-button a{
+	padding:10px;
+	margin-bottom: 15px;
+	font-size: 14px;
+	background-color: #bd2031;
+	color:#fff;
+	margin-top: 10px;
 }
 .profile-user-menu{
 	margin-top:30px;
+	margin:auto;
 }
-ul li{
-	border-bottom:2px solid #f0f4f7 !important;
+.profile-user-menu ul li{
 	text-align:left;
+	margin-left: 10px;
 }	
 .profile-user-menu ul li a{
 	color:#93a3b5;
 	font-size:14px;
 	font-weight:400;
 }
-.profile-user-menu ul li a span{
-	margin-right: 8px;
+.profile-user-menu ul li a span:nth-child(1){
+	font-size: 20px;
+	color:#fff;
+}
+.profile-user-menu ul li a span:nth-child(2){
 	font-size: 16px;
+	font-family:"Helvetica Neue",Helvetica,Arial;
+	color:#fff;
+	padding-left: 5px;
 }
 .profile-user-menu ul li a:hover{
-	background-color:#fafcfd; 
+	/*	background: rgba(189,32,49,0.7);*/ 
+	background-color: #c42132;
 	color:#5babd1;
 }
-li.active a{
-	color:#5babd1;
-	background-color: #f6fafb;
-	border-left: 2px solid #5babd1;
-	margin-left: -3px;
-}
-li{
-	border-bottom: 1px solid #f6f4f7;
+.profile-user-menu li{
+	border-bottom:solid thin #8c8c8c;
 }
 .profile-content{
 	padding:20px;
 	background: #fff;
 	min-height:460px;
+}
+
+
+
+
+*{
+	box-sizing:border-box;
+}
+/*Navbar*/
+.navbar{
+	background-color: #a9a9a9;
+}
+.navbar-brand{
+	color:#ffffff;
+}
+.navbar-header{
+	color:#ffffff;
+}
+/*Navbar Profile*/
+.user-image{
+	width:25px;
+	height:25px;
+	border-radius:50%;
+	margin-right:15px;
+}
+.user-header{
+	width:270px;
+	height:175px;
+	text-align: center;	
+	padding:10px;
+	background-color:#bd2031;
+}
+.user-header img{
+	width:80px;
+	height:80px;
+	border:3px solid;
+	border-color:transparent;
+	border-color:rgba(255,255,255,0.2);
+	color:#dd6f2d;
+}
+.user-header p{
+	font-size: 17px;
+	color:#ffffff;
+	color:rgba(255,255,255,0.8);
+	margin-top: 10px;
+}
+.user-menu span{
+	color:#ffffff;
+}
+.user-header p small{
+	font-size:12px;
+	display:block;
+}
+.user-body{
+	padding:10px;
+	background-color: #fbfbfb;
+}
+/*Navbar Notification*/
+.notif-menu{
+	padding-top: 4px;
+}
+.notif-header{
+	width:270px;
+	height:35px;
+	text-align: center;	
+	padding:10px;
+	background-color: #bd2031;
+}
+.notif-menu span:nth-child(1){
+	color:#ffffff;
+}
+.notif-header p{
+	color:#ffffff;
+}
+.notif-body{
+	height:100%;
+	padding:10px;
+}
+.notif-body ul{
+	text-decoration: none;
+}	
+.notif-body ul li{
+	text-decoration: none;
+	list-style-type: none;
+}
+.notif-footer{
+	text-align: center;
+	padding: 5px;
+	background-color: #f9f9f9;
+}
+
+
+@media screen and (min-width:100px){
+	.profile{
+		width:80px;
+	}
+	.profile-user-pic{
+		width:50px;
+		height:50px;
+	}
+	.profile-user-name{
+		display:none;
+	}
+	.profile-user-position{
+		display:none;
+	}	
+	.profile-user-menu{
+		margin:auto;
+	}
+	.profile-user-menu ul li span:nth-child(1){
+		display:inline-block;
+		margin:auto;
+	}
+	.profile-user-menu ul li span:nth-child(2){
+		display:none;
+	}
+
+}
+@media screen and (min-width: 1000px){
+	.profile{
+		width:300px;
+	}
+	.profile-user-pic{
+		width:120px;
+		height:120px;
+	}
+	.profile-user-name{
+		display:block;
+	}
+	.profile-user-position{
+		display:block;
+	}	
+	.profile-user-menu ul li a span:nth-child(1){
+		text-align: left;
+	}
+	.profile-user-menu ul li a span:nth-child(2){
+		display:inline;
+	}	
+
 }
