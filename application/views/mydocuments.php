@@ -1,4 +1,7 @@
 <style>
+.breadcrumb{
+  margin-top:10px;
+}
 .panel-body1{
 	margin-top: 60px;
 }

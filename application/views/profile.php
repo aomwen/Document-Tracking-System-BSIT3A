@@ -19,7 +19,7 @@
           <!--Nav User Profile -->
           <li class="dropdown notif-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="glyphicon glyphicon-bell"></span>
+              <span id="bell" class="glyphicon glyphicon-bell"></span>
             </a>
             <ul class="dropdown-menu">
                 <li class="notif-header"><p>Notifications</p></li>

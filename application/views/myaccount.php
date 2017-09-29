@@ -1,5 +1,8 @@
 <!--MYACCOUNT -->
 <style>
+.breadcrumb{
+  margin-top:10px;
+}
 .editbtn{
 	margin-top: 20px;
 }
@@ -23,7 +26,7 @@
 			<div class="row">
 				<div class="col-md-2">
 					<img src="" alt="Profile Picture" class="img-responsive" id="profilepic"/>
-					<a href="<?xphp echo base_url('Dts/editprofile_view'); ?> class="btn btn-info text-center" role="button" >Edit Profile</a>	
+					<a href="<?php echo base_url('Dts/editprofile_view'); ?>" class="btn btn-info text-center" role="button" >Edit Profile</a>	
 				</div>
 				<div class="col-md-10">
 					<form class="form-horizontal">				

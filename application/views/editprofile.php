@@ -2,7 +2,7 @@
 <div class="container">
 	<div class=" docu col-sm-9 pull-right">
 		<div class="panel panel-default">
-			<div class="panel-heading">My Account</div>
+			<div class="panel-heading">Edit Account</div>
 				<div class="panel-body">
 					<div class="row">
 					<?php foreach($userdata as $us){
