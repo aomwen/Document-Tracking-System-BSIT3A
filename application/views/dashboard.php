@@ -17,43 +17,13 @@
 							<li><a href="#service"> SERVICES </a></li>
 							<li><a href="#contact"> CONTACT </a></li>
 							<li><a href="#guide"> GUIDE </a></li>	
-							<li><a href="<?php echo base_url('Dts/log_in');?>"> LOGIN </span></a></li>
-							<li><a href="<?php echo base_url('Dts/signup');?>"> REGISTER </span></a></li>
+							<li><a href="<?php echo base_url('Access/log_in');?>"> LOGIN </span></a></li>
+							<li><a href="<?php echo base_url('Access/signup');?>"> REGISTER </span></a></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</div>
-		
-		<!-- <div class="modal fade" id="Login" role="dialog">
-			<div class="modal-dialog modal-sm">
-				<div class ="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times; </button>
-						<h3 class="text-center"> Log In </h3>
-					</div>
-					<div class="modal-body">
-						<form class="col-md-12 center-block" method="post" action="<?php echo base_url('DTS/log_in')?>">
-							<div class="form-group">
-								<input type="text" class="form-control input-md" placeholder="Username" id="Username" name="Username">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control input-md" placeholder="Password" name="Password" id="Password">
-							</div>					
-							<div class="form-group">
-								<span class="text-danger"><?php echo $this->session->flashdata("error");?></span>
-								<input type="submit" class="btn btn-block btn-md btn-primary" value="Login">
-							</div>				
-						</form>
-					</div>	
-					<div class="modal-footer">
-						<span><a href="#Register"> Register </a></span>
-						<button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button>
-					</div>
-				</div>	
-			</div>		
-		</div> -->
-		
 		<div class="carousel slide" data-ride="carousel" id="myCarousel">
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>

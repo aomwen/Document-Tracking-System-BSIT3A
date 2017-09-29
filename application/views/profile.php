@@ -9,8 +9,8 @@
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Accounts<span class="caret"></span></a>
 			  	<ul class="dropdown-menu">
-					<li><a href="<?php echo base_url('Dts/myaccount_view'); ?>">My Account</a></li>
-					<li><a href="<?php echo base_url('Dts/session_checkout'); ?>"> Log out</a></li>
+					<li><a href="<?php echo base_url('Account/myaccount_view'); ?>">My Account</a></li>
+					<li><a href="<?php echo base_url('Access/session_checkout'); ?>"> Log out</a></li>
 			  	</ul>
 			</li>
 		</ul>
@@ -36,12 +36,12 @@
 						<div class="profile-user-menu">
 							<ul class="nav">
  
-								<li class="active"><a href="<?php echo base_url('Dts/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span> Document Status </a></li>
-								<li ><a href="<?php echo base_url('Dts/do_upload'); ?>"><span class="glyphicon glyphicon-pencil"></span> Compose </a></li>
-								<li ><a href="<?php echo base_url('Dts/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span> Inbox </a></li>
-								<li><a href="<?php echo base_url('Dts/mysentdocuments_view'); ?>"<span class="glyphicon glyphicon-folder-open"></span> Sent Documents </a></li>
+								<li class="active"><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span> Document Status </a></li>
+								<li ><a href="<?php echo base_url('FilesManipulation/do_upload'); ?>"><span class="glyphicon glyphicon-pencil"></span> Compose </a></li>
+								<li ><a href="<?php echo base_url('DocumentInbox/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span> Inbox </a></li>
+								<li><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"<span class="glyphicon glyphicon-folder-open"></span> Sent Documents </a></li>
 								<li><a href=""><span class="glyphicon glyphicon-book"></span> Guide </a></li>								
-								<li><a href="<?php echo base_url('Dts/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span> Offices </a></li>
+								<li><a href="<?php echo base_url('Office/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span> Offices </a></li>
 							</ul>
 						</div>	
 					</div>	

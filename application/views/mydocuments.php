@@ -2,7 +2,7 @@
 	<div class="page-header text-center">
 		ALL DOCUMENTS
 	</div>
-	<table class="table-hover table-responsive table-striped" width="100%">
+	<table class="table-responsive table-striped" width="100%">
 		<tr>
 			<th>Track #</th>
 			<th>File name</th>

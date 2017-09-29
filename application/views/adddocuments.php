@@ -2,7 +2,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Add Documents</div>
           <div class="panel-body">
-    <?php echo form_open_multipart('upload/do_upload');?>
+    <?php echo form_open_multipart('FilesManipulation/do_upload');?>
               <div class="form-group row">
                 <div class="col-sm-6">
                   <input type="text" class="form-control" placeholder="To:" name="receiver"/> 
@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                   <label>attach?</label>
-                  <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="path" />
+                  <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="userfile" />
                 </div>
               </div>
                <div class="panel-footer">
