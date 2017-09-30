@@ -1,12 +1,30 @@
 <!--MYACCOUNT -->
 <style>
+.breadcrumb{
+  margin-top:10px;
+}
 .editbtn{
 	margin-top: 20px;
 }
+.myacc{
+	margin-top: 75px;	
+	margin-left: 294px;
+	width:79%;
+	height:100%;
+}
+#head{
+  border-bottom:solid #015249;
+}
 </style>
-<div class="docu col-sm-9 pull-right">
+<div class="myacc col-md-9">
 	<div class="panel panel-default">
-		<div class="panel-heading">My Account</div>
+		<div class="panel-heading" id="head">
+		    <ol class="breadcrumb pull-right">
+		      <li><a href="<?php echo base_url('Dts/mydocuments_view'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+		      <li class="active">Account Settings</li>
+		    </ol>    
+		    <h3><span class="glyphicon glyphicon-inbox"></span> Account Settings</h3> 
+		</div>
 			<div class="panel-body">
 				<div class="row">
 					<?php foreach($userdata as $us){

@@ -44,6 +44,7 @@ class Access extends CI_Controller {
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data);
         $this->load->view('login',$data);
+        /*$('link[rel=stylesheet][href*="newdashboardstyle.css"]').remove();*/
     }
 
 //SIGNUP

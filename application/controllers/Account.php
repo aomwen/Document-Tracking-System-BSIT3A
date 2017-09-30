@@ -101,7 +101,7 @@ class Account extends CI_Controller {
                 }else{
                     $error = "Error!!!";
                     $data['error']=$error;
-                redirect(base_url().'Access/signup');
+                redirect(base_url().'Account/myaccount_view');
                 }
             }
     

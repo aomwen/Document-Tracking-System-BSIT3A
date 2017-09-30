@@ -1,7 +1,11 @@
 <!-- EDITPROFILE -->
-
+<style>
+#head{
+  border-bottom:solid #015249;
+}
+</style>
 		<div class="panel panel-default">
-			<div class="panel-heading">Edit Account</div>
+			<div class="panel-heading" id="head">Edit Account</div>
 				<div class="panel-body">
 					<div class="row">
 					
