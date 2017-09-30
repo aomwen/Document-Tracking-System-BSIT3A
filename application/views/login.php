@@ -1,22 +1,18 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <html>
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/login-design.css" />
-	<title> Shaarii Shaarii Store </title>
-</head>-->
+	<link href="<?php echo base_url('assets/css/loginsignupstyle.css'); ?>" rel="stylesheet" />
+</head>
 <body style="
-		background: url(<?php echo base_url('assets/images/login.jpg');?>) no-repeat; background-size: cover;">
-	<div class="container" style="margin-top: 10%;">
-		<h3 class="text-center">Log In</h3>
+		background: url(<?php echo base_url('assets/images/signup.jpeg');?>) no-repeat; background-size: cover;">
+	<div class="container" style="margin-top: 5%;">
+		<h3 class="text-center" style="margin-bottom: 5%;">Log In</h3>
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="panel panel-default" id="panel-body">
 					<div class="panel-body">
-						<form class="text-center" method="POST" action="<?php echo base_url('Dts/log_in');?>">
+						<form class="text-center" method="POST" action="<?php echo base_url('Access/log_in');?>">
 							<div class="form-group">
 								<label class="pull-left">Username</label>
 								<input name="Username" type="text" class="form-control input-md" placeholder="Username">
@@ -31,7 +27,7 @@
 										echo'<p class="text-danger" >'.$error.'</p>';
 									}
 								?>
-								<input type="submit" class="btn btn-block btn-md btn-primary" value="Login">
+								<input type="submit" id="input-btn" class="btn btn-block btn-md btn-primary" value="Login">
 							</div>		
 							<a class="pull-left" href="<?php echo base_url('DTS/index');?>" >Back to Home</a>		
 						</form>	
@@ -62,6 +58,6 @@
 				</ul>
 			</div>		
 		</div>
-	</footer>
+	</footer> -->
 </body>
-</html> -->
+</html>

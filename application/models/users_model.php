@@ -19,13 +19,13 @@ class Users_model extends CI_Model {
 	}
 	
 	public function update($data){
-		$this->db->where($data);
+		$this->db->where("username",$_SESSION['username']);
 		$this->db->update($this->table, $data);
 		return TRUE;	
 	}
 	
 	public function delete_student($data){
-		$this->db->where($data);
+		$this->db->where("username",$_SESSION['username']);
 		$this->db->delete($this->table);
 		return TRUE;	
 	}

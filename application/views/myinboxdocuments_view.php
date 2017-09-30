@@ -3,17 +3,37 @@
 .breadcrumb{
   margin-top:10px;
 }
-#collapse a{
-	text-decoration: none;
-}
 .myinbox{
 	margin-top: 75px;	
-	margin-left: 294px;
+	margin-left: 305px;
 	width:79%;
 	height:100%;
 }
-.panel-heading{
-	bottom-top:1px solid #bd2031;
+#head{
+  border-bottom:solid #015249;
+}
+.panel-heading h3{
+  color:#015249;
+}
+.panel-heading ol li a span{
+  color:#015249;
+}
+.panel-body form input{
+	padding:15px 16px;
+	border:1px solid #ccc;
+	border-radius:4px;
+	font-size:15px;
+	color:#aaa;
+	font-family: 'Lato', sans-serif;
+}
+.panel-body form button{
+	background:#015249;
+	color:#fff;
+	width:40px;
+}
+.panel-body form button:hover{
+	background:#A5A5AF;
+	color:#222;
 }
 .searchbar{
 	display:inline-flex;
@@ -23,13 +43,16 @@
 	width:400px;
 	margin-left: 15px;
 }
+#collapse a{
+	text-decoration: none;
+}
 
 </style>	
 <div class="myinbox col-md-9">
 	<div class="panel panel-default">
-		<div class="panel-heading">
+		<div class="panel-heading" id="head">
 		    <ol class="breadcrumb pull-right">
-		      <li><a href="<?php echo base_url('Dts/mydocuments_view'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+		      <li><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
 		      <li class="active">Inbox</li>
 		    </ol>    
 		    <h3><span class="glyphicon glyphicon-inbox"></span> Inbox</h3>       
@@ -104,7 +127,26 @@
 											    	</div>
 											  	</form>										
 											</div>
-										</div>	
+										</div>';}
+										}	
+										?>
+		<div class="panel-heading">Inbox</div>
+			<div class="panel-body">
+				<form class="pull-left searchbar" method="POST" action="<?php echo base_url('DocumentInbox/myinbox_view')?>">	
+					<input type="text" placeholder="Search..." name="tracknumber" class="search"/>
+					<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
+				</form>
+			</div>
+			<div class="panel-body" id="accordion">	
+				<div class="col-md-12">
+					<div class="panel-group" id="accordion">
+						<?php
+						foreach ($documents as $d){
+							if($d['receiver']==$_SESSION['username']){
+								echo '
+								<div class="panel panel-default">	
+									<div class="panel-heading text-left">
+										<input type="checkbox"><a href="#'.$d['trackcode'].'" data-toggle="collapse" data-parent="accordion">&nbsp;'.$d['trackcode'].'</a><button type="button" class="close" data-dismiss="modal" data-toggle="collapse" data-parent="accordion">&times; </button></div>
 									</div>
 								</div>	
 							';

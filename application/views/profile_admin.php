@@ -55,8 +55,8 @@
               </li>
               <li class="user-body">
                 <div>
-                  <a href="#" class="btn btn-default pull-left">Account Setting</a>
-                  <a href="<?php echo base_url('Dts/session_checkout'); ?>" class="btn btn-default pull-right">Sign Out</a>
+                  <a href="<?php echo base_url('Account/myaccount_view'); ?>" class="btn btn-default pull-left">Account Setting</a>
+                  <a href="<?php echo base_url('Access/session_checkout'); ?>" class="btn btn-default pull-right">Sign Out</a>
                 </div>    
               </li>
             </ul>
@@ -65,38 +65,6 @@
       </div>  
     </div>
   </nav>
-</div>
-	<div class="container-fluid">
-		<div class="row profile">
-			<div class="profile-sidebar">
-				<div class="profile-user-pic">
-					<img src="<?php echo base_url('assets/images/pic.png');?>" alt="Profile Picture" class="img-responsive"/>
-				</div>
-				<div class="profile-user-title">
-					<?php
-					foreach($userdata as $us){
-					echo '
-					<div class="profile-user-name">'.$us['full_name'].'</div>
-					<div class="profile-user-position">'.$us['position'].' </div>
-					<div class="profile-user-position">'.$us['department'].' </div>
-					<div class="profile-user-position">'.$us['college_acronym'].' </div>';
-				}?>
-					<div class="profile-user-menu">
-						<div class="profile-user-button">
-							<a href="<?php echo base_url('Dts/do_upload'); ?>" class="composebtn btn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a></li>							
-						</div>	
-						<ul class="nav">
-							<li class="active"><a href="<?php echo base_url('Dts/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
-							<li ><a href="<?php echo base_url('Dts/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
-							<li ><a href="<?php echo base_url('Dts/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent Documents </span></a></li>							
-							<li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>								
-							<li><a href="<?php echo base_url('Dts/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
-						</ul>
-					</div>	
-				</div>	
-			</div>				
-		</div>
-	</div>	
 </div>
 	<div class="container-fluid">
 		<div class="row profile">
@@ -114,15 +82,15 @@
 					<div class="profile-user-position">'.$us['college_acronym'].' </div>';}?>
 					<div class="profile-user-menu">
 						<div class="profile-user-button">
-							<a href="<?php echo base_url('Dts/do_upload'); ?>" class="composebtn btn btn-danger" role="button"><span class="glyphicon glyphicon-pencil"></span> Compose </a></li>				
+							<a href="<?php echo base_url('FilesManipulation/do_upload'); ?>" class="composebtn btn btn-danger" role="button"><span class="glyphicon glyphicon-pencil"></span> Compose </a></li>				
 							<a href="#" class="composebtn btn btn-success" role="button"><span class="glyphicon glyphicon-pencil"></span> Manage </a></li>					
 						</div>			
 						<ul class="nav">
-							<li class="active"><a href="<?php echo base_url('Dts/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
-							<li ><a href="<?php echo base_url('Dts/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
-							<li ><a href="<?php echo base_url('Dts/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent Documents </span></a></li>							
+							<li class="active"><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
+							<li ><a href="<?php echo base_url('DocumentInbox/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
+							<li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent Documents </span></a></li>							
 							<li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>								
-							<li><a href="<?php echo base_url('Dts/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
+							<li><a href="<?php echo base_url('Office/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
 						</ul>
 					</div>	
 				</div>

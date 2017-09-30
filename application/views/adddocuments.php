@@ -4,16 +4,39 @@
 }
 .adddocu{
   margin-top: 75px;
-  margin-left: 294px;
+  margin-left: 305px;
   width:79%;
   height:100%;
+}
+#head{
+  border-bottom:solid #015249;
+}
+.panel-heading h3{
+  color:#015249;
+}
+.panel-heading ol li a span{
+  color:#015249;
+}
+.panel-footer button{
+  font-family: sans-serif;
+  width:175px;
+  height:50px;
+  letter-spacing: 1px;
+  background:#015249;
+  color:#ffffff;
+  text-transform:uppercase;
+  border:0px;
+}
+.panel-footer button:hover{
+  background:#A5A5AF;
+  color:#222;
 }
 </style>
 <div class="adddocu col-sm-9">
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" id="head">
         <ol class="breadcrumb pull-right">
-          <li><a href="dashboard.php"><span class="glyphicon glyphicon-home"></span></a></li> 
+          <li><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
           <li class="active">Compose</li>
         </ol>    
         <h3><span class="glyphicon glyphicon-edit"></span> Compose</h3>
@@ -43,12 +66,10 @@
             <label>Attachment:</label>
             <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="path" />
           </div>
-        </div>
-         <div class="panel-footer">
-      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-envelope">&nbsp;Send</span></button>
-      </form>
-    </div>
-  </div>
-</div>
-</div>
+      </div>      
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-envelope">Send</span></button>
+      </div>  
+    </div>  
+  </form>
 </div>

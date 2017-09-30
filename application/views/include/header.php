@@ -6,12 +6,10 @@
 	<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 	<meta name="author" content="Team Bah" />
 	<meta name="description" content="The description of website" />
-
 	<link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
 	<link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
-	<link href="<?php echo base_url('bootstrap/css/custom.css'); ?>" rel="stylesheet" />
-    <!-- <link href="<?php echo base_url('assets/css/newdashboardstyle.css'); ?>" rel="stylesheet" />
-	<link href="<?php echo base_url('assets/css/font-awesome.css'); ?>" rel="stylesheet" /> -->
+
+	<!-- <link href="<?php echo base_url('bootstrap/css/profile-design.css'); ?>" rel="stylesheet" /> -->
     <link rel="icon" href="<?php echo base_url('assets/images/doctrack_logo.png'); ?>" type="image/png"> 	
 
 	<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
