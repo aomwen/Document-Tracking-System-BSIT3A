@@ -40,7 +40,7 @@
 				<div class="panel panel-default" id="panel-footer">
 					<div class="panel-footer text-center">
 						<p> Don't have an account yet??
-						<a href="register.php">Create an Account.</a>
+						<a href="<?php echo base_url('Access/signup');?>">Create an Account.</a>
 						</p>
 					</div>
 				</div>
