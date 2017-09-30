@@ -65,6 +65,45 @@
 		<div class="panel-body">
 				<input type="text" id="myInput" onkeyup="myFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
 				<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
+
+			</form>
+		</div>			
+		<div class="panel-body">
+			<div class="row">	
+				<div class="col-md-3">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<a href="product.php" style="text-decoration:none;color:black;">
+								Received
+								<span class="badge pull pull-right"></span>	
+							</a>
+						</div> <!--/panel-hdeaing-->
+					</div> <!--/panel-->
+				</div> <!--/col-md-4-->
+
+				<div class="col-md-3">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<a href="orders.php?o=manord" style="text-decoration:none;color:black;">
+								Completed
+								<span class="badge pull pull-right"></span>
+							</a>
+						</div> <!--/panel-hdeaing-->
+					</div> <!--/panel-->
+				</div> <!--/col-md-4-->
+
+				<div class="col-md-3">
+					<div class="panel panel-danger">
+						<div class="panel-heading">
+							<a href="product.php" style="text-decoration:none;color:black;">
+								Ongoing
+								<span class="badge pull pull-right"></span>	
+							</a>
+							
+						</div> <!--/panel-hdeaing-->
+					</div> <!--/panel-->
+				</div> <!--/col-md-4-->
+			</div>
 		</div>	
 		<div class="panel-body">
 			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-striped table-center text-center" width="100%">

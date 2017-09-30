@@ -44,6 +44,7 @@ class Access extends CI_Controller {
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data);
         $this->load->view('login',$data);
+        $this->load->view('include/login_footer',$data);
     }
 
 //SIGNUP
@@ -98,6 +99,7 @@ class Access extends CI_Controller {
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data);
         $this->load->view('register',$data);
+        $this->load->view('include/login_footer',$data);
     }
 //session-login
 
