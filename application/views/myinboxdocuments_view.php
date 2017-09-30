@@ -66,8 +66,8 @@
 		    <h3><span class="glyphicon glyphicon-inbox"></span> Inbox</h3>       
 		</div>
 		<div class="panel-body">
-			<form class="pull-left searchbar" method="POST" action="<?php echo base_url('Dts/myinbox_view')?>">	
-				<input type="text" placeholder="Search..." name="tracknumber" class="search"/>
+			<form class="pull-left searchbar" method="POST" action="<?php echo base_url('DocumentInbox/myinbox_view')?>">	
+				<input type="text" placeholder=" e.g. 592-***-**" name="search" class="search"/>
 				<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
 			</form>
 		</div>

@@ -63,9 +63,9 @@
 		    <h3><span class="glyphicon glyphicon-signal"></span> Document Status</h3>       
 		</div>
 		<div class="panel-body">
-			<form class="pull-left searchbar" method="POST" action="<?php echo base_url('Dts/myinbox_view')?>">	
-				<input type="text" placeholder="Search..." name="tracknumber" class="search"/>
+				<input type="text" id="myInput" onkeyup="myFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
 				<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
+
 			</form>
 		</div>			
 		<div class="panel-body">
@@ -106,7 +106,7 @@
 			</div>
 		</div>	
 		<div class="panel-body">
-			<table class="docstatus table-bordered table-hover table-responsive table-striped table-center" width="100%">
+			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-striped table-center text-center" width="100%">
 				<tr>
 					<th>Track #</th>
 					<th>File name</th>
@@ -114,11 +114,11 @@
 					<th>receiver</th>
 					<th>Date Created</th>
 					<th>status</th>
-					<th>path</th>
 					<th>action</th>
 				</tr>
 				<?php
 					foreach($documents as $d){
+						if($d['author']==$_SESSION['username'] || $d['receiver']==$_SESSION['username']){
 						echo '	<tr>	
 									<td>'.$d['trackcode'].'</td>
 									<td>'.$d['filename'].'</td>
@@ -126,30 +126,37 @@
 									<td>'.$d['receiver'].'</td>
 									<td>'.$d['datecreated'].'</td>
 									<td>'.$d['status'].'</td>
-									<td>'.$d['path'].'</td>
 									<td>
 										<a href="'.base_url('FilesManipulation/do_download/'.$d['trackcode']).'">Download</a>
 									</td>
 								</tr>
 							';
-					}
-					foreach($documents1 as $d){
-						echo '	<tr>	
-									<td>'.$d['trackcode'].'</td>
-									<td>'.$d['filename'].'</td>
-									<td>'.$d['author'].'</td>
-									<td>'.$d['receiver'].'</td>
-									<td>'.$d['datecreated'].'</td>
-									<td>'.$d['status'].'</td>
-									<td>'.$d['path'].'</td>
-									<td>
-										<a href="'.base_url('FilesManipulation/do_download/'.$d['trackcode']).'">Download</a>
-									</td>
-								</tr>
-							';
+						}
 					}
 				?>
 			</table>
 		</div>
 	</div>	
 </div>
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>

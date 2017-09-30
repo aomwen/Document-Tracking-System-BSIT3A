@@ -55,11 +55,15 @@ class ManageRegistrarDocu extends CI_Controller {
             }
         $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);      
-        $this->load->view('profile_admin',$data);
-        $this->load->view('registrar_documents', $data);        
+ $this->load->view('include/header',$data); 
+        if($_SESSION['username'] == "admin"){    
+            $this->load->view('profile_admin',$data);
+        }else{
+            $this->load->view('profile',$data);
+        }
+        $this->load->view('registrar_documents', $data);
     }
-    public function registrar_add(){
+    public function registrar_add_documents(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $trackcode = $_POST['trackcode'];
             $file_type = $_POST['file_type'];
@@ -73,6 +77,7 @@ class ManageRegistrarDocu extends CI_Controller {
                             'status'=>$status);
         
             $last_id = $this->Regdoc->create($record,$condition);
+
             redirect(base_url().'ManageRegistrarDocu/viewDocuments');   
         }    
         

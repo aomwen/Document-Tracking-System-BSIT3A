@@ -25,7 +25,6 @@
       <div class="collapse navbar-collapse" id="mainNavBar">        
         <ul class="nav navbar-nav navbar-right">
           <!--Nav User Profile -->
-
           <li class="dropdown notif-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span id="bell" class="glyphicon glyphicon-bell"></span>
@@ -101,7 +100,9 @@
                 <li ><a href="<?php echo base_url('DocumentInbox/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
                 <li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent Documents </span></a></li>              
                 <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>               
-                <li><a href="<?php echo base_url('Office/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
+                <li><a href="<?php echo base_url('AdminOffices/manage_colleges');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Offices </span></a></li>
+                <li><a href="<?php echo base_url('ManageRegistrarDocu/viewDocuments');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Registrar Status </span></a></li>
+
             </ul>
           </div>  
         </div>  
