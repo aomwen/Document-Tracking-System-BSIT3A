@@ -1,17 +1,17 @@
 <?php
 
-class News_model extends CI_Model {
+class homeFunction_model extends CI_Model {
     
-	private $table = "news";
+	private $table = "contactus";
 	
 	public function create($data){
 		$this->db->insert($this->table, $data);
 		return TRUE;	
 	}
-	   
+	
 	public function read($condition=null){
 		$this->db->select('*');
-		$this->db->from($this->table);
+		$this->db->from($this->table); 
 		if( isset($condition) ) $this->db->where($condition);
 		
 		$query=$this->db->get();
@@ -25,19 +25,9 @@ class News_model extends CI_Model {
 		return TRUE;	
 	}
 	
-	public function delete_student($data){
+	public function remove($data){
 		$this->db->where($data);
 		$this->db->delete($this->table);
 		return TRUE;	
-	}
-
-	public function login($username,$password){
-		$this->db->where("username",$username);
-		$this->db->where("password",$password);
-		$query=$this->db->get("users");
-		if($query->num_rows()>0){
-		return true;
-		}
-	return false;	
 	}
 }

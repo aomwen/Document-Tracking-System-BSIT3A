@@ -25,7 +25,6 @@
       <div class="collapse navbar-collapse" id="mainNavBar">        
         <ul class="nav navbar-nav navbar-right">
           <!--Nav User Profile -->
-
           <li class="dropdown notif-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span id="bell" class="glyphicon glyphicon-bell"></span>
