@@ -19,15 +19,17 @@ class adminsettings_model extends CI_Model {
 		return $query->result_array();		
 	}
 	
-	public function update($data){
-		$this->db->where('departments',$data);
-		$this->db->update($this->table, $data);
+	public function update($college_acronym,$department){
+		$data = array('college_acronym' => $college_acronym,
+						'department' => $department);
+		$this->db->update($this->table,$data);
 		return TRUE;	
 	}
 	
-	public function remove($data){
-		$this->db->where('departments',$data);
-		$this->db->delete($this->table);
+	public function remove($department,$dept_idno){
+		$this->db->where('dept_idno',$dept_idno);
+		
+		$this->db->delete('departments',array('dept_idno' => $dept_idno));
 		return TRUE;	
 	}
 	//END OF DEPARTMENT TABLE
@@ -46,15 +48,14 @@ class adminsettings_model extends CI_Model {
 		return $query->result_array();		
 	}
 	
-	public function update1($data){
-		$this->db->where('college_acronym',$data);
-		$this->db->update($this->table, $data);
+	public function update1($record,$ca){
+		$this->db->update($this->table1, $record, $ca);
 		return TRUE;	
 	}
 	
 	public function remove1($data){
 		$this->db->where('college_acronym',$data);
-		$this->db->delete($this->table);
+		$this->db->delete($this->table1);
 		return TRUE;	
 	}
 	//END OF COLLEGES TABLE

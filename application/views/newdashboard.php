@@ -40,7 +40,7 @@
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-caption" style="padding-bottom:25%;">
-					<h2 style="font-family: Verdana;"> YOUR DOCUMENT, LET'S TRACK IT!</h2>
+					<h2 class="h2style" style="font-family: Verdana;"> YOUR DOCUMENT, LET'S TRACK IT!</h2>
 					<form class="form-inline" >
 						<div class="input-group">
 							<input type="text" class="form-control" size="70" placeholder="Track Code" required />
@@ -58,28 +58,28 @@
 	<!-- Services -->
 	<section id="service">
 		<div class="container">
-			<h2> Services </h2>
+			<h2 class="h2style"> Services </h2>
 			<div class="service_area">
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="service_block">
 							<img src="<?php echo base_url('assets/images/document-icon-1.png');?>" alt="Features" width="200px" height="200px" />
-							<h3>Powerful Features</h3>
-							<p>Automate time consuming task like going to the university just to acquire the documents needed with just a few clicks</p>
+							<h3 class="h3style">Powerful Features</h3>
+							<p class="pstyle">Automate time consuming task like going to the university just to acquire the documents needed with just a few clicks</p>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="service_block">
 							<img src="<?php echo base_url('assets/images/document-icon-2.png');?>" alt="New York" width="200px" height="200px"/>
-							<h3>Highly Secured</h3>
-							<p>This Websites provides a high level of documents encryption and role based access</p>
+							<h3 class="h3style">Highly Secured</h3>
+							<p class="pstyle">This Websites provides a high level of documents encryption and role based access</p>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="service_block">
 							<img src="<?php echo base_url('assets/images/document-icon-3.png');?>" alt="San Francisco" width="200px" height="200px">
-							<h3>User-friendly</h3>
-							<p>TUP Document Tracking System makes things easy and convenient for the users</p>
+							<h3 class="h3style">User-friendly</h3>
+							<p class="pstyle">TUP Document Tracking System makes things easy and convenient for the users</p>
 						</div>
 					</div>
 				</div>				
@@ -87,22 +87,22 @@
 					<div class="col-lg-4">
 						<div class="service_block">
 							<img src="<?php echo base_url('assets/images/document-icon-4.png');?>" alt="" height="200px" width="200px"/>
-							<h3>Record Management</h3>
-							<p>Allows user to track, view and transfer documents to any offices/departments within the University.</p>
+							<h3 class="h3style">Record Management</h3>
+							<p class="pstyle">Allows user to track, view and transfer documents to any offices/departments within the University.</p>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="service_block">
 							<img src="<?php echo base_url('assets/images/document-icon-5.png');?>" alt="" height="200px" width="200px"/>
-							<h3>Document review and control</h3>
-							<p>Enjoy complete visibility into document review process and get control over documents.</p>
+							<h3 class="h3style">Document review and control</h3>
+							<p class="pstyle">Enjoy complete visibility into document review process and get control over documents.</p>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="service_block">
 							<img src="<?php echo base_url('assets/images/document-icon-6.png');?>" alt="" height="200px" width="200px"/>
-							<h3>Convenient Access</h3>
-							<p>Gain convenient access to documents of any type and of any offices/departments.</p>	
+							<h3 class="h3style">Convenient Access</h3>
+							<p class="pstyle">Gain convenient access to documents of any type and of any offices/departments.</p>	
 						</div>
 					</div>								
 				</div>
@@ -113,7 +113,7 @@
 		<div class="container">
 			<section class="main-section contact" id="contact">
 				<div class="contact_section">
-					<h2>Contact</h2>
+					<h2 class="h2style">Contact</h2>
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="contact_block">
@@ -154,9 +154,9 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="contact-info-box address clearfix">
-							<h3>Need something? Drop a comment!</h3>
-							<p>Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper. Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper.</p>
-            				<p>Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquampor id.</p>
+							<h3 class="h3style">Need something? Drop a comment!</h3>
+							<p class="pstyle">Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper. Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper.</p>
+            				<p class="pstyle">Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquampor id.</p>
 						</div>
 					</div>
 					<div class="col-lg-6">
