@@ -31,9 +31,8 @@ class registrardoc_model extends CI_Model {
 		return $query->result_array();		
 	}
 	
-	public function update($data){
-		$this->db->where('departments',$data);
-		$this->db->update($this->table, $data);
+	public function update($data,$condition){
+		$this->db->update($this->table, $data, $condition);
 		return TRUE;	
 	}
 	

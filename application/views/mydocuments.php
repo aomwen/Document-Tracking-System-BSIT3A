@@ -1,49 +1,123 @@
-<div class="col-sm-9">
-	<div class="page-header text-center">
-		ALL DOCUMENTS
-	</div>
-	<table class="table-responsive table-striped" width="100%">
-		<tr>
-			<th>Track #</th>
-			<th>File name</th>
-			<th>Author</th>
-			<th>receiver</th>
-			<th>Date Created</th>
-			<th>status</th>
-			<th>path</th>
-			<th>action</th>
-		</tr>
-		<?php
-			foreach($documents as $d){
-				echo '	<tr>	
-							<td>'.$d['trackcode'].'</td>
-							<td>'.$d['filename'].'</td>
-							<td>'.$d['author'].'</td>
-							<td>'.$d['receiver'].'</td>
-							<td>'.$d['datecreated'].'</td>
-							<td>'.$d['status'].'</td>
-							<td>'.$d['path'].'</td>
-							<td>
-								<a href="'.base_url('upload/do_download/'.$d['trackcode']).'">Download</a>
-							</td>
-						</tr>
-						';
-			}
-			foreach($documents1 as $d){
-				echo '	<tr>	
-							<td>'.$d['trackcode'].'</td>
-							<td>'.$d['filename'].'</td>
-							<td>'.$d['author'].'</td>
-							<td>'.$d['receiver'].'</td>
-							<td>'.$d['datecreated'].'</td>
-							<td>'.$d['status'].'</td>
-							<td>'.$d['path'].'</td>
-							<td>
-								<a href="'.base_url('upload/do_download/'.$d['trackcode']).'">Download</a>
-							</td>
-						</tr>
-						';
-			}
-		?>
-	</table>
+<style>
+.breadcrumb{
+  margin-top:10px;
+}
+.docstat{
+	margin-top: 75px;
+	margin-left: 20%;
+	width:79%;
+	height:100%;
+}
+#head{
+  border-bottom:solid #015249;
+}
+.panel-heading h3{
+  color:#015249;
+}
+.panel-heading ol li a span{
+  color:#015249;
+}
+.panel-body form input{
+	padding:15px 16px;
+	border:1px solid #ccc;
+	border-radius:4px;
+	font-size:15px;
+	color:#aaa;
+	font-family: 'Lato', sans-serif;
+}
+.panel-body form button{
+	background:#015249;
+	color:#fff;
+	width:40px;
+}
+.panel-body form button:hover{
+	background:#A5A5AF;
+	color:#222;
+}
+.panel-body1{
+	margin-top: 15px;
+}
+.searchbar{
+	display:inline-flex;
+	height: 35px;
+}
+.search{
+	width:400px;
+	margin-left: 15px;
+}
+.docstatus{
+	font-size: 14px;
+	line-height: 25px;
+}
+.docstatus tr th{
+	text-align: center;
+}
+</style>
+<div class="docstat col-md-9">
+	<div class="panel panel-default">
+		<div class="panel-heading" id="head">
+		    <ol class="breadcrumb pull-right">
+		      <li><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+		      <li class="active">Document Status</li>
+		    </ol>    
+		    <h3><span class="glyphicon glyphicon-signal"></span> Document Status</h3>       
+		</div>
+		<div class="panel-body">
+				<input type="text" id="myInput" onkeyup="myFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
+				<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
+		</div>	
+		<div class="panel-body">
+			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-striped table-center text-center" width="100%">
+				<tr>
+					<th>Track #</th>
+					<th>File name</th>
+					<th>Author</th>
+					<th>receiver</th>
+					<th>Date Created</th>
+					<th>status</th>
+					<th>action</th>
+				</tr>
+				<?php
+					foreach($documents as $d){
+						if($d['author']==$_SESSION['username'] || $d['receiver']==$_SESSION['username']){
+						echo '	<tr>	
+									<td>'.$d['trackcode'].'</td>
+									<td>'.$d['filename'].'</td>
+									<td>'.$d['author'].'</td>
+									<td>'.$d['receiver'].'</td>
+									<td>'.$d['datecreated'].'</td>
+									<td>'.$d['status'].'</td>
+									<td>
+										<a href="'.base_url('FilesManipulation/do_download/'.$d['trackcode']).'">Download</a>
+									</td>
+								</tr>
+							';
+						}
+					}
+				?>
+			</table>
+		</div>
+	</div>	
 </div>
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>

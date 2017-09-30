@@ -14,7 +14,6 @@ class FilesManipulation extends CI_Controller {
         $this->load->model('users_model','Users');
         $this->load->model('adminsettings_model','Dept');
         $this->load->model('registrardoc_model','Regdoc');
-        $this->load->model('news_model','News');
     //LOADING OF MODEL AND HELPERS 
     }
  public function do_upload()
@@ -25,49 +24,42 @@ class FilesManipulation extends CI_Controller {
             if( $_SERVER['REQUEST_METHOD']=='POST'){ 
                 //configuration of uploads
                 $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/uploads/";
-                $config['allowed_types'] = 'pdf|jpg|doc|docx|xml|jpeg';
-                $config['max_size']     = '10000000kb';
-                $config['max_width'] = '1024';
-                $config['max_height'] = '768';
-                
+                $config['allowed_types'] = 'pdf|jpg|doc|docx|xml|jpeg|pptx|ppt|PDF|JPG|JPEG|DOC|DOCX|XML|JPEG|PPTX|PPT';
+                $config['max_size']     = 2000000;
+                $config['overwrite'] = TRUE;
+                $config['remove_spaces'] = TRUE;    
                 $this->load->library('upload', $config);
-
-                 if($this->upload->do_upload('userfile')){
-                        $tracknumber="success";
-                        $data['tracknumber']= $tracknumber;
-                    }else{
-                        $tracknumber="failed";
-                        $data['tracknumber']= $tracknumber;
+                $this->upload->initialize($config);
+                if($this->upload->do_upload('userfile')){
+                //getting documents from page
+                $tracknumber= $_POST['trackcode'];
+                $filename = $_POST['filename'].$this->upload->data('file_ext');
+                $author = $_POST['author'];
+                $receiver = $_POST['receiver'];
+                $file_desc = $_POST['file_desc'];
+                $name= $this->upload->data('file_name');
+                $location = base_url().'uploads/'.$name.'';
+                // move_uploaded_file($name, $location);
+                $record = array('trackcode'=>$tracknumber,
+                                'filename'=>$filename,
+                                'file_desc'=>$file_desc,
+                                'path'=>$location   ,
+                                'author'=>$author, 
+                                'receiver'=>$receiver,       
+                                'status'=>'pending',);
+                $last_id = $this->Files->create($record);
+                redirect(base_url().'DocumentSent/mysentdocuments_view');}
+                else{
+                    echo '<script language="javascript">';
+                    echo 'alert("'.$this->upload->display_errors().'")';
+                    echo '</script>';
                     }
-                    $this->upload->do_upload('userfile');
-                    //getting documents from page
-                    $tracknumber= $_POST['trackcode'];
-                    $filename = $_POST['filename'];
-                    $author = $_POST['author'];
-                    $receiver = $_POST['receiver'];
-                    $file_desc = $_POST['file_desc'];
-                    $name= $this->upload->data('file_name');
-                    $this->upload->do_upload('userfile');
-                    $location = base_url().'uploads/'.$name.'';
-                    move_uploaded_file($name, $location);
-                    $record = array('trackcode'=>$tracknumber,
-                                    'filename'=>$filename,
-                                    'file_desc'=>$file_desc,
-                                    'path'=>$location   ,
-                                    'author'=>$author, 
-                                    'receiver'=>$receiver,       
-                                    'status'=>'pending',);
-            
-                    $last_id = $this->Files->create($record);
-                    redirect(base_url().'DocumentSent/mysentdocuments_view');
                 }
              do{
                     $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
                     $condition = array('trackcode'=>$tracknumber);
                     $rs = $this->Files->read($condition);
                 }while($rs);
-            $user = $this->session->userdata('username');
-            $userdata = array();
             $user = $this->session->userdata('username');
             $condition = array('username' => $user);
             $data['tracknumber'] = $tracknumber;
@@ -86,8 +78,12 @@ class FilesManipulation extends CI_Controller {
             }
             $data['userdata'] = $userdata;
             $data['title'] = "Document Tracking System - Dashboard";
-            $this->load->view('include/header',$data);      
-            $this->load->view('profile',$data);
+            $this->load->view('include/header',$data); 
+            if($_SESSION['username'] == "admin"){    
+            $this->load->view('profile_admin',$data);
+            }else{
+                $this->load->view('profile',$data);
+            }
             $this->load->view('adddocuments', $data);
         }
 
@@ -95,18 +91,22 @@ class FilesManipulation extends CI_Controller {
             $condition = array('trackcode'=>$trackcode);
             $rs = $this->Files->read($condition);
             foreach($rs as $r){
+                $data = file_get_contents($r['path']);
+                force_download($r['filename'], $data,TRUE);
+            
                 $info = array(
                             'trackcode' => $r['trackcode'],
                             'filename' => $r['filename'],
                             'author' => $r['author'],
                             'datecreated' => $r['datecreated'],
                             'status' => $r['status'],    
-                            'path'=>$r['path']            
+                            'path'=>$r['path']
                             );
-            header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename="'.$info['filename'].'"');
-            header('Content-Length: '.filesize($info['path']));
-            readfile($info['path']);
+
+            // header('Content-Type: application/octet-stream');
+            // header('Content-Disposition: attachment; filename="'.$info['filename'].'"');
+            // header('Content-Length: '.filesize($info['path']));
+            // readfile($info['path']);
             }
         }
     }

@@ -73,7 +73,7 @@
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-caption" id="track">
-					<h2 class="h2style" id="h2" style="font-family: Verdana;"> YOUR DOCUMENT, LET'S TRACK IT!</h2>
+        <h2 class="h2style" id="h2" style="font-family: Verdana;"> YOUR DOCUMENT, LET'S TRACK IT!</h2>
 					<form class="form-inline" >
 						<div class="input-group">
 							<input type="text" class="form-control" size="70" placeholder="Track Code" required />
@@ -210,6 +210,7 @@
 		</div>
 	</footer>
 <!-- <script>
+<script>
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {

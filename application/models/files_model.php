@@ -37,6 +37,11 @@ class files_model extends CI_Model {
 		return TRUE;	
 	}
 	
+	public function sortdata($data){
+		$this->db->like('trackcode', $data);
+		$query=$this->db->get($this->table);
+		return $query->result_array();		
+	}
 	public function delete_student($data){
 		$this->db->where($data);
 		$this->db->delete($this->table);
