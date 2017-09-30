@@ -17,77 +17,26 @@
 <body>
 	<!-- Navigation Bar -->
 <div class="row" style="box-sizing: border-box;">
-<nav class="navbar-fixed-top" id="header">
-	<header id="header_outer" >	
-	  	<div class="container">
-	    	<div class="header_section">
-	    		<div class="topnav" id="myTopnav">
-  					<a class="col-sm-4" href="#" style="float:left;">
-  						<img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System" style="max-width:100%; height:auto;">
-  					</a>
-  					<a id="drop" href="#">Home</a></li>
-  					<a id="drop" href="#service">Services</a>
-  					<a id="drop" href="#contact">Contact</a>
-      				<a id="drop" href="<?php echo base_url('Access/log_in');?>">Log In</a>
-      				<a href="javascript:void(0);" style="font-size:16px;" class="icon" onclick="myFunction()">&#9776;</a>
-				</div>
-	  		</div>
-	  	</div>
-	</header>
-</nav>
+	<nav class="navbar-fixed-top" id="header">
+		<header id="header_outer" >	
+		  	<div class="container">
+		    	<div class="header_section">
+		    		<div class="topnav" id="myTopnav">
+	  					<a class="col-sm-4" href="#" style="float:left;">
+	  						<img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System" style="max-width:100%; height:auto;">
+	  					</a>
+	  					<a id="drop" href="#">Home</a></li>
+	  					<a id="drop" href="#service">Services</a>
+	  					<a id="drop" href="#contact">Contact</a>
+	      				<a id="drop" href="<?php echo base_url('Access/log_in');?>">Log In</a>
+	      				<a href="javascript:void(0);" style="font-size:16px;" class="icon" onclick="myFunction()">&#9776;</a>
+					</div>
+		  		</div>
+		  	</div>
+		</header>
+	</nav>
 </div>
-<!-- <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-          
-      		<div class="navbar-header page-scroll">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-main-collapse" >
-	            	<span class="icon-bar"></span>
-	              	<span class="icon-bar"></span>
-	              	<span class="icon-bar"></span> 
-              </button>
-              <a class="navbar-brand" href="#"><h1>Shaarii Shaarii Store</h1></a>
-        			
-      		</div>
-          
-      		
-          <div class="collapse navbar-collapse navbar-main-collapse" >
-        		<ul class="nav navbar-nav navbar-right">
-          			<li class="dropdown">
-           			 	<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account
-            			<span class="caret"></span></a>
-            			<ul class="dropdown-menu">
-              				<li ><a href="#" class="list"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li>
-
-              				<li ><a href="<?php echo base_url('logout'); ?>"class="list"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-            			</ul>
-          			</li>
-          			<li><a href="#"><span class="glyphicon glyphicon-bell"></span> Notification</a></li>
-          			<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
-        		</ul>
-          </div>
-    	</div>
-</nav> -->
-		<div class="carousel slide" data-ride="carousel" id="top_content">
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-			</ol>
-			<div class="carousel-inner" role="listbox">
-				<div class="carousel-caption" id="track">
-        <h2 class="h2style" id="h2" style="font-family: Verdana;"> YOUR DOCUMENT, LET'S TRACK IT!</h2>
-					<form class="form-inline" >
-						<div class="input-group">
-							<input type="text" class="form-control" size="70" placeholder="Track Code" required />
-								<div class="input-group-btn">
-									<button type="button" class="btn btn-info" style="background:#015249"><span class="glyphicon glyphicon-search"></span></button>
-								</div>
-						</div>
-					</form>  
-				</div>				
-				<div class="item active" id="slide1">
-					<img src="<?php echo base_url('assets/images/signup.jpeg');?>" alt="office" style="width:100%; height:auto;">
-				</div>
-			</div>
-		</div>
+	
 	<!-- Services -->
 	<section id="service">
 		<div class="container">
@@ -142,6 +91,7 @@
 			</div>
 		</div>
 	</section>
+	<!-- Footer -->
 	<footer class="footer_section" id="contact" style="background:url(<?php echo base_url('assets/images/pattern_bg.jpg')?>) repeat left top;">
 		<div class="container">
 			<section class="main-section contact" id="contact">
@@ -195,7 +145,7 @@
 					<div class="col-lg-6">
 						<form class="form" method="POST" action="<?php echo base_url('HomeFunction/msgtoAdmin');?>">
 							<input class="input-text" type="text" name="author" placeholder="Name">
-							<input class="input-text" type="text" name="email" placeholder="Email">
+							<input class="input-text" type="text" name="email" placeholder="Yourname@gmail.com">
 							<textarea class="input-text text-area" name="content" cols="0" rows="0" placeholder="Comment"></textarea>
 							<input class="input-btn" type="submit" value="Send">
 						</form>
