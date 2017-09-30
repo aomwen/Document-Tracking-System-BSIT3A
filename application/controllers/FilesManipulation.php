@@ -26,30 +26,19 @@ class FilesManipulation extends CI_Controller {
                 //configuration of uploads
                 $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/uploads/";
                 $config['allowed_types'] = 'pdf|jpg|doc|docx|xml|jpeg';
-                $config['max_size']     = '10000000kb';
-                $config['max_width'] = '1024';
-                $config['max_height'] = '768';
-                
+                $config['max_size']     = '100000kb';
+                $config['remove_spaces'] = TRUE;    
                 $this->load->library('upload', $config);
-
-                 if($this->upload->do_upload('userfile')){
-                        $tracknumber="success";
-                        $data['tracknumber']= $tracknumber;
-                    }else{
-                        $tracknumber="failed";
-                        $data['tracknumber']= $tracknumber;
-                    }
                     $this->upload->do_upload('userfile');
                     //getting documents from page
                     $tracknumber= $_POST['trackcode'];
-                    $filename = $_POST['filename'];
+                    $filename = $_POST['filename'].$this->upload->data('file_ext');
                     $author = $_POST['author'];
                     $receiver = $_POST['receiver'];
                     $file_desc = $_POST['file_desc'];
                     $name= $this->upload->data('file_name');
-                    $this->upload->do_upload('userfile');
                     $location = base_url().'uploads/'.$name.'';
-                    move_uploaded_file($name, $location);
+                    // move_uploaded_file($name, $location);
                     $record = array('trackcode'=>$tracknumber,
                                     'filename'=>$filename,
                                     'file_desc'=>$file_desc,
@@ -57,7 +46,6 @@ class FilesManipulation extends CI_Controller {
                                     'author'=>$author, 
                                     'receiver'=>$receiver,       
                                     'status'=>'pending',);
-            
                     $last_id = $this->Files->create($record);
                     redirect(base_url().'DocumentSent/mysentdocuments_view');
                 }
@@ -95,18 +83,22 @@ class FilesManipulation extends CI_Controller {
             $condition = array('trackcode'=>$trackcode);
             $rs = $this->Files->read($condition);
             foreach($rs as $r){
+                $data = file_get_contents($r['path']);
+                force_download($r['filename'], $data,TRUE);
+            
                 $info = array(
                             'trackcode' => $r['trackcode'],
                             'filename' => $r['filename'],
                             'author' => $r['author'],
                             'datecreated' => $r['datecreated'],
                             'status' => $r['status'],    
-                            'path'=>$r['path']            
+                            'path'=>$r['path']
                             );
-            header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename="'.$info['filename'].'"');
-            header('Content-Length: '.filesize($info['path']));
-            readfile($info['path']);
+
+            // header('Content-Type: application/octet-stream');
+            // header('Content-Disposition: attachment; filename="'.$info['filename'].'"');
+            // header('Content-Length: '.filesize($info['path']));
+            // readfile($info['path']);
             }
         }
     }
