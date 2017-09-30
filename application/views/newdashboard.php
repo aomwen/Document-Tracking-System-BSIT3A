@@ -1,74 +1,85 @@
 <html>
 <head>
 	<title>Home</title>
+	<link href="<?php echo base_url('assets/css/newdashboardstyle.css'); ?>" rel="stylesheet" />
+	<link href="<?php echo base_url('assets/css/font-awesome.css'); ?>" rel="stylesheet" />
 </head>
 <body>
 	<!-- Navigation Bar -->
-<nav class="navbar-fixed-top">
+<nav class="navbar-fixed-top" id="header">
 	<header id="header_outer" >	
 	  	<div class="container">
 	    	<div class="header_section">
 	      		<div class="logo">
-	      			<a href="javascript:void(0)"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a>
+	      			<a href="javascript:void(0)" data-target="#myNavbar"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a>
 	      		</div>
       			<nav class="nav" id="nav">
         			<ul class="toggle">
-          				<li><a href="#top_content">Home</a></li>
+          				<li><a href="#">Home</a></li>
           				<li><a href="#services">Services</a></li>
           				<li><a href="#offices">Offices</a></li>
           				<li><a href="#contact">Contact</a></li>
-          				<li><a href="<?php echo base_url('Dts/log_in');?>">Log In</a></li>
-          				<li><a href="<?php echo base_url('Dts/signup');?>">Sign Up</a></li>
+          				<li><a href="<?php echo base_url('Access/log_in');?>">Log In</a></li>
+          				<li><a href="<?php echo base_url('Access/signup');?>">Sign Up</a></li>
         			</ul>
        	 			<ul class="">
-          				<li><a href="#top_content">Home</a></li>
+          				<li><a href="#">Home</a></li>
           				<li><a href="#service">Services</a></li>
           				<li><a href="#contact">Contact</a></li>
-          				<li><a href="<?php echo base_url('Dts/log_in');?>">Log In</a></li>
-          				<li><a href="<?php echo base_url('Dts/signup');?>">Sign Up</a></li>
+          				<li><a href="<?php echo base_url('Access/log_in');?>">Log In</a></li>
+          				<li><a href="<?php echo base_url('Access/signup');?>">Sign Up</a></li>
         			</ul>
       			</nav>
-      			<a class="res-nav_click"  href="javascript:void(0)">
-      				<i class="fa-bars"></i>
-      			</a>
 	  		</div>
 	  	</div>
 	</header>
-	</nav>
+</nav>
+
 	<!-- Carousel -->
-		<div class="carousel slide" data-ride="carousel" id="myCarousel">
+	<!-- <div class="jumbotron" id="top_content" style="background: url('assets/images/login.jpg') no-repeat; background-position: cover;">
+		<h2 > YOUR DOCUMENT, LET'S TRACK IT!</h2>
+		<form class="form-inline" style="">
+			<div class="input-group">
+				<input type="text" class="form-control" size="70" placeholder="Track Code" required />
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
+					</div>
+			</div>
+		</form>  	
+	</div> -->
+		<div class="carousel slide" data-ride="carousel" id="top_content" style="padding-top: 5%;">
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-				<li data-target="#myCarousel" data-slide-to="3"></li>
+				<!-- <li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li> -->
 			</ol>
 			<div class="carousel-inner" role="listbox">
-				<div class="carousel-caption">
-					<h2 > YOUR DOCUMENT, LET'S TRACK IT!</h2>
-					<form class="form-inline" style="padding-bottom:30%;">
+				<div class="carousel-caption" style="padding-bottom:25%;">
+					<h2 style="font-family: Verdana;"> YOUR DOCUMENT, LET'S TRACK IT!</h2>
+					<form class="form-inline" >
 						<div class="input-group">
 							<input type="text" class="form-control" size="70" placeholder="Track Code" required />
 								<div class="input-group-btn">
-									<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
+									<button type="button" class="btn btn-info" style="background:#015249"><span class="glyphicon glyphicon-search"></span></button>
 								</div>
 						</div>
 					</form>  
 				</div>				
 				<div class="item active" id="slide1">
-					<img src="<?php echo base_url('assets/images/pexels-photo-4.png');?>" alt="office">			
+					<img src="<?php echo base_url('assets/images/signup.jpeg');?>" alt="office" height="100%" width="100%">
 				</div>
-				<div class="item" id="slide2">
+				<!-- <div class="item" id="slide2">
 					<img src="<?php echo base_url('assets/images/pexels-photo-5.png');?>" alt="office">				
 				</div>  
 				<div class="item" id="slide3">
-			 		<img src="<?php echo base_url('assets/images/pexels-photo-3.png');?>" alt="office">					
-				</div>
-				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			 		<img src="<?php echo base_url('assets/images/pexels-photo-3.png');?>" alt="office">
+				</div> -->
+				<!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
 					<span class="sr-only">Previous</span>
 				</a>
 				<a class="right carousel-control" href="#myCarousel" data-slide="next"></a>
 					<span class="sr-only">Next</span>
-				</a>
+				</a> -->
 			</div>
 		</div>
 	<!-- Services -->
@@ -135,7 +146,7 @@
 							<div class="contact_block">
 								<div class="contact_block_icon">
 									<span>
-										<i class="fa-home"></i>
+										<i class="glyphicon glyphicon-home"></i>
 									</span>
 								</div>
 								<span>Ayala Boulevard,
@@ -146,7 +157,7 @@
 							<div class="contact_block">
 								<div class="contact_block_icon icon2">
 									<span>
-										<i class="fa-phone"></i>
+										<i class="glyphicon glyphicon-earphone"></i>
 									</span>
 								</div>
 								<span>Phone: +63(2)301.3001
@@ -157,7 +168,7 @@
 							<div class="contact_block">
 								<div class="contact_block_icon icon3">
 									<span>
-										<i class="fa-pencil"></i>
+										<i class="glyphicon glyphicon-link"></i>
 									</span>
 								</div>
 								<span>
@@ -174,16 +185,16 @@
 							<p>Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper. Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper.</p>
             				<p>Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquampor id.</p>
 						</div>
-						<ul class="social-link">
-							<li class="facebook"><a href="javascript:void(0)"><i class="fa-facebook"></i></a></li>
+						<!-- <ul class="social-link">
+							<li class="facebook"><a href=""><i class="fa-facebook"></i></a></li>
 							<li class="twitter"><a href="javascript:void(0)"><i class="fa-twitter"></i></a></li>
-						</ul>
+						</ul> -->
 					</div>
 					<div class="col-lg-6">
 						<div class="form">
-							<input class="input-text" type="text" name="name" value="Name">
-							<input class="input-text" type="text" name="email" value="Email">
-							<textarea class="input-text text-area" name="comment" cols="0" rows="0">Comment</textarea>
+							<input class="input-text" type="text" name="name" placeholder="Name">
+							<input class="input-text" type="text" name="email" placeholder="Email">
+							<textarea class="input-text text-area" name="comment" cols="0" rows="0" placeholder="Comment"></textarea>
 							<input class="input-btn" type="submit" value="Send">
 						</div>
 					</div>

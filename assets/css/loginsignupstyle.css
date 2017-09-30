@@ -1,0 +1,26 @@
+#input-btn{
+	font-family: 'Dosis', sans-serif;
+	/*width:175px;
+	height:50px;*/
+	letter-spacing: 0px;
+	background:#015249;
+	border-radius:3px;
+	color:#ffffff;
+	/*font-size:16px;*/
+	text-transform:uppercase;
+	/*font-weight:600;*/
+	border:0px;
+	transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+}
+#input-btn:hover{
+	background: #fff;
+	color: #222;
+}
+h3{
+	font-family: sans-serif;
+	color:#015249;
+	text-transform:uppercase;
+	font-weight: 600;
+}
