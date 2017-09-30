@@ -24,7 +24,7 @@
 							<td>'.$d['status'].'</td>
 							<td>'.$d['path'].'</td>
 							<td>
-								<a href="'.base_url('upload/do_download/'.$d['trackcode']).'">Download</a>
+								<a href="'.base_url('FilesManipulation/do_download/'.$d['trackcode']).'">Download</a>
 							</td>
 						</tr>
 						';
@@ -39,7 +39,7 @@
 							<td>'.$d['status'].'</td>
 							<td>'.$d['path'].'</td>
 							<td>
-								<a href="'.base_url('upload/do_download/'.$d['trackcode']).'">Download</a>
+								<a href="'.base_url('FilesManipulation/do_download/'.$d['trackcode']).'">Download</a>
 							</td>
 						</tr>
 						';
