@@ -46,7 +46,15 @@
 #collapse a{
 	text-decoration: none;
 }
-
+.panel-group{
+	background-color: #fff;
+}
+.inboxto{
+	border-bottom: 1px solid #dadada;
+}
+.inboxto a{
+	text-decoration:none; 
+}
 </style>	
 <div class="myinbox col-md-9">
 	<div class="panel panel-default">
@@ -71,7 +79,7 @@
 						if($d['receiver']==$_SESSION['username']){
 							echo '
 							<div class="panel panel-default">	
-								<div class="panel-heading text-left">
+								<div class="inboxto panel-body text-left">
 									<input type="checkbox"><a href="#'.$d['trackcode'].'" data-toggle="collapse" data-parent="accordion">&nbsp;'.$d['trackcode'].'</a><button type="button" class="close" data-dismiss="modal" data-toggle="collapse" data-parent="accordion">&times; </button></div>
 						    								    		
 								</div>
