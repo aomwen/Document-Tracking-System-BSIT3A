@@ -8,7 +8,7 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">Sent Documents</div>
 			<div class="panel-body">
-				<form class="pull-left searchbar" method="POST" action="<?php echo base_url('Dts/mysentdocuments_view')?>">	
+				<form class="pull-left searchbar" method="POST" action="<?php echo base_url('DocumentSent/mysentdocuments_view')?>">	
 					<input type="text" name="tracknumber" placeholder="Search..." class="search"/>
 					<button type="button" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
 				</form>

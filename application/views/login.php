@@ -16,7 +16,7 @@
 			<div class="col-md-4 col-md-offset-4">
 				<div class="panel panel-default" id="panel-body">
 					<div class="panel-body">
-						<form class="text-center" method="POST" action="<?php echo base_url('Dts/log_in');?>">
+						<form class="text-center" method="POST" action="<?php echo base_url('Access/log_in');?>">
 							<div class="form-group">
 								<label class="pull-left">Username</label>
 								<input name="Username" type="text" class="form-control input-md" placeholder="Username">
@@ -44,24 +44,10 @@
 				<div class="panel panel-default" id="panel-footer">
 					<div class="panel-footer text-center">
 						<p> Don't have an account yet??
-						<a href="register.php">Create an Account.</a>
+						<a href="<?php echo base_url('login-signup-sessions/signup');?>">Create an Account.</a>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div><!-- 
-	<footer>
-		<div class="container">
-			<div class="col-md-4 col-md-offset-4">
-				<ul class="text-center">
-					<li><a href="#">Terms</a></li>
-					<li><a href="#">Privacy</a></li>
-					<li><a href="#">Security</a></li>
-					<li><a href="#">Contact</a></li> 
-				</ul>
-			</div>		
-		</div>
-	</footer>
-</body>
-</html> -->
+	</div>
