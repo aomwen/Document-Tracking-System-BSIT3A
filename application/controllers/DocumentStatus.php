@@ -10,8 +10,8 @@ class DocumentStatus extends CI_Controller {
         $this->load->model('files_model','Files');
         $this->load->model('users_model','Users');
         $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc')
-        $this->load->model('homeFunction_model','msgtoAdmin');;
+        $this->load->model('registrardoc_model','Regdoc');
+        $this->load->model('homeFunction_model','msgtoAdmin');
     //LOADING OF MODEL AND HELPERS 
     }
     

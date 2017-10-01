@@ -11,7 +11,6 @@ class AdminOffices extends CI_Controller {
         $this->load->model('users_model','Users');
         $this->load->model('adminsettings_model','Dept');
         $this->load->model('registrardoc_model','Regdoc');
-		$this->load->model('news_model','News');
     //LOADING OF MODEL AND HELPERS 
 	}
 	public function add_colleges(){
@@ -81,6 +80,7 @@ class AdminOffices extends CI_Controller {
         $this->load->view('new_college',$data);
             
         }
+        
 		public function manage_colleges() {
 			 $colleges = array();
                 $condition = null;

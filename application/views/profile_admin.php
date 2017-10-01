@@ -100,7 +100,7 @@
                 <li ><a href="<?php echo base_url('DocumentInbox/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
                 <li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent Documents </span></a></li>              
                 <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>               
-                <li><a href="<?php echo base_url('Office/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
+                <li><a href="<?php echo base_url('AdminOffices/manage_colleges');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Offices </span></a></li>
             </ul>
           </div>  
         </div>  

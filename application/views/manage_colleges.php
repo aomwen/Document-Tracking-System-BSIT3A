@@ -1,10 +1,17 @@
-<div class="docu col-sm-9 pull-right">
-  <div class="panel panel-default">
-    <div class="panel-heading">Sent Documents</div>
-      <div class="panel-body">
-        <form class="pull-left searchbar">  
-          <input type="text" placeholder="Search..." class="search"/>
-          <button type="button" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
-        </form>
-      </div>
-    </div>
+<style>
+.breadcrumb{
+  margin-top:10px;
+}
+.editbtn{
+	margin-top: 20px;
+}
+.myacc{
+	margin-top: 75px;	
+	margin-left: 20%;
+	width:79%;
+	height:100%;
+}
+#head{
+  border-bottom:solid #015249;
+}
+</style>

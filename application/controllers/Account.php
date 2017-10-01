@@ -11,7 +11,6 @@ class Account extends CI_Controller {
         $this->load->model('users_model','Users');
         $this->load->model('adminsettings_model','Dept');
         $this->load->model('registrardoc_model','Regdoc');
-		$this->load->model('news_model','News');
     //LOADING OF MODEL AND HELPERS 
 	}
     public function myaccount_view(){
