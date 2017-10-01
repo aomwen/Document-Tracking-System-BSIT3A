@@ -14,7 +14,7 @@ class DocumentInbox extends CI_Controller {
         $this->load->model('users_model','Users');
         $this->load->model('adminsettings_model','Dept');
         $this->load->model('registrardoc_model','Regdoc');
-        $this->load->model('news_model','News');
+        $this->load->model('homeFunction_model','msgtoAdmin');
     //LOADING OF MODEL AND HELPERS 
     }
 public function myinbox_view(){

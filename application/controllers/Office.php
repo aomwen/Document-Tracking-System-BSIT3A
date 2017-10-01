@@ -11,7 +11,7 @@ class Office extends CI_Controller {
         $this->load->model('users_model','Users');
         $this->load->model('adminsettings_model','Dept');
         $this->load->model('registrardoc_model','Regdoc');
-		$this->load->model('news_model','News');
+        $this->load->model('homeFunction_model','msgtoAdmin');
     //LOADING OF MODEL AND HELPERS 
 	}
 public function Office_view(){
@@ -49,11 +49,9 @@ public function Office_view(){
             $data['userdata'] = $userdata;
             $this->load->view('include/header',$data);      
             $this->load->view('profile',$data);
-            if($_SESSION['username']=="admin"){
-                $this->load->view('manage_colleges',$data); 
-            }
             $this->load->view('offices',$data); 
     }
+
     public function office_content($college_acronym){
        $data['title'] = "Document Tracking System - Dashboard";
     //PROFILE DETAIL

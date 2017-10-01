@@ -14,7 +14,6 @@ class FilesManipulation extends CI_Controller {
         $this->load->model('users_model','Users');
         $this->load->model('adminsettings_model','Dept');
         $this->load->model('registrardoc_model','Regdoc');
-        $this->load->model('news_model','News');
     //LOADING OF MODEL AND HELPERS 
     }
  public function do_upload()
@@ -54,8 +53,6 @@ class FilesManipulation extends CI_Controller {
                     $condition = array('trackcode'=>$tracknumber);
                     $rs = $this->Files->read($condition);
                 }while($rs);
-            $user = $this->session->userdata('username');
-            $userdata = array();
             $user = $this->session->userdata('username');
             $condition = array('username' => $user);
             $data['tracknumber'] = $tracknumber;
