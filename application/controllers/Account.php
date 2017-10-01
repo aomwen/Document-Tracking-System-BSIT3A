@@ -82,7 +82,6 @@ class Account extends CI_Controller {
             $this->upload->do_upload('path');
             $name= $this->upload->data('file_name');
             $location = base_url().'uploads/'.$name.'';
-            move_uploaded_file($name, $location);
             $record = array(
                         'username'=>$username,
                         'full_name'=>$full_name,

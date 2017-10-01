@@ -12,7 +12,7 @@
 	    	<div class="header_section">
 	      		<div class="logo">
 	      			<a href="javascript:void(0)" data-target="#myNavbar"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a>
-	      		</div>f
+	      		</div>
       			<nav class="nav" id="nav">
         			<ul class="toggle">
           				<li><a href="#">Home</a></li>
