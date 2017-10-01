@@ -42,6 +42,12 @@
 							      		<input type="text" value="'.$us['username'].'" class="form-control" name="username" >
 							    	</div>					
 							    </div>	
+								<div class="form-group">
+							    	<label class="control-label col-sm-4">Name:</label>
+							    	<div class="col-sm-8">
+							      		<input type="text" value="'.$us['full_name'].' "class="form-control" name="email_address">
+							    	</div>					
+							    </div>	
 							 	<div class="form-group">
 							    	<label class="control-label col-sm-4">Email Address:</label>
 							    	<div class="col-sm-8">

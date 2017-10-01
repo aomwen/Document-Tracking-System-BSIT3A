@@ -36,7 +36,27 @@
 		</header>
 	</nav>
 </div>
-	
+	<div class="carousel slide" data-ride="carousel" id="top_content">
+ -			<ol class="carousel-indicators">
+ -				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+ -			</ol>
+ -			<div class="carousel-inner" role="listbox">
+ -				<div class="carousel-caption" id="track">
+ -        <h2 class="h2style" id="h2" style="font-family: Verdana;"> YOUR DOCUMENT, LET'S TRACK IT!</h2>
+ -					<form class="form-inline" >
+ -						<div class="input-group">
+ -							<input type="text" class="form-control" size="70" placeholder="Track Code" required />
+ -								<div class="input-group-btn">
+ -									<button type="button" class="btn btn-info" style="background:#015249"><span class="glyphicon glyphicon-search"></span></button>
+ -								</div>
+ -						</div>
+ -					</form>  
+ -				</div>				
+ -				<div class="item active" id="slide1">
+ -					<img src="<?php echo base_url('assets/images/signup.jpeg');?>" alt="office" style="width:100%; height:auto;">
+ -				</div>
+ -			</div>
+ -		</div>
 	<!-- Services -->
 	<section id="service">
 		<div class="container">

@@ -99,7 +99,8 @@
                 <li class="active"><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
                 <li ><a href="<?php echo base_url('DocumentInbox/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
                 <li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent Documents </span></a></li>              
-                <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>               
+                <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>              
+                <li><a href="<?php echo base_url('HomeFunction/viewmsgtoAdmin');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; User Reviews </span></a></li>
                 <li><a href="<?php echo base_url('AdminOffices/manage_colleges');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Offices </span></a></li>
                 <li><a href="<?php echo base_url('ManageRegistrarDocu/viewDocuments');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Registrar Status </span></a></li>
 
