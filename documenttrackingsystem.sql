@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 01, 2017 at 05:01 AM
+-- Generation Time: Oct 01, 2017 at 10:43 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -71,6 +71,7 @@ INSERT INTO `contactus` (`idno`, `receiver`, `author`, `content`, `date`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `departments` (
+  `dept_idno` int(10) NOT NULL,
   `college_acronym` varchar(50) NOT NULL,
   `department` varchar(100) NOT NULL,
   `department_head` varchar(100) NOT NULL,
@@ -81,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `departments` (
 -- Dumping data for table `departments`
 --
 
-INSERT INTO `departments` (`college_acronym`, `department`, `department_head`) VALUES
-('COS', 'Math Department', 'Henry Renegado');
+INSERT INTO `departments` (`dept_idno`, `college_acronym`, `department`, `department_head`) VALUES
+(516, 'COS', 'Math Department', '');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `documents` (
   `status` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `trackcode` (`trackcode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `documents`
@@ -131,7 +132,13 @@ INSERT INTO `documents` (`id`, `trackcode`, `filename`, `file_desc`, `path`, `au
 (24, '407-797-41', 'trololo.docx', 'Re:create', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/wire_shark_(Autosaved)1.docx', 'mwen', 'franzkie paragas', '2017-09-30 08:48:54', '0000-00-00', 'pending'),
 (25, '135-354-20', 'heh.docx', 're:create', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/wire_shark_(Autosaved)1.docx', 'mwen', 'abbieoas', '2017-09-30 09:05:06', '0000-00-00', 'pending'),
 (26, '768-010-71', 'illustrator2', 're:create yany', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'mwen', 'yany', '2017-09-30 09:14:15', '0000-00-00', 'pending'),
-(27, '583-472-02', 'lovlevoevleoveo', 'proposa;', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'admin', 'giane.noda', '2017-09-30 20:42:41', '0000-00-00', 'pending');
+(27, '583-472-02', 'lovlevoevleoveo', 'proposa;', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'admin', 'giane.noda', '2017-09-30 20:42:41', '0000-00-00', 'pending'),
+(28, '972-438-09', 'Test 1', 'Testing 1', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'mwen', 'Admin', '2017-10-01 00:01:30', '0000-00-00', 'pending'),
+(29, '612-459-82', 'flirt', 'flirt', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'mwen', 'giane.noda', '2017-10-01 00:20:19', '0000-00-00', 'pending'),
+(30, '853-450-19', 'flirt I.jpg', 'flirt I', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/ACTIVITY_12.jpg', 'mwen', 'giane.noda', '2017-10-01 00:25:50', '0000-00-00', 'pending'),
+(31, '537-273-58', 'admin', 'admin', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'mwen', 'admin', '2017-10-01 00:29:21', '0000-00-00', 'pending'),
+(32, '875-492-06', 'admin.docx', 'admin', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/illustrator2.docx', 'mwen', 'admin', '2017-10-01 01:42:14', '0000-00-00', 'pending'),
+(33, '841-139-03', 'admin.docx', 'admin', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/illustrator2.docx', 'mwen', 'admoin', '2017-10-01 01:42:28', '0000-00-00', 'pending');
 
 -- --------------------------------------------------------
 
@@ -184,5 +191,5 @@ INSERT INTO `users` (`username`, `password`, `path`, `full_name`, `email_address
 ('abbie', 'oAS', '', 'Abbie Oas', 'abbie', 'Teacher-II', 'CLA', 'English Department'),
 ('admin', 'admin', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'mark wendell quilapio cabuang', 'mw.cabuang@gmail.com  ', 'DTS administrator', 'Registrar', 'Registrar'),
 ('giane.noda', '1234', '', 'giane noda', 'giane.noda@gmail.com', 'Teacher-II', 'CLA', 'English Department'),
-('mwen', '1234', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'Aomwen Cabuang', 'mwen.cabuang@gmail.com                   ', 'teacher-II', 'COS', 'Math Department'),
+('mwen', '1234', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/17555182_1491431064221223_1228834819_n.jpg', 'Aomwen Cabuang', 'mw.cabuang@gmail.com                              ', 'teacher-II', 'COS', 'Math Department'),
 ('vince.amadeo', '1234', '', 'vince amadeo zoleta', 'vince.amadeo@gmail.com', '1234', 'CLA', 'Filipino Department');

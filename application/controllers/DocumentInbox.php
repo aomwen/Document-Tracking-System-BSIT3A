@@ -42,10 +42,11 @@ public function myinbox_view(){
         $condition = null;
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
-            $condition = array('trackcode' => $_POST['tracknumber']);
+            // $condition = array('trackcode' => $_POST['tracknumber']);
+            $condition = $_POST['search'];
         }
 
-        $rs = $this->Files->read($condition);
+        $rs = $this->Files->sortdata($condition);
         foreach($rs as $r){
             $info = array(
                         'trackcode' => $r['trackcode'],
@@ -62,10 +63,14 @@ public function myinbox_view(){
         $data['documents']=$documents;
     //END OF PROFILE DETAIL
     //DEPARTMENT DETAILS
-            $data['userdata'] = $userdata;
-            $this->load->view('include/header',$data);      
+        $data['userdata'] = $userdata;
+        $this->load->view('include/header',$data);  
+        if($_SESSION['username'] == "admin"){    
+            $this->load->view('profile_admin',$data);
+        }else{
             $this->load->view('profile',$data);
-            $this->load->view('myinboxdocuments_view',$data);
+        }
+        $this->load->view('myinboxdocuments_view',$data);
     }
 }
 ?>

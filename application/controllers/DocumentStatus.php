@@ -35,9 +35,8 @@ public function mydocuments_view(){
             }
             $data['userdata'] = $userdata;
             $documents = array();
-                $condition = array('author' => $_SESSION['username']);
+                $condition = array();
                 $rs = $this->Files->read($condition);
-
                 foreach($rs as $r){
                     $info = array(
                                 'trackcode' => $r['trackcode'],
@@ -51,27 +50,12 @@ public function mydocuments_view(){
                     $documents[] = $info;
             }
             $data['documents'] = $documents;
-            
-            $documents1 = array();
-            $condition = array('receiver' => $_SESSION['username']);
-            $rs = $this->Files->read($condition);
-
-                foreach($rs as $r){
-                    $info = array(
-                                'trackcode' => $r['trackcode'],
-                                'filename' => $r['filename'],
-                                'author' => $r['author'],
-                                'receiver' => $r['receiver'],
-                                'datecreated' => $r['datecreated'],
-                                'status' => $r['status'],    
-                                'path'=>$r['path']            
-                                );
-                    $documents1[] = $info;
+            $this->load->view('include/header',$data); 
+            if($_SESSION['username'] == "admin"){
+                $this->load->view('profile_admin',$data);
+            }else{     
+                $this->load->view('profile',$data);
             }
-
-            $data['documents1'] = $documents1;
-            $this->load->view('include/header',$data);      
-            $this->load->view('profile',$data);
             $this->load->view('mydocuments');           
     }
 }

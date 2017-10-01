@@ -58,7 +58,7 @@
 							    </div>					    			    
 							    <div class="form-group">
 				                  <label>attach?</label>
-				                  <input class="form-control" type="file" placeholder="Attach File" value="'.$us['path'].'" name="path" />
+				                  <input class="form-control" type="file" placeholder="Attach File" name="path" />
 				                </div>
 							    <div class="form-group">
 						    		<button type="submit"  class=" addbtn btn btn-info pull-right">

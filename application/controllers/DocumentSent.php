@@ -24,11 +24,9 @@ class DocumentSent extends CI_Controller {
         $documents = array();
         $condition = null;
         if($_SERVER['REQUEST_METHOD']=='POST'){
-
-            $condition = array('trackcode' => $_POST['tracknumber']);
+             $condition = $_POST['search'];
         }
-
-        $rs = $this->Files->read($condition);
+        $rs = $this->Files->sortdata($condition);
         foreach($rs as $r){
             $info = array(
                         'trackcode' => $r['trackcode'],
@@ -44,25 +42,29 @@ class DocumentSent extends CI_Controller {
         }
         $data['documents']=$documents;
         $data['title'] = "Document Tracking System - Dashboard";
-            $user = $this->session->userdata('username');
-            $userdata = array();
-            $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
-            $data['userdata'] = $userdata;
-            $this->load->view('include/header',$data);      
+        $user = $this->session->userdata('username');
+        $userdata = array();
+        $condition = array('username' => $user);
+        $rs = $this->Users->read($condition);
+            foreach($rs as $r){
+                $info = array(
+                            'username' => $r['username'],
+                            'password' => $r['password'],
+                            'full_name' => $r['full_name'],
+                            'email_address' => $r['email_address'],
+                            'position' => $r['position'],    
+                            'department'=> $r['department'],
+                            'college_acronym' => $r['college_acronym'],           
+                            );
+                $userdata[] = $info;
+        }
+        $data['userdata'] = $userdata;
+        $this->load->view('include/header',$data);
+        if($_SESSION['username'] == "admin"){    
+            $this->load->view('profile_admin',$data);
+        }else{
             $this->load->view('profile',$data);
+        }
             $this->load->view('mysentdocuments_view');          
     }
 }?>

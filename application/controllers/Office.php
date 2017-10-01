@@ -47,8 +47,12 @@ public function Office_view(){
                     $userdata[] = $info;
             }
             $data['userdata'] = $userdata;
-            $this->load->view('include/header',$data);      
-            $this->load->view('profile',$data);
+            $this->load->view('include/header',$data);
+            if($_SESSION['username'] == "admin"){    
+            $this->load->view('profile_admin',$data);
+            }else{
+                $this->load->view('profile',$data);
+            }
             $this->load->view('offices',$data); 
     }
 
@@ -74,8 +78,7 @@ public function Office_view(){
     //END OF PROFILE DETAIL
     //DEPARTMENT DETAILS
             $data['userdata'] = $userdata;
-            $this->load->view('include/header',$data);      
-            $this->load->view('profile',$data);
+            $this->load->view('include/header',$data); 
             
             $departments = array();
             $condition = array('college_acronym' => $college_acronym);
@@ -118,7 +121,11 @@ public function Office_view(){
                     $users[] = $info;
             }
             $data['users']=$users;
-
+            if($_SESSION['username'] == "admin"){    
+            $this->load->view('profile_admin',$data);
+            }else{
+                $this->load->view('profile',$data);
+            }
             $this->load->view('offices_content',$data);
     }
 }

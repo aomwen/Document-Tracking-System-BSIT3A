@@ -76,7 +76,11 @@ class AdminOffices extends CI_Controller {
             $data['userdata'] = $userdata;
             $data['title'] = "Document Tracking System - Dashboard";
 		$this->load->view('include/header');
-		$this->load->view('profile_admin',$data);
+        if($_SESSION['username'] == "admin"){    
+            $this->load->view('profile_admin',$data);
+        }else{
+            $this->load->view('profile',$data);
+        }
         $this->load->view('new_college',$data);
             
         }

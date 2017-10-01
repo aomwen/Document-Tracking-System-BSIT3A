@@ -55,8 +55,12 @@ class ManageRegistrarDocu extends CI_Controller {
             }
         $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);      
-        $this->load->view('profile_admin',$data);
+        $this->load->view('include/header',$data); 
+        if($_SESSION['username'] == "admin"){    
+            $this->load->view('profile_admin',$data);
+        }else{
+            $this->load->view('profile',$data);
+        }
         $this->load->view('registrar_documents', $data);
     }
     public function registrar_add_documents(){
