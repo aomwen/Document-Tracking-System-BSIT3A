@@ -84,7 +84,7 @@
           <?php
           foreach($userdata as $us){
           echo '
-          <div class="profile-user-name">'.$us['full_name'].'</div>
+          <div class="profile-user-name">'.$us['firstname'].' '.$us['lastname'].'</div>
           <div class="profile-user-position">'.$us['position'].' </div>
           <div class="profile-user-position">'.$us['department'].' </div>
           <div class="profile-user-position">'.$us['college_acronym'].' </div>';
@@ -102,6 +102,7 @@
                 <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>               
                 <li><a href="<?php echo base_url('AdminOffices/manage_colleges');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Offices </span></a></li>
                 <li><a href="<?php echo base_url('ManageRegistrarDocu/viewDocuments');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Registrar Status </span></a></li>
+                <li><a href="<?php echo base_url('ManageRegistrarDocu/viewUsers');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage User </span></a></li>
 
             </ul>
           </div>  

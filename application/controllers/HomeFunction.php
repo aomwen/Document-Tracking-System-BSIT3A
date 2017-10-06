@@ -7,11 +7,12 @@ class HomeFunction extends CI_Controller {
 		parent::__construct();
     //LOADING OF MODEL AND HELPERS
 		$this->load->helper(array('form', 'url'));
-        $this->load->model('files_model','Files');
-        $this->load->model('users_model','Users');
-        $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc');
-		$this->load->model('homeFunction_model','msgtoAdmin');
+        $this->load->model('document_model','Files');
+        $this->load->model('users_model','User');
+        $this->load->model('departments_model','Dept');
+        $this->load->model('colleges_model','Coll');
+        $this->load->model('documentstatus_model','Docstat');
+		$this->load->model('contactus_model','msgAd');
     //LOADING OF MODEL AND HELPERS 
 	}
 
@@ -25,7 +26,7 @@ class HomeFunction extends CI_Controller {
                         'receiver' => $receiver,
                         'author'=>$author,
                         'content'=>$content);
-            $last_id = $this->msgtoAdmin->create($record);
+            $last_id = $this->msgAd->create($record);
 
         }
         redirect(base_url().'Dts/index');

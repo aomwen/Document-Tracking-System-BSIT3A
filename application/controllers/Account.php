@@ -7,32 +7,22 @@ class Account extends CI_Controller {
 		parent::__construct();
     //LOADING OF MODEL AND HELPERS
 		$this->load->helper(array('form', 'url'));
-        $this->load->model('files_model','Files');
-        $this->load->model('users_model','Users');
-        $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc');
+        $this->load->model('documents_model','Files');
+        $this->load->model('users_model','User');
+        $this->load->model('departments_model','Dept');
+        $this->load->model('colleges_model','Coll');
+        $this->load->model('documentstatus_model','Docstat');
+		
     //LOADING OF MODEL AND HELPERS 
 	}
     public function myaccount_view(){
         $data['title'] = "Document Tracking System - Dashboard";
             $user = $this->session->userdata('username');
-            $userdata = array();
+			//GETTING USERDATA
             $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'path' => $r['path'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
+			$userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
+			//END OF GETTING USERDATA
             $this->load->view('include/header',$data); 
             if($_SESSION['username'] == "admin"){    
             $this->load->view('profile_admin',$data);
@@ -45,23 +35,11 @@ class Account extends CI_Controller {
     public function editprofile_view(){
         $data['title'] = "Document Tracking System - Dashboard";
         $user = $this->session->userdata('username');
-            $userdata = array();
-            $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'path' => $r['path'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
+            //Getting Userdata
+			$condition = array('username'=>$user);
+			$userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
+			//End of getting userdata
         $this->load->view('include/header',$data); 
         if($_SESSION['username'] == "admin"){    
             $this->load->view('profile_admin',$data);
@@ -121,7 +99,7 @@ class Account extends CI_Controller {
                         'college_acronym'=>$college,
                         'department' => $department);
         }
-        if($this->Users->update($record)){
+        if($this->User->update($record)){
                 $success = "Account successfully created!";
                 $data['success']=$success;
 

@@ -1,6 +1,6 @@
 <?php
 
-class registrardoc_model extends CI_Model {
+class documentstatus_model extends CI_Model {
     
 	private $table = "document_status";
 	

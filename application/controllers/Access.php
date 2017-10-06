@@ -7,15 +7,15 @@ class Access extends CI_Controller {
 		parent::__construct();
     //LOADING OF MODEL AND HELPERS
 		$this->load->helper(array('form', 'url'));
-        $this->load->model('files_model','Files');
-        $this->load->model('users_model','Users');
-        $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc');
-        $this->load->model('homeFunction_model','msgtoAdmin');
+        $this->load->model('documents_model','Files');
+        $this->load->model('users_model','User');
+        $this->load->model('departments_model','Dept');
+        $this->load->model('colleges_model','Coll');
+        $this->load->model('documentstatus_model','Docstat');
+        $this->load->model('contactus_model','msgAd');
     //LOADING OF MODEL AND HELPERS 
 	}
 /*     log_in, signup , session_check, session_checkout     */
-
 
 //LOGIN CONTROLLER
     public function log_in(){
@@ -28,7 +28,7 @@ class Access extends CI_Controller {
             if($this->form_validation->run()){
                 $username = $this->input->post('Username');
                 $password = $this->input->post('Password');
-                if($this->Users->login($username,$password)){
+                if($this->User->login($username,$password)){
                     $session_data = array(
                         'username' => $username
                     );
@@ -46,80 +46,18 @@ class Access extends CI_Controller {
         $this->load->view('login',$data);
     }
 
-//SIGNUP
-     public function signup(){
-  
-        if($_SERVER['REQUEST_METHOD']=='POST'){
-            $username = $_POST['Username'];
-            $password = $_POST['Password'];
-            $full_name = $_POST['full_name'];
-            $email_address = $_POST['email_address'];
-            $position = $_POST['position'];
-            $college = $_POST['college'];
-            $department = $_POST['department'];
-            $record = array(
-                        'username'=>$username,
-                        'full_name'=>$full_name,
-                        'email_address'=>$email_address,
-                        'password'=>$password,
-                        'position'=>$position,
-                        'college_acronym'=>$college,
-                        'department' => $department);
-            if($this->Users->create($record)){
-                    $success = "Account successfully created!";
-                    $data['success']=$success;
-                    redirect(base_url().'Dts/index');
-                }else{
-                    $error = "Error!!!";
-                    $data['error']=$error;
-                redirect(base_url().'Access/signup');
-                }
-            }
-            $college = array();
-            $condition = array();
-            $rs = $this->Dept->read1($condition);
-            foreach($rs as $r){
-                $info = array(
-                    'college_acronym' => $r['college_acronym']
-                );
-                $college = $info;
-            }
-            $department = array();
-            $rs = $this->Dept->read($condition);
-            foreach($rs as $r){
-                $info = array(
-                    'college_acronym' => $r['college_acronym'],
-                    'department' => $r['department']
-                );
-                $department = $info;
-            }
-        $data['department'] = $department;
-        $data['college']=$college;
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);
-        $this->load->view('register',$data);
-    }
+
 //session-login
 
     public function session_check(){
         if($this->session->userdata('username')!=''){
             $data['title'] = "Document Tracking System - Dashboard";
             $user = $this->session->userdata('username');
-            $userdata = array();
+            //getting userdata
             $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
+            $userdata = $this->User->read($condition);
+			$data['userdata'] = $userdata;
+			//end of getting userdata
             if($_SESSION['username'] == "admin"){
                 $data['userdata'] = $userdata;
                 $this->load->view('include/header',$data);      

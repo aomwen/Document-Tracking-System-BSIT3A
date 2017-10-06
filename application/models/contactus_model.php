@@ -1,6 +1,6 @@
 <?php
 
-class homeFunction_model extends CI_Model {
+class contactus_model extends CI_Model {
     
 	private $table = "contactus";
 	

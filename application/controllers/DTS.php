@@ -7,14 +7,14 @@ class Dts extends CI_Controller {
 		parent::__construct();
     //LOADING OF MODEL AND HELPERS
 		$this->load->helper(array('form', 'url'));
-        $this->load->model('files_model','Files');
-        $this->load->model('users_model','Users');
-        $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc');
-        $this->load->model('homeFunction_model','msgtoAdmin');
+        $this->load->model('documents_model','Files');
+        $this->load->model('users_model','User');
+        $this->load->model('departments_model','Dept');
+        $this->load->model('colleges_model','Coll');
+        $this->load->model('documentstatus_model','Docstat');
+        $this->load->model('contactus_model','msgAd');
     //LOADING OF MODEL AND HELPERS 
 	}
-	
 	public function index(){	
 		$data['title'] = "Document Tracking System - Dashboard";
 		$this->load->view('include/header',$data);

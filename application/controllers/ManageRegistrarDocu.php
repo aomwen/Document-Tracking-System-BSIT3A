@@ -7,11 +7,13 @@ class ManageRegistrarDocu extends CI_Controller {
 		parent::__construct();
     //LOADING OF MODEL AND HELPERS
 		$this->load->helper(array('form', 'url'));
-        $this->load->model('files_model','Files');
-        $this->load->model('users_model','Users');
-        $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc');
-		$this->load->model('homeFunction_model','msgtoAdmin');
+        $this->load->model('documents_model','Files');
+        $this->load->model('users_model','User');
+		$this->load->model('positions_model','Positions');
+        $this->load->model('departments_model','Dept');
+        $this->load->model('colleges_model','Coll');
+        $this->load->model('documentstatus_model','Docstat');
+		$this->load->model('contactus_model','msgAd');
     //LOADING OF MODEL AND HELPERS 
 	}
 
@@ -19,48 +21,23 @@ class ManageRegistrarDocu extends CI_Controller {
         do{
             $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
             $condition = array('trackcode'=>$tracknumber);
-            $rs = $this->Regdoc->read($condition);
+            $rs = $this->Docstat->read($condition);
         }while($rs);
         $data['tracknumber'] = $tracknumber;   
         $documents_status = array();
         $condition = null;
-        $rs = $this->Regdoc->read($condition);
-
-        foreach($rs as $r){
-            $info = array(
-                        'trackcode'=> $r['trackcode'],
-                        'file_type'=> $r['file_type'],
-                        'date_admitted'=> $r['date_admitted'],
-                        'date_released' => $r['date_released'],
-                        'status'=> $r['status'],  
-                        );
-            $documents_status[] = $info;
-        }      
-        $data['documents_status'] = $documents_status;
+        $documents_status = $this->Docstat->read(condition);
+		$data['documents_status'] = $documents_status;
         $user = $this->session->userdata('username');
+        //getting userdata
             $condition = array('username' => $user);
-            $data['tracknumber'] = $tracknumber;
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
-        $data['userdata'] = $userdata; 
+            $userdata = $this->User->read($condition);
+            $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data); 
-        if($_SESSION['username'] == "admin"){    
+        
             $this->load->view('profile_admin',$data);
-        }else{
-            $this->load->view('profile',$data);
-        }
+        
         $this->load->view('registrar_documents', $data);
     }
     public function registrar_add_documents(){
@@ -76,7 +53,7 @@ class ManageRegistrarDocu extends CI_Controller {
                             'date_released'=>$date_released,
                             'status'=>$status);
         
-            $last_id = $this->Regdoc->create($record,$condition);
+            $last_id = $this->Docstat->create($record,$condition);
         }
         redirect(base_url(). 'ManageRegistrarDocu/viewDocuments');
     }
@@ -90,8 +67,180 @@ class ManageRegistrarDocu extends CI_Controller {
         $status = array('status'=>$status);
         }
         $trackcode = array('trackcode' => $trackcode);
-        $this->Regdoc->update($status,$trackcode);
+        $this->Docstat->update($status,$trackcode);
         redirect(base_url().'ManageRegistrarDocu/viewDocuments');
     }
+	public function viewUsers(){
+		do{
+            $idno = rand(0,999);
+            $condition = array('idno'=>$idno);
+            $rs = $this->User->read($condition);
+        }while($rs);
+		$data['idno'] = $idno;
+        //getting userdata1
+		$condition = null;
+		$userdata1 = $this->User->read($condition);
+		$data['userdata1'] = $userdata1;
+        //end of getting userdata1
+		$user = $this->session->userdata('username');
+        //getting userdata
+        $condition = array('username' => $user);
+        $userdata = $this->User->read($condition);
+		$data['userdata'] = $userdata;
+        //end of getting userdata
+		$data['title'] = "Document Tracking System - Dashboard";
+		$this->load->view('include/header',$data);
+		$this->load->view('profile_admin',$data);
+		$this->load->view('user_view',$data);
+	}
+	public function add_user(){
+		if($_SERVER['REQUEST_METHOD']=='POST'){
+			do{
+				$idnum = rand(0,999);
+				$condition = array('idno'=>$idnum);
+				$rs = $this->Docstat->read($condition);
+			}while($rs);
+			$idno = $idnum;
+
+				$username = $_POST['username'];
+                $password = $_POST['password'];
+                $firstname  = $_POST['firstname'];
+                $lastname  = $_POST['lastname'];
+                $email_address  = $_POST['email_address'];
+                $college_acronym  = $_POST['college_acronym'];
+                $department  = $_POST['department'];
+                $position  = $_POST['position'];
+                $record = array(
+					'idno'=> $idno,
+                    'username' => $username,
+					'password'=>$password,
+                    'firstname'=>$firstname,
+                    'lastname'=>$lastname,
+                    'email_address'=>$email_address,
+                    'college_acronym'=>$college_acronym,
+                    'department'=>$department,
+                    'position'=>$position,
+                            );
+
+                $last_id = $this->User->create($record);
+		}
+				$positions = array();
+				$condition = null;
+				$rs2 = $this->Positions->read($condition);
+				
+				foreach($rs2 as $r2){
+					$info = array (
+						'pos_idno'=>$r2['pos_idno'],
+						'college_acronym'=>$r2['college_acronym'],
+						'position'=>$r2['position'],
+						);
+					$positions[] = $info;
+				}$data['positions']=$positions;
+                //getting departments
+				$condition = null;
+				$departments = $this->Dept->read($condition);
+				$data['departments'] = $departments;
+                //end of getting departments
+                //getting colleges
+                $condition = null;
+                $colleges = $this->Coll->read($condition);
+                $data['colleges'] = $colleges;
+                //end of getting colleges
+            $user = $this->session->userdata('username');
+            //getting userdata
+            $condition = array('username' => $user);
+            $userdata = $this->User->read($condition);
+            $data['userdata'] = $userdata;
+            //end of getting userdata
+            $data['title'] = "Document Tracking System - Dashboard";
+		$this->load->view('include/header');
+		$this->load->view('profile_admin',$data);
+        $this->load->view('new_user',$data);
+            
+    }
+	public function edit_user($username){
+            //getting colleges
+            $condition = null;
+            $colleges = $this->Coll->read($condition);
+			$data['colleges'] = $colleges;
+            //end of getting colleges
+            //getting departments
+			$condition = null;
+			$departments = $this->Dept->read($condition);
+			$data['departments'] = $departments;
+            //end of getting departments
+            //getting positions
+			$condition = null;
+			$departments = $this->Dept->read($condition);
+			$data['positions'] = $positions;
+            //end of getting positions
+			$user = $username;
+            //getting userdata1
+			$condition = array('username' => $user);
+			$userdata1 = $this->User->read($condition);
+            $data['username'] = $userdata1;
+            //end of getting userdata1
+            //getting userdata
+            $condition = null;
+            $userdata = $this->User->read($condition);
+            $data['userdata'] = $userdata;
+            //end of getting userdata
+        $data['title'] = "Document Tracking System - Dashboard";
+		$this->load->view('include/header',$data);      
+		$this->load->view('profile_admin',$data);
+		$this->load->view('edit_user',$data);
+	}
+	public function UD_user(){
+		if($_SERVER['REQUEST_METHOD']=='POST'){
+			do{
+				$idnum = rand(0,999);
+				$condition = array('idno'=>$idnum);
+				$rs = $this->Docstat->read($condition);
+			}while($rs);
+			$idno = $idnum;
+
+				$username = $_POST['username'];
+                $password = $_POST['password'];
+                $firstname  = $_POST['firstname'];
+                $lastname  = $_POST['lastname'];
+                $email_address  = $_POST['email_address'];
+                $college_acronym  = $_POST['college_acronym'];
+                $department  = $_POST['department'];
+                $position  = $_POST['position'];
+				$user1 = array('username'=>$username);
+                $record = array(
+                    'username' => $username,
+					'password'=>$password,
+                    'firstname'=>$firstname,
+                    'lastname'=>$lastname,
+                    'email_address'=>$email_address,
+                    'college_acronym'=>$college_acronym,
+                    'department'=>$department,
+                    'position'=>$position,
+                            );
+
+                $last_id = $this->User->update($record,$user1);
+				redirect(base_url().'ManageRegistrarDocu/viewUsers');
+		}
+                //getting position
+				$condition = null;
+				$positions = $this->Positions->read($condition);
+                $data['positions']=$positions;
+                //end of getting position
+                //getting departments
+				$condition = null;
+				$departments = $this->Dept->read($condition);
+				$data['departments'] = $departments;
+                //end of getting departments
+                //getting colleges
+                $condition = null;
+                $colleges = $this->Coll->read($condition);
+                $data['colleges'] = $colleges;
+                //endof getting colleges
+	}
+	public function remove_user($username){
+		$this->User->delete_student($username);
+		redirect(base_url().'ManageRegistrarDocu/viewUsers');
+	}
 
 }?>

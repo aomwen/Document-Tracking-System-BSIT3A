@@ -85,7 +85,7 @@
 					<?php
 					foreach($userdata as $us){
 					echo '
-					<div class="profile-user-name">'.$us['full_name'].'</div>
+					<div class="profile-user-name">'.$us['firstname'].' '.$us['lastname'].'</div>
 					<div class="profile-user-position">'.$us['position'].' </div>
 					<div class="profile-user-position">'.$us['department'].' </div>
 					<div class="profile-user-position">'.$us['college_acronym'].' </div>';

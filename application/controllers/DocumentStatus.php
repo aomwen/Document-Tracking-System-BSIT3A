@@ -7,55 +7,31 @@ class DocumentStatus extends CI_Controller {
         parent::__construct();
     //LOADING OF MODEL AND HELPERS
         $this->load->helper(array('form', 'url'));
-        $this->load->model('files_model','Files');
-        $this->load->model('users_model','Users');
-        $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc');
-        $this->load->model('homeFunction_model','msgtoAdmin');
+        $this->load->model('documents_model','Files');
+        $this->load->model('users_model','User');
+        $this->load->model('departments_model','Dept');
+        $this->load->model('colleges_model','Coll');
+        $this->load->model('documentstatus_model','Docstat');
+        $this->load->model('contactus_model','msgAd');
     //LOADING OF MODEL AND HELPERS 
     }
     
 public function mydocuments_view(){
         $data['title'] = "Document Tracking System - Dashboard";
             $user = $this->session->userdata('username');
-            $userdata = array();
+            //getting userdata
             $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
+            $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
-            $documents = array();
-                $condition = array();
-                $rs = $this->Files->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'trackcode' => $r['trackcode'],
-                                'filename' => $r['filename'],
-                                'author' => $r['author'],
-                                'receiver' => $r['receiver'],
-                                'datecreated' => $r['datecreated'],
-                                'status' => $r['status'],    
-                                'path'=>$r['path']            
-                                );
-                    $documents[] = $info;
-            }
+			//end of getting userdata
+            //getting document
+            $condition = array();
+            $documents = $this->Files->read($condition);
             $data['documents'] = $documents;
+			//end of getting document
             $this->load->view('include/header',$data); 
-            if($_SESSION['username'] == "admin"){
-                $this->load->view('profile_admin',$data);
-            }else{     
-                $this->load->view('profile',$data);
-            }
+            $this->load->view('profile_admin',$data);
+            
             $this->load->view('mydocuments');           
     }
 }

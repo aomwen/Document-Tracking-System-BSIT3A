@@ -7,12 +7,14 @@ class AdminOffices extends CI_Controller {
 		parent::__construct();
     //LOADING OF MODEL AND HELPERS
 		$this->load->helper(array('form', 'url'));
-        $this->load->model('files_model','Files');
-        $this->load->model('users_model','Users');
-        $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc');
+        $this->load->model('documents_model','Files');
+        $this->load->model('users_model','User');
+        $this->load->model('departments_model','Dept');
+        $this->load->model('colleges_model','Coll');
+        $this->load->model('documentstatus_model','Docstat');
     //LOADING OF MODEL AND HELPERS 
 	}
+	
 	public function add_colleges(){
             if($_SERVER['REQUEST_METHOD']=='POST'){
 
@@ -41,39 +43,19 @@ class AdminOffices extends CI_Controller {
 
                 $last_id = $this->Dept->create1($record);
             }
-                $colleges = array();
+				//getting colleges
                 $condition = null;
-                $rs = $this->Dept->read1($condition);
-
-                foreach($rs as $r){
-                    $info = array(
-                                'college_logopath'=> $r['college_logopath'],
-                                'college_acronym'=> $r['college_acronym'],
-                                'college_desc'=> $r['college_desc'],
-                                'college_dean'=> $r['college_dean'],
-                                );
-                    $colleges[] = $info;
-                }
+                $colleges = $this->Coll->read($condition);
+				$data['colleges'] = $colleges;
+				//end of getting colleges
             
             $data['colleges'] = $colleges;
-			$user = $this->session->userdata('username');
-            $userdata = array();
             $user = $this->session->userdata('username');
-            $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
-            $data['userdata'] = $userdata;
+            //getting userdata
+			$condition = array('username' => $user);
+			$userdata = $this->User->read($condition);
+			$data['userdata'] = $userdata;
+            //end of getting userdata
             $data['title'] = "Document Tracking System - Dashboard";
 		$this->load->view('include/header');
         if($_SESSION['username'] == "admin"){    
@@ -86,39 +68,18 @@ class AdminOffices extends CI_Controller {
         }
         
 		public function manage_colleges() {
-			 $colleges = array();
+				//getting colleges
                 $condition = null;
-                $rs = $this->Dept->read1($condition);
-
-                foreach($rs as $r){
-                    $info = array(
-                                'college_logopath' => $r['college_logopath'],
-                                'college_acronym' => $r['college_acronym'],
-                                'college_desc' => $r['college_desc'],
-                                'college_dean' => $r['college_dean'],
-                                );
-                    $colleges[] = $info;
-            }
-			
-            $userdata = array();
+                $colleges = $this->Coll->read($condition);
+				$data['colleges'] = $colleges;
+				//end of getting colleges
             $user = $this->session->userdata('username');
+			//getting userdata
             $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
-            $data['userdata'] = $userdata;
+            $userdata = $this->User->read($condition);
+			$data['userdata'] = $userdata;
+			//end of getting userdata
             $data['title'] = "Document Tracking System - Dashboard";
-            $data['colleges'] = $colleges;
 			$this->load->view('include/header',$data);      
             $this->load->view('profile_admin',$data);
 			$this->load->view('manage_colleges',$data);
@@ -143,46 +104,22 @@ class AdminOffices extends CI_Controller {
                 $rs = $this->Dept->read($condition);
             }while($rs);
 				$data['idno'] = $idno;
-                $departments = array();
+				//getting departments
                 $condition = null;
-                $rs = $this->Dept->read($condition);
-
-                foreach($rs as $r){
-                    $info = array(
-                                'departments'=> $r['department'],
-                                );
-                    $departments[] = $info;
-                }
-            
-            $data['departments'] = $departments;
+                $departments1 = $this->Dept->read1($condition);
+				$data['departments'] = $departments1;
+				//end of getting departments
 			$user = $this->session->userdata('username');
-            $userdata = array();
+			//getting userdata
             $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'username' => $r['username'],
-                                'password' => $r['password'],
-                                'full_name' => $r['full_name'],
-                                'email_address' => $r['email_address'],
-                                'position' => $r['position'],    
-                                'department'=> $r['department'],
-                                'college_acronym' => $r['college_acronym'],           
-                                );
-                    $userdata[] = $info;
-            }
-			
-			$collegefull = array();
+			$userdata = $this->User->read($condition);
+			$data['userdata'] = $userdata;
+			//end of getting
+			//getting colleges
             $condition = array('college_acronym' => $college_acronym);
-            $rs = $this->Dept->read1($condition);
-            foreach($rs as $r){
-                $info = array(
-                    'collegefull' => $r['collegefull'],
-					'college_acronym' => $r['college_acronym']
-                );
-                $collegefull[] = $info;
-            }
-            $data['collegefull']=$collegefull;
+            $colleges1 = $this->Coll->read1($condition);
+            $data['colleges'] = $colleges1;
+            //end of getting colleges
             $data['userdata'] = $userdata;
             $data['title'] = "Document Tracking System - Dashboard";
 		$this->load->view('include/header');
@@ -194,52 +131,26 @@ class AdminOffices extends CI_Controller {
 		$data['title'] = "Document Tracking System - Dashboard";
     //PROFILE DETAIL
         $user = $this->session->userdata('username');
-        $userdata = array();
+		//getting userdata
         $condition = array('username' => $user);
-        $rs = $this->Users->read($condition);
-            foreach($rs as $r){
-                $info = array(
-                            'username' => $r['username'],
-                            'password' => $r['password'],
-                            'full_name' => $r['full_name'],
-                            'email_address' => $r['email_address'],
-                            'position' => $r['position'],    
-                            'department'=> $r['department'],
-                            'college_acronym' => $r['college_acronym'],           
-                            );
-                $userdata[] = $info;
-            }
+        $userdata = $this->User->read($condition);
+		$data['userdata'] = $userdata;
+		//end of getting userdata
     //END OF PROFILE DETAIL
 	
     //DEPARTMENT DETAILS
             $data['userdata'] = $userdata;
-            
-            $departments = array();
+            //getting departments
             $condition = array('college_acronym' => $college_acronym);
-            $rs = $this->Dept->read($condition);
-                foreach($rs as $r){
-                    $info = array(
-								'college_acronym' => $r['college_acronym'],	
-                                'department' => $r['department'],
-								'dept_idno' => $r['dept_idno']
-                                );
-                    $departments[] = $info;
-            }
-
+            $departments = $this->Dept->read($condition);
             $data['departments'] = $departments;
+			//end of getting departments
     //END OF DEPARTMENT DETAILS
 	
     //COLLEGE DETAILS
-            $collegefull = array();
+            //getting colleges
             $condition = array('college_acronym' => $college_acronym);
-            $rs = $this->Dept->read1($condition);
-                foreach($rs as $r){
-                    $info = array(
-                                'collegefull' => $r['collegefull'],
-								'college_acronym' => $r['college_acronym']
-                                );
-                    $collegefull[] = $info;
-            }
+            $colleges1 = $this->Coll->read1($condition);
             $data['collegefull']=$collegefull;
     //END OF COLLEGE DETAILS
 			
@@ -262,36 +173,17 @@ class AdminOffices extends CI_Controller {
 		redirect(base_url(). 'AdminOffices/manage_colleges');
 	}
 	public function update_college($college_acronym){
-			$colleges = array();
+			//getting colleges
             $condition = array('college_acronym' => $college_acronym);
-            $rs = $this->Dept->read1($condition);
-            foreach($rs as $r){
-                $info = array(
-                    'college_logopath'=> $r['college_logopath'],
-                    'college_acronym'=> $r['college_acronym'],
-					'collegefull'=>$r['collegefull'],
-                    'college_desc'=> $r['college_desc'],
-                    'college_dean'=> $r['college_dean'],
-                    );
-                $colleges[] = $info;
-            }
+            $colleges = $this->Coll->read($condition);
 			$data['colleges'] = $colleges;
+			//end of getting colleges
 			$user = $this->session->userdata('username');
+			//getting userdata
             $condition = array('username' => $user);
-            $rs = $this->Users->read($condition);
-            foreach($rs as $r){
-                $info = array(
-                    'username' => $r['username'],
-                    'password' => $r['password'],
-                    'full_name' => $r['full_name'],
-                    'email_address' => $r['email_address'],
-					'position' => $r['position'],    
-                    'department'=> $r['department'],
-                    'college_acronym' => $r['college_acronym'],           
-                );
-                $userdata[] = $info;
-            }
-        $data['userdata'] = $userdata;
+            $userdata = $this->User->read($condition);
+			$data['userdata'] = $userdata;
+			//end of getting userdata
         $data['title'] = "Document Tracking System - Dashboard";
 		$this->load->view('include/header',$data);      
         $this->load->view('profile_admin',$data);
@@ -324,20 +216,11 @@ class AdminOffices extends CI_Controller {
             $last_id = $this->Dept->update1($record,$ca);
 			redirect(base_url(). 'AdminOffices/manage_colleges');
         }
-			$colleges = array();
+			//getting colleges
             $condition = null;
-            $rs = $this->Dept->read1($condition);
-            foreach($rs as $r){
-                $info = array(
-                    'college_logopath'=> $r['college_logopath'],
-                    'college_acronym'=> $r['college_acronym'],
-					'collegefull'=>$r['collegefull'],
-                    'college_desc'=> $r['college_desc'],
-                    'college_dean'=> $r['college_dean'],
-                    );
-                $colleges[] = $info;
-            }
+            $colleges = $this->Coll->read($condition);
 			$data['colleges'] = $colleges;
+			//end of getting colleges
 	}
 }
 ?>

@@ -61,7 +61,7 @@
 		margin-left: 15px;
 	}
 </style>	
-<div class="myinbox col-md-9">
+<div class="myinbox col-sm-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
 		    <ol class="breadcrumb pull-right">

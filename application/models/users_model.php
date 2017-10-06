@@ -15,17 +15,32 @@ class Users_model extends CI_Model {
 		if( isset($condition) ) $this->db->where($condition);
 		
 		$query=$this->db->get();
-		return $query->result_array();		
+		$rs= $query->result_array();
+		$userdata = array();
+            foreach($rs as $r){
+                $info = array(
+                	'idno' => $r['idno'],
+                    'username' => $r['username'],
+                    'password' => $r['password'],
+                    'firstname' => $r['firstname'],
+                    'lastname' => $r['lastname'],
+                    'email_address' => $r['email_address'],
+					'position' => $r['position'],    
+                    'department'=> $r['department'],
+                    'college_acronym' => $r['college_acronym'],           
+                );
+                $userdata[] = $info;
+            }
+            return $userdata;
 	}
 	
-	public function update($data){
-		$this->db->where("username",$_SESSION['username']);
-		$this->db->update($this->table, $data);
+	public function update($record,$user1){
+		$this->db->update($this->table, $record, $user1);
 		return TRUE;	
 	}
 	
-	public function delete_student($data){
-		$this->db->where("username",$_SESSION['username']);
+	public function delete_student($username){
+		$this->db->where("username",$username);
 		$this->db->delete($this->table);
 		return TRUE;	
 	}
