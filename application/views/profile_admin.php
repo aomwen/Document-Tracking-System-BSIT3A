@@ -20,7 +20,8 @@
         </button>   
         <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/>        
         <!-- <a class="navbar-brand" href="#">Document Tracking System</a> -->
-        <a class="navbar-brand" href="javascript:void(0)" data-target="#myNavbar"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a>
+        <a class="navbar-brand" href="#myPage" style="font-family: Courgette; font-size:22px; color:#015249 !important;">Document Tracking System</a>
+        <!-- <a class="navbar-brand" href="javascript:void(0)" data-target="#myNavbar"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a> -->
       </div>
       <div class="collapse navbar-collapse" id="mainNavBar">        
         <ul class="nav navbar-nav navbar-right">
@@ -98,10 +99,11 @@
               <ul class="nav">
                 <li class="active"><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
                 <li ><a href="<?php echo base_url('DocumentInbox/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
-                <li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent Documents </span></a></li>              
-                <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>               
+                <li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent </span></a></li>              
+                <li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; Drafts</span></a></li>                    
+                <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>             <li><a href="<?php echo base_url('HomeFunction/viewmsgtoAdmin');?>"><span class="glyphicon glyphicon-comment"></span><span>&nbsp; User Reviews </span></a></li>
                 <li><a href="<?php echo base_url('AdminOffices/manage_colleges');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Offices </span></a></li>
-                <li><a href="<?php echo base_url('ManageRegistrarDocu/viewDocuments');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Manage Registrar Status </span></a></li>
+                <li><a href="<?php echo base_url('ManageRegistrarDocu/viewDocuments');?>"><span class="glyphicon glyphicon-signal"></span><span>&nbsp; Manage Registrar Status </span></a></li>
 
             </ul>
           </div>  

@@ -1,53 +1,8 @@
-<!--My Documents --> 
+<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 <style>
-.breadcrumb{
-  margin-top:10px;
-}
-
-.mysent{
-	margin-top: 75px;
-  	margin-left: 20%;
-	width:79%;
-	height:100%;
-}
-#head{
-  border-bottom:solid #015249;
-}
-.panel-heading h3{
-  color:#015249;
-}
-.panel-heading ol li a span{
-  color:#015249;
-}
-.panel-body form input{
-	padding:15px 16px;
-	border:1px solid #ccc;
-	border-radius:4px;
-	font-size:15px;
-	color:#aaa;
-	font-family: 'Lato', sans-serif;
-}
-.panel-body form button{
-	background:#015249;
-	color:#fff;
-	width:40px;
-}
-.panel-body form button:hover{
-	background:#A5A5AF;
-	color:#222;
-}
-.searchbar{
-	display:inline-flex;
-	height: 35px;
-}
-.search{
-	width:400px;
-	margin-left: 15px;
-}
-#collapse a{
-	text-decoration: none;
-}
+.gbuttons{
 </style>
+
 <div class="mysent col-md-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
@@ -57,13 +12,46 @@
 		    </ol>    
 		    <h3><span class="glyphicon glyphicon-inbox"></span> Sent Documents</h3>       
 		</div>
-		<div class="panel-body">
-			<form class="pull-left searchbar" method="POST" action="<?php echo base_url('DocumentSent/mysentdocuments_view')?>">	
+		<div class="gbuttons panel-body">
+			<button><span class="glyphicon glyphicon-unchecked"></span></button>
+			<button><span class="glyphicon glyphicon-trash"></span></button>
+			<button><span class="glyphicon glyphicon-share-alt"></span></button>
+			<button><span class="glyphicon glyphicon-refresh"></span></button>		
+			<form class="pull-right searchbar" method="POST" action="<?php echo base_url('DocumentSent/mysentdocuments_view')?>">	
 				<input type="text" name="search" placeholder=" e.g. 592-***-**" class="search"/>
 				<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
-			</form>
 		</div>
-		<div class="panel-body" id="accordion">	
+		<div class="table-responsive mailbox-messages">
+	        <table class="table table-hover table-striped">
+	          <tbody>
+	          <tr>
+	            <td><input type="checkbox"></td>
+	            <td><a href="#"><b>Track Number</b></td>
+	            <td>Filename</a></td>
+	            <td>Sender </td>
+	            <td><span class="glyphicon glyphicon-paperclip"></span></td>
+	            <td>Date</td>
+	          </tr>
+	          <tr>
+	            <td><input type="checkbox"></td>
+	            <td><a href="#"><b>Track Number</b></td>
+	            <td>Filename</a></td>
+	            <td>Sender </td>
+	            <td><span class="glyphicon glyphicon-paperclip"></span></td>
+	            <td>Date</td>
+	          </tr>
+	          <tr>
+	            <td><input type="checkbox"></td>
+	            <td><a href="#"><b>Track Number</b></td>
+	            <td>Filename</a></td>
+	            <td>Sender </td>
+	            <td><span class="glyphicon glyphicon-paperclip"></span></td>
+	            <td>Date</td>
+	          </tr>
+	          </tbody>
+	        </table>
+	      </div>		
+<!-- 		<div class="panel-body" id="accordion">	
 			<div class="col-md-12">
 				<div class="panel-group" id="accordion">
 					<?php
@@ -71,7 +59,7 @@
 						if($d['author']==$_SESSION['username']){
 							echo '
 							<div class="panel panel-default">	
-								<div class="panel-heading text-left">
+								<div class="inboxto panel-body text-left">
 									<input type="checkbox"><a href="#'.$d['trackcode'].'" data-toggle="collapse" data-parent="accordion">&nbsp;'.$d['trackcode'].'</a><button type="button" class="close" data-dismiss="modal" data-toggle="collapse" data-parent="accordion">&times; </button></div>
 						    								    		
 								</div>
@@ -138,4 +126,4 @@
 			</div>		
 		</div>
 	</div>			
-</div>
+</div> -->

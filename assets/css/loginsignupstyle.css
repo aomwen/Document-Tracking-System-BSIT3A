@@ -1,3 +1,9 @@
+.input-group{
+	/*margin-top: 15px;*/
+	margin-top:5%;
+	/*margin-bottom: 15px;*/
+	margin-bottom: 4%;
+}
 #input-btn{
 	font-family: 'Dosis', sans-serif;
 	/*width:175px;

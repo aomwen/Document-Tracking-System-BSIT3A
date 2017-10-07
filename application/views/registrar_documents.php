@@ -1,67 +1,6 @@
-<style>
-	.formstyle label{
-		font-size:16px;
-	}
-	.formstyle input{
-		border-radius:5px;
-		margin-bottom: 10px;
+<link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
 
-	}
-	.tbl1{
-		margin-top:20px;
-		padding:20px;
-		text-align:center;
-		font-size: 18px;
-	}
-	.tbl1 th{
-		text-align: center;
-		padding:5px;
-	}
-	.breadcrumb{
-	  margin-top:10px;
-	}
-	.myinbox{
-		margin-top: 75px;	
-		margin-left: 20%;
-		width:79%;
-		height:100%;
-	}
-	#head{
-	  border-bottom:solid #015249;
-	}
-	.panel-heading h3{
-	  color:#015249;
-	}
-	.panel-heading ol li a span{
-	  color:#015249;
-	}
-	.panel-body form input{
-		padding:15px 16px;
-		border:1px solid #ccc;
-		border-radius:4px;
-		font-size:15px;
-		color:#aaa;
-		font-family: 'Lato', sans-serif;
-	}
-	.panel-body form button{
-		background:#015249;
-		color:#fff;
-		width:40px;
-	}
-	.panel-body form button:hover{
-		background:#A5A5AF;
-		color:#222;
-	}
-	.searchbar{
-		display:inline-flex;
-		height: 35px;
-	}
-	.search{
-		width:400px;
-		margin-left: 15px;
-	}
-</style>	
-<div class="myinbox col-md-9">
+<div class="regdoc col-md-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
 		    <ol class="breadcrumb pull-right">
@@ -96,7 +35,7 @@
 				</div>	
 			</form>
 		<div class="tbl1">
-			<table class=" text-center table-responsive table-striped" width="100%">
+			<table class=" table-bordered table-hover text-center table-responsive table-striped" width="100%">
 				<thead>
 					<th>Track #</th>
 					<th>File type</th>
@@ -114,7 +53,8 @@
 									<td>'.$d['date_admitted'].'</td>
 									<td>'.$d['date_released'].'</td>
 									<td>'.$d['status'].'</td>
-									<td><a href="'.base_url('ManageRegistrarDocu/registrar_update/'.$d['trackcode']).'/On going" >On going</a>|<a href="'.base_url('ManageRegistrarDocu/registrar_update/'.$d['trackcode']).'/Complete" >Complete</a>|<a href="'.base_url('ManageRegistrarDocu/registrar_update/'.$d['trackcode']).'/Received" >Received</a>|</td>
+									<td><a href="'.base_url('ManageRegistrarDocu/registrar_update/'.$d['trackcode']).'/On going" class="btn btn-danger">On going</a>&nbsp;<a href="'.base_url('ManageRegistrarDocu/registrar_update/'.$d['trackcode']).'/Complete" class="btn btn-primary">Complete</a>&nbsp;<a href="'.base_url('ManageRegistrarDocu/registrar_update/'.$d['trackcode']).'/Received" class="btn btn-success">Received</a></td>
+
 								</tr>
 								';
 					}
@@ -124,4 +64,4 @@
 			</table>
 		</div>
 	</div>
-</div>	
+</div>

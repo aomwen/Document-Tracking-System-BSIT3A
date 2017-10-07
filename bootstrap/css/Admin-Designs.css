@@ -1,0 +1,114 @@
+.breadcrumb{
+  margin-top:10px;
+}
+.myinbox, .mysent, .adddocu, .docstat, .myacc, .offices, .newdept, .regdoc, .editcol{
+	margin-top: 75px;
+	margin-left: 21%;
+	width:79%;
+	height:100%;
+}
+#head{
+  border-bottom:solid #015249;
+}
+.panel-heading h3{
+  color:#015249;
+}
+.panel-heading ol li a span{
+  color:#015249;
+}
+.panel-body form input{
+	padding:15px 16px;
+	border:1px solid #ccc;
+	border-radius:4px;
+	font-size:15px;
+	color:#aaa;
+	font-family: 'Lato', sans-serif;
+}
+.panel-body form button{
+	background:#015249;
+	color:#fff;
+	width:40px;
+}
+.panel-body form button:hover{
+	background:#A5A5AF;
+	color:#222;
+}
+.searchbar{
+	display:inline-flex;
+	font-size: 12px;
+}
+.search { 
+	width: 400px;
+	height: 35px;
+}
+.find {
+	border: 1px solid #000000; 
+	outline:none; 
+	cursor:pointer;
+}
+.panel-group{
+	background-color: #fff;
+}
+/*Inbox-Design*/
+.inboxto{
+	border-bottom: 1px solid #dadada;
+}
+.inboxto a{
+	text-decoration:none;
+}
+/*Specific-Inbox-Design*/
+.subject_inbox{
+	height:100%;
+}
+.inboxbtn{
+	padding:8px;
+	border-radius: 5px;
+}
+/*MyDocuments-Designs*/
+.docstatus{
+	font-size: 14px;
+	line-height: 25px;
+}
+.docstatus tr th{
+	text-align: center;
+	padding:10px;
+}
+/*MyAccount-Design*/
+.editbtn{
+	margin-top: 20px;
+}
+/*RegistrarDoc-Designs*/
+.formstyle label{
+	font-size:16px;
+}
+.formstyle input{
+	border-radius:5px;
+	margin-bottom: 10px;
+}
+.tbl1{
+	margin-top:20px;
+	padding:20px;
+	text-align:center;
+	font-size: 18px;
+}
+.tbl1 th{
+	text-align: center;
+	padding:5px;
+}
+.addfile-btn{
+	margin-right: 2%;
+	padding:1%;
+}	
+/*AddFileStatus-Design*/
+.formstyle label{
+	font-size:16px;
+}
+.formstyle input{
+	border-radius:5px;
+	margin-bottom: 10px;
+}
+/*AddDocuments-Design*/
+.gbuttons{
+	padding-right: 10px;
+	padding-left: 10px;
+}	

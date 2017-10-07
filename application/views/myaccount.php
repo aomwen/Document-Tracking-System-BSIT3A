@@ -1,21 +1,5 @@
-<!--MYACCOUNT -->
-<style>
-.breadcrumb{
-  margin-top:10px;
-}
-.editbtn{
-	margin-top: 20px;
-}
-.myacc{
-	margin-top: 75px;	
-	margin-left: 20%;
-	width:79%;
-	height:100%;
-}
-#head{
-  border-bottom:solid #015249;
-}
-</style>
+<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+
 <div class="myacc col-md-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
@@ -40,6 +24,12 @@
 							    	<label class="control-label col-sm-4">Username:</label>
 							    	<div class="col-sm-8">
 							      		<input type="text" value="'.$us['username'].'" class="form-control" name="username" >
+							    	</div>					
+							    </div>	
+								<div class="form-group">
+							    	<label class="control-label col-sm-4">Name:</label>
+							    	<div class="col-sm-8">
+							      		<input type="text" value="'.$us['full_name'].' "class="form-control" name="email_address">
 							    	</div>					
 							    </div>	
 							 	<div class="form-group">
