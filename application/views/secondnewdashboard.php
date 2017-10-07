@@ -73,7 +73,7 @@
 	</nav>
 	<div class="jumbotron text-center" style="background-image: url('<?= base_url('assets/images/pexels-photo-3740161.jpg'); ?>'); background-size: 100% 100%; background-repeat: no-repeat;">
 		<h1 class="h1style">Let's track your document!</h1>
-		<h2 class="h2style">We will guide you in every single step</h2>
+		<h2 class="jumbotronh2style">We will guide you in every single step</h2>
 		<a href="#" class="btn btn-primary btn-lg">
     		<span class="glyphicon glyphicon-search"></span> Track
   		</a>
