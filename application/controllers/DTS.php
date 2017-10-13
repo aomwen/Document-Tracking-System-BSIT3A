@@ -18,7 +18,7 @@ class Dts extends CI_Controller {
 	public function index(){	
 		$data['title'] = "Document Tracking System - Dashboard";
 		$this->load->view('include/header',$data);
-		$this->load->view('newdashboard',$data);
+		$this->load->view('secondnewdashboard',$data);
 	}
 
 }
