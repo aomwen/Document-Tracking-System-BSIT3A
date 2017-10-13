@@ -1,7 +1,7 @@
 <!--LOGIN FOOTER -->
 <style>
 	.login_footer{
-		margin-top: 30px;
+		margin-top: 180px;
 	}
 </style>
 <div class="login_footer container">
