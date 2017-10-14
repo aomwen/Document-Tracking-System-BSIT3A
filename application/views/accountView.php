@@ -20,7 +20,7 @@
 						</div>
 						<br />
 						<br />
-						<a href="#" class="form-control text-center edit_link">Edit Picture</a>
+						<a href="#" class="form-control text-center edit_link" data-toggle="modal" data-target="#profileEditModal">Edit Picture</a>
 						<a href=" '.base_url('Account/editProfile').' " class="form-control text-center edit_link" >Edit Information</a>
 						<a href="#" class="form-control text-center edit_link edit_link2" >Change Password</a>
 						</div>	
@@ -43,3 +43,34 @@
 			
 	</div>
 </div>	
+<!--MODAL-->
+          <div class="modal fade" id="profileEditModal" role="dialog">
+            <div class="modal-dialog model-sm">
+              <!-- Modal content-->
+              <form role="form" method="post" class="modal-content" enctype="multipart/form-data" id="newprofile_form" >
+                
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Profile Image</h4>
+                  </div>
+                  <div class="modal-body">
+                    <!--choose banner-->
+                    <div class="form-group">
+                      <label for="newprofile"> New Profile Image: </label>
+                      <input type="file" id="newprofile" name="newprofile" />
+                    </div>
+                     <div class="text-danger">
+                        <?php echo validation_errors(); ?>
+                    </div> 
+                  
+                  </div>
+                  <div class="modal-footer">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-success">Upload</button>
+                    </div>
+                  </div>
+                 
+              </form>
+            </div>
+          </div>
+          <!--MODAL END-->
