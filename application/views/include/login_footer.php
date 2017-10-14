@@ -2,10 +2,15 @@
 <style>
 	.login_footer{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		margin-top: 36px;
 		margin-bottom:14%;
 =======
 		margin-top: 30px;
+>>>>>>> master
+=======
+		margin-top: 180px;
+
 >>>>>>> master
 	}
 </style>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:application/views/compose.php
 <style>
 .breadcrumb{
   margin-top:10px;
@@ -45,6 +46,10 @@
     color: white; 
 }
 </style>
+=======
+<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+
+>>>>>>> master:application/views/adddocuments.php
 <div class="adddocu col-sm-9">
   <div class="panel panel-default">
     <div class="panel-heading" id="head">
@@ -55,6 +60,7 @@
         <h3><span class="glyphicon glyphicon-edit"></span> Compose</h3>
     </div>
       <div class="panel-body">
+<<<<<<< HEAD:application/views/compose.php
         <form action="<?php base_url('FilesManipulation/sendFile')?>" method="post" enctype="multipart/form-data" id="formId">
           <div class="form-group row">
             <div class="col-sm-6">
@@ -91,6 +97,43 @@
             <button type="reset" class="btn btn-primary"> <span class="glyphicon glyphicon-repeat">&nbsp;Reset</span></button>
             <button type="submit" class="btn btn-primary" onClick="move()"> <span class="glyphicon glyphicon-envelope">&nbsp;Send</span></button>
         </form>
+=======
+        <div class="col-sm-4">
+
+        </div>
+          <div class="col-sm-8">
+          <form method="POST" enctype="multipart/form-data" action="<?php echo base_url('FilesManipulation/do_upload');?>">
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="To:" name="receiver"/> 
+              </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control"  name="author" readonly value="<?php echo $_SESSION['username'];?>" />
+              </div>
+            </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject" name="file_desc" />
+              </div>
+              <div class="form-group">
+                <label>Track #:</label>
+                <input type="text" class="form-control" value="<?php echo $tracknumber ?>" name="trackcode" readonly />
+              </div>
+              <div class="form-group">
+                <label>Filename</label>
+                <input type="text" class="form-control" placeholder="Filename" name="filename" />
+              </div>
+              <div class="form-group">
+                <label>Attachment:</label>
+                <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="userfile" />
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success pull-right">&nbsp;Send</button>
+                <!-- <button type="submit" class="btn btn-primary">&nbsp;Save</span></button> -->
+                <button type="reset" class="btn btn-danger">&nbsp;Reset</span></button>
+              </div>  
+            </div>  
+          </form>
+>>>>>>> master:application/views/adddocuments.php
       </div>
     </div>
 </div>

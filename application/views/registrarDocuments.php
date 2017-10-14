@@ -1,78 +1,8 @@
-<style>
-	.formstyle label{
-		font-size:16px;
-	}
-	.formstyle input{
-		border-radius:5px;
-		margin-bottom: 10px;
-	}
-	.tbl1{
-		margin-top:20px;
-		padding:20px;
-		text-align:center;
-		font-size: 18px;
-	}
-	.tbl1 th{
-		text-align: center;
-		padding:5px;
-	}
-	.breadcrumb{
-	  margin-top:10px;
-	}
-	.myinbox{
-		margin-top: 75px;	
-		margin-left: 20%;
-		width:79%;
-		height:100%;
-	}
-	#head{
-	  border-bottom:solid #015249;
-	}
-	.panel-heading h3{
-	  color:#015249;
-	}
-	.panel-heading ol li a span{
-	  color:#015249;
-	}
-	.panel-body form input{
-		padding:15px 16px;
-		border:1px solid #ccc;
-		border-radius:4px;
-		font-size:15px;
-		color:#aaa;
-		font-family: 'Lato', sans-serif;
-	}
-	.panel-body form button{
-		background:#015249;
-		color:#fff;
-		width:40px;
-	}
-	.panel-body form button:hover{
-		background:#A5A5AF;
-		color:#222;
-	}
-	.searchbar{
-		display:inline-flex;
-		height: 35px;
-	}
-	.search{
-		width:400px;
-		margin-left: 15px;
-	}
-	.docstatus{
-		font-size: 16px;
-		line-height: 25px;
-	}
-	.docstatus tr th,td{
-		text-align: center;
-		padding:10px;
-	}	
-	.addfile-btn{
-		margin-right: 2%;
-		padding:1%;
-	}
-</style>	
-<div class="myinbox col-md-9">
+
+<link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
+
+<div class="regdoc col-md-9">
+
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
 		    <ol class="breadcrumb pull-right">
