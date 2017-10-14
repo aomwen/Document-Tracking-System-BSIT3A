@@ -232,6 +232,11 @@ body{
 	padding: 5px;
 	background-color: #f9f9f9;
 }
+#myTable tr:hover{
+	cursor:pointer;
+	background-color: #ccc;
+	padding:20px;
+}
 @media screen and (min-width:100px){
 	.profile{
 		width:80px;
