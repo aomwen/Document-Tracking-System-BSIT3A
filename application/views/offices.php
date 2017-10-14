@@ -56,7 +56,7 @@
 		    </ol>    
 		    <h3><span class="glyphicon glyphicon-inbox"></span> Offices</h3>       
 		</div>
-		<div class="panel-body">
+		<div class="panel-body"> 
 			<?php
 				foreach($colleges as $col){
 					echo'

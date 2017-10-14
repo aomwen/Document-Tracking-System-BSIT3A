@@ -19,12 +19,12 @@ class DocumentInbox extends CI_Controller {
         $user = $this->session->userdata('username');
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
-		$data['userdata'] = $userdata;
-		
+        $data['userdata'] = $userdata;
+        
         $condition = null;
         $documents = $this->Files->read($condition);
         $data['documents']=$documents;
-		$data['userdata'] = $userdata;
+        $data['userdata'] = $userdata;
         
         $this->load->view('include/header',$data);  
         if($_SESSION['username'] == "admin")

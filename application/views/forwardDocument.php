@@ -89,8 +89,8 @@
            <div class="panel-footer">
             <button type="reset" class="btn btn-primary"> <span class="glyphicon glyphicon-repeat">&nbsp;Reset </span></button>
             <button type="submit" class="btn btn-primary" onClick="move()"> <span class="glyphicon glyphicon-envelope">&nbsp;Send </span></button>
-            	';
-        	}
+              ';
+          }
             ?>
         </form>
 

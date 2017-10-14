@@ -16,9 +16,9 @@ class DocumentSent extends CI_Controller {
     public function viewSent()
     {
         $condition = null;
-		$documents = $this->Files->read($condition);
+        $documents = $this->Files->read($condition);
         $data['documents']=$documents;
-		$data['title'] = "Document Tracking System - Dashboard";
+        $data['title'] = "Document Tracking System - Dashboard";
 
         $user = $this->session->userdata('username');
         $condition = array('username' => $user);

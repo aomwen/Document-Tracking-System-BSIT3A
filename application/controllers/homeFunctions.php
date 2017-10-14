@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     class homeFunctions extends CI_Controller
     {
-    	public function __construct()
+        public function __construct()
         {
-    		parent::__construct();
+            parent::__construct();
             $this->load->model('registrarDocumentsModel','regDoc');
-    		$this->load->model('contactUsModel','contact');
+            $this->load->model('contactUsModel','contact');
         }
 
         public function contactUs()

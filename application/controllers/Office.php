@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Office extends CI_Controller {
 
-	public function __construct(){
-		parent::__construct();
+    public function __construct(){
+        parent::__construct();
         $this->load->model('usersModel','User');
         $this->load->model('departmentsModel','Departments');
         $this->load->model('collegesModel','Colleges');
@@ -14,7 +14,7 @@ class Office extends CI_Controller {
         }
     }
 
-	public function viewOffice()
+    public function viewOffice()
     {
         $condition = null;
         $colleges = $this->Colleges->read($condition);

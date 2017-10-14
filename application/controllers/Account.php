@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Account extends CI_Controller {
 
-	public function __construct(){
-		parent::__construct();
+    public function __construct(){
+        parent::__construct();
         $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
-	}
+    }
 
     public function viewAccount()
     {
@@ -17,7 +17,7 @@ class Account extends CI_Controller {
         $data['title'] = "Document Tracking System - Dashboard";
         $user = $this->session->userdata('username');
         $condition = array('username' => $user);
-		$userdata = $this->User->read($condition);
+        $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
         $this->load->view('include/header',$data); 
         if($_SESSION['username'] == "admin")
@@ -34,8 +34,8 @@ class Account extends CI_Controller {
     {
         $data['title'] = "Document Tracking System - Dashboard";
         $user = $this->session->userdata('username');
-		$condition = array('username'=>$user);
-		$userdata = $this->User->read($condition);
+        $condition = array('username'=>$user);
+        $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
         $this->load->view('include/header',$data); 
         if($_SESSION['username'] == "admin")

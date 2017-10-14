@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Access extends CI_Controller {
 
-	public function __construct()
+    public function __construct()
     {
-		parent::__construct();
+        parent::__construct();
         $this->load->model('usersModel','User');
     }
 
@@ -50,8 +50,8 @@ class Access extends CI_Controller {
             $user = $_SESSION['username'];
             $condition = array('username' => $user);
             $userdata = $this->User->read($condition);
-			$data['userdata'] = $userdata;
-			$data['title'] = "Document Tracking System - Dashboard";
+            $data['userdata'] = $userdata;
+            $data['title'] = "Document Tracking System - Dashboard";
             if($_SESSION['username'] == "admin"){
                 $data['userdata'] = $userdata;
                 $this->load->view('include/header',$data);      

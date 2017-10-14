@@ -93,7 +93,7 @@
 			        echo'
 			            <td><a href="'.base_url('DocumentInbox/viewMessage/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
 			            <td>'.$d['filename'].'</a></td>
-			            <td>'.$d['author'].'</td>
+			            <td>'.$d['sender'].'</td>
 			            <td>'.$d['datecreated'].'</td>
 			        </tr>';
 			        // <td><span class="glyphicon glyphicon-paperclip"></span></td>

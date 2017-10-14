@@ -16,7 +16,7 @@
 				echo'
 				<div class="specific_inbox">
 					<h3><b>'.$d['trackcode'].'</b></h3>
-					<h5 class="pull-left">From: <b>'.$d['author'].'</b></h5>
+					<h5 class="pull-left">From: <b>'.$d['sender'].'</b></h5>
 					<h5 class="pull-right">Received: '.$d['datecreated'].'</h5>
 					<br />
 					<br />

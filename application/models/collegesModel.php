@@ -36,7 +36,7 @@ class collegesModel extends CI_Model {
 	}
 	
 	public function remove($data){
-		$this->db->where('college_acronym',$data);
+		$this->db->where('collegeId',$data);
 		$this->db->delete($this->table);
 		return TRUE;	
 	}

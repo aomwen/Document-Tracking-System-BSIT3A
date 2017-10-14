@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class AdminOffices extends CI_Controller
 {
 
-	public function __construct(){
-		parent::__construct();
+    public function __construct(){
+        parent::__construct();
         $this->load->model('usersModel','User');
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
@@ -30,15 +30,15 @@ class AdminOffices extends CI_Controller
         $this->load->view('include/header',$data);      
         $this->load->view('profileAdmin');
         $this->load->view('manageColleges');
-    }
+    } 
 
     public function removeCollege($collegeId)
     {
-        $this->Dept->remove1($college_acronym);
+        $this->Colleges->remove($collegeId);
         redirect(base_url(). 'AdminOffices/manageColleges');
     }
 
-	public function addColleges()
+    public function addColleges()
     {
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
@@ -53,11 +53,11 @@ class AdminOffices extends CI_Controller
             $location = base_url().'assets/images/'.$name.'';
             move_uploaded_file($name, $location);
             $collegeId = $_POST['collegeId'];
-    		$collegefull = $_POST['collegefull'];
+            $collegefull = $_POST['collegefull'];
             $collegeDesc = $_POST['collegeDesc'];
             $collegeDean  = $_POST['collegeDean'];
             $record = array('collegeId'=>$collegeId,
-                			'collegefull'=>$collegefull,
+                            'collegefull'=>$collegefull,
                             'collegeDesc'=>$collegeDesc,
                             'collegeDean' => $collegeDean,
                             'collegeLogo'=>$location);
@@ -65,15 +65,15 @@ class AdminOffices extends CI_Controller
         }
         $condition = null;
         $colleges = $this->Colleges->read($condition);
-		$data['colleges'] = $colleges;
+        $data['colleges'] = $colleges;
 
         $user = $this->session->userdata('username');
-    	$condition = array('username' => $user);
-    	$userdata = $this->User->read($condition);
-    	$data['userdata'] = $userdata;
+        $condition = array('username' => $user);
+        $userdata = $this->User->read($condition);
+        $data['userdata'] = $userdata;
 
         $data['title'] = "Document Tracking System - Dashboard";
-		$this->load->view('include/header',$data);  
+        $this->load->view('include/header',$data);  
         $this->load->view('profileAdmin');
         $this->load->view('newColleges'); 
     }
@@ -150,53 +150,53 @@ class AdminOffices extends CI_Controller
 
     public function addDepartment($collegeId)
     {
-		if($_SERVER['REQUEST_METHOD']=='POST')
+        if($_SERVER['REQUEST_METHOD']=='POST')
         {
             $department = $_POST['department'];
-			$idno = $_POST['deptId'];
+            $idno = $_POST['deptId'];
             $record = array('department'=>$department,
-            				'collegeId'=>$collegeId,
-            				'deptId'=>$idno);
+                            'collegeId'=>$collegeId,
+                            'deptId'=>$idno);
             $this->Dept->create($record);
         }
-		do{
+        do{
             $idno = rand(0,9).rand(0,9).rand(0,9);
             $condition = array('deptId'=>$idno);
             $rs = $this->Dept->read($condition);
         }while($rs);
-		$data['idno'] = $idno;
+        $data['idno'] = $idno;
         $condition = null;
         $departments = $this->Dept->read($condition);
-		$data['departments'] = $departments;
+        $data['departments'] = $departments;
 
-		$user = $this->session->userdata('username');
+        $user = $this->session->userdata('username');
         $condition = array('username' => $user);
-		$userdata = $this->User->read($condition);
-		$data['userdata'] = $userdata;
+        $userdata = $this->User->read($condition);
+        $data['userdata'] = $userdata;
 
         $condition = array('collegeId' => $collegeId);
         $colleges = $this->Colleges->read($condition);
         $data['colleges'] = $colleges;
 
         $data['title'] = "Document Tracking System - Dashboard";
-		$this->load->view('include/header',$data);
-		$this->load->view('profileAdmin');
+        $this->load->view('include/header',$data);
+        $this->load->view('profileAdmin');
         $this->load->view('newDepartment');
-	}
-		
-		
-	public function removeDepartment($department,$dept_idno)
+    }
+        
+        
+    public function removeDepartment($department,$dept_idno)
     {
-		$this->Dept->remove($department,$dept_idno);
-		redirect(base_url(). 'AdminOffices/manageColleges');
-	}
-	public function UpdateDepartment()
+        $this->Dept->remove($department,$dept_idno);
+        redirect(base_url(). 'AdminOffices/manageColleges');
+    }
+    public function UpdateDepartment()
     {
-		$department = $_POST['department'];
-		$collegeId = $_POST['collegeId'];
+        $department = $_POST['department'];
+        $collegeId = $_POST['collegeId'];
         $deptId = $_POST['deptId'];
-		$this->Dept->update($collegeId, $department,$deptId);
-		redirect(base_url(). 'AdminOffices/manageColleges');
-	}
+        $this->Dept->update($collegeId, $department,$deptId);
+        redirect(base_url(). 'AdminOffices/manageColleges');
+    }
 }
 ?>

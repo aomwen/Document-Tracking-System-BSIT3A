@@ -1,8 +1,12 @@
 <!--LOGIN FOOTER -->
 <style>
 	.login_footer{
+<<<<<<< HEAD
 		margin-top: 36px;
 		margin-bottom:14%;
+=======
+		margin-top: 30px;
+>>>>>>> master
 	}
 </style>
 <div class="login_footer container">

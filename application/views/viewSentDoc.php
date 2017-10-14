@@ -78,7 +78,7 @@
 	          <tbody>
 	          <?php
 	         foreach ($documents as $d){
-				if($d['author']==$_SESSION['username']&&$d['sentDelete']==FALSE){
+				if($d['sender']==$_SESSION['username']&&$d['sentDelete']==FALSE){
 			        if($d['seen']==FALSE){
 			        echo '
 			        <tr style="background-color: #f9f9f9;">';
@@ -89,7 +89,7 @@
 			        echo'
 			            <td><a href="'.base_url('DocumentSent/viewSentMess/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
 			            <td>'.$d['filename'].'</a></td>
-			            <td>'.$d['author'].'</td>
+			            <td>'.$d['sender'].'</td>
 			            <td>'.$d['datecreated'].'</td>
 			        </tr>';
 			        // <td><span class="glyphicon glyphicon-paperclip"></span></td>

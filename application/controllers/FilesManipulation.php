@@ -15,8 +15,8 @@ class FilesManipulation extends CI_Controller {
             redirect().'Dts/index';
         }
     }
-	
-	public function sendFile()
+    
+    public function sendFile()
     {       
             if(!isset($_SESSION['username']))
             {
@@ -32,10 +32,10 @@ class FilesManipulation extends CI_Controller {
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
 
-				$tracknumber= $_POST['trackcode'];
-				$author = $_POST['author'];
-				$receiver = $_POST['receiver'];
-				$file_desc = $_POST['file_desc'];
+                $tracknumber= $_POST['trackcode'];
+                $sender = $_POST['sender'];
+                $receiver = $_POST['receiver'];
+                $fileDesc = $_POST['fileDesc'];
                 if(isset($_SESSION['path']))
                 {
                     $filename = $_POST['filename'];
@@ -46,26 +46,26 @@ class FilesManipulation extends CI_Controller {
                 $this->upload->do_upload('userfile');
                 $filename = $_POST['filename'].$this->upload->data('file_ext');
                 $name= $this->upload->data('file_name');
-				$location = base_url().'uploads/'.$name.'';
-				}
-				$record = array('trackcode'=>$tracknumber,
-								'filename'=>$filename,
-								'file_desc'=>$file_desc,
-								'path'=>$location   ,
-								'author'=>$author, 
-								'receiver'=>$receiver,       
-								'status'=>'pending',);
-				$this->Files->create($record);
-				redirect(base_url().'DocumentSent/viewSent');
+                $location = base_url().'uploads/'.$name.'';
+                }
+                $record = array('trackcode'=>$tracknumber,
+                                'filename'=>$filename,
+                                'fileDesc'=>$fileDesc,
+                                'path'=>$location   ,
+                                'sender'=>$sender, 
+                                'receiver'=>$receiver,       
+                                'status'=>'pending',);
+                $this->Files->create($record);
+                redirect(base_url().'DocumentSent/viewSent');
             }
             do
             {
-				$tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
+                $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
                 $condition = array('trackcode'=>$tracknumber);
                 $rs = $this->Files->read($condition);
             }while($rs);
             $data['tracknumber'] = $tracknumber;
-			$user = $this->session->userdata('username');
+            $user = $this->session->userdata('username');
             $condition = array('username' => $user);
             $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
@@ -73,7 +73,7 @@ class FilesManipulation extends CI_Controller {
             $this->load->view('include/header',$data); 
             if($_SESSION['username'] == "admin")
             {    
-				$this->load->view('profileAdmin');
+                $this->load->view('profileAdmin');
             }else
             {
                 $this->load->view('profile');
@@ -156,7 +156,7 @@ class FilesManipulation extends CI_Controller {
         public function downloadFile($trackcode)
         {
             $condition = array('trackcode'=>$trackcode);
-			$documents2 = $this->Files->read1($condition);
+            $documents2 = $this->Files->read1($condition);
             foreach($documents2 as $d2)
             {
             $data = file_get_contents($d2['path']);

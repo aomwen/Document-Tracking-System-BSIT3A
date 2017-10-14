@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ManageAdmin extends CI_Controller {
 
-	public function __construct(){
-		parent::__construct();
+    public function __construct(){
+        parent::__construct();
         $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
-		$this->load->model('positionsModel','Positions');
+        $this->load->model('positionsModel','Positions');
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
         $this->load->model('registrarDocumentsModel','regDoc');
@@ -16,7 +16,7 @@ class ManageAdmin extends CI_Controller {
         {
             redirect().'Dts/index';
         }
-	}
+    }
 
     public function viewDocuments(){
         do{
@@ -28,7 +28,7 @@ class ManageAdmin extends CI_Controller {
         $documents_status = array();
         $condition = null;
         $documents_status = $this->regDoc->read($condition);
-		$data['documents_status'] = $documents_status;
+        $data['documents_status'] = $documents_status;
         $user = $this->session->userdata('username');
         //getting userdata
             $condition = array('username' => $user);
@@ -76,35 +76,35 @@ class ManageAdmin extends CI_Controller {
 
 
     
-	public function viewUsers()
+    public function viewUsers()
     {
 
-		$condition = null;
+        $condition = null;
         $condition = array('username' => $_SESSION['username']);
         $userdata = $this->User->read($condition);
-		$data['userdata'] = $userdata;
+        $data['userdata'] = $userdata;
 
         $condition = null;
         $userdata = $this->User->read($condition);
         $data['userList'] = $userdata;
 
-		$data['title'] = "Document Tracking System - Dashboard";
-		$this->load->view('include/header',$data);
-		$this->load->view('profileAdmin');
-		$this->load->view('ViewUsers');
-	}
+        $data['title'] = "Document Tracking System - Dashboard";
+        $this->load->view('include/header',$data);
+        $this->load->view('profileAdmin');
+        $this->load->view('ViewUsers');
+    }
 
-	public function addUser()
+    public function addUser()
     {
-		if($_SERVER['REQUEST_METHOD']=='POST')
+        if($_SERVER['REQUEST_METHOD']=='POST')
         {
-			do{
-				$idnum = rand(0,999);
-				$condition = array('idno'=>$idnum);
-				$rs = $this->regDoc->read($condition);
-			}while($rs);
-			$idno = $idnum;
-			$username = $_POST['username'];
+            do{
+                $idnum = rand(0,999);
+                $condition = array('idno'=>$idnum);
+                $rs = $this->regDoc->read($condition);
+            }while($rs);
+            $idno = $idnum;
+            $username = $_POST['username'];
             $password = $_POST['password'];
             $firstname  = $_POST['firstname'];
             $lastname  = $_POST['lastname'];
@@ -113,7 +113,7 @@ class ManageAdmin extends CI_Controller {
             $department  = $_POST['department'];
             $position  = $_POST['position'];
             $record = array('username' => $username,
-            				'password'=>$password,
+                            'password'=>$password,
                             'firstname'=>$firstname,
                             'lastname'=>$lastname,
                             'email'=>$email,
@@ -121,15 +121,15 @@ class ManageAdmin extends CI_Controller {
                             'department'=>$department,
                             'position'=>$position,);
             $this->User->create($record);
-	   }
-		$positions = array();
-		$condition = null;
-		$positions = $this->Positions->read($condition);
-		$data['positions']=$positions;
+       }
+        $positions = array();
+        $condition = null;
+        $positions = $this->Positions->read($condition);
+        $data['positions']=$positions;
 
-		$condition = null;
-		$departments = $this->Dept->read($condition);
-		$data['departments'] = $departments;
+        $condition = null;
+        $departments = $this->Dept->read($condition);
+        $data['departments'] = $departments;
         
         $condition = null;
         $colleges = $this->Colleges->read($condition);
@@ -141,31 +141,31 @@ class ManageAdmin extends CI_Controller {
         $data['userdata'] = $userdata;
 
         $data['title'] = "Document Tracking System - Dashboard";
-		$this->load->view('include/header',$data);
-		$this->load->view('profileAdmin');
+        $this->load->view('include/header',$data);
+        $this->load->view('profileAdmin');
         $this->load->view('newUser');
             
     }
-	public function editUser($username){
+    public function editUser($username){
             //getting colleges
             $condition = null;
             $colleges = $this->Colleges->read($condition);
-			$data['colleges'] = $colleges;
+            $data['colleges'] = $colleges;
             //end of getting colleges
             //getting departments
-			$condition = null;
-			$departments = $this->Dept->read($condition);
-			$data['departments'] = $departments;
+            $condition = null;
+            $departments = $this->Dept->read($condition);
+            $data['departments'] = $departments;
             //end of getting departments
             //getting positions
-			$condition = null;
-			$positions = $this->Positions->read($condition);
-			$data['positions'] = $positions;
+            $condition = null;
+            $positions = $this->Positions->read($condition);
+            $data['positions'] = $positions;
             //end of getting positions
-			$user = $username;
+            $user = $username;
             //getting userdata1
-			$condition = array('username' => $_SESSION['username']);
-			$userdata = $this->User->read($condition);
+            $condition = array('username' => $_SESSION['username']);
+            $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
             //end of getting userdata1
             //getting userdata
@@ -175,13 +175,13 @@ class ManageAdmin extends CI_Controller {
             $_SESSION['userList']=$username;
             //end of getting userdata
         $data['title'] = "Document Tracking System - Dashboard";
-		$this->load->view('include/header',$data);      
-		$this->load->view('profileAdmin');
-		$this->load->view('editUser');
-	}
-	public function updateUser(){
-		if($_SERVER['REQUEST_METHOD']=='POST'){
-				$username = $_POST['username'];
+        $this->load->view('include/header',$data);      
+        $this->load->view('profileAdmin');
+        $this->load->view('editUser');
+    }
+    public function updateUser(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+                $username = $_POST['username'];
                 $password = $_POST['password'];
                 $firstname  = $_POST['firstname'];
                 $lastname  = $_POST['lastname'];
@@ -189,9 +189,9 @@ class ManageAdmin extends CI_Controller {
                 $collegeId  = $_POST['collegeId'];
                 $department  = $_POST['department'];
                 $position  = $_POST['position'];
-				$condition = array('username' => $_SESSION['userList']);
+                $condition = array('username' => $_SESSION['userList']);
                 $record = array('username' => $username,
-            					'password'=>$password,
+                                'password'=>$password,
                                 'firstname'=>$firstname,
                                 'lastname'=>$lastname,
                                 'email'=>$email,
@@ -199,14 +199,14 @@ class ManageAdmin extends CI_Controller {
                                 'department'=>$department,
                                 'position'=>$position,);
                 $this->User->update($record,$condition);
-				redirect(base_url().'ManageAdmin/viewUsers');
-		}
-	}
+                redirect(base_url().'ManageAdmin/viewUsers');
+        }
+    }
 
-	public function removeUser($username){
-		$this->User->deleteUser($username);
-		redirect(base_url().'ManageAdmin/viewUsers');
-	}
+    public function removeUser($username){
+        $this->User->deleteUser($username);
+        redirect(base_url().'ManageAdmin/viewUsers');
+    }
 
     // MESSAGES TO ADMIN
     public function viewmsgtoAdmin()
