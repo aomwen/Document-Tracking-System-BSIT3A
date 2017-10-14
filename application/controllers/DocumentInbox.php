@@ -41,7 +41,7 @@ class DocumentInbox extends CI_Controller {
         date_default_timezone_set('Asia/Manila');
         $condition = Array('trackcode' => $trackcode);
         $data = array('seen' => TRUE,
-                    'date_received' => date('Y-m-d h:i:s'),
+                    'dateReceived' => date('Y-m-d h:i:s'),
                     'status' => 'received');
         $this->Files->Seen($data,$condition);
 
@@ -69,7 +69,7 @@ class DocumentInbox extends CI_Controller {
         
     }
 
-    public function removeInboxMessage($trackcode){
+    public function removeInboxMess($trackcode){
         $condition = Array('trackcode' => $trackcode);
         $data = array('inboxDelete' => TRUE);
         $this->Files->deleteToInbox($data,$condition);

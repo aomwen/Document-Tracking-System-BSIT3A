@@ -21,10 +21,10 @@
 					<br />
 					<br />
 					<h5 class="pull-left">Filename: <b>'.$d['filename'].'</b></h5>
-					<h5 class="pull-right">seen: '.$d['date_received'].'</h5>
+					<h5 class="pull-right">seen: '.$d['dateReceived'].'</h5>
 					<br />
 					<hr />
-					<h5 class="subject_inbox">'.$d['file_desc'].'</h5>
+					<h5 class="subject_inbox">'.$d['fileDesc'].'</h5>
 					<br />
 					<hr />
 				</div>
@@ -32,7 +32,7 @@
 					<div class="form-group row text-center">
 						<div class="col-sm-6">
 			            	<div class="col-sm-6 pull-left">
-			            		<a href="'.base_url('DocumentInbox/removeInboxMessage/'.$d['trackcode'].'').'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-trash"> Delete</span></a>
+			            		<a href="'.base_url('DocumentInbox/removeInboxMess/'.$d['trackcode'].'').'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-trash"> Delete</span></a>
 								<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-download-alt"> Download</span></a>
 			            	</div>
 			            </div>	
