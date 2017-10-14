@@ -2,6 +2,7 @@
 <style>
 	.login_footer{
 		margin-top: 180px;
+
 	}
 </style>
 <div class="login_footer container">

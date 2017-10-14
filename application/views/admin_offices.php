@@ -1,3 +1,5 @@
+<link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
+
 <div class="col-sm-9 pull-right">
 
 	<div class="panel panel-default">

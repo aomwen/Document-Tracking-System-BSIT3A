@@ -1,3 +1,5 @@
+<link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
+
 <div class="col-sm-9">
 	<div class="panel panel-default">
 		<div class="panel-heading text-center"><a href="<?php echo base_url('AdminOffices/manage_colleges')?>" class="btn btn-link pull-left" style="text-decoration: none; color: black;">

@@ -19,8 +19,8 @@ class homeFunction_model extends CI_Model {
 		return $query->result_array();		
 	}
 	
-	public function update($data){
-		$this->db->where($data);
+	public function update($idno,$data){
+		$this->db->where("idno",$idno);
 		$this->db->update($this->table, $data);
 		return TRUE;	
 	}

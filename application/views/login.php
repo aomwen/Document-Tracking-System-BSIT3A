@@ -5,6 +5,7 @@
 	<link href="<?php echo base_url('assets/css/loginsignupstyle.css'); ?>" rel="stylesheet" />
 </head>
 <body style="background: url(<?php echo base_url('assets/images/signup.jpeg');?>) no-repeat; background-size: cover;">
+
 	<div class="container" style="margin-top: 5%;">
 		<h3 class="text-center" style="margin-bottom: 3%;">Sign in to:</h3>
 		<h3 class="text-center" style="margin-bottom: 3%;">Document Tracking System</h3>
@@ -42,3 +43,4 @@
 	</div>
 </body>
 </html>
+

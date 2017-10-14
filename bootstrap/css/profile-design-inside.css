@@ -2,25 +2,28 @@
 	box-sizing:border-box;
 }
 body{
-	background:#fff;
+	background:#f0f3f3;
 }
 .navbar1{
 	background:linear-gradient(to bottom, #77c9d4 40%, #57bc90 100%);
-	padding:5px 0px;
+
 }
 .profile{
-	background-color:#1d1e20;	
+	background-color:#fff;	
 	width:21%;
-	height:100%;
-	left:0px;
-	top:52px;
+	height:87%;
+	left:2%;
+	top:10%;
 	position:fixed;
 	display:block;
+	/*border:1px solid black;*/
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
 }
 .profile-sidebar{
 	left:0px;
-	margin-top: 25px;
+	margin-top: 10px;
 	width:100%;
+	padding: 10px;
 }
 .profile-user-pic{
 	float:none;
@@ -28,7 +31,7 @@ body{
 	display:block;
 	width:120px;
 	height:120px;
-	border:1px solid #fff;
+	border:3px solid #eee;
 	border-radius:50%;
 }
 .profile-user-pic img{
@@ -37,34 +40,32 @@ body{
 }
 .profile-user-title{
 	text-align:center;
-	margin-top:20px;
-}
+	margin-top:15px;
+}/*
 .profile-user-name{
 	color:#f8d3d7;	
 	font-size:18px;
 	font-weight: 600;
 	margin-bottom:7px;
-}
+}*/
 .profile-user-position{
 	color:#f8d3d7;
 	font-size:14px;
 	font-weight:600;
 }
-/*.profile-user-button a{
+.profile-user-button a{
 	padding:10px;
-	margin-bottom: 15px;
 	font-size: 14px;
 	background-color: #015249;
 	color:#fff;
-	margin-top: 10px;
-}*/
-.profile-user-button{
-	margin-top: 8%;
-	margin-bottom: 8%;
+
 }
-.profile-user-button a{
+.profile-user-button{
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+/*.profile-user-button a{
 	font-family: 'Dosis', sans-serif;
-	width:100%;
 	height:50px;
 	letter-spacing: 0px;
 	background:linear-gradient(to bottom, #57bc90 0%, #77c9d4 60%);
@@ -73,10 +74,8 @@ body{
 	font-size:16px;
 	text-transform:uppercase;
 	font-weight:500;
-	border:0px;
-	padding: 10px;
 	display: inline;
-}
+}*/
 .profile-user-button a:hover{
 	background:#A5A5AF;
 	color: #222;
@@ -87,29 +86,31 @@ body{
 }
 .profile-user-menu ul li{
 	text-align:left;
-	margin-left: 10px;
 }	
 .profile-user-menu ul li a{
 	/*color:#93a3b5;*/
 	color:#015249;
-	font-size:14px;
-	font-weight:400;
+	font-weight:400px;
 }
 .profile-user-menu ul li a span:nth-child(1){
-	font-size: 20px;
-	color:#fff;
+	font-size: 18px;
+	color:#222;
 }
 .profile-user-menu ul li a span:nth-child(2){
 	font-size: 16px;
 	font-family:"Helvetica Neue",Helvetica,Arial;
-	color:#fff;
+	color:#222;
 	padding-left: 5px;
 }
 .profile-user-menu ul li a:hover{
 	/*	background: rgba(189,32,49,0.7);*/ 
 	background-color: #015249;
-	color:#5babd1;
+	color:#fff;
 }
+/*.profile-user-menu ul li a span:hover{
+	color:#fff;
+	background-color: #015249;
+}*/
 .profile-user-menu li{
 	border-bottom:solid thin #8c8c8c;
 }
