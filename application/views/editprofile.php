@@ -9,7 +9,7 @@
 				<div class="panel-body">
 					<div class="row">					
 						<div class="container-fluid" pull-left>
-				<?php echo form_open_multipart('Account/editprofile_save');?>
+				<?php echo form_open_multipart('Account/updateProfile');?>
      	
 							<?php foreach($userdata as $us){
 						echo '			
@@ -21,15 +21,21 @@
 							    	</div>					
 							    </div>	
 							    <div class="form-group">
-							    	<label class="control-label col-sm-4">Name:</label>
+							    	<label class="control-label col-sm-4">First Name:</label>
 							    	<div class="col-sm-8">
-							      		<input type="text" value="'.$us['full_name'].' "class="form-control" name="full_name">
+							      		<input type="text" value="'.$us['firstname'].' "class="form-control" name="first_name">
+							    	</div>					
+							    </div>	
+							    <div class="form-group">
+							    	<label class="control-label col-sm-4">Last Name:</label>
+							    	<div class="col-sm-8">
+							      		<input type="text" value="'.$us['lastname'].' "class="form-control" name="last_name">
 							    	</div>					
 							    </div>	
 							 	<div class="form-group">
 							    	<label class="control-label col-sm-4">Email Address:</label>
 							    	<div class="col-sm-8">
-							      		<input type="text" value="'.$us['email_address'].' "class="form-control" name="email_address">
+							      		<input type="text" value="'.$us['email'].' "class="form-control" name="email_address">
 							    	</div>					
 							    </div>	
 							 	<div class="form-group">
@@ -41,13 +47,13 @@
 							 	<div class="form-group">
 							    	<label class="control-label col-sm-4">Position:</label>
 							    	<div class="col-sm-8">
-							      		<input type="text" class="form-control" value="'.$us['position'].'" name="position">
+							      		<input type="text" class="form-control" value="'.$us['position'].'" name="position" readonly>
 							    	</div>					
 							    </div>
 							 	<div class="form-group">
 							    	<label class="control-label col-sm-4">College/Office:</label>
 							    	<div class="col-sm-8">
-							      		<input class="form-control" name="college_acronym"  value="'.$us['college_acronym'].'"readonly>
+							      		<input class="form-control" name="college_acronym"  value="'.$us['collegeId'].'"readonly>
 							    	</div>					
 							    </div>
 							    <div class="form-group">
