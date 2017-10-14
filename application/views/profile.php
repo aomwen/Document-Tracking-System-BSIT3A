@@ -88,9 +88,6 @@
     </div>
   </nav>
 </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
   <div class="container-fluid">
     <div class="row profile">
       <div class="profile-sidebar">
@@ -109,31 +106,6 @@
           <div class="profile-user-menu">
             <div class="profile-user-button">
               <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
-=======
->>>>>>> cabuang
-	<div class="container-fluid">
-		<div class="row profile">
-			<div class="profile-sidebar">
-				<div class="profile-user-pic">
-					<img src="<?php echo base_url('assets/images/pic.png');?>" alt="Profile Picture" class="img-responsive image-circle"/>
-				</div>
-				<div class="profile-user-title">
-					<?php
-					foreach($userdata as $us){
-					echo '
-					<div class="profile-user-name">'.$us['full_name'].'</div>
-					<div class="profile-user-position">'.$us['position'].' </div>
-					<div class="profile-user-position">'.$us['department'].' </div>
-					<div class="profile-user-position">'.$us['college_acronym'].' </div>';
-				}?>
-					<div class="profile-user-menu">
-						<div class="profile-user-button">
-							<a href="<?php echo base_url('FilesManipulation/do_upload'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a>	
-
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> cabuang
             </div>  
             <div class="profile-user-menu">
               <ul class="nav">

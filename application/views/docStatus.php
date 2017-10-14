@@ -9,14 +9,10 @@
 		    </ol>    
 		    <h3><span class="glyphicon glyphicon-signal"></span> Document Status</h3>       
 		</div>
-<<<<<<< HEAD:application/views/docStatus.php
 		<div class="panel-body">
 				<input type="text" id="myInputDocumentSearch" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
 				<a  class="btn" href="<?php base_url('DocumentStatus/viewDocuments')?>"><span class="glyphicon glyphicon-repeat"></span></button>
 		</div>			
-=======
-
->>>>>>> master:application/views/mydocuments.php
 		<div class="panel-body">
 			<div class="col-md-2">
 				<div class="panel panel-success">
@@ -67,14 +63,9 @@
 					<th>Sender</th>
 					<th>Receiver</th>
 					<th>Date Created</th>
-<<<<<<< HEAD:application/views/docStatus.php
 					<th>Date received </th>
 					<th>status</th>
 					<th>action</th>
-=======
-					<th>Status</th>
-					<th>Action</th>
->>>>>>> master:application/views/mydocuments.php
 				</tr>
 				<?php
 					foreach($documents as $d){
