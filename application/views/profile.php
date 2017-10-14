@@ -62,19 +62,23 @@
           <li class="dropdown user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url('assets/images/pic.png');?>" class="user-image" alt="User Image" />
-              <span class="hidden-xs">Username</span>
+              <span class="hidden-xs"><?php echo $_SESSION['username'];?></span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
-                <img src="<?php echo base_url('assets/images/pic.png');?>" class="img-circle" alt="User Image" />
-                <p>Username
-                  <small>POSITION</small>
-                </p>  
+                <?php
+                foreach($userdata as $us){             
+                  echo '<img src="'.$us['path'].'" class="img-circle" alt="User Image" />
+                <p>'.$_SESSION['username'].' 
+                  <small>'.$us['position'].'</small>
+                </p>';  
+                } 
+                ?>
               </li>
               <li class="user-body">
                 <div>
-                  <a href="<?php echo base_url('Account/myaccount_view'); ?>" class="btn btn-default pull-left">Account Setting</a>
-                  <a href="<?php echo base_url('Access/session_checkout'); ?>" class="btn btn-default pull-right">Sign Out</a>
+                  <a href="<?php echo base_url('Account/viewAccount'); ?>" class="btn btn-default pull-left">Account Setting</a>
+                  <a href="<?php echo base_url('Access/logOut'); ?>" class="btn btn-default pull-right">Sign Out</a>
                 </div>    
               </li>
             </ul>
@@ -84,6 +88,29 @@
     </div>
   </nav>
 </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  <div class="container-fluid">
+    <div class="row profile">
+      <div class="profile-sidebar">
+        <div class="profile-user-pic">
+          <?php
+          foreach($userdata as $us){
+          echo '
+          <img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive image-circle"/>
+        </div>
+        <div class="profile-user-title">
+          <div class="profile-user-name">'.$us['firstname'].' '.$us['lastname'].'</div>
+          <div class="profile-user-position">'.$us['position'].' </div>
+          <div class="profile-user-position">'.$us['department'].' </div>
+          <div class="profile-user-position">'.$us['collegeId'].' </div>';
+        }?>
+          <div class="profile-user-menu">
+            <div class="profile-user-button">
+              <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
+=======
+>>>>>>> cabuang
 	<div class="container-fluid">
 		<div class="row profile">
 			<div class="profile-sidebar">
@@ -103,15 +130,19 @@
 						<div class="profile-user-button">
 							<a href="<?php echo base_url('FilesManipulation/do_upload'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a>	
 
+<<<<<<< HEAD
+=======
+>>>>>>> master
+>>>>>>> cabuang
             </div>  
             <div class="profile-user-menu">
               <ul class="nav">
-                <li class="active"><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
-                <li ><a href="<?php echo base_url('DocumentInbox/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
-                <li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent </span></a></li>              
-                <li ><a href="<?php echo base_url('DocumentSent/mysentdocuments_view'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; Drafts </span></a></li>                              
+                <li class="active"><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
+                <li ><a href="<?php echo base_url('DocumentInbox/viewInbox'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
+                <li ><a href="<?php echo base_url('DocumentSent/viewSent'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent </span></a></li>              
+                <li ><a href="<?php echo base_url('DocumentDraft/viewDraft'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; Drafts </span></a></li>                              
                 <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>            
-                <li><a href="<?php echo base_url('Office/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
+                <li><a href="<?php echo base_url('Office/viewOffice');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
             </ul>
           </div>  
         </div>  

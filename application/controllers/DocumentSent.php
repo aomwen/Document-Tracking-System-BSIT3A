@@ -3,68 +3,70 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class DocumentSent extends CI_Controller {
-
-
-
     public function __construct(){
         parent::__construct();
-    //LOADING OF MODEL AND HELPERS
-        $this->load->helper(array('form', 'url'));
-        $this->load->model('files_model','Files');
-        $this->load->model('users_model','Users');
-        $this->load->model('adminsettings_model','Dept');
-        $this->load->model('registrardoc_model','Regdoc');
-        $this->load->model('homeFunction_model','msgtoAdmin');
-    //LOADING OF MODEL AND HELPERS 
-    }
+        $this->load->model('documentsModel','Files');
+        $this->load->model('usersModel','User');
+        if(!isset($_SESSION['username']))
+        {
+            redirect().'Dts/index';
+        }
+    }    
 
-    
-    public function mysentdocuments_view(){
-
-        $documents = array();
+    public function viewSent()
+    {
         $condition = null;
-        if($_SERVER['REQUEST_METHOD']=='POST'){
-             $condition = $_POST['search'];
-        }
-        $rs = $this->Files->sortdata($condition);
-        foreach($rs as $r){
-            $info = array(
-                        'trackcode' => $r['trackcode'],
-                        'filename' => $r['filename'],
-                        'author' => $r['author'],
-                        'receiver' => $r['receiver'],
-                        'datecreated' => $r['datecreated'],
-                        'status' => $r['status'],    
-                        'path'=>$r['path'],
-                        'file_desc' => $r['file_desc']            
-                        );
-            $documents[] = $info;
-        }
+        $documents = $this->Files->read($condition);
         $data['documents']=$documents;
         $data['title'] = "Document Tracking System - Dashboard";
+
         $user = $this->session->userdata('username');
-        $userdata = array();
         $condition = array('username' => $user);
-        $rs = $this->Users->read($condition);
-            foreach($rs as $r){
-                $info = array(
-                            'username' => $r['username'],
-                            'password' => $r['password'],
-                            'full_name' => $r['full_name'],
-                            'email_address' => $r['email_address'],
-                            'position' => $r['position'],    
-                            'department'=> $r['department'],
-                            'college_acronym' => $r['college_acronym'],           
-                            );
-                $userdata[] = $info;
-        }
+        $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
+        
         $this->load->view('include/header',$data);
-        if($_SESSION['username'] == "admin"){    
-            $this->load->view('profile_admin',$data);
-        }else{
-            $this->load->view('profile',$data);
+        if($_SESSION['username'] == "admin")
+        {    
+            $this->load->view('profileAdmin');
+        }else
+        {
+            $this->load->view('profile');
         }
-            $this->load->view('mysentdocuments_view');          
+            $this->load->view('viewSentDoc');          
     }
+
+    public function viewSentMess($trackcode)
+    {
+        $data['title'] = "Document Tracking System - Dashboard";
+
+        $user = $this->session->userdata('username');
+        $condition = array('username' => $user);
+        $userdata = $this->User->read($condition);
+        $data['userdata'] = $userdata;
+
+        $condition = array('trackcode' => $trackcode);
+        $documents = $this->Files->read($condition);
+        $data['documents']=$documents;
+        $data['userdata'] = $userdata;
+
+        $this->load->view('include/header',$data);  
+        if($_SESSION['username'] == "admin"){    
+            $this->load->view('profileAdmin');
+        }else{
+            $this->load->view('profile');
+        }
+        $this->load->view('viewSentMess');        
+    }
+
+    public function removeSentMess($trackcode){
+        $condition = Array('trackcode' => $trackcode);
+        $data = array('sentDelete' => TRUE);
+        $this->Files->deleteToSent($data,$condition);
+        echo '<script language="javascript">';
+        echo 'alert("Successfully removed")';
+        echo '</script>';
+        redirect(base_url('DocumentSent/viewSent'));
+    }
+
 }?>

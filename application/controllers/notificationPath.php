@@ -16,6 +16,10 @@ class NotificationPath extends CI_Controller {
         $this->load->model('adminsettings_model','Dept');
         $this->load->model('registrardoc_model','Regdoc');
         $this->load->model('notification_model','Notif');
+        if(!isset($_SESSION['username']))
+        {
+            redirect().'Dts/index';
+        }
     //LOADING OF MODEL AND HELPERS 
     }
 
@@ -62,7 +66,7 @@ class NotificationPath extends CI_Controller {
             $data['notifs']=$notifs;
         $this->load->view('include/header',$data);  
         if($_SESSION['username'] == "admin"){    
-            $this->load->view('profile_admin',$data);
+            $this->load->view('profileAdmin',$data);
         }else{
             $this->load->view('profile',$data);
         }
