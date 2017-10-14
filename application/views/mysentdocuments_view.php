@@ -1,8 +1,4 @@
 <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-<style>
-.gbuttons{
-</style>
-
 <div class="mysent col-md-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">

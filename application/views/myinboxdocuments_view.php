@@ -1,5 +1,6 @@
 <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 
+
 <div class="myinbox col-md-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">

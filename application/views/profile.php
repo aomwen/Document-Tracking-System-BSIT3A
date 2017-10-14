@@ -1,4 +1,4 @@
-<html>
+<html> 
 <head>
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
   <meta name="author" content="Team Bah" />
@@ -19,6 +19,7 @@
           <span class="icon-bar"></span>
         </button>   
 		    <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/>
+
         <!-- <a class="navbar-brand" href="#">Document Tracking System</a> -->
         <a class="navbar-brand" href="#myPage" style="font-family: Courgette; font-size:22px; color:#015249 !important;">Document Tracking System</a>
         <!-- <a class="navbar-brand" href="javascript:void(0)" data-target="#myNavbar"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a> -->
@@ -101,8 +102,9 @@
 					<div class="profile-user-menu">
 						<div class="profile-user-button">
 							<a href="<?php echo base_url('FilesManipulation/do_upload'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a>	
+
             </div>  
-						<div class="profile-user-menu">
+            <div class="profile-user-menu">
               <ul class="nav">
                 <li class="active"><a href="<?php echo base_url('DocumentStatus/mydocuments_view'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
                 <li ><a href="<?php echo base_url('DocumentInbox/myinbox_view'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
@@ -111,13 +113,13 @@
                 <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>            
                 <li><a href="<?php echo base_url('Office/Office_view');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
             </ul>
-					</div>	
-				</div>	
-			</div>				
-		</div>
-	</div>		
+          </div>  
+        </div>  
+      </div>        
+    </div>
+  </div>    
 <script>
-	$(document).ready(function(){
+  $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 

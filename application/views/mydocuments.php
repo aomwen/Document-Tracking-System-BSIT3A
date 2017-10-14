@@ -53,6 +53,7 @@
 		</div>          
 		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
+
 				<tr>
 					<th>Track #</th>
 					<th>File name</th>

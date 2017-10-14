@@ -1,6 +1,8 @@
+
 <link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
 
 <div class="regdoc col-md-9">
+
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
 		    <ol class="breadcrumb pull-right">
