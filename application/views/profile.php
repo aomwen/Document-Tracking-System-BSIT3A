@@ -18,7 +18,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>   
-        <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/>
+		    <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/>
+
         <!-- <a class="navbar-brand" href="#">Document Tracking System</a> -->
         <a class="navbar-brand" href="#myPage" style="font-family: Courgette; font-size:22px; color:#015249 !important;">Document Tracking System</a>
         <!-- <a class="navbar-brand" href="javascript:void(0)" data-target="#myNavbar"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a> -->
@@ -83,24 +84,25 @@
     </div>
   </nav>
 </div>
-  <div class="container-fluid">
-    <div class="row profile">
-      <div class="profile-sidebar">
-        <div class="profile-user-pic">
-          <img src="<?php echo base_url('assets/images/pic.png');?>" alt="Profile Picture" class="img-responsive image-circle"/>
-        </div>
-        <div class="profile-user-title">
-          <?php
-          foreach($userdata as $us){
-          echo '
-          <div class="profile-user-name">'.$us['full_name'].'</div>
-          <div class="profile-user-position">'.$us['position'].' </div>
-          <div class="profile-user-position">'.$us['department'].' </div>
-          <div class="profile-user-position">'.$us['college_acronym'].' </div>';
-        }?>
-          <div class="profile-user-menu">
-            <div class="profile-user-button">
-              <a href="<?php echo base_url('FilesManipulation/do_upload'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
+	<div class="container-fluid">
+		<div class="row profile">
+			<div class="profile-sidebar">
+				<div class="profile-user-pic">
+					<img src="<?php echo base_url('assets/images/pic.png');?>" alt="Profile Picture" class="img-responsive image-circle"/>
+				</div>
+				<div class="profile-user-title">
+					<?php
+					foreach($userdata as $us){
+					echo '
+					<div class="profile-user-name">'.$us['full_name'].'</div>
+					<div class="profile-user-position">'.$us['position'].' </div>
+					<div class="profile-user-position">'.$us['department'].' </div>
+					<div class="profile-user-position">'.$us['college_acronym'].' </div>';
+				}?>
+					<div class="profile-user-menu">
+						<div class="profile-user-button">
+							<a href="<?php echo base_url('FilesManipulation/do_upload'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a>	
+
             </div>  
             <div class="profile-user-menu">
               <ul class="nav">

@@ -1,6 +1,7 @@
 <!--LOGIN FOOTER -->
 <style>
 	.login_footer{
+
 		margin-top: 30px;
 	}
 </style>
