@@ -6,31 +6,26 @@
   <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('bootstrap/css/profile-design-inside.css'); ?>" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/secondnewdashboardstyle.css'); ?>">
 </head>
 <div class="container-default" id="box-wrapper">
   <!-- Navigation -->
-  <nav class="navbar1 navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Nav header -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>   
-		    <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/>
-
-        <!-- <a class="navbar-brand" href="#">Document Tracking System</a> -->
-        <a class="navbar-brand" href="#myPage" style="font-family: Courgette; font-size:22px; color:#015249 !important;">Document Tracking System</a>
-        <!-- <a class="navbar-brand" href="javascript:void(0)" data-target="#myNavbar"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a> -->
+        </button>
+        <!-- <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/> -->
+        <a class="navbar-brand" href="#myPage" style="font-family: Ebrima; font-size:22px;" data-toggle="tooltip" title="Document Tracking System">Document Tracking System</a>
       </div>
-      <div class="collapse navbar-collapse" id="mainNavBar">        
+      <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <!--Nav User Profile -->
-
           <li class="dropdown notif-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span id="bell" class="glyphicon glyphicon-bell"></span>
+              <span id="bell" class="glyphicon glyphicon-bell" style="color:#015249;"></span>
             </a>
             <ul class="dropdown-menu">
               <li class="notif-header"><p>Notifications</p></li>
@@ -62,7 +57,7 @@
           <li class="dropdown user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url('assets/images/pic.png');?>" class="user-image" alt="User Image" />
-              <span class="hidden-xs"><?php echo $_SESSION['username'];?></span>
+              <span class="hidden-xs" style="color:#015249;"><?php echo $_SESSION['username'];?></span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
@@ -84,7 +79,7 @@
             </ul>
           </li>
         </ul>
-      </div>  
+      </div>
     </div>
   </nav>
 </div>
