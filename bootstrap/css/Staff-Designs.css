@@ -77,3 +77,9 @@
 .editbtn{
 	margin-top: 20px;
 }
+.edit_link{
+	border-top: solid  #015249 1px;
+}
+.edit_link2{
+	border-bottom: solid  #015249 1px;
+}
