@@ -69,14 +69,14 @@
 				</tr>
 				<?php
 					foreach($documents as $d){
-						if($d['author']==$_SESSION['username']||$d['receiver']==$_SESSION['username']){
+						if($d['sender']==$_SESSION['username']||$d['receiver']==$_SESSION['username']){
 						echo '	<tr>	
 									<td>'.$d['trackcode'].'</td>
 									<td>'.$d['filename'].'</td>
-									<td>'.$d['author'].'</td>
+									<td>'.$d['sender'].'</td>
 									<td>'.$d['receiver'].'</td>
 									<td>'.$d['datecreated'].'</td>
-									<td>'.$d['date_received'].'</td>
+									<td>'.$d['dateReceived'].'</td>
 									<td>'.$d['status'].'</td>
 									<td>
 										<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'">Download</a>
