@@ -52,13 +52,12 @@ class Access extends CI_Controller {
             $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
             $data['title'] = "Document Tracking System - Dashboard";
+            $data['userdata'] = $userdata;
+                $this->load->view('include/header',$data);
             if($_SESSION['username'] == "admin"){
-                $data['userdata'] = $userdata;
-                $this->load->view('include/header',$data);      
+                      
                 $this->load->view('profileAdmin');
-            }else{
-                $data['userdata'] = $userdata;
-                $this->load->view('include/header',$data);      
+            }else{      
                 $this->load->view('profile');
             }
         }
