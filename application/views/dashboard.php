@@ -43,6 +43,32 @@
 		  });
 		})
 	</script>
+
+	<script type="text/javascript">
+		  function FilterFunction() {
+			  var input, filter, table, tr, td, i, x,flag, found;
+			  input = document.getElementById("myInputDocumentSearch");
+			  noresult = document.getElementById("resultContainer");
+			  filter = input.value.toUpperCase();
+			  table = document.getElementById("myTable");
+			  tr = table.getElementsByTagName("tr");
+			  found = 0;
+			  for (i = 0; i < tr.length; i++) {
+				    td = tr[i].getElementsByTagName("td")[0];
+				    if (td){
+				      if (td.innerHTML == filter) {
+				        tr[i].style.display = "";
+				        found++;
+				      }else{
+				        tr[i].style.display = "none";
+				      } 
+					}
+				}
+			if(found==0){
+				document.getElementById("resultContainer").innerHTML = "no record found";
+			}
+			  }
+	</script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -70,9 +96,9 @@
 		<h2>We will guide you in every single step</h2>
 		<!-- <a  href="<?php echo base_url('HomeFunction/gotoDocumentTrack')?>"><button class="btn-info btn-lg">Track Now!</button></a> -->
 		<div class="input-group">
-			<input type="text" class="form-control" size="50" placeholder="Track Code" required />
+			<input type="text" class="form-control" size="50" placeholder="Track Code" id="myInputDocumentSearch" required />
 				<div class="input-group-btn">
-					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modaltrack" title="Track"><span class="glyphicon glyphicon-search"></span></button>
+					<button type="button" class="btn btn-info" onclick="FilterFunction()" data-toggle="modal" data-target="#modaltrack" title="Track"><span class="glyphicon glyphicon-search"></span></button>
 				</div>
 		</div>
 	</div>
@@ -86,10 +112,9 @@
 	      		</div>
 	      		<div class="modal-body">
 	        		<div class="table-responsive">
-	        			<table class="table">
+	        			<table class="table" id="myTable">
 	        				<thead class="text-center">
 						      <tr>
-						        <th>ID No.</th>
 						        <th>Track Code</th>
 						        <th>File type</th>
 						        <th>Date Admitted</th>
@@ -98,16 +123,21 @@
 						      </tr>
 						    </thead>
 						    <tbody>
-						      <tr>
-						        <td>1</td>
-						        <td>461-100-99</td>
-						        <td>Trancsript of Record</td>
-						        <td>2017-09-30</td>
-						        <td>2017-09-30</td>
-						        <td>Complete</td>
-						      </tr>
+						      <?php
+						      	foreach($regDocuments as $rd){
+						      		echo'
+						      	<tr>
+						      		<td>'.$rd['regTrackcode'].'</td>
+						      		<td>'.$rd['docType'].'</td>
+						      		<td>'.$rd['dateAdmitted'].'</td>
+						      		<td>'.$rd['dateReleased'].'</td>
+						      		<td>'.$rd['status'].'
+						      	</tr>';
+						      	}
+						      ?>
 						    </tbody>
 	        			</table>
+	        			<p id="resultContainer" style="color:red; text-align:center;"> </p>
 	        		</div>
 	      		</div>
 	      		<div class="modal-footer">
