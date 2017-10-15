@@ -36,6 +36,29 @@ class documentsModel extends CI_Model {
             }
         return $documents;
 	}
+	public function countFlag($condition=null){
+		$this->db->select('*');
+		$this->db->from($this->table); 
+		if( isset($condition) ) $this->db->where($condition);
+		$query=$this->db->get();
+		$rs = $query->result_array();		
+		$inbox=0;
+		$sent=0;
+		$draft=0;
+		$Flag = array();
+		foreach($rs as $r){
+                 if($r['sender']==$_SESSION['username']&&$r['inboxDelete']!=TRUE)
+                 {
+                 	$inbox++;
+                 }else if ($r['receiver']==$_SESSION['username']&&$r['sentDelete']!=TRUE){
+                 	$sent++;
+                 }else if($r['sender']==$_SESSION['username']&&$r['draft']==TRUE&&$r['draftDelete']==FALSE){
+                 	$draft++;
+                 }
+            }
+        $Flag = array($inbox,$sent,$draft);
+        return $Flag;
+	}
 	
 	public function update($data){
 		$this->db->where($data);
