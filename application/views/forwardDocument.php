@@ -65,12 +65,12 @@
               <input type="text" class="form-control" placeholder="To:" name="receiver" /> 
             </div>
             <div class="col-sm-6">
-              <input type="text" class="form-control"  name="author" readonly value="'.$_SESSION['username'].'" />
+              <input type="text" class="form-control"  name="sender" readonly value="'.$_SESSION['username'].'" />
             </div>
           </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Subject" name="file_desc" />
+              <input type="text" class="form-control" placeholder="Subject" name="fileDesc" />
             </div>
             <div class="form-group">
               <label>Track #:</label>
