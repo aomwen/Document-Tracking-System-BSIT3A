@@ -3,15 +3,9 @@
 	<title>Document Tracking System Homepage</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
-	<link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
-	<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
-	<script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script> -->
-
 	<link rel="stylesheet" href="../../maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="../../ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="../../maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/secondnewdashboardstyle.css'); ?>">
 	<script>
 		$(document).ready(function(){
@@ -59,22 +53,67 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#myPage" style="font-family: Courgette; font-size:22px;">Document Tracking System</a>
+				<a class="navbar-brand" href="#myPage" style="font-family: Ebrima; font-size:22px;" data-toggle="tooltip" title="Document Tracking System">Document Tracking System</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#myPage">HOME</a></li>
-					<li><a href="#services">SERVICES</a></li>
-					<li><a href="#contact">CONTACT</a></li>
-					<li><a href="<?php echo base_url('Access/logIn');?>">LOG IN</a></li>
+					<li><a href="#myPage" data-toggle="tooltip" title="Home">HOME</a></li>
+					<li><a href="#services" data-toggle="tooltip" title="Services">SERVICES</a></li>
+					<li><a href="#contact" data-toggle="tooltip" title="Contact">CONTACT</a></li>
+					<li><a href="<?php echo base_url('Access/log_in');?>" data-toggle="tooltip" title="Log In">LOG IN</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<div class="jumbotron text-center" style="background-image: url('<?php echo base_url('assets/images/homepagebg.jpg'); ?>');  background-repeat: no-repeat; background-size: cover">
-		<h1 class="h1style">Let's track your document!</h1>
-		<h2 class="h2style">We will guide you in every single step</h2>
-		<a  href="<?php echo base_url('homeFunctions/registrarTrackDoc')?>"><button class="btn-info btn-lg">Track Now!</button></a>
+	<div class="jumbotron text-center" style="background-image: url('<?php echo base_url('assets/images/pexels-photo-3740161.jpg'); ?>');  background-repeat: no-repeat; background-size: cover">
+		<h1>Let's track your document!</h1>
+		<h2>We will guide you in every single step</h2>
+		<!-- <a  href="<?php echo base_url('HomeFunction/gotoDocumentTrack')?>"><button class="btn-info btn-lg">Track Now!</button></a> -->
+		<div class="input-group">
+			<input type="text" class="form-control" size="50" placeholder="Track Code" required />
+				<div class="input-group-btn">
+					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modaltrack" title="Track"><span class="glyphicon glyphicon-search"></span></button>
+				</div>
+		</div>
+	</div>
+	<!-- Modal for Track -->
+	<div id="modaltrack" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header"> 
+	        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        		<h2 class="modal-title">Track Code</h2>
+	      		</div>
+	      		<div class="modal-body">
+	        		<div class="table-responsive">
+	        			<table class="table">
+	        				<thead class="text-center">
+						      <tr>
+						        <th>ID No.</th>
+						        <th>Track Code</th>
+						        <th>File type</th>
+						        <th>Date Admitted</th>
+						        <th>Date Released</th>
+						        <th>Status</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <tr>
+						        <td>1</td>
+						        <td>461-100-99</td>
+						        <td>Trancsript of Record</td>
+						        <td>2017-09-30</td>
+						        <td>2017-09-30</td>
+						        <td>Complete</td>
+						      </tr>
+						    </tbody>
+	        			</table>
+	        		</div>
+	      		</div>
+	      		<div class="modal-footer">
+	      		</div>
+	    	</div>
+		</div>
 	</div>
 	<!-- Services -->
 	<div class="container-fluid" id="services">
@@ -84,37 +123,61 @@
 			<br>
 			<div class="row slideanim">
 				<div class="col-sm-4">
-					<img src="<?php echo base_url('assets/images/document-icon-1.png');?>" alt="Features" width="200px" height="200px" />
-					<h4 class="h4style">Powerful Features</h4>
-					<p class="pstyle">Automate time consuming task like going to the university just to acquire the documents needed with just a few clicks</p>
+					<div class="contact_block">
+						<div class="contact_block_icon" id="services_block">
+							<span class="text-center"><i class="glyphicon glyphicon-briefcase" style="left:0px"></i></span>
+						</div>
+						<h4 class="h4style">Powerful Features</h4>
+						<p class="pstyle">Automate time consuming task like going to the university just to acquire the documents needed with just a few clicks</p>
+					</div>
 				</div>
 				<div class="col-sm-4">
-					<img src="<?php echo base_url('assets/images/document-icon-2.png');?>" alt="New York" width="200px" height="200px"/>
-					<h4 class="h4style">Highly Secured</h4>
-					<p class="pstyle">This Websites provides a high level of documents encryption and role based access</p>
+					<div class="contact_block">
+						<div class="contact_block_icon" id="services_block">
+							<span class="text-center"><i class="glyphicon glyphicon-lock" style="left:3px"></i></span>
+						</div>
+						<h4 class="h4style">Highly Secured</h4>
+						<p class="pstyle">This Websites provides a high level of documents encryption and role based access</p>
+					</div>
 				</div>
 				<div class="col-sm-4">
-					<img src="<?php echo base_url('assets/images/document-icon-3.png');?>" alt="San Francisco" width="200px" height="200px">
-					<h4 class="h4style">User-friendly</h4>
-					<p class="pstyle">TUP Document Tracking System makes things easy and convenient for the users</p>
+					<div class="contact_block">
+						<div class="contact_block_icon" id="services_block">
+							<span class="text-center"><i class="glyphicon glyphicon-heart"></i></span>
+						</div>
+						<h4 class="h4style">User-friendly</h4>
+						<p class="pstyle">TUP Document Tracking System makes things easy and convenient for the users</p>
+					</div>
 				</div>
 			</div>
 			<br /><br />
 			<div class="row slideanim">
 				<div class="col-sm-4">
-					<img src="<?php echo base_url('assets/images/document-icon-4.png');?>" alt="" height="200px" width="200px"/>
-					<h4 class="h4style">Record Management</h4>
-					<p class="pstyle">Allows user to track, view and transfer documents to any offices/departments within the University.</p>
+					<div class="contact_block">
+						<div class="contact_block_icon" id="services_block">
+							<span class="text-center"><i class="glyphicon glyphicon-book"></i></span>
+						</div>
+						<h4 class="h4style">Record Management</h4>
+						<p class="pstyle">Allows user to track, view and transfer documents to any offices/departments within the University.</p>
+					</div>
 				</div>
 				<div class="col-sm-4">
-					<img src="<?php echo base_url('assets/images/document-icon-5.png');?>" alt="" height="200px" width="200px"/>
-					<h4 class="h4style">Document review and control</h4>
-					<p class="pstyle">Enjoy complete visibility into document review process and get control over documents.</p>
+					<div class="contact_block">
+						<div class="contact_block_icon" id="services_block">
+							<span class="text-center"><i class="glyphicon glyphicon-folder-open"></i></span>
+						</div>
+						<h4 class="h4style">Document review and control</h4>
+						<p class="pstyle">Enjoy complete visibility into document review process and get control over documents.</p>
+					</div>
 				</div>
 				<div class="col-sm-4">
-					<img src="<?php echo base_url('assets/images/document-icon-6.png');?>" alt="" height="200px" width="200px"/>
-					<h4 class="h4style">Convenient Access</h4>
-					<p class="pstyle">Gain convenient access to documents of any type and of any offices/departments.</p>
+					<div class="contact_block">
+						<div class="contact_block_icon" id="services_block">
+							<span class="text-center"><i class="glyphicon glyphicon-pencil"></i></span>
+						</div>
+						<h4 class="h4style">Convenient Access</h4>
+						<p class="pstyle">Gain convenient access to documents of any type and of any offices/departments.</p>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -126,7 +189,7 @@
 				<div class="contact_section">
 					<h2 class="h2style">Contact</h2>
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
 							<div class="contact_block">
 								<div class="contact_block_icon">
 									<span>
@@ -137,7 +200,7 @@
 								</br> Ermita, Manila, Philippines</span>	
 							</div>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
 							<div class="contact_block">
 								<div class="contact_block_icon icon2">
 									<span>
@@ -148,7 +211,7 @@
 								</span>
 							</div>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
 							<div class="contact_block">
 								<div class="contact_block_icon icon3">
 									<span>
@@ -166,13 +229,13 @@
 					<div class="col-sm-6">
 						<div class="contact-info-box address clearfix">
 							<h3 class="h3style">Need something? Drop a comment!</h3>
-							<p class="pstyle">Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper. Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper.</p>
+							<p class="pstyle">We are here to provide you with more information, answer any question you may have and create an effective solution for your instructional needs.</p>
             				<p class="pstyle">Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquampor id.</p>
 						</div>
 					</div>
 					<div class="col-sm-6">
-						<form class="form" method="POST" action="<?php echo base_url('homeFunctions/contactUs');?>">
-							<input class="input-text" type="text" name="sender" placeholder="Name">
+						<form class="form" method="POST" action="<?php echo base_url('HomeFunction/msgtoAdmin');?>">
+							<input class="input-text" type="text" name="author" placeholder="Name">
 							<input class="input-text" type="text" name="email" placeholder="Yourname@gmail.com">
 							<textarea class="input-text text-area" name="content" cols="0" rows="0" placeholder="Comment"></textarea>
 							<input class="input-btn" type="submit" value="Send">
