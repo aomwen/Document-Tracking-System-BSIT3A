@@ -1,50 +1,5 @@
- <style>
-.breadcrumb{
-  margin-top:10px;
-}
-.adddocu{
-  margin-top: 75px;
-  margin-left: 20%;
-  width:79%;
-  height:100%;
-}
-#head{
-  border-bottom:solid #015249;
-}
-.panel-heading h3{
-  color:#015249;
-}
-.panel-heading ol li a span{
-  color:#015249;
-}
-.panel-footer button{
-  font-family: sans-serif;
-  width:175px;
-  height:50px;
-  letter-spacing: 1px;
-  background:#015249;
-  color:#ffffff;
-  text-transform:uppercase;
-  border:0px;
-}
-.panel-footer button:hover{
-  background:#A5A5AF;
-  color:#222;
-}
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-}
+<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 
-#myBar {
-    width: 0%;
-    height: 30px;
-    background-color: #4CAF50;
-    text-align: center; /* To center it horizontally (if you want) */
-    line-height: 30px; /* To center it vertically */
-    color: white; 
-}
-</style>
 <div class="adddocu col-sm-9">
   <div class="panel panel-default">
     <div class="panel-heading" id="head">

@@ -83,6 +83,40 @@
 .edit_link2{
 	border-bottom: solid  #015249 1px;
 }
+/*forwardDocument*/
+.panel-heading h3{
+  color:#015249;
+}
+.panel-heading ol li a span{
+  color:#015249;
+}
+.panel-footer button{
+  font-family: sans-serif;
+  width:175px;
+  height:50px;
+  letter-spacing: 1px;
+  background:#015249;
+  color:#ffffff;
+  text-transform:uppercase;
+  border:0px;
+}
+.panel-footer button:hover{
+  background:#A5A5AF;
+  color:#222;
+}
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px; /* To center it vertically */
+    color: white; 
+}
 @media screen and (min-width:100px){
 	.buttonto{
 		display:inline;
