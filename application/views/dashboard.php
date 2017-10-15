@@ -260,7 +260,7 @@
 						<div class="contact-info-box address clearfix">
 							<h3 class="h3style">Need something? Drop a comment!</h3>
 							<p class="pstyle">We are here to provide you with more information, answer any question you may have and create an effective solution for your instructional needs.</p>
-            				<p class="pstyle">Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquampor id.</p>
+            				<p class="pstyle">Please use the contact form beside to get in touch with us.<br/>Thanks!</p>
 						</div>
 					</div>
 					<div class="col-sm-6">
