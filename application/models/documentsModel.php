@@ -47,12 +47,14 @@ class documentsModel extends CI_Model {
 		$draft=0;
 		$Flag = array();
 		foreach($rs as $r){
-                 if($r['sender']==$_SESSION['username']&&$r['inboxDelete']!=TRUE)
+                 if($r['receiver']==$_SESSION['username']&&$r['inboxDelete']!=TRUE)
                  {
                  	$inbox++;
-                 }else if ($r['receiver']==$_SESSION['username']&&$r['sentDelete']!=TRUE){
+                 }
+                 if($r['sender']==$_SESSION['username']&&$r['sentDelete']!=TRUE){
                  	$sent++;
-                 }else if($r['sender']==$_SESSION['username']&&$r['draft']==TRUE&&$r['draftDelete']==FALSE){
+                 }
+                 if($r['sender']==$_SESSION['username']&&$r['draft']==TRUE&&$r['draftDelete']==FALSE){
                  	$draft++;
                  }
             }

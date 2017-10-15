@@ -1,4 +1,3 @@
-=======
 <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 <div class="adddocu col-sm-9">
   <div class="panel panel-default">
@@ -42,7 +41,7 @@
             </div>
              </div>
            <div class="panel-footer">
-            <button type="reset" class="btn btn-primary"> <span class="glyphicon glyphicon-repeat">&nbsp;Save</span></button>
+            <button type="reset" class="btn btn-primary"> <span class="glyphicon glyphicon-floppy-save">&nbsp;Save</span></button>
             <button type="reset" class="btn btn-primary"> <span class="glyphicon glyphicon-repeat">&nbsp;Reset</span></button>
             <button type="submit" class="btn btn-primary" onClick="move()"> <span class="glyphicon glyphicon-envelope">&nbsp;Send</span></button>
         </form>
