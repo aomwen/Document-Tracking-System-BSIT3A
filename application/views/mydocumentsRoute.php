@@ -5,9 +5,9 @@
 		<div class="panel-heading" id="head">
 		    <ol class="breadcrumb pull-right">
 		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-		      <li class="active">Document Status</li>
+		      <li class="active">Document Route</li>
 		    </ol>    
-		    <h3><span class="glyphicon glyphicon-signal"></span> Document Status</h3>       
+		    <h3><span class="glyphicon glyphicon-signal"></span> Document Route</h3>       
 		</div>
 		<div class="panel-body">
 				<input type="text" id="myInputDocumentSearch" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
@@ -70,7 +70,7 @@
 				<?php
 					foreach($documents as $d){
 						if($d['sender']==$_SESSION['username']||$d['receiver']==$_SESSION['username']){
-						echo '	<tr class="clickable-row">	
+						echo '	<tr>	
 									<td>'.$d['trackcode'].'</td>
 									<td>'.$d['filename'].'</td>
 									<td>'.$d['sender'].'</td>
@@ -90,11 +90,6 @@
 		</div>
 	</div>	
 </div>
-<script>
-$(".clickable-row").click(function(){
-	window.location = "<?php echo base_url('DocumentStatus/mydocumentsRoute'); ?>";	
-});
-</script>
 <script>
 function FilterFunction() {
   var input, filter, table, tr, td, i, x,flag;

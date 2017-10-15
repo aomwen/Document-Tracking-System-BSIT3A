@@ -36,5 +36,28 @@ class DocumentStatus extends CI_Controller {
         }
         $this->load->view('docStatus');           
     }
+    public function mydocumentsRoute()
+    {
+        $data['title'] = "Document Tracking System - Dashboard";
+ 
+        $user = $this->session->userdata('username');
+        $condition = array('username' => $user);
+        $userdata = $this->User->read($condition);
+        $data['userdata'] = $userdata;
+ 
+        $condition = array();
+        $documents = $this->Files->read($condition);
+        $data['documents'] = $documents;
+ 
+        $this->load->view('include/header',$data); 
+        if($_SESSION['username'] == "admin")
+        {    
+            $this->load->view('profileAdmin',$data);
+        }else
+        {
+          $this->load->view('profile',$data);
+        }
+        $this->load->view('mydocumentsRoute');           
+    }    
 }
 ?>
