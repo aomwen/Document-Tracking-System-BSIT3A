@@ -25,7 +25,9 @@ class DocumentStatus extends CI_Controller {
         $condition = array();
         $documents = $this->Files->read($condition);
         $data['documents'] = $documents;
- 
+        $condition = null; 
+        $Flag = $this->Files->countFlag($condition);
+        $data['Flag'] = $Flag;
         $this->load->view('include/header',$data); 
         if($_SESSION['username'] == "admin")
         {    

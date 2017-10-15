@@ -15,35 +15,45 @@
 				<a  class="btn" href="<?php base_url('DocumentStatus/mydocuments_view')?>"><span class="glyphicon glyphicon-repeat"></span></a>
 			</form>	
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<a href="product.php" style="text-decoration:none;color:black;">
+						<?php 
+						echo '
+						<a href="'.base_url('DocumentInbox/viewInbox').'" style="text-decoration:none;color:black;">
 							<span class="glyphicon glyphicon-inbox"></span>
 							&nbsp; Inbox
-							<span class="badge pull pull-right">9</span>	
-						</a>
+							<span class="badge pull pull-right">'.$Flag[0].'</span>	
+						</a>';
+						?>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<a href="orders.php?o=manord" style="text-decoration:none;color:black;">
+						<?php
+						echo '
+						<a href="'.base_url('DocumentSent/viewSent').'" style="text-decoration:none;color:black;">
 							<span class="glyphicon glyphicon-folder-open"></span>
 							&nbsp; Sent
-							<span class="badge pull pull-right">5</span>
-						</a>	
+							<span class="badge pull pull-right">'.$Flag[1].'</span>
+						</a>';
+					?>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<div class="panel panel-danger">
 					<div class="panel-heading">
-						<a href="product.php" style="text-decoration:none;color:black;">
+						<?php
+						echo '
+						<a href="'.base_url('DocumentDraft/viewDraft').'" style="text-decoration:none;color:black;">
 							<span class="glyphicon glyphicon-file"></span>
 							&nbsp; Draft
-							<span class="badge pull pull-right">2</span>	
-						</a>		
+							<span class="badge pull pull-right">'.$Flag[2].'</span>	
+						</a>';
+						?>		
 					</div>
 				</div>
 			</div>
