@@ -24,7 +24,7 @@
 			</div>
 			<div class="form-group">
 			<label>College Logo </label>
-			<input type="file" name="college_logopath" />
+			<input type="file" name="collegeLogo" />
 			</div>
 			<input type="submit" value="Add" class="btn btn-info" />
 			<input type="reset" value="reset" class="btn btn-info" />

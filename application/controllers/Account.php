@@ -7,13 +7,13 @@ class Account extends CI_Controller {
         parent::__construct();
         $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
+        if(!isset($_SESSION['username'])){
+                     redirect().'Dts/index';
+        }
     }
 
     public function viewAccount()
     {
-        if(!isset($_SESSION['username'])){
-                     redirect().'Dts/index';
-        }
         $data['title'] = "Document Tracking System - Dashboard";
         $user = $this->session->userdata('username');
         $condition = array('username' => $user);
