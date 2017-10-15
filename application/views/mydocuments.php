@@ -66,7 +66,7 @@
 				<?php
 					foreach($documents as $d){
 						if($d['author']==$_SESSION['username'] || $d['receiver']==$_SESSION['username']){
-						echo '	<tr>	
+						echo '	<tr class="clickable-row">	
 									<td>'.$d['trackcode'].'</td>
 									<td>'.$d['filename'].'</td>
 									<td>'.$d['author'].'</td>
@@ -85,6 +85,11 @@
 		</div>
 	</div>	
 </div>
+<script>
+$(".clickable-row").click(function(){
+	window.location = "<?php echo base_url('DocumentStatus/mydocumentsRoute'); ?>";	
+});
+</script>
 <script>
 function myFunction() {
   // Declare variables 
