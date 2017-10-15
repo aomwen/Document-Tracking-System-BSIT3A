@@ -10,11 +10,11 @@
 		    <h3><span class="glyphicon glyphicon-signal"></span> Document Status</h3>       
 		</div>
 		<div class="panel-body">
+			<form class="pull-right searchbar">
 				<input type="text" id="myInputDocumentSearch" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
-				<a  class="btn" href="<?php base_url('DocumentStatus/viewDocuments')?>"><span class="glyphicon glyphicon-repeat"></span></button>
-		</div>			
-		<div class="panel-body">
-			<div class="col-md-2">
+				<a  class="btn" href="<?php base_url('DocumentStatus/mydocuments_view')?>"><span class="glyphicon glyphicon-repeat"></span></a>
+			</form>	
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<a href="product.php" style="text-decoration:none;color:black;">
@@ -25,7 +25,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<a href="orders.php?o=manord" style="text-decoration:none;color:black;">
@@ -36,7 +36,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<div class="panel panel-danger">
 					<div class="panel-heading">
 						<a href="product.php" style="text-decoration:none;color:black;">
@@ -47,13 +47,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<form class="pull-right searchbar" method="POST" action="<?php echo base_url('DocumentInbox/myinbox_view')?>">
-					<input type="text" placeholder=" e.g. 592-***-**" name="search" class="search"/>
-					<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
-				</form>
-			</div>	
-		</div>          
+		</div> 			         
 		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
 
