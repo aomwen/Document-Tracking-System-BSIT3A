@@ -84,36 +84,38 @@
   </nav>
 </div>
   <div class="container-fluid">
-    <div class="row profile">
-      <div class="profile-sidebar">
-        <div class="profile-user-pic">
-          <?php
-          foreach($userdata as $us){
-          echo '
-          <img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive image-circle"/>
-        </div>
-        <div class="profile-user-title">
-          <div class="profile-user-name">'.$us['firstname'].' '.$us['lastname'].'</div>
-          <div class="profile-user-position">'.$us['position'].' </div>
-          <div class="profile-user-position">'.$us['department'].' </div>
-          <div class="profile-user-position">'.$us['collegeId'].' </div>';
-        }?>
-          <div class="profile-user-menu">
-            <div class="profile-user-button">
-              <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
-            </div>  
+    <div class="row">
+      <div class="col-md-3 profile">
+        <div class="profile-sidebar">
+          <div class="profile-user-pic">
+            <?php
+            foreach($userdata as $us){
+            echo '
+            <img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive image-circle"/>
+          </div>
+          <div class="profile-user-title">
+            <div class="profile-user-name">'.$us['firstname'].' '.$us['lastname'].'</div>
+            <div class="profile-user-position">'.$us['position'].' </div>
+            <div class="profile-user-position">'.$us['department'].' </div>
+            <div class="profile-user-position">'.$us['collegeId'].' </div>';
+          }?>
             <div class="profile-user-menu">
-              <ul class="nav">
-                <li class="active"><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; Document Status </span></a></li>
-                <li ><a href="<?php echo base_url('DocumentInbox/viewInbox'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; Inbox </span></a></li>
-                <li ><a href="<?php echo base_url('DocumentSent/viewSent'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; Sent </span></a></li>              
-                <li ><a href="<?php echo base_url('DocumentDraft/viewDraft'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; Drafts </span></a></li>                              
-                <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; Guide </span></a></li>            
-                <li><a href="<?php echo base_url('Office/viewOffice');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; Offices </span></a></li>
-            </ul>
+              <div class="profile-user-button">
+                <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="Sbtn btn-block" role="button"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
+              </div>  
+              <div class="profile-user-menu">
+                <ul class="nav">
+                  <li class="active"><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; &nbsp; Document Status </span></a></li>
+                  <li ><a href="<?php echo base_url('DocumentInbox/viewInbox'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; &nbsp; Inbox </span></a></li>
+                  <li ><a href="<?php echo base_url('DocumentSent/viewSent'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; &nbsp; Sent </span></a></li>              
+                  <li ><a href="<?php echo base_url('DocumentDraft/viewDraft'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; &nbsp; Drafts </span></a></li>                              
+                  <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; &nbsp; Guide </span></a></li> 
+                  <li><a href="<?php echo base_url('Office/viewOffice');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; &nbsp; Offices </span></a></li>
+              </ul>
+            </div>  
           </div>  
-        </div>  
-      </div>        
+        </div>        
+      </div>  
     </div>
   </div>    
 <script>
