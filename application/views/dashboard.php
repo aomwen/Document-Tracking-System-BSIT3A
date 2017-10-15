@@ -60,7 +60,7 @@
 					<li><a href="#myPage" data-toggle="tooltip" title="Home">HOME</a></li>
 					<li><a href="#services" data-toggle="tooltip" title="Services">SERVICES</a></li>
 					<li><a href="#contact" data-toggle="tooltip" title="Contact">CONTACT</a></li>
-					<li><a href="<?php echo base_url('Access/log_in');?>" data-toggle="tooltip" title="Log In">LOG IN</a></li>
+					<li><a href="<?php echo base_url('Access/logIn');?>" data-toggle="tooltip" title="Log In">LOG IN</a></li>
 				</ul>
 			</div>
 		</div>
