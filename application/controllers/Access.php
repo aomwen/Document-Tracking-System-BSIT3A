@@ -55,9 +55,10 @@ class Access extends CI_Controller {
             $data['userdata'] = $userdata;
                 $this->load->view('include/header',$data);
             if($_SESSION['username'] == "admin"){
-                      
+                $this->load->view('include/header',$data);      
                 $this->load->view('profileAdmin');
             }else{      
+                $this->load->view('include/header',$data);
                 $this->load->view('profile');
             }
         }

@@ -29,9 +29,11 @@ class DocumentDraft extends CI_Controller {
         $data['documents']=$documents;
         
         $this->load->view('include/header',$data);  
-        if($_SESSION['username'] == "admin"){    
+        if($_SESSION['username'] == "admin"){
+            $this->load->view('include/header',$data);    
             $this->load->view('profileAdmin',$data);
         }else{
+            $this->load->view('include/header',$data);
             $this->load->view('profile',$data);
         }
         $this->load->view('viewDraftDoc',$data);
@@ -58,9 +60,11 @@ class DocumentDraft extends CI_Controller {
         $data['documents']=$documents;
 
         $this->load->view('include/header',$data);  
-        if($_SESSION['username'] == "admin"){    
+        if($_SESSION['username'] == "admin"){
+            $this->load->view('include/header',$data);    
             $this->load->view('profileAdmin');
         }else{
+            $this->load->view('include/header',$data);
             $this->load->view('profile');
         }
         $this->load->view('viewDraftMess');
