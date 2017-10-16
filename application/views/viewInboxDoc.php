@@ -1,5 +1,6 @@
-<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-
+<head>
+	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+</head>
 <div class="row">
 	<div class="myinbox col-md-9">
 		<div class="panel panel-default">
@@ -18,7 +19,7 @@
 		        <table id="myTable" class="table table-hover table-striped">
 		        	<thead>
 		        		<th>Tracknumber</th>
-		        		<th>Filaname</th>
+		        		<th>Filename</th>
 		        		<th>Sender</th>
 		        		<th>Date Received</th>
 		        	</thead>
