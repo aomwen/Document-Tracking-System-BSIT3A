@@ -1,4 +1,6 @@
-<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+<head>
+  <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+</head>
 <div class="adddocu col-sm-9">
   <div class="panel panel-default">
     <div class="panel-heading" id="head">
@@ -31,7 +33,7 @@
               <input type="text" class="form-control" placeholder="Filename" name="filename" />
             </div>
             <div class="form-group">
-              <label>attach?</label>
+              <label>Attach?</label>
               <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="userfile" />
             </div>
             <div class="form-group">
