@@ -2,21 +2,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Account extends CI_Controller {
-
+    public $user='';
     public function __construct(){
         parent::__construct();
         $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
         if(!isset($_SESSION['username'])){
                      redirect().'Dts/index';
+        }else{
+            $this->user = $this->session->userdata('username');
         }
     }
 
     public function viewAccount()
     {
         $data['title'] = "Document Tracking System - Dashboard";
-        $user = $this->session->userdata('username');
-        $condition = array('username' => $user);
+        $condition = array('username' => $this->user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
         $this->load->view('include/header',$data); 
@@ -33,8 +34,7 @@ class Account extends CI_Controller {
     public function editProfile()
     {
         $data['title'] = "Document Tracking System - Dashboard";
-        $user = $this->session->userdata('username');
-        $condition = array('username'=>$user);
+        $condition = array('username'=>$this->user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
         $this->load->view('include/header',$data); 
@@ -49,58 +49,91 @@ class Account extends CI_Controller {
         $this->load->view('editprofile'); 
     }
 
-    public function updateProfile(){
+    public function updateInformation(){
 
-        $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/uploads/";
-        $config['allowed_types'] = 'gif|png|jpg|jpeg';
-        $config['max_size']     = 200000;
-        $config['overwrite'] = TRUE;
-        $config['remove_spaces'] = TRUE;    
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
-        $username = $_POST['Username'];
-        $password = $_POST['Password'];
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
-        $email_address = $_POST['email_address'];
+        $email = $_POST['email'];
         $position = $_POST['position'];
-        $college = $_POST['college_acronym'];
+        $college = $_POST['collegeId'];
         $department = $_POST['department'];
-        
-        if($this->upload->do_upload('path'))
-        {
-            $name= $this->upload->data('file_name');
-            $location = base_url().'uploads/'.$name.'';
+            $condition = array('username'=>$this->user);
             $record = array(
-                        'username'=>$username,
                         'firstname'=>$first_name,
                         'lastname' =>$last_name,
-                        'email'=>$email_address,
-                        'password'=>$password,
-                        'path' => $location,);
-        }else
-        {
-            $record = array(
-                        'username'=>$username,
-                        'firstname'=>$first_name,
-                        'lastname' =>$last_name,
-                        'email'=>$email_address,
-                        'password'=>$password);
+                        'position' =>$position,
+                        'email'=>$email,
+                       
+            );
+     
+        if($this->User->update($condition,$record))
+        {     $this->resetUserInfo();
+        }else{
+            echo '<script type="text/javascript"> alert("Error occur during updating Information!"); 
+                        </script>';
         }
-        if($this->User->update($record))
-        {
-                session_unset('username');
-                $session_data = array('username' => $username);
-                $this->session->set_userdata($session_data);
-                $success = "Account successfully created!";
-                $data['success']=$success;
-                redirect(base_url().'Account/viewAccount');
-            }else{
-                $error = "Error!!!";
-                $data['error']=$error;
-                redirect(base_url().'Account/editProfile');
-            }
+    }
+    public function updateProfileImage(){
+        if( $_SERVER['REQUEST_METHOD']=='POST'){ 
+                
+                $img_path='';
+                if(isset($_FILES["newprofile"]["name"])){
+                    $config['upload_path'] = './uploads/user/';
+                    $config['allowed_types'] = 'jpg|jpeg|png';
+                    $this->load->library('upload',$config);
+                    if(!$this->upload->do_upload('newprofile')){
+                        echo $this->upload->display_error();
+                    }else{
+                        $data = $this->upload->data();
+                        echo '<img class="img-responsive" style="width:200px"  src="'.base_url().'uploads/user/'.$data["file_name"].'" />';
+                        $img_path=base_url().'uploads/user/'.$data["file_name"];
+                        $condition = array('username'=>$this->user);
+                        $picture = array(
+                                        'path'=>$img_path,
+                                    );
+                        
+                        $success = $this->User->update($condition,$picture);
+                        echo '<script type="text/javascript"> alert("User Profile Image has been Successfully Change!"); 
+                        </script>'; 
+                        $this->resetUserInfo();  
+                    }
+                }       
         }
+
+    }
+    public function resetUserInfo(){
+        session_unset('username');
+        $session_data = array('username' => $this->user);
+        $this->session->set_userdata($session_data);
+
+        //return true;
+    }
+    public function changePassword(){
+        if( $_SERVER['REQUEST_METHOD']=='POST'){ 
+                
+                $validate = array(
+                array('field'=>'newpassword', 'label'=>'newpassword', 'rules'=>'required|min_length[5]'),
+                array('field'=>'confirmpassword', 'label'=>'confirmpassword', 'rules'=>'required|min_length[5]'),
+                ); //end validate array
+            
+            $this->form_validation->set_rules($validate);
+            if ($this->form_validation->run() === FALSE)
+            {
+
+            }       
+            else
+            {   $condition = array('username'=> $this->user);
+                $pass_record = array('password'=>$_POST['newpassword'] );  
+                $success = $this->User->update($condition,$pass_record);
+               /* echo '<script type="text/javascript"> alert("Password has been Changed!"); 
+                    </script>';*/
+                $this->resetUserInfo();
+
+            }           
+            
+        }
+
+    }
     
 }
 ?>
