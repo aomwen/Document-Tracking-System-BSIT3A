@@ -6,12 +6,11 @@
   <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('bootstrap/css/profile-design-inside.css'); ?>" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/secondnewdashboardstyle.css'); ?>">
 </head>
 <div class="container-default" id="box-wrapper">
   <!-- Navigation -->
   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
@@ -24,7 +23,7 @@
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown notif-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border:solid red;">
               <span id="bell" class="glyphicon glyphicon-bell" style="color:#015249;"></span>
             </a>
             <ul class="dropdown-menu">
@@ -55,7 +54,7 @@
             </ul>
           </li>
           <li class="dropdown user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border:solid red;">
               <img src="<?php echo base_url('assets/images/pic.png');?>" class="user-image" alt="User Image" />
               <span class="hidden-xs" style="color:#015249;"><?php echo $_SESSION['username'];?></span>
             </a>

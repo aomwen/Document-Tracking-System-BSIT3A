@@ -4,10 +4,33 @@
 body{
 	background:#fff;
 }
-.navbar1{
+.navbar{
+	margin-bottom:0;
+	background: #f5f5f5;
+	z-index: 9999;
+	border:0;
+	font-size: 16px !important;
+	line-height: 1.43 !important;
+	letter-spacing: 1px;
+	border-radius: 0;
+	font-family: sans-serif;
+	font-weight: 500;
+}
+.navbar li a, .navbar .navbar-brand{
+	color:#015249 !important;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a{
+	color:#fff !important;
+	background: #77c9d4 !important;
+}
+.navbar-default .navbar-toggle{
+	border-color: transparent;
+	color:#fff !important;
+}
+/*.navbar1{
 	background:linear-gradient(to bottom, #77c9d4 40%, #57bc90 100%);
 	padding:5px 0px;
-}
+}*/
 .profile{
 	background-color:#1d1e20;	
 	width:100%;
@@ -109,16 +132,6 @@ body{
 	background: #fff;
 	min-height:460px;
 }
-/*Navbar*/
-/*.navbar{
-	background-color: #a9a9a9;
-}*/
-/*.navbar-brand{
-	color:#ffffff;
-}*/
-/*.navbar-header{
-	color:#ffffff;
-}*/
 /*Navbar Profile*/
 .user-image{
 	width:25px;
@@ -144,7 +157,6 @@ body{
 .user-header p{
 	font-size: 17px;
 	color:#015249;
-	/*color:rgba(255,255,255,0.8);*/
 	margin-top: 10px;
 }
 .user-menu span{
@@ -170,7 +182,7 @@ body{
 }
 /*Navbar Notification*/
 .notif-menu{
-	padding-top: 4px;
+	/*padding-top: 4px;*/
 }
 .notif-header{
 	width:270px;
