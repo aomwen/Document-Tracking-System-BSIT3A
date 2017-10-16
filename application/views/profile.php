@@ -1,10 +1,5 @@
 <html> 
 <head>
-  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-  <meta name="author" content="Team Bah" />
-  <meta name="description" content="The description of website" />
-  <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
-  <link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('bootstrap/css/profile-design-inside.css'); ?>" rel="stylesheet" />
 </head>
 <div class="container-default" id="box-wrapper">
@@ -20,7 +15,7 @@
         <!-- <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/> -->
         <a class="navbar-brand" href="#myPage" style="font-family: Ebrima; font-size:22px;" data-toggle="tooltip" title="Document Tracking System">Document Tracking System</a>
       </div>
-      <div class="collapse navbar-collapse" id="mainNavbar">
+      <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown notif-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border:solid red;">
@@ -108,7 +103,7 @@
                   <li ><a href="<?php echo base_url('DocumentInbox/viewInbox'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; &nbsp; Inbox </span></a></li>
                   <li ><a href="<?php echo base_url('DocumentSent/viewSent'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; &nbsp; Sent </span></a></li>              
                   <li ><a href="<?php echo base_url('DocumentDraft/viewDraft'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; &nbsp; Drafts </span></a></li>                              
-                  <li><a href="#"><span class="glyphicon glyphicon-book"></span><span>&nbsp; &nbsp; Guide </span></a></li> 
+                  <li><a href="<?php echo base_url('Guide/guide'); ?>"><span class="glyphicon glyphicon-book"></span><span>&nbsp; &nbsp; Guide </span></a></li> 
                   <li><a href="<?php echo base_url('Office/viewOffice');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; &nbsp; Offices </span></a></li>
               </ul>
             </div>  

@@ -1,40 +1,31 @@
 <html>
 <head>
-  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-  <meta name="author" content="Team Bah" />
-  <meta name="description" content="The description of website" />
-  <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
-  <link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('bootstrap/css/profile-design-inside.css'); ?>" rel="stylesheet" />
 </head>
 <div class="container-default" id="box-wrapper">
   <!-- Navigation -->
-  <nav class="navbar1 navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-      <!-- Nav header -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>   
-        <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/>        
-        <!-- <a class="navbar-brand" href="#">Document Tracking System</a> -->
-        <a class="navbar-brand" href="#myPage" style="font-family: Courgette; font-size:22px; color:#015249 !important;">Document Tracking System</a>
-        <!-- <a class="navbar-brand" href="javascript:void(0)" data-target="#myNavbar"><img src="<?php echo base_url('assets/images/logoname2.png'); ?>" alt="Document Tracking System"></a> -->
+        <!-- <img class="pull-left" src="<?php echo base_url('assets/images/doctrack_logo.png');?>" id="logo"/> -->        
+        <a class="navbar-brand" href="#myPage" style="font-family: Ebrima; font-size:22px;" data-toggle="tooltip" title="Document Tracking System">Document Tracking System</a>
       </div>
-      <div class="collapse navbar-collapse" id="mainNavBar">        
+      <div class="collapse navbar-collapse" id="myNavBar">        
         <ul class="nav navbar-nav navbar-right">
-          <!--Nav User Profile -->
           <li class="dropdown notif-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span id="bell" class="glyphicon glyphicon-bell"></span>
+              <span id="bell" class="glyphicon glyphicon-bell" style="color:#015249;"></span>
             </a>
             <ul class="dropdown-menu">
               <li class="notif-header"><p>Notifications</p></li>
               <li class="notif-body">
                 <ul class="notifs">
-                 <?php
+                  <?php
                   if(isset($notifs)){
                     foreach($notifs as $notif){
                       if($notif['seenFlag']==FALSE){
