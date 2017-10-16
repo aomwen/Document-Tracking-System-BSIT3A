@@ -35,10 +35,10 @@ class usersModel extends CI_Model {
         }
         return $userdata;
 	}
-	
-	public function update($record,$condition)
-	{
-		$this->db->update($this->table, $record,$condition);
+	public function update($condition,$data){
+		$this->db->where($condition);
+		$this->db->update($this->table, $data);
+		
 		return TRUE;	
 	}
 	

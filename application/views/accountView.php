@@ -167,3 +167,127 @@
           </div>
         <?php ;}?>
           <!--MODAL END-->
+
+
+
+<!--NEW IMAGE-->
+<script>
+
+  $('#newprofile_form').on('submit',function(e){
+    e.preventDefault();
+    if($('#newprofile').val() == ''){
+
+      alert("Please Select a File");
+    }else{
+     
+      $.ajax({
+        url:"<?php echo base_url(); ?>account/updateProfileImage/", 
+        method:"POST",
+        data:new FormData(this),
+        contentType:false,
+        cache:false,
+        processData:false,
+        success:function(data){
+          $('#photo_profile').html(data);
+        }
+
+      });
+     
+    }
+  });
+
+</script>
+
+
+
+<!--CHANGE PASSWORD-->
+<script>
+
+  $('#newpassword_form').on('submit',function(e){
+    e.preventDefault();
+    if(($('#newpassword').val() != '') && ($('#confirmpassword').val() !='') && ($('#oldpassword').val() !='')){
+      if(($('#newpassword').val() == $('#confirmpassword').val())&&($('#oldpassword').val() == "<?php foreach ($userdata as $us) {
+      	echo $us['password'];
+      };?>")){
+    
+        var npass=$('#newpassword').val();
+        var cpass=$('#confirmpassword').val();
+        if((npass.length>5) && (cpass.length>5)){
+            $.ajax({
+              url:"<?php echo base_url(); ?>account/changePassword/", 
+              method:"POST",
+              data:new FormData(this),
+              contentType:false,
+              cache:false,
+              processData:false,
+              success:function(data){
+                alert("Password has been Changed!");
+              }
+            });
+
+        }else{
+           alert("Password Length must be greater than to 5 characters.");
+        }
+      }else{
+       
+        alert("Password Mismatch!");
+       
+      }
+
+    }else{
+      alert("Password are required field!");
+    }
+    
+  });
+
+</script>
+
+
+
+<!--EDIT INFORMATION-->
+  <script >
+$(document).ready(function() {
+   $('#save_edit').on('submit',function(e){
+   		e.preventDefault();
+        var email = $('#email_input').val();
+        if ($.trim(email).length == 0 || $.trim($('#first_name').val()).length == 0 || $.trim($('#last_name').val()).length == 0 || $.trim($('#position').val()).length == 0) {
+            alert('Please fill in all the fields.');
+            
+        }
+        if (validateEmail(email)) {
+            $.ajax({
+		        url:"<?php echo base_url(); ?>account/updateInformation", 
+		        method:"POST",
+		        data:new FormData(this),
+		        contentType:false,
+		        cache:false,
+		        processData:false,
+		        success:function(data){
+		          alert("Information has been successfully Changed!");
+		          location.href = "<?php echo base_url(); ?>account/viewAccount";
+		        }
+
+		      });
+        }
+        else {
+        	if($.trim(email).length != 0){
+            	alert('Invalid Email Address');
+        	}
+         }
+
+    });
+   function validateEmail(email) {
+	    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	    if (filter.test(email)) {
+	        return true;
+	    }
+	    else {
+	        return false;
+	    }
+	}
+
+
+});
+
+	
+</script>
