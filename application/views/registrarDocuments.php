@@ -48,6 +48,7 @@
 				</thead>
 				<tbody>
 				<?php
+					$thereis=false;
 					foreach($documents_status as $d){
 						echo '	<tr>	
 									<td>'.$d['regTrackcode'].'</td>
@@ -59,6 +60,10 @@
 
 								</tr>
 								';
+						$thereis=true;
+					}
+					if($thereis==false){
+						echo '<tr><td colspan="9" class="text-danger" align="center">No document at the moment...</td></tr>';
 					}
 				?>
 

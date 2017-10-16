@@ -11,6 +11,7 @@
 		</div>
 		<div class="panel-body"> 
 			<?php
+				$thereis=false;
 				foreach($colleges as $col){
 					echo'
 					<div class="thumbnail text-center col-sm-3" style="background-color:lightgray; border-width: 2px;  height:25%; padding:10px;">
@@ -21,7 +22,11 @@
 					'.$col['collegeDesc'].'<br />
 					</div></a>
 				</div>';
+					$thereis=true;
 				}
+				if($thereis==false){
+						echo '<h4 class="text-danger">No college registered...</h4>';
+					}
 			?>
 		</div>	
 	</div>	

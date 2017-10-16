@@ -86,6 +86,7 @@
 				</thead>
 				<tbody>
 				<?php
+					$thereis=false;
 					foreach($userList as $us){
 						echo '
 							<tr>
@@ -100,5 +101,9 @@
 								<td><a href="'.base_url('ManageAdmin/editUser/'.$us['username']).'" class="btn btn-info btn-sm">Edit</a>
 								<a href="'.base_url('ManageAdmin/removeUser/'.$us['username']).'" class="btn btn-info btn-sm">Remove</a></td>
 								';
+						$thereis=true;
+					}
+					if($thereis==false){
+						echo '<tr><td colspan="9">No user registered...</td></tr>';
 					}
 				?>
