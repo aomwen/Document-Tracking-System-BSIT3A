@@ -8,7 +8,7 @@ class documentsModel extends CI_Model {
 		$this->db->insert($this->table, $data);
 		return TRUE;	
 	}
-	
+
 	public function read($condition=null){
 		$this->db->select('*');
 		$this->db->from($this->table); 
@@ -54,7 +54,10 @@ class documentsModel extends CI_Model {
                  if($r['sender']==$_SESSION['username']&&$r['sentDelete']!=TRUE){
                  	$sent++;
                  }
-                 if($r['sender']==$_SESSION['username']&&$r['draft']==TRUE&&$r['draftDelete']==FALSE){
+                 /*if($r['sender']==$_SESSION['username']&&$r['draft']==TRUE&&$r['draftDelete']==FALSE){
+                 	$draft++;
+                 }*/
+                 if($r['sender']==$_SESSION['username']&&$r['draft']==TRUE){
                  	$draft++;
                  }
             }

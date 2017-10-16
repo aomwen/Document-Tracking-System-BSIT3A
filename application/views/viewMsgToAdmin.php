@@ -114,6 +114,7 @@
 					<th>action</th>
 				</tr>
 				<?php
+					$thereis=false;
 					foreach($messages as $mess){
 						if($mess['seen']==FALSE){
 						echo '
@@ -129,7 +130,13 @@
 									<a href="'.base_url('ManageAdmin/seenMsgToAdmin/'.$mess['idno'].'/'.$mess['seen']).'"> Preview </a>|<a href="'.base_url('manageAdmin/removemsgtoAdmin/'.$mess['idno']).'"> Delete </a>|<a href="'.base_url('manageAdmin/bookmarkmsgtoAdmin/'.$mess['idno']).'">Bookmark </a>
 								</td>
 							</tr>
+
 							';
+							$thereis=true;
+						}
+
+						if($thereis==false){
+							echo '<tr><td colspan="4" class="text-danger" align="center">No message received...</td></tr>';
 						}
 					
 				?>

@@ -124,6 +124,7 @@
 						    </thead>
 						    <tbody>
 						      <?php
+						      	$thereis=false;
 						      	foreach($regDocuments as $rd){
 						      		echo'
 						      	<tr>
@@ -133,7 +134,11 @@
 						      		<td>'.$rd['dateReleased'].'</td>
 						      		<td>'.$rd['status'].'
 						      	</tr>';
+						      		$thereis=true;
 						      	}
+						      	if($thereis==false){
+									echo '<tr><td colspan="5" class="text-danger" align="center">No document registered...</td></tr>';
+								}
 						      ?>
 						    </tbody>
 	        			</table>

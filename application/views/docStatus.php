@@ -73,6 +73,7 @@
 					<th>action</th>
 				</tr>
 				<?php
+					$thereis=false;
 					foreach($documents as $d){
 						if($d['sender']==$_SESSION['username']||$d['receiver']==$_SESSION['username']){
 						echo '	<tr class="clickable-row">	
@@ -88,7 +89,11 @@
 									</td>
 								</tr>
 							';
+							$thereis=true;
 						}
+					}
+					if($thereis==false){
+						echo '<tr><td colspan="8" class="text-danger" align="center">No document registered...</td></tr>';
 					}
 				?>
 			</table>

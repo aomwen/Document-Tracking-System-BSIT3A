@@ -82,19 +82,34 @@
 	        	</thead>
 	          <tbody>
 	          <?php
-	         foreach ($documents as $d){
-				if($d['receiver']==$_SESSION['username']&&$d['draft']==True){
-			        echo '
-			        <tr>
-			            <td><a href="'.base_url('DocumentDraft/viewDraftMess/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
-			            <td>'.$d['filename'].'</a></td>
-			            <td>'.$d['author'].'</td>
-			            <td>'.$d['datecreated'].'</td>
-			        </tr>';
-			        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
-			            
-			    	}
-			    }
+	          if($documents!=null){
+	          	$thereis=false;
+		         foreach ($documents as $d){
+					if($d['receiver']==$_SESSION['username']&&$d['draft']==True){
+				        echo '
+				        <tr>
+				            <td><a href="'.base_url('DocumentDraft/viewDraftMess/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
+				            <td>'.$d['filename'].'</a></td>
+				            <td>'.$d['author'].'</td>
+				            <td>'.$d['datecreated'].'</td>
+				        </tr>';
+				        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
+				      $thereis=true;      
+				    }
+				  }
+				  	if($thereis==false){
+				    	echo '
+				        <tr>
+				            <td colspan="4" class="text-danger" align="center"> No document draft for this moment...</td>
+				        </tr>';
+				    }	          	
+				}else{
+					echo '
+				        <tr>
+				            <td colspan="4" class="text-danger" align="center"> No document draft for this moment...</td>
+				        </tr>';
+				}
+
 	          ?> 
 	          </tbody>
 	        </table>

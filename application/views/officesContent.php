@@ -9,6 +9,7 @@
 			<div class="panel-group" id="accordion">
 				<div class="panel panel-default">
 					<?php
+					$thereis=false;
 					foreach($departments as $d){
 						$dept = str_ireplace(' ','-',$d['department']);
 						echo'
@@ -30,6 +31,10 @@
 								</div>
 						</div>';
 						}
+						$thereis=true;
+					}
+					if($thereis==false){
+						echo '<h4 class="text-danger">No department registered...</h4>';
 					}
 					?>
 				</div>

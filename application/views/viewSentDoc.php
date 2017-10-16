@@ -79,6 +79,7 @@
 	        	</thead>
 	          <tbody>
 	          <?php
+	          $thereis=false;
 	         foreach ($documents as $d){
 				if($d['sender']==$_SESSION['username']&&$d['sentDelete']==FALSE){
 			        if($d['seen']==FALSE){
@@ -95,9 +96,12 @@
 			            <td>'.$d['datecreated'].'</td>
 			        </tr>';
 			        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
-			            
+			            $thereis=true;
 			    	}
 			    }
+			    if($thereis==false){
+						echo '<tr><td colspan="4" class="text-danger" align="center">No document sent...</td></tr>';
+					}
 	          ?> 
 	          </tbody>
 	        </table>

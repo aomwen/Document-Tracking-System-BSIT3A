@@ -85,7 +85,7 @@ class Account extends CI_Controller {
                         echo $this->upload->display_error();
                     }else{
                         $data = $this->upload->data();
-                        echo '<img class="img-responsive" style="width:200px"  src="'.base_url().'uploads/user/'.$data["file_name"].'" />';
+                        echo '<img class="img-responsive img-thumbnail"   src="'.base_url().'uploads/user/'.$data["file_name"].'" />';
                         $img_path=base_url().'uploads/user/'.$data["file_name"];
                         $condition = array('username'=>$this->user);
                         $picture = array(

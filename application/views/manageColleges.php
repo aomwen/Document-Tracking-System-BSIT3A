@@ -6,6 +6,7 @@
 	<span class="glyphicon glyphicon-plus-sign"></span>&nbspAdd </a></div>
 	<div class="panel-body">
 		<?php
+			$thereis=false;
 			foreach($colleges as $col){
 				echo'
 				<div class="thumbnail text-center col-sm-3" style="background-color:lightgray; border-width: 2px;  height:25%; padding:10px;">
@@ -16,10 +17,30 @@
 							'.$col['collegefull'].'<br />'.$col['collegeDesc'].'
 						</div>
 					</a>
-					<a href="'.base_url('AdminOffices/updateCollege/'.$col['collegeId']).'"><span class="glyphicon glyphicon-edit"></span></a>
-					<a href="'.base_url('AdminOffices/removeCollege/'.$col['collegeId']).'"><span class="glyphicon glyphicon-remove-sign" style="color: black"></span></a>
+					<a href="'.base_url('AdminOffices/updateCollege/'.$col['collegeId']).'"><span class="glyphicon glyphicon-edit"></span></a>'; ?>
+					<a href="#" onClick="deleteProduct('<?php echo $col['collegeId'];?>')" ><span class="glyphicon glyphicon-remove-sign" style="color: black"></span></a>
+			<?php echo '
 				</div>';
+				$thereis=true;
 			}
+			if($thereis==false){
+						echo '<h4 class="text-danger">No college registered...</h4>';
+					}
 		?>
 	</div>
 </div>
+<!--base_url('AdminOffices/removeCollege/'.$col['collegeId'])-->
+ <script type="text/javascript">
+      function deleteProduct(id){
+       // console.log(id);
+        var ans = confirm("Do you want to delete this college?");
+       // alert(id);
+        if(ans==true){
+          //redirect to delete method
+          var url="<?php echo base_url('AdminOffices/removeCollege/');?>"+id;
+          location.href = url;
+          alert("The college has been successfully deleted!");
+        }
+      }
+     
+ </script>

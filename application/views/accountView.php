@@ -16,7 +16,7 @@
 					<div class="col-md-3">
 						<div class="well">
 						<div id="photo_profile">
-						<img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive img-thumbnail" id="profilepic" width="200px"/>
+						<img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive img-thumbnail" id="profilepic"/>
 						</div>
 						<br />
 						<br />
