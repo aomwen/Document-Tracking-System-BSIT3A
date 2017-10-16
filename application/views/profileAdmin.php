@@ -80,13 +80,14 @@
     <div class="row">
       <div class="col-md-3 profile">    
         <div class="profile-sidebar ">
-          <div class="profile-user-pic">
-            <img src="<?php echo base_url('assets/images/pic.png');?>" alt="Profile Picture" class="img-responsive image-circle"/>
-          </div>
-          <div class="profile-user-title">
+          
             <?php
             foreach($userdata as $us){
             echo '
+            <div class="profile-user-pic">
+            <img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive image-circle"/>
+          </div>
+          <div class="profile-user-title">
             <div class="profile-user-name">'.$us['firstname'].' '.$us['lastname'].'</div>
             <div class="profile-user-position">'.$us['position'].' </div>
             <div class="profile-user-position">'.$us['department'].' </div>

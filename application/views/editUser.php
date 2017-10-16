@@ -71,7 +71,7 @@
 		<h3><span class="glyphicon glyphicon-inbox"></span> Edit User</h3>
 		</div>
 		<div class="panel-body">
-			<div class="col-sm-8" style="margin: auto;">
+			<div class="col-sm-7 " style="margin: auto;">
 			
 			<?php 
 			foreach($userList as $u){ 
@@ -82,8 +82,8 @@
 						<input type="text" name="username" placeholder="e.g. Admin" class="form-control" value="'.$u['username'].'"/>
 					</div>
 					<div class="form-group">
-						<label>Password:<label>
-						<input type="password" name="password" class="form-control" />
+						<label>Password:</label>
+						<input type="password" name="password" class="form-control" value="'.$u['password'].'"/>
 					</div>
 					<div class="form-group">
 						<label>First Name:</label>

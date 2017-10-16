@@ -108,6 +108,8 @@
 						echo '<tr><td colspan="9">No user registered...</td></tr>';
 					}
 				?>
+				</tbody>
+			</table>
 
 
 	<script type="text/javascript">
