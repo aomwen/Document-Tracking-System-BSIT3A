@@ -1,59 +1,61 @@
 <!--My Documents --> 
-<style>
-.breadcrumb{
-  margin-top:10px;
-}
+<head>
+	<style>
+		.breadcrumb{
+		  margin-top:10px;
+		}
 
-.mysent{
-	margin-top: 75px;
-  	margin-left: 20%;
-	width:79%;
-	height:100%;
-}
-#head{
-  border-bottom:solid #015249;
-}
-.panel-heading h3{
-  color:#015249;
-}
-.panel-heading ol li a span{
-  color:#015249;
-}
-.panel-body form input{
-	padding:15px 16px;
-	border:1px solid #ccc;
-	border-radius:4px;
-	font-size:15px;
-	color:#aaa;
-	font-family: 'Lato', sans-serif;
-}
-.panel-body form button{
-	background:#015249;
-	color:#fff;
-	width:40px;
-}
-.panel-body form button:hover{
-	background:#A5A5AF;
-	color:#222;
-}
-.searchbar{
-	display:inline-flex;
-	height: 35px;
-}
-.search{
-	width:400px;
-	margin-left: 15px;
-}
-#collapse a{
-	text-decoration: none;
-}
-.inboxto{
-	border-bottom: 1px solid #dadada;
-}
-.inboxto a{
-	text-decoration:none; 
-}
-</style>
+		.mysent{
+			margin-top: 75px;
+		  	margin-left: 20%;
+			width:79%;
+			height:100%;
+		}
+		#head{
+		  border-bottom:solid #015249;
+		}
+		.panel-heading h3{
+		  color:#015249;
+		}
+		.panel-heading ol li a span{
+		  color:#015249;
+		}
+		.panel-body form input{
+			padding:15px 16px;
+			border:1px solid #ccc;
+			border-radius:4px;
+			font-size:15px;
+			color:#aaa;
+			font-family: 'Lato', sans-serif;
+		}
+		.panel-body form button{
+			background:#015249;
+			color:#fff;
+			width:40px;
+		}
+		.panel-body form button:hover{
+			background:#A5A5AF;
+			color:#222;
+		}
+		.searchbar{
+			display:inline-flex;
+			height: 35px;
+		}
+		.search{
+			width:400px;
+			margin-left: 15px;
+		}
+		#collapse a{
+			text-decoration: none;
+		}
+		.inboxto{
+			border-bottom: 1px solid #dadada;
+		}
+		.inboxto a{
+			text-decoration:none; 
+		}
+	</style>
+</head>
 <div class="mysent col-md-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
@@ -71,7 +73,7 @@
 	        <table id="myTable" class="table table-hover table-striped">
 	        	<thead>
 	        		<th>Tracknumber</th>
-	        		<th>Filaname</th>
+	        		<th>Filename</th>
 	        		<th>Receiver</th>
 	        		<th>Date Received</th>
 	        	</thead>
