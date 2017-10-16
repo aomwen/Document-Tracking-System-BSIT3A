@@ -18,7 +18,7 @@
 						</div>
 					</a>
 					<a href="'.base_url('AdminOffices/updateCollege/'.$col['collegeId']).'"><span class="glyphicon glyphicon-edit"></span></a>'; ?>
-					<a href="#" onClick="deleteProduct('<?php echo $col['collegeId'];?>')" ><span class="glyphicon glyphicon-remove-sign" style="color: black"></span></a>
+					<a href="#" onClick="deleteCollege('<?php echo $col['collegeId'];?>')" ><span class="glyphicon glyphicon-remove-sign" style="color: black"></span></a>
 			<?php echo '
 				</div>';
 				$thereis=true;
@@ -31,7 +31,7 @@
 </div>
 <!--base_url('AdminOffices/removeCollege/'.$col['collegeId'])-->
  <script type="text/javascript">
-      function deleteProduct(id){
+      function deleteCollege(id){
        // console.log(id);
         var ans = confirm("Do you want to delete this college?");
        // alert(id);

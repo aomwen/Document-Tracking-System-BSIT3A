@@ -19,7 +19,7 @@
 	        {
 	            $info = array(
 	                        'idno' => $r['idno'],
-	                        'author' =>$r['sender'],
+	                        'sender' =>$r['sender'],
 	                        'email' => $r['email'],
 	                        'content' => $r['content'],
 	                        'datecreated' => $r['datecreated'],
