@@ -29,7 +29,7 @@ class Office extends CI_Controller {
 
         $this->load->view('include/header',$data);
         if($_SESSION['username'] == "admin"){    
-        $this->load->view('profileAdmin');
+            $this->load->view('profileAdmin');
         }else{
             $this->load->view('profile');
         }
@@ -54,7 +54,7 @@ class Office extends CI_Controller {
 
         $this->load->view('include/header',$data); 
         if($_SESSION['username'] == "admin"){    
-        $this->load->view('profileAdmin');
+            $this->load->view('profileAdmin');
         }else{
             $this->load->view('profile');
         }
