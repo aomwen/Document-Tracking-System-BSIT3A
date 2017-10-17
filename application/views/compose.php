@@ -1,6 +1,6 @@
-<head>
+
   <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-</head>
+
 <div class="adddocu col-sm-9">
     <div class="panel-heading" id="head">
         <ol class="breadcrumb pull-right">
@@ -33,9 +33,9 @@
               <input type="text" class="form-control" placeholder="Filename" name="filename" />
             </div>
             <div class="form-group">
-              <label>Attach?</label>
-              <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="userfile" />
-            </div>
+              <label>Attach File</label>
+              <input type="file" name="userfile" />
+           </div>
             <div class="form-group">
               <div id="myProgress">
                <div id="myBar">0%</div>

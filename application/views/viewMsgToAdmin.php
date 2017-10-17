@@ -130,7 +130,7 @@
 								<td>'.$mess['email'].'</td>
 								<td>'.$mess['datecreated'].'</td>
 								<td>	
-									<a href="'.base_url('ManageAdmin/seenMsgToAdmin/'.$mess['idno'].'/'.$mess['seen']).'"> Preview </a>|<a href="'.base_url('manageAdmin/removemsgtoAdmin/'.$mess['idno']).'"> Delete </a>|<a href="'.base_url('manageAdmin/bookmarkmsgtoAdmin/'.$mess['idno']).'">Bookmark </a>
+									<a href="'.base_url('ManageAdmin/seenMsgToAdmin/'.$mess['idno'].'/'.$mess['seen']).'"> Preview </a>|';?><a href="#" onClick="deleteMess('<?php echo $mess['idno'];?>')" > Delete </a><?php echo '|<a href="'.base_url('manageAdmin/bookmarkmsgtoAdmin/'.$mess['idno']).'">Bookmark </a>
 								</td>
 							</tr>
 
@@ -173,3 +173,17 @@ function myFunction() {
   }
 
 </script>
+ <script type="text/javascript">
+      function deleteMess(id){
+       // console.log(id);
+        var ans = confirm("Are you sure to delete this message?");
+       // alert(id);
+        if(ans==true){
+          //redirect to delete method
+          var url="<?php echo base_url('manageAdmin/removemsgtoAdmin/');?>"+id;
+          location.href = url;
+          alert("The message has been successfully deleted!");
+        }
+      }
+     
+ </script>
