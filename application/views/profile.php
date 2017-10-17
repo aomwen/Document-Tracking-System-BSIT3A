@@ -99,7 +99,7 @@
               </div>  
               <div class="profile-user-menu">
                 <ul class="nav">
-                  <li class="active"><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Document Status"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; &nbsp; Document Status </span></a></li>
+                  <li ><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Document Status"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; &nbsp; Document Status </span></a></li>
                   <li ><a href="<?php echo base_url('DocumentInbox/viewInbox'); ?>" title="Inbox"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; &nbsp; Inbox </span></a></li>
                   <li ><a href="<?php echo base_url('DocumentSent/viewSent'); ?>" title="Sent Items"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; &nbsp; Sent </span></a></li>
                   <li ><a href="<?php echo base_url('DocumentDraft/viewDraft'); ?>" title="Draft"><span class="glyphicon glyphicon-file"></span><span>&nbsp; &nbsp; Drafts </span></a></li>
