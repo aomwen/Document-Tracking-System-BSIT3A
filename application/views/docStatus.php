@@ -1,5 +1,5 @@
 <head>
-	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
 		<div class="row">
 		    <div id="content">
@@ -29,85 +29,77 @@
 										</a>';
 										?>
 									</div>
-								</div>
-							</div>	
-							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-								<div class="panel panel-info">
-									<div class="panel-heading">
-										<?php
-										echo '
-										<a href="'.base_url('DocumentSent/viewSent').'" style="text-decoration:none;color:black;" title="Sent">
-											<span class="glyphicon glyphicon-folder-open"></span>
-											&nbsp; Sent
-											<span class="badge pull pull-right">'.$Flag[1].'</span>
-										</a>';
-									?>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-								<div class="panel panel-danger">
-									<div class="panel-heading">
-										<?php
-										echo '
-										<a href="'.base_url('DocumentDraft/viewDraft').'" style="text-decoration:none;color:black;" title="Draft">
-											<span class="glyphicon glyphicon-file"></span>
-											&nbsp; Draft
-											<span class="badge pull pull-right">'.$Flag[2].'</span>	
-										</a>';
-										?>		
-									</div>
-								</div>
-							</div>
-						</div>		
-						<div class="table-responsive">
-							<table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
-								<tr>
-									<th>Track #</th>
-									<th>File name</th>
-									<th>Sender</th>
-									<th>Receiver</th>
-									<th>Date Created</th>
-									<th>Date received </th>
-									<th>Status</th>
-									<th>Action</th>
-								</tr>					
-								<?php
-								$thereis=false;
-								foreach($documents as $d){
-									if($d['sender']==$_SESSION['username']||$d['receiver']==$_SESSION['username']){
-									echo '	<tr class="clickable-row">	
-												<td>'.$d['trackcode'].'</td>
-												<td>'.$d['filename'].'</td>
-												<td>'.$d['sender'].'</td>
-												<td>'.$d['receiver'].'</td>
-												<td>'.$d['datecreated'].'</td>
-												<td>'.$d['dateReceived'].'</td>
-												<td>'.$d['status'].'</td>
-												<td>
-													<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'">Download</a>
-												</td>
-											</tr>
-										';
-										$thereis=true;
-									}
-								}
-								if($thereis==false){
-									echo '<tr><td colspan="8" class="text-danger" align="center">No document registered...</td></tr>';
-								}
-							?>
-						</table>
-					</div>																	
+                </div>
+              </div>
+            </div>
+          </div>
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<?php
+						echo '
+						<a href="'.base_url('DocumentSent/viewSent').'" style="text-decoration:none;color:black;">
+							<span class="glyphicon glyphicon-folder-open"></span>
+							&nbsp; Sent
+							<span class="badge pull pull-right">'.$Flag[1].'</span>
+						</a>';
+					?>
+					</div>
 				</div>
-			</div>    
-	    </div>
-	</div> 
-</div>	
-<script>
-$(".clickable-row").click(function(){
-	window.location = "<?php echo base_url('DocumentStatus/mydocumentsRoute'); ?>";	
-});
-</script>
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<?php
+						echo '
+						<a href="'.base_url('DocumentDraft/viewDraft').'" style="text-decoration:none;color:black;">
+							<span class="glyphicon glyphicon-file"></span>
+							&nbsp; Draft
+							<span class="badge pull pull-right">'.$Flag[2].'</span>	
+						</a>';
+						?>		
+					</div>
+				</div>
+			</div>
+		</div> 			         
+		<div class="table-responsive">
+			<table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
+
+				<tr>
+					<th>File ID</th>
+					<th>File code</th>
+					<th>File Name</th>
+					<th>Date Created</th>
+					<th>comment </th>
+					<th>action</th>
+				</tr>
+				<?php
+					foreach($documents as $d){
+						if($d['fileAuthor']==$_SESSION['username']){
+						echo '	<tr  class="clickable-row">	
+									<td>'.$d['fileId'].'</td>
+									<td><a href="'.base_url('DocumentStatus/mydocumentsRoute/'.$d['fileCode']).'">'.$d['fileCode'].'</a></td>
+									<td>'.$d['fileName'].'</td>
+									<td>'.$d['fileCreated'].'</td>
+									<td>'.$d['fileComment'].'</td>
+									<td>
+										<a href="'.base_url('FilesManipulation/forwardFile/'.$d['fileCode']).'"><span class="glyphicon glyphicon-share-alt"></span>
+										</a>
+										<a href="'.base_url('FilesManipulation/downloadFile/'.$d['fileCode']).'"><span class="glyphicon glyphicon-download-alt"></span>
+										</a>
+										<a href="'.base_url('FilesManipulation/removeFile/'.$d['fileCode']).'"><span class="glyphicon glyphicon-remove"></span>
+										</a>
+									</td>
+								</tr>
+							';
+						}
+					}
+				?>
+			</table>
+		</div>
+	</div>	
+</div>
 <script>
 function FilterFunction() {
   var input, filter, table, tr, td, i, x,flag;

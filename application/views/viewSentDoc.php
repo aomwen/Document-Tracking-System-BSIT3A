@@ -1,3 +1,4 @@
+
 <head>
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
@@ -19,39 +20,39 @@
 							</form>  
 						</div>	      
 						<div class="table-responsive">
-					        <table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
-					        	<tr>
-					        		<th>Tracknumber</th>
-					        		<th>Filename</th>
-					        		<th>Receiver</th>
-					        		<th>Date Received</th>
-					        	</tr>
-					          	<?php
-					          		$thereis=false;
-					         		foreach ($documents as $d){
-										if($d['sender']==$_SESSION['username']&&$d['sentDelete']==FALSE){
-							        		if($d['seen']==FALSE){
-							        			echo '
-							        				<tr style="background-color: #f9f9f9;">';
-							        		}else{
-							        			echo '
-							        				<tr >';
-							        		}
-							        		echo'
-							            		<td><a href="'.base_url('DocumentSent/viewSentMess/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
-							            		<td>'.$d['filename'].'</a></td>
-							            		<td>'.$d['sender'].'</td>
-							            		<td>'.$d['datecreated'].'</td>
-							        		</tr>';
-							        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
-							            	$thereis=true;
-							    		}
-							    	}
-							    	if($thereis==false){
-										echo '<tr><td colspan="4" class="text-danger" align="center">No document sent...</td></tr>';
-									}
-					          	?> 
-					        </table>
+					        <table id="myTable" class="table table-hover table-striped">
+	        	<thead>
+	        		<th>Route Code</th>
+	        		<th>File Code</th>
+	        		<th>File Name</th>
+	        		<th>Receiver</th>
+	        		<th>Forward Date</th>
+	        		<th>Comment</th>
+	        	</thead>
+	          <tbody>
+	          <?php
+	          $thereis=false;
+	         foreach ($documents as $d){
+				if($d['sender']==$_SESSION['username']){
+			        echo'
+			        <tr>
+			            <td><a href="'.base_url('DocumentSent/viewSentMess/'.$d['routeId'].'').'"><b>'.$d['routeId'].'</b></td>
+			            <td>'.$d['fileCode'].'</td>
+			            <td>'.$d['fileName'].'</a></td>
+			            <td>'.$d['receiver'].'</td>
+			            <td>'.$d['forwardDate'].'</td>
+			            <td>'.$d['forwardComment'].'</td>
+			        </tr>';
+			        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
+			            $thereis=true;
+			    	}
+			    }
+			    if($thereis==false){
+						echo '<tr><td colspan="4" class="text-danger" align="center">No document sent...</td></tr>';
+					}
+	          ?> 
+	          </tbody>
+	        </table>
 					    </div>
 					</div>
 			    </div>    

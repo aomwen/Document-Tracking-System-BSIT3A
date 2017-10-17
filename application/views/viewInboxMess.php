@@ -14,33 +14,33 @@
 					</div>
 					<div class="panel panel-default">		
 						<div class="panel-body">
-							<?php
-							foreach($documents as $d){
-								echo'
-								<div class="specific_inbox">
-									<h3><b>'.$d['trackcode'].'</b></h3>
-									<h5 class="pull-left">From: <b>'.$d['sender'].'</b></h5>
-									<h5 class="pull-right">Received: '.$d['datecreated'].'</h5>
-									<br />
-									<br />
-									<h5 class="pull-left">Filename: <b>'.$d['filename'].'</b></h5>
-									<h5 class="pull-right">Seen: '.$d['dateReceived'].'</h5>
-									<br />
-									<hr />
-									<h5 class="subject_inbox">'.$d['fileDesc'].'</h5>
-									<br />
-									<hr />
-								</div>
+								<?php
+                foreach($documents as $d){
+                  echo'
+                  <div class="specific_inbox">
+                    <h3><b>'.$d['routeId'].'</b></h3>
+                    <h5 class="pull-left">To: <b>'.$d['receiver'].'</b></h5>
+                    <h5 class="pull-right">Forward Date: '.$d['forwardDate'].'</h5>
+                    <br />
+                    <br />
+                    <h5 class="pull-left">File code: <b>'.$d['fileCode'].'</b></h5>
+                    <h5 class="pull-left">File name: <b>'.$d['fileName'].'</b></h5>
+                    <br />
+                    <hr />
+                    <h5 class="subject_inbox">'.$d['forwardComment'].'</h5>
+                    <br />
+                    <hr />
+                  </div>
 								<form>
 									<div class="form-group row text-center">
 										<div class="col-sm-6">
 							            	<div class="col-sm-6 pull-left">';?>
-							            		<a href="#" class="inboxbtn btn btn-danger" onClick="deleteInboxMess('<?php echo $d['trackcode'];?>')" title="Delete">
+							            		<a href="#" class="inboxbtn btn btn-danger" onClick="deleteInboxMess('<?php echo $d['fileCode'];?>')" title="Delete">
 							            			<span class="glyphicon glyphicon-trash"></span>
 							            			<span class="font">Delete</span>
 							            		</a>
 												<?php echo '
-													<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'" class="inboxbtn btn btn-success" title="Download">
+													<a href="'.base_url('FilesManipulation/downloadFile/'.$d['fileCode']).'" class="inboxbtn btn btn-success" title="Download">
 														<span class="glyphicon glyphicon-download-alt"></span>
 														<span class="font">Download</span>
 													</a>
@@ -48,7 +48,7 @@
 							            </div>	
 							            <div class="col-sm-6 pull-right">	
 							            	<div class="col-sm-6 pull-right ">
-							            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-primary" title="Forward">
+							            		<a href="'.base_url('FilesManipulation/forward/'.$d['fileCode']).'" class="inboxbtn btn btn-primary" title="Forward">
 							            			<span class="glyphicon glyphicon-share-alt"></span>
 							            			<span class="font">Forward</span>
 							            		</a>
@@ -65,7 +65,6 @@
 	    </div>
 	</div> 
 </div>	
->>>>>>> Stashed changes
 <script type="text/javascript">
       function deleteInboxMess(id){
        // console.log(id);
