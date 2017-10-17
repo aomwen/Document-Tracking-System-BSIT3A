@@ -29,11 +29,9 @@ class DocumentInbox extends CI_Controller {
         $this->load->view('include/header',$data);  
         if($_SESSION['username'] == "admin")
         {    
-            $this->load->view('include/header',$data);
             $this->load->view('profileAdmin');
         }else
         {
-            $this->load->view('include/header',$data);
             $this->load->view('profile');
         }
         $this->load->view('viewInboxDoc');
@@ -62,11 +60,9 @@ class DocumentInbox extends CI_Controller {
         $this->load->view('include/header',$data);  
         if($_SESSION['username'] == "admin")
         {    
-            $this->load->view('include/header',$data);
             $this->load->view('profileAdmin');
         }else
         {
-            $this->load->view('include/header',$data);
             $this->load->view('profile');
         }
         $this->load->view('viewInboxMess');
