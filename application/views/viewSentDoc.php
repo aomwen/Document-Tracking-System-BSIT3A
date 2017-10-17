@@ -2,14 +2,14 @@
 <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
 <div class="mysent col-md-9">
-	<div class="panel panel-default">
-		<div class="panel-heading" id="head">
-		    <ol class="breadcrumb pull-right">
-		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-		      <li class="active">Sent Documents</li>
-		    </ol>    
-		    <h3><span class="glyphicon glyphicon-folder-open"></span> Sent Documents</h3>       
-		</div>
+	<div class="panel-heading" id="head">
+	    <ol class="breadcrumb pull-right">
+	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+	      <li class="active">Sent Documents</li>
+	    </ol>    
+	    <h3><span class="glyphicon glyphicon-folder-open"></span> Sent Documents</h3>       
+	</div>
+	<div class="panel panel-default">		
 		<div class="panel-body">
 			<input type="text" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" id="myInputDocumentSearch" class="search"/>
 				<button><a type="submit"  href="<?php base_url('DocumentSent/viewSent')?>"><span class="glyphicon glyphicon-repeat"></span></a></button>
