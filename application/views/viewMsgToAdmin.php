@@ -65,41 +65,15 @@
 	    <h3><span class="glyphicon glyphicon-signal"></span> User Review</h3>       
 	</div>
 	<div class="panel panel-default">		
-		<!-- <div class="panel-body">
-				<input type="text" id="myInput" onkeyup="myFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
-				<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
-
-			</form>
-		</div>	 -->		
+			
 		<div class="panel-body">
 			<div class="row">	
-				<div class="col-md-3">
-					<div class="panel panel-success">
-						<div class="panel-heading">
-							<a href="product.php" style="text-decoration:none;color:black;">
-								Received
-								<span class="badge pull pull-right"></span>	
-							</a>
-						</div> <!--/panel-hdeaing-->
-					</div> <!--/panel-->
-				</div> <!--/col-md-4-->
 
-				<div class="col-md-3">
-					<div class="panel panel-info">
+				<div class="col-md-12">
+					<div class="panel panel-warning pull-right">
 						<div class="panel-heading">
-							<a href="orders.php?o=manord" style="text-decoration:none;color:black;">
-								Completed
-								<span class="badge pull pull-right"></span>
-							</a>
-						</div> <!--/panel-hdeaing-->
-					</div> <!--/panel-->
-				</div> <!--/col-md-4-->
-
-				<div class="col-md-3">
-					<div class="panel panel-danger">
-						<div class="panel-heading">
-							<a href="product.php" style="text-decoration:none;color:black;">
-								Ongoing
+							<a href="#" style="text-decoration:none;color:#dd6f2d;" data-toggle="modal" data-target="#bookmarkedModal">
+								Bookmarked
 								<span class="badge pull pull-right"></span>	
 							</a>
 							
@@ -111,10 +85,10 @@
 		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
 				<tr>
-					<th>idno</th>
+					<th>Id No.</th>
 					<th>Email</th>
 					<th>Date Sent</th>
-					<th>action</th>
+					<th>Action</th>
 				</tr>
 				<?php
 					$thereis=false;
@@ -126,7 +100,7 @@
 							echo' <tr>';
 						}
 						echo'
-								<td>'.$mess['idno'].'</td>
+								<td>'; if($mess['bookmarked']==TRUE){echo '<text style="color:#dd6f2d;"><span class="glyphicon glyphicon-star"></span></text>&nbsp;';} echo $mess['idno']. '</td>
 								<td>'.$mess['email'].'</td>
 								<td>'.$mess['datecreated'].'</td>
 								<td>	
@@ -147,6 +121,57 @@
 		</div>
 	</div>	
 </div>
+<!--MODAL-->
+          <div class="modal fade" id="bookmarkedModal" role="dialog" style="margin-top: 30px;">
+            <div class="modal-dialog model-sm">
+              <!-- Modal content-->
+              <div class="modal-content">
+              	<div class="modal-header">
+              	 	<button type="button" class="close" data-dismiss="modal">&times;</button>
+              		<h2 class="modal-title text-center">Bookmarked</h4>
+              	</div>
+              	<div class="modal-body">
+	             	<div class="table-responsive" >
+	             		<table class="table-hover table-bordered  table-striped table-center text-center" id="bookmarktbl">
+	             	
+	             				<tr>
+	             					<td>Id No.</td>
+	             					<td>Email</td>
+	             					<td>Date Sent</td>
+	             					<td>Action</td>
+	             				</tr>
+	             			
+	             			<?php
+								$thereis=false;
+								foreach($messages as $mess){
+									if($mess['bookmarked']==TRUE){
+										echo'<tr>
+												<td>'.$mess['idno']. '</td>
+												<td>'.$mess['email'].'</td>
+												<td>'.$mess['datecreated'].'</td>
+												<td>	
+													<a href="'.base_url('ManageAdmin/seenMsgToAdmin/'.$mess['idno'].'/'.$mess['seen']).'"> Preview </a>|';?><a href="#" onClick="deleteMess('<?php echo $mess['idno'];?>')" > Delete </a><?php echo '|<a href="'.base_url('manageAdmin/unbookmarkmsgtoAdmin/'.$mess['idno']).'">Unbookmark </a>
+												</td>
+											</tr>
+
+											';
+											$thereis=true;
+									}
+									}
+
+									if($thereis==false){
+										echo '<tr><td colspan="4" class="text-danger" align="center">No message bookmark...</td></tr>';
+									}
+								
+							?>
+
+	             			
+	             		</table>
+	             	</div>
+	            </div> 	
+            </div>
+          </div>
+          <!--MODAL END-->
 <script>
 function myFunction() {
   // Declare variables 

@@ -124,6 +124,20 @@
 .table-responsive #myTable tr td{
 	padding:4px;
 }
+#bookmarktbl{
+	font-size: 18px;
+	text-align:center;
+}
+#bookmarktbl thead tr{
+	text-align:center;
+}
+#bookmarktbl thead td{
+	text-align:center;
+	padding:20px;
+}
+.modal-dialog{
+	width:50%;
+}
 @media screen and (min-width:500px){
 	.buttonto{
 		display:inline;
