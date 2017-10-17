@@ -1,66 +1,69 @@
-<style>
-	.formstyle label{
-		font-size:16px;
-	}
-	.formstyle input{
-		border-radius:5px;
-		margin-bottom: 10px;
+<head>
+	<style>
+		.formstyle label{
+			font-size:16px;
+		}
+		.formstyle input{
+			border-radius:5px;
+			margin-bottom: 10px;
 
-	}
-	.tbl1{
-		margin-top:20px;
-		padding:20px;
-		text-align:center;
-		font-size: 18px;
-	}
-	.tbl1 th{
-		text-align: center;
-		padding:5px;
-	}
-	.breadcrumb{
-	  margin-top:10px;
-	}
-	.myinbox{
-		margin-top: 75px;	
-		margin-left: 20%;
-		width:79%;
-		height:100%;
-	}
-	#head{
-	  border-bottom:solid #015249;
-	}
-	.panel-heading h3{
-	  color:#015249;
-	}
-	.panel-heading ol li a span{
-	  color:#015249;
-	}
-	.panel-body form input{
-		padding:15px 16px;
-		border:1px solid #ccc;
-		border-radius:4px;
-		font-size:15px;
-		color:#aaa;
-		font-family: 'Lato', sans-serif;
-	}
-	.panel-body form button{
-		background:#015249;
-		color:#fff;
-		width:40px;
-	}
-	.panel-body form button:hover{
-		background:#A5A5AF;
-		color:#222;
-	}
-	.searchbar{
-		display:inline-flex;
-		height: 35px;
-	}
-	.search{
-		width:400px;
-		margin-left: 15px;
-	}
-</style>	
+		}
+		.tbl1{
+			margin-top:20px;
+			padding:20px;
+			text-align:center;
+			font-size: 18px;
+		}
+		.tbl1 th{
+			text-align: center;
+			padding:5px;
+		}
+		.breadcrumb{
+		  margin-top:10px;
+		}
+		.myinbox{
+			margin-top: 75px;	
+			margin-left: 20%;
+			width:79%;
+			height:100%;
+		}
+		#head{
+		  border-bottom:solid #015249;
+		}
+		.panel-heading h3{
+		  color:#015249;
+		}
+		.panel-heading ol li a span{
+		  color:#015249;
+		}
+		.panel-body form input{
+			padding:15px 16px;
+			border:1px solid #ccc;
+			border-radius:4px;
+			font-size:15px;
+			color:#aaa;
+			font-family: 'Lato', sans-serif;
+		}
+		.panel-body form button{
+			background:#015249;
+			color:#fff;
+			width:40px;
+		}
+		.panel-body form button:hover{
+			background:#A5A5AF;
+			color:#222;
+		}
+		.searchbar{
+			display:inline-flex;
+			height: 35px;
+		}
+		.search{
+			width:400px;
+			margin-left: 15px;
+		}
+	</style>
+	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+</head>	
 <div class="myinbox col-sm-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
@@ -71,10 +74,10 @@
 		    </ol>
 		<h3><span class="glyphicon glyphicon-inbox"></span> Manage User Profile</h3>       
 		</div>
-		<div class="panel-body">
-			<table class="table">
-				<thead>
-					<th>Username.</th>
+		<div class="table-responsive">
+			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
+				<tr>
+					<th>Username</th>
 					<th>Password</th>
 					<th>First Name</th>
 					<th>Last Name</th>
@@ -83,8 +86,7 @@
 					<th>Department</th>
 					<th>Position</th>
 					<th>Action</th>
-				</thead>
-				<tbody>
+				</tr>
 				<?php
 					$thereis=false;
 					foreach($userList as $us){
@@ -108,7 +110,6 @@
 						echo '<tr><td colspan="9">No user registered...</td></tr>';
 					}
 				?>
-				</tbody>
 			</table>
 
 

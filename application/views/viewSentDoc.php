@@ -55,6 +55,7 @@
 			text-decoration:none; 
 		}
 	</style>
+	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
 <div class="mysent col-md-9">
 	<div class="panel panel-default">
@@ -70,40 +71,38 @@
 				<button><a type="submit"  href="<?php base_url('DocumentSent/viewSent')?>"><span class="glyphicon glyphicon-repeat"></span></a></button>
 		</div>        
 		<div class="table-responsive">
-	        <table id="myTable" class="table table-hover table-striped">
-	        	<thead>
+	        <table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
+	        	<tr>
 	        		<th>Tracknumber</th>
 	        		<th>Filename</th>
 	        		<th>Receiver</th>
 	        		<th>Date Received</th>
-	        	</thead>
-	          <tbody>
-	          <?php
-	          $thereis=false;
-	         foreach ($documents as $d){
-				if($d['sender']==$_SESSION['username']&&$d['sentDelete']==FALSE){
-			        if($d['seen']==FALSE){
-			        echo '
-			        <tr style="background-color: #f9f9f9;">';
-			        }else{
-			        echo '
-			        <tr >';
-			        }
-			        echo'
-			            <td><a href="'.base_url('DocumentSent/viewSentMess/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
-			            <td>'.$d['filename'].'</a></td>
-			            <td>'.$d['sender'].'</td>
-			            <td>'.$d['datecreated'].'</td>
-			        </tr>';
+	        	</tr>
+	          	<?php
+	          		$thereis=false;
+	         		foreach ($documents as $d){
+						if($d['sender']==$_SESSION['username']&&$d['sentDelete']==FALSE){
+			        		if($d['seen']==FALSE){
+			        			echo '
+			        				<tr style="background-color: #f9f9f9;">';
+			        		}else{
+			        			echo '
+			        				<tr >';
+			        		}
+			        		echo'
+			            		<td><a href="'.base_url('DocumentSent/viewSentMess/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
+			            		<td>'.$d['filename'].'</a></td>
+			            		<td>'.$d['sender'].'</td>
+			            		<td>'.$d['datecreated'].'</td>
+			        		</tr>';
 			        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
-			            $thereis=true;
+			            	$thereis=true;
+			    		}
 			    	}
-			    }
-			    if($thereis==false){
+			    	if($thereis==false){
 						echo '<tr><td colspan="4" class="text-danger" align="center">No document sent...</td></tr>';
 					}
-	          ?> 
-	          </tbody>
+	          	?> 
 	        </table>
 	      </div>
 	</div>	

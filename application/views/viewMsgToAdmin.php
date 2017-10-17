@@ -1,58 +1,61 @@
-<style>
-.breadcrumb{
-  margin-top:10px;
-}
-.docstat{
-	margin-top: 75px;
-	margin-left: 20%;
-	width:79%;
-	height:100%;
-}
-#head{
-  border-bottom:solid #015249;
-}
-.panel-heading h3{
-  color:#015249;
-}
-.panel-heading ol li a span{
-  color:#015249;
-}
-.panel-body form input{
-	padding:15px 16px;
-	border:1px solid #ccc;
-	border-radius:4px;
-	font-size:15px;
-	color:#aaa;
-	font-family: 'Lato', sans-serif;
-}
-.panel-body form button{
-	background:#015249;
-	color:#fff;
-	width:40px;
-}
-.panel-body form button:hover{
-	background:#A5A5AF;
-	color:#222;
-}
-.panel-body1{
-	margin-top: 15px;
-}
-.searchbar{
-	display:inline-flex;
-	height: 35px;
-}
-.search{
-	width:400px;
-	margin-left: 15px;
-}
-.docstatus{
-	font-size: 14px;
-	line-height: 25px;
-}
-.docstatus tr th{
-	text-align: center;
-}
-</style>
+<head>
+	<style>
+		.breadcrumb{
+		  margin-top:10px;
+		}
+		.docstat{
+			margin-top: 75px;
+			margin-left: 20%;
+			width:79%;
+			height:100%;
+		}
+		#head{
+		  border-bottom:solid #015249;
+		}
+		.panel-heading h3{
+		  color:#015249;
+		}
+		.panel-heading ol li a span{
+		  color:#015249;
+		}
+		.panel-body form input{
+			padding:15px 16px;
+			border:1px solid #ccc;
+			border-radius:4px;
+			font-size:15px;
+			color:#aaa;
+			font-family: 'Lato', sans-serif;
+		}
+		.panel-body form button{
+			background:#015249;
+			color:#fff;
+			width:40px;
+		}
+		.panel-body form button:hover{
+			background:#A5A5AF;
+			color:#222;
+		}
+		.panel-body1{
+			margin-top: 15px;
+		}
+		.searchbar{
+			display:inline-flex;
+			height: 35px;
+		}
+		.search{
+			width:400px;
+			margin-left: 15px;
+		}
+		.docstatus{
+			font-size: 14px;
+			line-height: 25px;
+		}
+		.docstatus tr th{
+			text-align: center;
+		}
+	</style>
+	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+</head>
 <div class="docstat col-md-9">
 	<div class="panel panel-default">
 		<div class="panel-heading" id="head">
@@ -105,7 +108,7 @@
 				</div> <!--/col-md-4-->
 			</div>
 		</div>	
-		<div class="panel-body">
+		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
 				<tr>
 					<th>idno</th>
