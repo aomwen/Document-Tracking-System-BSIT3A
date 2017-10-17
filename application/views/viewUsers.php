@@ -1,68 +1,5 @@
 <head>
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-	<style>
-		/*.formstyle label{
-			font-size:16px;
-		}
-		.formstyle input{
-			border-radius:5px;
-			margin-bottom: 10px;
-
-		}
-		.tbl1{
-			margin-top:20px;
-			padding:20px;
-			text-align:center;
-			font-size: 18px;
-		}
-		.tbl1 th{
-			text-align: center;
-			padding:5px;
-		}
-		.breadcrumb{
-		  margin-top:10px;
-		}
-		.myinbox{
-			margin-top: 75px;	
-			margin-left: 20%;
-			width:79%;
-			height:100%;
-		}
-		#head{
-		  border-bottom:solid #015249;
-		}
-		.panel-heading h3{
-		  color:#015249;
-		}
-		.panel-heading ol li a span{
-		  color:#015249;
-		}
-		.panel-body form input{
-			padding:15px 16px;
-			border:1px solid #ccc;
-			border-radius:4px;
-			font-size:15px;
-			color:#aaa;
-			font-family: 'Lato', sans-serif;
-		}
-		.panel-body form button{
-			background:#015249;
-			color:#fff;
-			width:40px;
-		}
-		.panel-body form button:hover{
-			background:#A5A5AF;
-			color:#222;
-		}
-		.searchbar{
-			display:inline-flex;
-			height: 35px;
-		}
-		.search{
-			width:400px;
-			margin-left: 15px;
-		}*/
-	</style>
 </head>	
 <div class="myinbox col-sm-9">
 	<div class="panel-heading" id="head">
@@ -74,7 +11,7 @@
 	</div>
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<a href="<?php echo base_url('ManageAdmin/addUser'); ?>" class="btn btn-primary pull-right">Add</a>
+			<a href="<?php echo base_url('ManageAdmin/addUser'); ?>" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> Add</a>
 		</div>		
 		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">

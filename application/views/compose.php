@@ -81,3 +81,27 @@
     }
 }
 </script>
+<script>
+ $('#formId').on('submit',function(e){
+    e.preventDefault();
+    if($('#receiver').val() != '' && $('#sender').val() != '' && $('#fileDesc').val() != '' && $('#trackcode').val() != '' && $('#filename').val() != ''){
+
+          $.ajax({
+          url:"<?php echo base_url(); ?>FilesManipulation/sendFile", 
+          method:"POST",
+          data:new FormData(this),
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data){
+            $('#photo_profile').html(data);
+          }
+
+        });
+      
+  }else{
+        alert("Please Fill in the required fields.");
+  }
+  });
+
+</script>

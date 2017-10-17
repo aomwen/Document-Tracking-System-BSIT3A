@@ -36,13 +36,13 @@
 										<div class="col-sm-6">
 							            	<div class="col-sm-6 pull-left">';
 							            	?>
-							            		<a href="#" class="inboxbtn btn btn-default" onClick="deleteSentMess('<?php echo $d['trackcode'];?>')"><span class="glyphicon glyphicon-trash"> Delete</span></a>
-											<?php echo '	<a href="'.base_url('FilesManipulation/do_download/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-download-alt"> Download</span></a>
+							            		<a href="#" class="inboxbtn btn btn-danger" onClick="deleteSentMess('<?php echo $d['trackcode'];?>')"><span class="latofont glyphicon glyphicon-trash"> Delete</span></a>
+											<?php echo '	<a href="'.base_url('FilesManipulation/do_download/'.$d['trackcode']).'" class="inboxbtn btn btn-success"><span class="latofont glyphicon glyphicon-download-alt"> Download</span></a>
 							            	</div>
 							            </div>	
 							            <div class="col-sm-6 pull-right">	
 							            	<div class="col-sm-6 pull-right ">
-							            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-share-alt"> Forward</span></a>
+							            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-primary"><span class="latofont glyphicon glyphicon-share-alt" > Forward</span></a>
 							            	</div>		            	
 							            </div>	
 						          </div>
@@ -56,16 +56,16 @@
 	    </div>
 	</div> 
 </div>	
-<script type="text/javascript">
-	  function deleteSentMess(id){
-	   // console.log(id);
-	    var ans = confirm("Are you sure to delete this message?");
-	   // alert(id);
-	    if(ans==true){
-	      //redirect to delete method
-	      var url="<?php echo base_url('DocumentInbox/removeInboxMess/');?>"+id;
-	      location.href = url;
-	      alert("The message has been successfully deleted!");
-	    }
-	  }
+ <script type="text/javascript">
+      function deleteSentMess(id){
+       // console.log(id);
+        var ans = confirm("Are you sure to delete this message?");
+       // alert(id);
+        if(ans==true){
+          //redirect to delete method
+          var url="<?php echo base_url('DocumentSent/removeSentMess/');?>"+id;
+          location.href = url;
+          alert("The message has been successfully deleted!");
+        }
+      }
  </script>
