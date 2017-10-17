@@ -18,7 +18,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown notif-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Notification">
               <span id="bell" class="glyphicon glyphicon-bell" style="color:#015249;"></span>
             </a>
             <ul class="dropdown-menu">
@@ -49,9 +49,9 @@
             </ul>
           </li>
           <li class="dropdown user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Username">
               <img src="<?php echo base_url('assets/images/pic.png');?>" class="user-image" alt="User Image" />
-              <span class="hidden-xs" style="color:#015249;"><?php echo $_SESSION['username'];?></span>
+              <span class="hidden-xs"><?php echo $_SESSION['username'];?></span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
