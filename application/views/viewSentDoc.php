@@ -64,7 +64,7 @@
 		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
 		      <li class="active">Sent Documents</li>
 		    </ol>    
-		    <h3><span class="glyphicon glyphicon-inbox"></span> Sent Documents</h3>       
+		    <h3><span class="glyphicon glyphicon-folder-open"></span> Sent Documents</h3>       
 		</div>
 		<div class="panel-body">
 			<input type="text" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" id="myInputDocumentSearch" class="search"/>

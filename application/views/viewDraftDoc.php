@@ -66,7 +66,7 @@
 		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
 		      <li class="active">Drafts</li>
 		    </ol>    
-		    <h3><span class="glyphicon glyphicon-inbox"></span> Drafts</h3>       
+		    <h3><span class="glyphicon glyphicon-file"></span> Drafts</h3>       
 		</div>
 		<div class="panel-body">
 			<input type="text" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" id="myInputDocumentSearch" class="search"/>
@@ -76,7 +76,7 @@
 	        <table id="myTable" class="table table-hover table-striped">
 	        	<thead>
 	        		<th>Tracknumber</th>
-	        		<th>Filaname</th>
+	        		<th>Filename</th>
 	        		<th>Sender</th>
 	        		<th>Date Received</th>
 	        	</thead>
