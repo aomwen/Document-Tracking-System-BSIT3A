@@ -4,15 +4,17 @@
 <div class="mysent col-md-9">
 	<div class="panel-heading" id="head">
 	    <ol class="breadcrumb pull-right">
-	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
 	      <li class="active">Sent Documents</li>
 	    </ol>    
 	    <h3><span class="glyphicon glyphicon-folder-open"></span> Sent Documents</h3>       
 	</div>
 	<div class="panel panel-default">		
 		<div class="panel-body">
-			<input type="text" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" id="myInputDocumentSearch" class="search"/>
-				<button><a type="submit"  href="<?php base_url('DocumentSent/viewSent')?>"><span class="glyphicon glyphicon-repeat"></span></a></button>
+			<form class="pull-right searchbar">
+				<input type="text" id="myInputDocumentSearch" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
+				<a  class="btn" href="<?php base_url('DocumentStatus/mydocuments_view')?>" title="Search"><span class="glyphicon glyphicon-repeat"></span></a>
+			</form>
 		</div>        
 		<div class="table-responsive">
 	        <table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
