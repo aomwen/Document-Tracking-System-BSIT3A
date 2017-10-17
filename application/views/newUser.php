@@ -62,14 +62,14 @@
 	}
 </style>	
 <div class="myinbox col-sm-9">
-	<div class="panel panel-default">
-		<div class="panel-heading" id="head">
-			<ol class="breadcrumb pull-right">
-				<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-				<li class="active">Add New User</li>
-		    </ol>
-		<h3><span class="glyphicon glyphicon-inbox"></span> Add New User</h3>
-		</div>
+	<div class="panel-heading" id="head">
+		<ol class="breadcrumb pull-right">
+			<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+			<li class="active">Add New User</li>
+	    </ol>
+	<h3><span class="glyphicon glyphicon-inbox"></span> Add New User</h3>
+	</div>
+	<div class="panel panel-default">		
 		<div class="panel-body">
 			<?php echo form_open_multipart('ManageAdmin/addUser');?>
 			<div class="col-sm-7 col-sm-offset-1" style="margin: auto;">
