@@ -156,7 +156,7 @@
                   </div>
                   <div class="modal-footer">
                      <div class="form-group">
-                        <button type="submit"  class=" addbtn btn btn-info pull-right">
+                        <button type="submit"  class=" addbtn btn btn-primary pull-right">
                             <span class="glyphicon glyphicon-save"></span> Save Changes
                         </button>
                       </div>

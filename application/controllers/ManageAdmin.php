@@ -98,7 +98,7 @@ class ManageAdmin extends CI_Controller {
             }while($rs);
             $idno = $idnum;
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password =  "12345";
             $firstname  = $_POST['firstname'];
             $lastname  = $_POST['lastname'];
             $email  = $_POST['email'];
@@ -114,6 +114,8 @@ class ManageAdmin extends CI_Controller {
                             'department'=>$department,
                             'position'=>$position,);
             $this->User->create($record);
+            redirect(base_url().'ManageAdmin/viewUsers');
+
        }
         $positions = array();
         $condition = null;
