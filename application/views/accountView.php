@@ -16,7 +16,7 @@
 					<div class="col-md-3">
 						<div class="well">
 						<div id="photo_profile">
-						<img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive img-thumbnail" id="profilepic"/>
+						<img src="';if($us['path']!=null){ echo $us['path'];}else{ echo base_url('assets/images/pic.png'); } echo'" alt="Profile Picture" class="img-responsive img-thumbnail" id="profilepic"/>
 						</div>
 						<br />
 						<br />
