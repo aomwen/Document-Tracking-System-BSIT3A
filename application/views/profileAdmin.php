@@ -51,7 +51,7 @@
           <li class="dropdown user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url('assets/images/pic.png');?>" class="user-image" alt="User Image" />
-              <span class="hidden-xs">Username</span>
+              <span class="hidden-xs" style="color:#015249;">Username</span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
