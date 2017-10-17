@@ -94,7 +94,7 @@ class AdminOffices extends CI_Controller
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data);      
         $this->load->view('profileAdmin',$data);
-        $this->load->view('editCollege.php',$data);
+        $this->load->view('editCollege',$data);
     }
 
     public function updateCollegeInfo(){

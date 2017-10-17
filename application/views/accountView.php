@@ -195,7 +195,7 @@
 
       });
      }else{
-      alert('Invalid File');
+      alert('Invalid File! Please use .jpg .jpeg .png for the image upload');
      }
     }
   });
