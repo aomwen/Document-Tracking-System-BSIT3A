@@ -3,14 +3,14 @@
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
 <div class="offices col-md-9">
-	<div class="panel panel-default">
-		<div class="panel-heading" id="head">
-		    <ol class="breadcrumb pull-right">
-		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-		      <li class="active">Guide</li>
-		    </ol>    
-		    <h3><span class="glyphicon glyphicon-book"></span> Guide</h3>       
-		</div>
+	<div class="panel-heading" id="head">
+	    <ol class="breadcrumb pull-right">
+	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+	      <li class="active">Guide</li>
+	    </ol>    
+	    <h3><span class="glyphicon glyphicon-book"></span> Guide</h3>       
+	</div>
+	<div class="panel panel-default">		
 		<div class="panel-body">
 			<h3>Here are some guides on how to use the document tracking system:</h3>
 			<button class="accordion">How do I track a document?</button>
