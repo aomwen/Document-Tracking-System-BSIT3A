@@ -129,19 +129,27 @@
 
       alert("Please Select a File");
     }else{
-     
-      $.ajax({
-        url:"<?php echo base_url(); ?>AdminOffices/updateProfileImage/<?php foreach($colleges as $ca){ echo $ca['collegeId'];}?>", 
-        method:"POST",
-        data:new FormData(this),
-        contentType:false,
-        cache:false,
-        processData:false,
-        success:function(data){
-          $('#photo_profile').html(data);
-        }
+      var filename = $('#newprofile').val();
+      var valid_extensions = /(\.jpg|\.jpeg|\.png)$/i;   
+      if(valid_extensions.test(filename))
+      { 
+         $.ajax({
+          url:"<?php echo base_url(); ?>AdminOffices/updateProfileImage/<?php foreach($colleges as $ca){ echo $ca['collegeId'];}?>", 
+          method:"POST",
+          data:new FormData(this),
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data){
+            $('#photo_profile').html(data);
+          }
 
-      });
+        });
+      }
+      else
+      {
+         alert('Invalid File');
+      }
      
     }
   });

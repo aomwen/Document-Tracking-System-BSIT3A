@@ -179,8 +179,10 @@
 
       alert("Please Select a File");
     }else{
-     
-      $.ajax({
+     var filename = $('#newprofile').val();
+      var valid_extensions = /(\.jpg|\.jpeg|\.png)$/i;   
+      if(valid_extensions.test(filename)){
+         $.ajax({
         url:"<?php echo base_url(); ?>account/updateProfileImage/", 
         method:"POST",
         data:new FormData(this),
@@ -192,7 +194,9 @@
         }
 
       });
-     
+     }else{
+      alert('Invalid File');
+     }
     }
   });
 
