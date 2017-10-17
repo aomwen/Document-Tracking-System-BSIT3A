@@ -147,7 +147,7 @@
           cache:false,
           processData:false,
           success:function(data){
-            $('#photo_profile').html(data);
+           alert('New User Successfully Added!');
           }
 
         });

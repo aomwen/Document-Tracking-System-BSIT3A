@@ -13,13 +13,13 @@
 		<div class="panel-body">
 			<div class="row">
 			<div class="col-sm-4">
-				<form action="<?php echo base_url('ManageAdmin/AddRegDoc');?>" class="formstyle" method="post">
+				<form class="formstyle" method="post" id="file_form">
 					<div class="form-group">
 						<label>Track #:</label>
 						<input type="text" value="<?php echo $tracknumber?>" name="trackcode" class="form-control" readonly>
 					<div class="form-group">	
 						<label>File Type:</label>
-						<input type="text" name="file_type" class="form-control" />
+						<input type="text" name="file_type" class="form-control" id="file_type" />
 					</div>
 					<div class="form-group">
 						<label>Date Admitted:</label>
@@ -79,3 +79,28 @@
 		</div>
 	</div>
 </div>
+<script>
+ $('#file_form').on('submit',function(e){
+    e.preventDefault();
+    if($('#file_type').val() != ''){
+    	
+          $.ajax({
+          url:"<?php echo base_url(); ?>ManageAdmin/addRegDoc", 
+          method:"POST",
+          data:new FormData(this),
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data){
+      		  alert("Successfully added the file.");
+          }
+
+        });
+        
+      
+  }else{
+        alert("Please Fill in the file type field.");
+  }
+  });
+
+</script>
