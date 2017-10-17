@@ -14,7 +14,7 @@ class AdminOffices extends CI_Controller
             redirect().'Dts/index';
         }
     }
-
+    
     public function manageColleges()
     {
         $condition = null;

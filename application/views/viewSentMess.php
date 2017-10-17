@@ -22,7 +22,7 @@
 					<br />
 					<br />
 					<h5 class="pull-left">Filename: <b>'.$d['filename'].'</b></h5>
-					<h5 class="pull-right">seen: '.$d['dateReceived'].'</h5>
+					<h5 class="pull-right">Seen: '.$d['dateReceived'].'</h5>
 					<br />
 					<hr />
 					<h5 class="subject_inbox">'.$d['fileDesc'].'</h5>
