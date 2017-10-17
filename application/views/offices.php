@@ -19,6 +19,7 @@
 							<div style="color: black;">
 								<img class="img-responsive" src="'.$col['collegeLogo'].'" style=" height: 150px;  margin: auto; border-radius: 90%;">
 								<hr style="width:80%;"  />
+								<h4 class="text-primary">'.$col['collegefull'].' ('.$col['collegeId'].')</h4>
 								'.$col['collegeDesc'].'<br />
 							</div>
 						</a>

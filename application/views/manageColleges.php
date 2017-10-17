@@ -23,7 +23,7 @@
 							<div style="color: black">
 								<img class="img-responsive" src="'.$col['collegeLogo'].'" style=" height: 150px;  margin: auto; border-radius: 90%;">
 								<hr style="width:80%;"  />
-								'.$col['collegefull'].'<br />'.$col['collegeDesc'].'
+								<h4 class="text-primary">'.$col['collegefull'].' ('.$col['collegeId'].')</h4>'.$col['collegeDesc'].'
 							</div>
 						</a>
 						<a href="'.base_url('AdminOffices/updateCollege/'.$col['collegeId']).'"><span class="glyphicon glyphicon-edit"></span></a>'; ?>

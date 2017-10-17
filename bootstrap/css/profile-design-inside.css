@@ -137,8 +137,7 @@ body{
 	color:#fff;
 	padding-left: 5px;
 }
-.profile-user-menu ul li a:hover{
-	/*	background: rgba(189,32,49,0.7);*/ 
+.profile-user-menu ul li a:hover, .profile-user-menu ul li a:active{ 
 	background-color: #015249;
 	color:#5babd1;
 }
@@ -186,17 +185,17 @@ body{
 	color:#015249;
 }
 .user-body{
-	padding:10px;
+	padding:5px;
 	background-color: #fbfbfb;
 }
 .user-body a{
-	background:#015249;
+	background-color:#015249;
 	color:#fff;
 	font-family: sans-serif;
 }
 .user-body a:hover{
-	background-color:#A5A5AF;
-	color:#222;
+	background: #A5A5AF;
+	color:#fff;
 }
 /*Navbar Notification*/
 .notif-menu{
