@@ -1,9 +1,19 @@
 <link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
 <div class="editcol col-sm-9 pull-right">
 	<div class="panel panel-default">
-		<div class="panel-heading text-center"><a href="<?php echo base_url('AdminOffices/manageColleges')?>" class="btn btn-link pull-left" style="text-decoration: none; color: black;">
-		<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbspBack </a>Add College</div>
+		<div class="panel-heading" id="head">
+		    <ol class="breadcrumb pull-right">
+		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+		      <li class="active">Add College</li>
+		    </ol>    
+		    <h3><span class="glyphicon glyphicon-signal"></span> Add College</h3>  
+		</div>  
 		<div class="panel-body">
+			<div class="pull-right">
+				<a href="<?php echo base_url('AdminOffices/manageColleges')?>" class="btn btn-link pull-left" style="text-decoration: none; color: black;">
+					<span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp Back 
+				</a>
+			</div>
 		<?php echo form_open_multipart('AdminOffices/addColleges');?>
 		<div class="col-sm-7" style="margin: auto;">
 			<div class="form-group">

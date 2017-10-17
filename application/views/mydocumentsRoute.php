@@ -14,39 +14,6 @@
 				<input type="text" id="myInputDocumentSearch" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
 				<a  class="btn" href="<?php base_url('DocumentStatus/viewDocuments')?>"><span class="glyphicon glyphicon-repeat"></span></a>
 			</form>	
-			<div class="col-md-2">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<a href="product.php" style="text-decoration:none;color:black;">
-							<span class="glyphicon glyphicon-inbox"></span>
-							&nbsp; Inbox
-							<span class="badge pull pull-right">9</span>	
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<a href="orders.php?o=manord" style="text-decoration:none;color:black;">
-							<span class="glyphicon glyphicon-folder-open"></span>
-							&nbsp; Sent
-							<span class="badge pull pull-right">5</span>
-						</a>	
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2">
-				<div class="panel panel-danger">
-					<div class="panel-heading">
-						<a href="product.php" style="text-decoration:none;color:black;">
-							<span class="glyphicon glyphicon-file"></span>
-							&nbsp; Draft
-							<span class="badge pull pull-right">2</span>	
-						</a>		
-					</div>
-				</div>
-			</div>
 		</div>          
 		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
