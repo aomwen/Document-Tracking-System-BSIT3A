@@ -35,9 +35,7 @@ class ManageAdmin extends CI_Controller {
             $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data); 
-        
-            $this->load->view('profileAdmin',$data);
-        
+        $this->load->view('profileAdmin',$data);
         $this->load->view('registrarDocuments', $data);
     }
     public function addRegDoc(){
