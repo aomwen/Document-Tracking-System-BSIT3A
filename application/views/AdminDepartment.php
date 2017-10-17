@@ -1,7 +1,6 @@
 <head>
 	<link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
 </head>
-
 		<div id="content">
 			<div id="main-content">
 				<div class="panel-heading" id="head">
@@ -74,4 +73,29 @@
           alert("The department has been successfully deleted!");
         }
       }
+</script>
+ <script>
+ $('#editDept_form').on('submit',function(e){
+    e.preventDefault();
+    if($('#departmentedit').val() != ''){
+    	
+          $.ajax({
+          url:"<?php echo base_url(); ?>AdminOffices/UpdateDepartment", 
+          method:"POST",
+          data:new FormData(this),
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data){
+      		  alert("Successfully updated the file.");
+          }
+
+        });
+        
+      
+  }else{
+        alert("Please Fill in the department field.");
+  }
+  });
+
 </script>
