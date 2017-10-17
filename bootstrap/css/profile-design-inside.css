@@ -257,7 +257,7 @@ body{
 	background-color: #ccc;
 	padding:20px;
 }
-@media screen and (min-width:100px){
+@media screen and (min-width:500px){
 	.profile{
 		width:80px;
 	}

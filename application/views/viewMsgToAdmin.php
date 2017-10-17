@@ -111,10 +111,10 @@
 		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
 				<tr>
-					<th>idno</th>
+					<th>ID Number</th>
 					<th>Email</th>
 					<th>Date Sent</th>
-					<th>action</th>
+					<th>Action</th>
 				</tr>
 				<?php
 					$thereis=false;
