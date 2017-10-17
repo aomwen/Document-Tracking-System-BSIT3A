@@ -101,6 +101,9 @@
   text-transform:uppercase;
   border:0px;
 }
+.panel-footer button span .font{
+	font-family: 'Lato', sans-serif;
+}
 .panel-footer button:hover{
   background:#A5A5AF;
   color:#222;
