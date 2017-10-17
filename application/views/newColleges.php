@@ -38,8 +38,8 @@
 			<input type="file" name="collegeLogo" id="collegeLogo"/>
 			</div>
 			<div class="pull-right">
-			<input type="submit" value="Add" class="btn btn-info" />
-			<input type="reset" value="reset" class="btn btn-info" />
+			<input type="submit" value="Add" class="btn btn-primary" />
+			<input type="reset" value="Reset" class="btn btn-primary" />
 			</div>
 		</div>
 

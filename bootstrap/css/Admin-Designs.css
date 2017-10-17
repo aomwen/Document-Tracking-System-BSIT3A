@@ -63,6 +63,7 @@
 .inboxbtn{
 	padding:8px;
 	border-radius: 5px;
+	font-family: 'Lato', sans-serif;
 }
 /*MyDocuments-Designs*/
 .docstatus{
@@ -114,4 +115,7 @@
 }	
 #bookmarktbl{
 	font-size: 20px;
+}
+.latofont{
+	font-family: 'Lato', sans-serif;
 }
