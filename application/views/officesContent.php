@@ -50,3 +50,17 @@
 	  }
 	}
 </script>
+
+ <script type="text/javascript">
+      function deleteDepartment(id){
+       // console.log(id);
+        var ans = confirm("Are you sure to delete this department?");
+       // alert(id);
+        if(ans==true){
+          //redirect to delete method
+          var url="<?php echo base_url('');?>"+id;
+          location.href = url;
+          alert("The department has been successfully deleted!");
+        }
+      }
+ </script>
