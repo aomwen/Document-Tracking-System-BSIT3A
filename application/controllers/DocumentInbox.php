@@ -5,8 +5,10 @@ class DocumentInbox extends CI_Controller {
     
     public function __construct(){
         parent::__construct();
+        $this->load->model('filesModel','files');
         $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
+        $this->load->model('forwardRouteModel','Route');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -22,7 +24,7 @@ class DocumentInbox extends CI_Controller {
         $data['userdata'] = $userdata;
         
         $condition = null;
-        $documents = $this->Files->read($condition);
+        $documents = $this->Route->read($condition);
         $data['documents']=$documents;
         $data['userdata'] = $userdata;
         
@@ -37,13 +39,8 @@ class DocumentInbox extends CI_Controller {
         $this->load->view('viewInboxDoc');
     }
 
-    public function viewMessage($trackcode){
+    public function viewMessage($routeId){
         date_default_timezone_set('Asia/Manila');
-        $condition = Array('trackcode' => $trackcode);
-        $data = array('seen' => TRUE,
-                    'dateReceived' => date('Y-m-d h:i:s'),
-                    'status' => 'received');
-        $this->Files->Seen($data,$condition);
 
         $data['title'] = "Document Tracking System - Dashboard";
         
@@ -52,8 +49,8 @@ class DocumentInbox extends CI_Controller {
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
         
-        $condition = array('trackcode' => $trackcode);
-        $documents = $this->Files->read($condition);
+        $condition = array('routeId' => $routeId);
+        $documents = $this->Route->read($condition);
         $data['documents']=$documents;
         $data['userdata'] = $userdata;
 

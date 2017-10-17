@@ -10,13 +10,17 @@ class FilesManipulation extends CI_Controller {
         parent::__construct();
         $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
+        $this->load->model('filesModel','files');
+        $this->load->model('departmentsModel','Dept');
+        $this->load->model('collegesModel','Colleges');
+        $this->load->model('forwardRouteModel','Route');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
         }
     }
-    
-    public function sendFile()
+
+     public function sendFile()
     {       
             if(!isset($_SESSION['username']))
             {
@@ -32,37 +36,41 @@ class FilesManipulation extends CI_Controller {
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
 
-                $tracknumber= $_POST['trackcode'];
-                $sender = $_POST['sender'];
-                $receiver = $_POST['receiver'];
-                $fileDesc = $_POST['fileDesc'];
-                $this->upload->do_upload('userfile');
-                $filename = $_POST['filename'].$this->upload->data('file_ext');
+                $fileCode= $_POST['fileCode'];
+                $fileAuthor = $_POST['fileAuthor'];
+                $fileComment = $_POST['fileComment'];
+
+                $this->upload->do_upload('filePath');
+                // $fileName = $_POST['fileName'].$this->upload->data('file_ext');
+                $fileName = $_POST['fileName'];
                 $name= $this->upload->data('file_name');
                 $location = base_url().'uploads/'.$name.'';
-                $record = array('trackcode'=>$tracknumber,
-                                'filename'=>$filename,
-                                'fileDesc'=>$fileDesc,
-                                'path'=>$location   ,
-                                'sender'=>$sender, 
-                                'receiver'=>$receiver,       
-                                'status'=>'pending',);
-                $this->Files->create($record);
-                redirect(base_url().'DocumentSent/viewSent');
+                $record = array(
+                                'fileCode'=>$fileCode,
+                                'fileName'=>$fileName,
+                                'fileComment'=>$fileComment,
+                                'filePath'=>$location   ,
+                                'fileAuthor'=>$fileAuthor,);     
+                $this->files->create($record);
+                redirect(base_url().'DocumentStatus/viewDocuments');
             }
             do
             {
-                $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
-                $condition = array('trackcode'=>$tracknumber);
-                $rs = $this->Files->read($condition);
+                $fileCode = rand(0,9999);
+                $condition = array('fileCode'=>$fileCode);
+                $rs = $this->files->read($condition);
             }while($rs);
-            $data['tracknumber'] = $tracknumber;
+
+            $data['fileCode'] = $fileCode;
+            
             $user = $this->session->userdata('username');
             $condition = array('username' => $user);
             $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
+            
             $data['title'] = "Document Tracking System - Dashboard";
             $this->load->view('include/header',$data); 
+            
             if($_SESSION['username'] == "admin")
             {    
                 $this->load->view('profileAdmin');
@@ -71,136 +79,92 @@ class FilesManipulation extends CI_Controller {
                 $this->load->view('profile');
             }
             $this->load->view('compose');
-        }
+    }
 
-    public function saveFile()
-    {       
-            if(!isset($_SESSION['username']))
-            {
-                     redirect().'Dts/index';
-            }
-            if( $_SERVER['REQUEST_METHOD']=='POST')
-            { 
-                $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/uploads/";
-                $config['allowed_types'] = 'pdf|jpg|doc|docx|xml|jpeg|pptx|ppt|PDF|JPG|JPEG|DOC|DOCX|XML|JPEG|PPTX|PPT';
-                $config['max_size']     = 2000000;
-                $config['overwrite'] = TRUE;
-                $config['remove_spaces'] = TRUE;    
-                $this->load->library('upload', $config);
-                $this->upload->initialize($config);
-
-                $tracknumber= $_POST['trackcode'];
-                $sender = $_POST['sender'];
-                $receiver = $_POST['receiver'];
-                $fileDesc = $_POST['fileDesc'];
-                if(isset($_SESSION['path']))
-                {
-                    $filename = $_POST['filename'];
-                    $location = $_SESSION['path'];
-                    
-                }else
-                {  
-                $this->upload->do_upload('userfile');
-                $filename = $_POST['filename'].$this->upload->data('file_ext');
-                $name= $this->upload->data('file_name');
-                $location = base_url().'uploads/'.$name.'';
-                }
-                $record = array('trackcode'=>$tracknumber,
-                                'filename'=>$filename,
-                                'fileDesc'=>$fileDesc,
-                                'path'=>$location   ,
-                                'sender'=>$sender, 
-                                'receiver'=>$receiver,       
-                                'status'=>'pending',);
-                $this->Files->create($record);
-                redirect(base_url().'DocumentSent/viewSent');
-            }
-            do
-            {
-                $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
-                $condition = array('trackcode'=>$tracknumber);
-                $rs = $this->Files->read($condition);
-            }while($rs);
-            $data['tracknumber'] = $tracknumber;
-            $user = $this->session->userdata('username');
-            $condition = array('username' => $user);
-            $userdata = $this->User->read($condition);
-            $data['userdata'] = $userdata;
-            $data['title'] = "Document Tracking System - Dashboard";
-            $this->load->view('include/header',$data); 
-            if($_SESSION['username'] == "admin")
-            {    
-                $this->load->view('profileAdmin');
-            }else
-            {
-                $this->load->view('profile');
-            }
-            $this->load->view('compose');
-        }
-
-        public function forward($trackcode){
+    public function forwardFile($fileCode){
            if( $_SERVER['REQUEST_METHOD']=='POST')
            { 
-                $tracknumber= $_POST['trackcode'];
+                $routeId= $_POST['routeId'];
                 $sender = $_POST['sender'];
                 $receiver = $_POST['receiver'];
-                $fileDesc = $_POST['fileDesc'];
-                    $filename = $_POST['filename'];
-                    $location = $_SESSION['path'];
-                $record = array('trackcode'=>$tracknumber,
-                                'filename'=>$filename,
-                                'fileDesc'=>$fileDesc,
-                                'path'=>$location   ,
+                $forwardComment = $_POST['forwardComment'];
+                $fileName = $_POST['fileName'];
+                $fileCode = $_POST['fileCode'];
+                if(isset($_POST['allowLog'])){ $allowLog = TRUE; }else{ $allowLog = FALSE; }
+                if(isset($_POST['allowForward'])){$allowForward = TRUE; }else{ $allowForward = FALSE;}
+                $record = array('routeId'=>$routeId,
+                                'fileName'=>$fileName,
+                                'fileCode'=>$fileCode,
+                                'forwardComment'=>$forwardComment,
                                 'sender'=>$sender, 
-                                'receiver'=>$receiver,       
-                                'status'=>'pending',);
-                $this->Files->create($record);
-                redirect(base_url().'DocumentSent/viewSent');
+                                'receiver'=>$receiver,
+                                'allowLog' => $allowLog,
+                                'allowForward' => $allowForward);
+                $this->Route->create($record);
+                redirect(base_url().'DocumentStatus/viewDocuments');
             }
-            $condition = array( 'trackcode' => $trackcode );
-            $documents2 = $this->Files->read1($condition);
-            $data['documents'] = $documents2;
-            foreach($documents2 as $d)
-            {
-                $path = $d['path'];
-            }
-            $session_data = array
-            (
-                'path' => $path
-            );
-            $this->session->set_userdata($session_data);
+
+            $condition = array( 'fileCode' => $fileCode );
+            $documents = $this->files->read($condition);
+            $data['documents'] = $documents;
+
             $user = $this->session->userdata('username');
             $condition = array('username' => $user);
             $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
+
+            $condition = null;
+            $users = $this->User->read($condition);
+            $data['users'] = $users;
+
+            $condition = null;
+            $departments = $this->Dept->read($condition);
+            $data['departments'] = $departments;
+            
+            $condition = null;
+            $colleges = $this->Colleges->read($condition);
+            $data['colleges'] = $colleges;
+
             $data['title'] = "Document Tracking System - Dashboard";
             do
             {
-                $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
-                $condition = array('trackcode'=>$tracknumber);
-                $rs = $this->Files->read($condition);
+                $routeId = rand(0,9999);
+                $condition = array('routeId'=>$routeId);
+                $rs = $this->Route->read($condition);
             }while($rs);
-            $data['tracknumber'] = $tracknumber;
-            $this->load->view('include/header',$data); 
+
+            $data['routeId'] = $routeId;
+            $this->load->view('include/header',$data);
+
             if($_SESSION['username'] == "admin")
             {    
-                $this->load->view('profileAdmin',$data);
+                $this->load->view('profileAdmin');
             }else
             {
-                $this->load->view('profile',$data);
+                $this->load->view('profile');
             }
-            $this->load->view('forwardDocument', $data);
+            $this->load->view('forwardDocument');
         }
 
-        public function downloadFile($trackcode)
+           public function downloadFile($fileCode)
         {
-            $condition = array('trackcode'=>$trackcode);
-            $documents2 = $this->Files->read1($condition);
+            $condition = array('fileCode'=>$fileCode);
+            $documents2 = $this->files->read($condition);
             foreach($documents2 as $d2)
             {
-            $data = file_get_contents($d2['path']);
-            force_download($d2['filename'], $data , TRUE);
+                $data = file_get_contents($d2['filePath']);
+                force_download($d2['fileName'], $data , TRUE);
+            }
+            echo '
+            <script>
+                alert("'.$documents2.'");
+                console.log('.$documents2.');
+            </script>';
         }
+
+        public function removeFile($fileCode){
+            $this->files->deleteFile($fileCode);
+            redirect(base_url().'DocumentStatus/viewDocuments');
         }
     }
 ?>

@@ -275,5 +275,12 @@ class ManageAdmin extends CI_Controller {
             $data['userdata'] = $userdata;
             $this->load->view('include/header',$data);
             $this->load->view('manageProfile');
-        }    
+        } 
+        public function addPosition(){
+             if($_SERVER['REQUEST_METHOD']=='POST'){
+                $positionId = $_POST['positionId'];
+                $collegeId = $_POST['collegeId'];
+                $position  = $_POST['position'];
+            }
+        }   
 }?>

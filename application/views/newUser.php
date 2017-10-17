@@ -61,6 +61,40 @@
 		margin-left: 15px;
 	}
 </style>	
+<script type="text/javascript">
+	function filterDept(){
+		var collegeDept = {};
+		<?php
+		foreach($colleges as $c){
+			echo"collegeDept['".$c['collegeId']."'] =[";
+			foreach($departments as $d){
+				if($c['collegeId'] == $d['collegeId']){
+				 echo"'".$d['department']."',";
+				}
+			}
+			echo "];";
+		}	
+		?>
+	    var collegeList = document.getElementById("sel1");
+	    var departmentList = document.getElementById("sel2");
+	    var selCollege = collegeList.options[collegeList.selectedIndex].value;
+
+	    while (departmentList.options.length) {
+	        departmentList.remove(0);
+	    }
+	    var dept = collegeDept[selCollege];
+	    alert(dept);
+	    if (dept) {
+	        var i;
+	        for (i = 0; i < dept.length; i++) {
+	        	var opt = document.createElement('option');
+			    opt.value = dept[i];
+			    opt.innerHTML = dept[i];
+			    departmentList.appendChild(opt);
+	        }
+	    }
+	}
+</script>
 <div class="myinbox col-sm-9">
 	<div class="panel-heading" id="head">
 		<ol class="breadcrumb pull-right">
@@ -92,10 +126,10 @@
 				<div class="form-group">
 					<div class="dropdown">
 						<label for="sel1">College/Office</label>
-						<select class="form-control" id="sel1" name="collegeId" id="collegeId">
+						<select  class="form-control" id="sel1" name="collegeId" onchange="filterDept()">
 						<?php foreach($colleges as $c){
 							echo '
-							<option>'.$c['collegeId'].'</option>
+							<option value="'.$c['collegeId'].'">'.$c['collegeId'].'</option>
 							';
 						}?>
 						</select>
@@ -104,12 +138,7 @@
 				<div class="form-group">
 					<div class="dropdown">
 						<label for="sel2">Department</label>
-						<select class="form-control" id="sel2" name="department" id="department">
-						<?php foreach($departments as $d){
-							echo '
-							<option>'.$d['department'].'</option>
-							';
-						}?>
+						<select class="form-control" id="sel2" name="department">
 						</select>
 					</div>
 				</div>

@@ -192,7 +192,6 @@ class AdminOffices extends CI_Controller
         $collegeId = $_POST['collegeId'];
         $deptId = $_POST['deptId'];
         $this->Dept->update($collegeId, $department,$deptId);
-        redirect(site_url('AdminOffices/manageColleges'),'refresh');
     }
 
     

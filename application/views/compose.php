@@ -1,41 +1,39 @@
 <head>
   <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
-<!--     <div class="row"> -->
+    <!-- <div class="row"> -->
       <div id="content">
         <div id="main-content">
           <div class="panel-heading" id="head">
-              <ol class="breadcrumb pull-right">
-                <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
-                <li class="active">Compose</li>
-              </ol>    
-              <h3><span class="glyphicon glyphicon-edit"></span> Compose</h3>
+            <ol class="breadcrumb pull-right">
+              <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
+              <li class="active">Compose</li>
+            </ol>    
+            <h3><span class="glyphicon glyphicon-edit"></span> Compose</h3>
           </div>
-          <div class="panel panel-default">   
+          <div class="panel panel-default">
             <div class="panel-body">
               <form action="<?php base_url('FilesManipulation/sendFile')?>" method="post" enctype="multipart/form-data" id="formId">
                 <div class="form-group row">
-                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <input type="text" class="form-control" placeholder="To:" name="receiver"/> 
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <input type="text" class="form-control"  name="sender" readonly value="<?php echo $_SESSION['username'];?>" />
+                  <div class="col-sm-6">
+                    <label>By:</label>
+                    <input type="text" class="form-control" placeholder="" name="fileAuthor" value="<?php echo $_SESSION['username'];?>" readonly/> 
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Subject" name="fileDesc" />
+                  <label>File code:</label>
+                  <input type="text" class="form-control" value="<?php echo $fileCode ?>" name="fileCode" readonly />
                 </div>
                 <div class="form-group">
-                  <label>Track #:</label>
-                  <input type="text" class="form-control" value="<?php echo $tracknumber ?>" name="trackcode" readonly />
+                  <label>Filename</label>
+                  <input type="text" class="form-control" placeholder="File Name" name="fileName" />
                 </div>
                 <div class="form-group">
-                  <label>Filename:</label>
-                  <input type="text" class="form-control" placeholder="Filename" name="filename" />
-                </div>  
+                  <input type="text" class="form-control" placeholder="Comment" name="fileComment" />
+                </div>
                 <div class="form-group">
                   <label>Attachment</label>
-                  <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="userfile" />
+                  <input class="btn btn-default btn-file"  type="file" class="form-control" placeholder="Attach File" name="filePath" id="file" />
                 </div>
                 <div class="form-group">
                   <div id="myProgress">
@@ -43,12 +41,8 @@
                   </div>
                 </div>
               </form>
-            </div>  
+            </div>
             <div class="panel-footer">
-              <button type="reset" class="btn btn-primary" title="Save">
-                <span class="glyphicon glyphicon-floppy-save"></span>
-                <span class="font">&nbsp;Save</span>
-              </button>
               <button type="reset" class="btn btn-primary" title="Reset">
                 <span class="glyphicon glyphicon-repeat"></span>
                 <span class="font">&nbsp;Reset</span>
@@ -59,11 +53,10 @@
               </button>
             </div>
           </div>
-        </div>    
-      </div>    
+        </div>
     </div>
-  </div> 
-</div>   
+  </div>
+</div>    
 <script>
  function move() {
     var elem = document.getElementById("myBar"); 

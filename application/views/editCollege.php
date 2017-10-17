@@ -1,47 +1,51 @@
-<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-
-<div class="myacc col-md-9">
-		<div class="panel-heading" id="head">
-		    <ol class="breadcrumb pull-right">
-		      <li><a href="<?php echo base_url('AdminOffices/manageColleges'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-		      <li class="active">Edit Colleges</li>
-		    </ol>    
-		    <h3><span class="glyphicon glyphicon-inbox"></span> Edit Colleges</h3> 
-		</div>
-    <div class="panel panel-default">    
-			<div class="panel-body">
-				<div class="row">
-					<?php foreach($colleges as $ca){
-						echo '
-					<div class="col-md-3">
-						<div class="well">
-						<div id="photo_profile">
-						<img src="'.$ca['collegeLogo'].'" alt="Profile Picture" class="img-responsive img-thumbnail" id="profilepic"/>
-						</div>
-						<br />
-						<br />
-						<a href="#" class="form-control text-center edit_link" data-toggle="modal" data-target="#ImageLogoModal">Edit Picture</a>
-						<a href="#" class="form-control text-center edit_link" data-toggle="modal" data-target="#editInfoCollege" >Edit Information</a>
-						</div>	
-					</div>
-					<div class="col-md-8 col-md-offset-1">
-						<h3 class="text-primary">'.$ca['collegeId'].' </h3>
-						<h4><em>'.$ca['collegefull'].'</em></h4>
-						<br />
-
-            <h5><b class="text-primary">College Dean: </b>'.$ca['collegeDean'].'</h5>
-						<h5><b class="text-primary">College Description:</b></h5>
-            <h5>'.$ca['collegeDesc'].'</h5>
-						';}?>
-					<div>
-				</div>		
-			</div>
-		</div>
-			
-	</div>
+<head>
+  <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+</head>
+<div col-xs-9 col-sm-9 col-md-9 col-lg-9">
+        <div id="content">
+            <div id="main-content">
+		          <div class="panel-heading" id="head">
+		            <ol class="breadcrumb pull-right">
+                  <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span>
+		              <li><a href="<?php echo base_url('AdminOffices/manageColleges'); ?>" title="Office">Offices</a></li> 
+		              <li class="active">Edit Colleges</li>
+		            </ol>    
+		            <h3><span class="glyphicon glyphicon-map-marker"></span> Edit Colleges</h3> 
+		          </div>
+              <div class="panel panel-default">    
+			         <div class="panel-body">
+				        <div class="row">
+      					<?php foreach($colleges as $ca){
+      					echo '
+      					  <div class="col-md-3">
+      						  <div class="well">
+      						    <div id="photo_profile">
+      						      <img src="'.$ca['collegeLogo'].'" alt="Profile Picture" class="img-responsive img-thumbnail" id="profilepic"/>
+      						    </div>
+      						    <br />
+      						    <br />
+      						    <a href="#" class="btn btn-success form-control text-center edit_link" data-toggle="modal" data-target="#ImageLogoModal"  title="Edit Picture">Edit Picture
+                      </a>
+      						    <a href="#" class="btn btn-success form-control text-center edit_link" data-toggle="modal" data-target="#editInfoCollege" title="Edit Information">Edit Information
+                      </a>
+      						  </div>	
+      					  </div>
+      					  <div class="col-md-9">
+      						  <h3 class="text-primary">'.$ca['collegeId'].' </h3>
+      						  <h4><em>'.$ca['collegefull'].'</em></h4>
+      						  <br />
+                    <h5><b class="text-primary">College Dean: </b>'.$ca['collegeDean'].'</h5>
+      						  <h5><b class="text-primary">College Description:</b></h5>
+                    <h5>'.$ca['collegeDesc'].'</h5>
+      						';}?>
+					        <div>
+				        </div>		
+			        </div>
+		        </div>
+	      </div>
 </div>	
 <!--MODAL-->
-          <div class="modal fade" id="ImageLogoModal" role="dialog">
+          <div class="modal fade" id="ImageLogoModal" role="dialog" style="margin-top:5%;">
             <div class="modal-dialog model-sm">
               <!-- Modal content-->
               <form role="form" method="post" class="modal-content" enctype="multipart/form-data" id="newprofile_form" >
@@ -75,7 +79,7 @@
           <!--MODAL-->
           <?php foreach($colleges as $ca){ ?>
 					
-          <div class="modal fade" id="editInfoCollege" role="dialog">
+          <div class="modal fade" id="editInfoCollege" role="dialog" style="margin-top:5%;">
             <div class="modal-dialog model-sm">
               <!-- Modal content-->
               <form role="form" method="post" class="modal-content" id="save_edit" >

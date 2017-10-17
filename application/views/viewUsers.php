@@ -13,7 +13,9 @@
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<a href="<?php echo base_url('ManageAdmin/addUser'); ?>" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> Add</a>
+							<a href="<?php echo base_url('ManageAdmin/addUser'); ?>" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Add User</a>
+
+							<a href="#" class="btn btn-success pull-right" data-toggle="modal" data-target="#addPositionModal"><span class="glyphicon glyphicon-plus"></span> Add Position</a>
 						</div>		
 						<div class="table-responsive">
 							<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
@@ -57,7 +59,47 @@
 				</div>
 			</div>
 </div>
+   <!--MODAL FOR ADD POSITION-->
+          <div class="modal fade" id="addPositionModal" role="dialog">
+            <div class="modal-dialog model-sm">
+              <!-- Modal content-->
+              <form role="form" method="post" class="modal-content" id="newpassword_form" >
+              	                  
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Position</h4>
+                  </div>
+                  <div class="modal-body">
+                  	<div class="form-group">
+                      <label for="positionId">Position Id: </label>
+                      <input class="form-control" type="text" id="positionId" name="positionId" readonly />
+                    </div>
+                   
+                    <div class="form-group">
+                      <label for="collegeId"> College Id: </label>
+                      <select id="collegeId" class="form-control">
 
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="position"> Position: </label>
+                      <input class="form-control" type="text" id="position" name="position" />
+                    </div>
+                     <div class="text-danger">
+                        <?php echo validation_errors(); ?>
+                    </div> 
+                  
+                  </div>
+                  <div class="modal-footer">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add Position</button>
+                    </div>
+                  </div>
+                 
+              </form>
+            </div>
+          </div>
+          <!--MODAL END-->
 
 	<script type="text/javascript">
       function deleteUser(id){
