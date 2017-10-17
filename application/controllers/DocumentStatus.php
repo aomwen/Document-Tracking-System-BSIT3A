@@ -31,11 +31,9 @@ class DocumentStatus extends CI_Controller {
         $this->load->view('include/header',$data); 
         if($_SESSION['username'] == "admin")
         {    
-            $this->load->view('include/header',$data);
             $this->load->view('profileAdmin',$data);
         }else
         {
-            $this->load->view('include/header',$data);
             $this->load->view('profile',$data);
         }
         $this->load->view('docStatus');           
@@ -56,11 +54,9 @@ class DocumentStatus extends CI_Controller {
         $this->load->view('include/header',$data); 
         if($_SESSION['username'] == "admin")
         {    
-            $this->load->view('include/header',$data);
             $this->load->view('profileAdmin',$data);
         }else
         {
-            $this->load->view('include/header',$data);
             $this->load->view('profile',$data);
         }
         $this->load->view('mydocumentsRoute');           
