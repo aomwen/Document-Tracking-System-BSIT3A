@@ -254,4 +254,14 @@ class ManageAdmin extends CI_Controller {
             $this->load->view('seenMsgToAdmin',$data);
             
         }
+
+        public function manageProfile(){
+            $data['title'] = "Document Tracking System - Dashboard";
+            $user = $this->session->userdata('username');
+            $condition = array('username' => $user);
+            $userdata = $this->User->read($condition);
+            $data['userdata'] = $userdata;
+            $this->load->view('include/header',$data);
+            $this->load->view('manageProfile');
+        }    
 }?>

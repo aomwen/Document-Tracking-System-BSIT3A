@@ -94,8 +94,9 @@
             <div class="profile-user-position">'.$us['collegeId'].' </div>';
           }?>
             <div class="profile-user-menu">
-              <div class="profile-user-button">
+              <div class="profile-user-button1">
                 <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
+                <a href="<?php echo base_url('ManageAdmin/manageProfile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> MANAGE </a>
               </div>  
               <div class="profile-user-menu">
                 <ul class="nav">
@@ -103,6 +104,7 @@
                   <li ><a href="<?php echo base_url('DocumentInbox/viewInbox'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; &nbsp; Inbox </span></a></li>
                   <li ><a href="<?php echo base_url('DocumentSent/viewSent'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; &nbsp; Sent Documents </span></a></li>   
                   <li ><a href="<?php echo base_url('DocumentDraft/viewDraft'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; &nbsp; Draft </span></a></li>                         
+
                   <li><a href="<?php echo base_url('Guide/guide'); ?>"><span class="glyphicon glyphicon-book"></span><span>&nbsp; &nbsp; Guide </span></a></li>      
                   <li><a href="<?php echo base_url('ManageAdmin/viewmsgtoAdmin');?>"><span class="glyphicon glyphicon-star"></span><span>&nbsp; &nbsp; User Reviews </span></a></li>
                   <li><a href="<?php echo base_url('AdminOffices/manageColleges');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; &nbsp; Manage Offices </span></a></li>
