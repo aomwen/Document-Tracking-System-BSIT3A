@@ -49,7 +49,6 @@
 		</div>
 	</div>
 </div>			
-
 <script type="text/javascript">
       function deleteInboxMess(id){
        // console.log(id);
