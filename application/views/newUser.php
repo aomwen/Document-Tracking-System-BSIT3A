@@ -72,13 +72,13 @@
 		</div>
 		<div class="panel-body">
 			<?php echo form_open_multipart('ManageAdmin/addUser');?>
-			<div class="col-sm-8" style="margin: auto;">
+			<div class="col-sm-7 col-sm-offset-1" style="margin: auto;">
 				<div class="form-group">
 					<label>Username:</label>
 					<input type="text" name="username" placeholder="e.g. Admin" class="form-control" />
 				</div>
 				<div class="form-group">
-					<label>Password:<label>
+					<label>Password:</label>
 					<input type="password" name="password" class="form-control" />
 				</div>
 				<div class="form-group">

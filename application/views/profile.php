@@ -57,7 +57,7 @@
               <li class="user-header">
                 <?php
                 foreach($userdata as $us){             
-                  echo '<img src="'.$us['path'].'" class="img-circle" alt="User Image" />
+                  echo '<img src="';if($us['path']!=null){ echo $us['path'];}else{ echo base_url('assets/images/pic.png'); } echo'" class="img-circle" alt="User Image" />
                 <p>'.$_SESSION['username'].' 
                   <small>'.$us['position'].'</small>
                 </p>';  
@@ -85,7 +85,7 @@
             <?php
             foreach($userdata as $us){
             echo '
-            <img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive image-circle"/>
+            <img src="';if($us['path']!=null){ echo $us['path'];}else{ echo base_url('assets/images/pic.png');} echo '" alt="Profile Picture" class="img-responsive image-circle"/>
           </div>
           <div class="profile-user-title">
             <div class="profile-user-name">'.$us['firstname'].' '.$us['lastname'].'</div>

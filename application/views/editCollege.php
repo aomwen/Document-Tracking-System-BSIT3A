@@ -8,7 +8,7 @@
 			<?php 
 			foreach($colleges as $ca){
 				echo'	
-				<div class="col-sm-8" style="margin: auto;">
+				<div class="col-sm-7" style="margin: auto;">
 					<form method="post" action="'.base_url('AdminOffices/saveColleges').'">
 						<div class="form-group">
 							<label>College Acronym:</label>
@@ -30,8 +30,10 @@
 							<label>College Logo </label>
 							<input type="file" name="collegeLogo" value="'.$ca['collegeLogo'].'" />
 						</div>
+					<div class="pull-right">
 					<input type="submit" value="Save" class="btn btn-info" />
 					<input type="reset" value="reset" class="btn btn-info" />
+					</div>
 				</div>
 			'; }?>
 		</div>

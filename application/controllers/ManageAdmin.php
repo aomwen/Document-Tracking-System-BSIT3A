@@ -17,7 +17,6 @@ class ManageAdmin extends CI_Controller {
             redirect().'Dts/index';
         }
     }
-
     public function viewDocuments(){
         do{
             $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);

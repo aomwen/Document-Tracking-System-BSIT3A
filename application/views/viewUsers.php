@@ -98,8 +98,9 @@
 								<td>'.$us['collegeId'].'</td>
 								<td>'.$us['department'].'</td>
 								<td>'.$us['position'].'</td>
-								<td><a href="'.base_url('ManageAdmin/editUser/'.$us['username']).'" class="btn btn-info btn-sm">Edit</a>
-								<a href="'.base_url('ManageAdmin/removeUser/'.$us['username']).'" class="btn btn-info btn-sm">Remove</a></td>
+								<td><a href="'.base_url('ManageAdmin/editUser/'.$us['username']).'" class="btn btn-info btn-sm">Edit</a>'; ?>
+								<a href="#" onClick="deleteUser('<?php echo $us['username'];?>')" class="btn btn-info btn-sm">Remove</a>
+				<?php	echo '	</td>
 								';
 						$thereis=true;
 					}
@@ -107,3 +108,21 @@
 						echo '<tr><td colspan="9">No user registered...</td></tr>';
 					}
 				?>
+				</tbody>
+			</table>
+
+
+	<script type="text/javascript">
+      function deleteUser(id){
+       // console.log(id);
+        var ans = confirm("Are you sure to delete this user?");
+       // alert(id);
+        if(ans==true){
+          //redirect to delete method
+          var url="<?php echo base_url('ManageAdmin/removeUser/');?>"+id;
+          location.href = url;
+          alert("The user has been successfully deleted!");
+        }
+      }
+     
+ </script>

@@ -76,8 +76,7 @@ class AdminOffices extends CI_Controller
         $this->load->view('include/header',$data);  
         $this->load->view('profileAdmin');
         $this->load->view('newColleges'); 
-    }
-        
+    }      
     public function updateCollege($collegeId)
     {
         $condition = array('collegeId' => $collegeId);
