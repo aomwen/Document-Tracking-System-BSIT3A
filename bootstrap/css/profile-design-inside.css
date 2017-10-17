@@ -92,6 +92,24 @@ body{
 	padding: 10px;
 	display: inline;
 }
+.profile-user-button1{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding: 10px;
+}
+.profile-user-button1 a{
+	font-family: 'Dosis', sans-serif;
+	letter-spacing: 0px;
+	background:linear-gradient(to bottom, #57bc90 0%, #77c9d4 60%);
+	border-radius:3px;
+	color:#015249;
+	font-size:16px;
+	text-transform:uppercase;
+	font-weight:500;
+	border:0px;
+	padding: 10px;
+	display: inline;
+}
 .profile-user-button a:hover{
 	background:#A5A5AF;
 	color: #222;
@@ -119,8 +137,7 @@ body{
 	color:#fff;
 	padding-left: 5px;
 }
-.profile-user-menu ul li a:hover{
-	/*	background: rgba(189,32,49,0.7);*/ 
+.profile-user-menu ul li a:hover, .profile-user-menu ul li a:active{ 
 	background-color: #015249;
 	color:#5babd1;
 }
@@ -128,7 +145,7 @@ body{
 	border-bottom:solid thin #8c8c8c;
 }
 .profile-content{
-	padding:20px;
+/*	padding:20px;*/
 	background: #fff;
 	min-height:460px;
 }
@@ -143,7 +160,7 @@ body{
 	width:270px;
 	height:175px;
 	text-align: center;	
-	padding:10px;
+	/*padding:10px;*/
 	background:linear-gradient(to bottom, #57bc90 0%, #77c9d4 60%);
 }
 .user-header img{
@@ -160,7 +177,7 @@ body{
 	margin-top: 10px;
 }
 .user-menu span{
-	color:#ffffff;
+	color:#015249;
 }
 .user-header p small{
 	font-size:12px;
@@ -168,17 +185,17 @@ body{
 	color:#015249;
 }
 .user-body{
-	padding:10px;
+	padding:5px;
 	background-color: #fbfbfb;
 }
 .user-body a{
-	background:#015249;
+	background-color:#015249;
 	color:#fff;
 	font-family: sans-serif;
 }
 .user-body a:hover{
-	background-color:#A5A5AF;
-	color:#222;
+	background: #A5A5AF;
+	color:#fff;
 }
 /*Navbar Notification*/
 .notif-menu{
@@ -193,10 +210,9 @@ body{
 }
 .dropdown-menu{
 	height:auto;
-	overflow-y:scroll; 
+	/*overflow-y:scroll;*/ 
 	max-height: 400px;
 	position: absolute;
-
 }
 #mainNavBar ul li a span{
 	color:#015249;
@@ -240,7 +256,7 @@ body{
 	background-color: #ccc;
 	padding:20px;
 }
-@media screen and (min-width:100px){
+@media screen and (min-width:500px){
 	.profile{
 		width:80px;
 	}
@@ -277,7 +293,7 @@ body{
 }
 @media screen and (min-width: 1000px){
 	.profile{
-		width:300px;
+		width:280px;
 	}
 	.profile-user-pic{
 		width:120px;

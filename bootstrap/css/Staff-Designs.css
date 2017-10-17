@@ -1,9 +1,10 @@
 .breadcrumb{
-  margin-top:10px;
+  margin-top:20px;
+  background-color: #fff;
 }
 .myinbox, .mysent, .adddocu, .docstat, .myacc, .offices{
-	margin-top: 3%;
-	margin-left: 20%;
+	margin-top: 75px;
+	margin-left: 21%;
 	width:79%;
 	height:100%;
 }
@@ -21,7 +22,7 @@
 	border:1px solid #ccc;
 	border-radius:4px;
 	font-size:15px;
-	color:#aaa;
+	color:#000;
 	font-family: 'Lato', sans-serif;
 }
 .panel-body form button{
@@ -32,6 +33,9 @@
 .panel-body form button:hover{
 	background:#A5A5AF;
 	color:#222;
+}
+.panel-body form a span .font{
+	font-family: sans-serif;
 }
 .searchbar{
 	display:inline-flex;
@@ -100,6 +104,9 @@
   text-transform:uppercase;
   border:0px;
 }
+.panel-footer button span .font{
+	font-family: 'Lato', sans-serif;
+}
 .panel-footer button:hover{
   background:#A5A5AF;
   color:#222;
@@ -108,7 +115,6 @@
   width: 100%;
   background-color: #ddd;
 }
-
 #myBar {
     width: 0%;
     height: 30px;
@@ -117,13 +123,33 @@
     line-height: 30px; /* To center it vertically */
     color: white; 
 }
-@media screen and (min-width:100px){
+.table-responsive #myTable tr th{
+	background-color: #015249;
+	color:#fff;
+}
+.table-responsive #myTable tr td{
+	padding:4px;
+}
+#bookmarktbl{
+	font-size: 18px;
+	text-align:center;
+}
+#bookmarktbl thead tr{
+	text-align:center;
+}
+#bookmarktbl thead td{
+	text-align:center;
+	padding:20px;
+}
+.modal-dialog{
+	width:50%;
+}
+@media screen and (min-width:500px){
 	.buttonto{
 		display:inline;
 	}
-
 }
-@media screen and (min-width: 1000px){
+@media screen and (max-width: 1000px){
 	.buttonto{
 		display:none;
 	}

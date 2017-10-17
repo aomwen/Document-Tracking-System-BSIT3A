@@ -1,76 +1,26 @@
- <!--My Documents --> 
-<head>
-	<style>
-		.breadcrumb{
-		  margin-top:10px;
-		}
 
-		.mysent{
-			margin-top: 75px;
-		  	margin-left: 20%;
-			width:79%;
-			height:100%;
-		}
-		#head{
-		  border-bottom:solid #015249;
-		}
-		.panel-heading h3{
-		  color:#015249;
-		}
-		.panel-heading ol li a span{
-		  color:#015249;
-		}
-		.panel-body form input{
-			padding:15px 16px;
-			border:1px solid #ccc;
-			border-radius:4px;
-			font-size:15px;
-			color:#aaa;
-			font-family: 'Lato', sans-serif;
-		}
-		.panel-body form button{
-			background:#015249;
-			color:#fff;
-			width:40px;
-		}
-		.panel-body form button:hover{
-			background:#A5A5AF;
-			color:#222;
-		}
-		.searchbar{
-			display:inline-flex;
-			height: 35px;
-		}
-		.search{
-			width:400px;
-			margin-left: 15px;
-		}
-		#collapse a{
-			text-decoration: none;
-		}
-		.inboxto{
-			border-bottom: 1px solid #dadada;
-		}
-		.inboxto a{
-			text-decoration:none; 
-		}
-	</style>
+<head>
+	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
-<div class="mysent col-md-9">
-	<div class="panel panel-default">
-		<div class="panel-heading" id="head">
-		    <ol class="breadcrumb pull-right">
-		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-		      <li class="active">Sent Documents</li>
-		    </ol>    
-		    <h3><span class="glyphicon glyphicon-inbox"></span> Sent Documents</h3>       
-		</div>
-		<div class="panel-body">
-			<input type="text" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" id="myInputDocumentSearch" class="search"/>
-				<button><a type="submit"  href="<?php base_url('DocumentSent/viewSent')?>"><span class="glyphicon glyphicon-repeat"></span></a></button>
-		</div>        
-		<div class="table-responsive">
-	        <table id="myTable" class="table table-hover table-striped">
+	<div class="row">
+		    <div id="content">
+		      	<div id="main-content">
+					<div class="panel-heading" id="head">
+					    <ol class="breadcrumb pull-right">
+					      	<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
+					      	<li class="active">Sent Documents</li>
+					    </ol>    
+					    <h3><span class="glyphicon glyphicon-folder-open"></span> Sent Documents</h3>       
+					</div>
+					<div class="panel panel-default">		
+						<div class="panel-body">
+							<form class="pull-right searchbar">
+								<input type="text" id="myInputDocumentSearch" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
+								<a  class="btn" href="<?php base_url('DocumentStatus/mydocuments_view')?>" title="Search"><span class="glyphicon glyphicon-repeat"></span></a>
+							</form>  
+						</div>	      
+						<div class="table-responsive">
+					        <table id="myTable" class="table table-hover table-striped">
 	        	<thead>
 	        		<th>Route Code</th>
 	        		<th>File Code</th>
@@ -103,10 +53,13 @@
 	          ?> 
 	          </tbody>
 	        </table>
-	      </div>
-	</div>	
-	</div>			
-</div>
+					    </div>
+					</div>
+			    </div>    
+			</div>    
+	    </div>
+	</div> 
+</div>	
 <script>
 function FilterFunction() {
   var input, filter, table, tr, td, i, x,flag;

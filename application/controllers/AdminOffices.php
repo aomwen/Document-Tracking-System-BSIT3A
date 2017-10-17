@@ -14,7 +14,7 @@ class AdminOffices extends CI_Controller
             redirect().'Dts/index';
         }
     }
-
+    
     public function manageColleges()
     {
         $condition = null;
@@ -50,7 +50,7 @@ class AdminOffices extends CI_Controller
             $this->load->library('upload', $config);
             $this->upload->do_upload('collegeLogo');
             $name = $this->upload->data('file_name');
-            $location = base_url().'assets/images/'.$name.'';
+            $location = base_url().'uploads/college/'.$name.'';
             move_uploaded_file($name, $location);
             $collegeId = $_POST['collegeId'];
             $collegefull = $_POST['collegefull'];
@@ -62,6 +62,9 @@ class AdminOffices extends CI_Controller
                             'collegeDean' => $collegeDean,
                             'collegeLogo'=>$location);
             $this->Colleges->create($record);
+            echo '<script type="text/javascript"> alert("College has been Successfully ADDED!");
+                                         
+                                </script>';
         }
         $condition = null;
         $colleges = $this->Colleges->read($condition);
@@ -91,21 +94,12 @@ class AdminOffices extends CI_Controller
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data);      
         $this->load->view('profileAdmin',$data);
-        $this->load->view('editCollege.php',$data);
+        $this->load->view('editCollege',$data);
     }
 
-    public function saveColleges(){
+    public function updateCollegeInfo(){
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
-            $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/assets/images/";
-            $config['allowed_types'] = 'png|jpg|jpeg';
-            $config['max_size']     = '1000000kb';
-            $config['max_width'] = '1024';
-            $config['max_height'] = '768';
-            $this->load->library('upload', $config);
-            $this->upload->do_upload('collegeLogo');
-            $name = $this->upload->data('file_name');
-            $location = base_url().'assets/images/'.$name.'';
             $collegeId = $_POST['collegeId'];
             $collegefull = $_POST['collegefull'];
             $collegeDesc = $_POST['collegeDesc'];
@@ -115,9 +109,12 @@ class AdminOffices extends CI_Controller
                             'collegefull'=>$collegefull,
                             'collegeDesc'=>$collegeDesc,
                             'collegeDean' => $collegeDean,
-                            'collegeLogo'=>$location,);
+                            );
             $this->Colleges->update($record,$ca);
             redirect(base_url(). 'AdminOffices/manageColleges');
+            echo '<script type="text/javascript"> alert("College has been Successfully Updated!");
+                                         
+                                </script>';
         }
             $condition = null;
             $colleges = $this->Colleges->read($condition);
@@ -183,7 +180,7 @@ class AdminOffices extends CI_Controller
         $this->load->view('newDepartment');
     }
         
-        
+
     public function removeDepartment($department,$dept_idno)
     {
         $this->Dept->remove($department,$dept_idno);
@@ -195,7 +192,37 @@ class AdminOffices extends CI_Controller
         $collegeId = $_POST['collegeId'];
         $deptId = $_POST['deptId'];
         $this->Dept->update($collegeId, $department,$deptId);
-        redirect(base_url(). 'AdminOffices/manageColleges');
+        redirect(site_url('AdminOffices/manageColleges'),'refresh');
+    }
+
+    
+   public function updateProfileImage($cid){
+        if( $_SERVER['REQUEST_METHOD']=='POST'){ 
+                
+            $img_path='';
+            if(isset($_FILES["newprofile"]["name"])){
+                $config['upload_path'] = './uploads/college/';
+                $config['allowed_types'] = 'jpg|jpeg|png';
+                $this->load->library('upload',$config);
+                if(!$this->upload->do_upload('newprofile')){
+                    echo $this->upload->display_error();
+                }else{
+                    $data = $this->upload->data();
+                    echo '<img class="img-responsive img-thumbnail"   src="'.base_url().'uploads/college/'.$data["file_name"].'" />';
+                    $img_path=base_url().'uploads/college/'.$data["file_name"];
+                    $condition = array('collegeId'=>$cid);
+                    $picture = array(
+                                    'collegeLogo'=>$img_path,
+                                );
+                    
+                    $success = $this->Colleges->update($picture,$condition);
+                    
+                    echo '<script type="text/javascript"> alert("User Profile Image has been Successfully Change!"); 
+                    </script>'; 
+                }
+            }       
+        }
+
     }
 }
 ?>

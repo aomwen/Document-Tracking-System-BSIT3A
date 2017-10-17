@@ -1,5 +1,6 @@
 .breadcrumb{
-  margin-top:10px;
+  margin-top:20px;
+  background-color:#fff;
 }
 .myinbox, .mysent, .adddocu, .docstat, .myacc, .offices, .newdept, .regdoc, .editcol{
 	margin-top: 75px;
@@ -63,6 +64,7 @@
 .inboxbtn{
 	padding:8px;
 	border-radius: 5px;
+	font-family: 'Lato', sans-serif;
 }
 /*MyDocuments-Designs*/
 .docstatus{
@@ -87,7 +89,7 @@
 }
 .tbl1{
 	margin-top:20px;
-	padding:20px;
+	padding:10px;
 	text-align:center;
 	font-size: 18px;
 }
@@ -112,3 +114,9 @@
 	padding-right: 10px;
 	padding-left: 10px;
 }	
+#bookmarktbl{
+	font-size: 20px;
+}
+.latofont{
+	font-family: 'Lato', sans-serif;
+}

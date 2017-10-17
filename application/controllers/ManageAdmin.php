@@ -35,9 +35,7 @@ class ManageAdmin extends CI_Controller {
             $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data); 
-        
-            $this->load->view('profileAdmin',$data);
-        
+        $this->load->view('profileAdmin',$data);
         $this->load->view('registrarDocuments', $data);
     }
     public function addRegDoc(){
@@ -70,10 +68,6 @@ class ManageAdmin extends CI_Controller {
         $this->regDoc->update($status,$trackcode);
         redirect(base_url().'ManageAdmin/viewDocuments');
     }
-
-
-
-
     
     public function viewUsers()
     {
@@ -104,7 +98,7 @@ class ManageAdmin extends CI_Controller {
             }while($rs);
             $idno = $idnum;
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password =  "12345";
             $firstname  = $_POST['firstname'];
             $lastname  = $_POST['lastname'];
             $email  = $_POST['email'];
@@ -120,6 +114,8 @@ class ManageAdmin extends CI_Controller {
                             'department'=>$department,
                             'position'=>$position,);
             $this->User->create($record);
+            redirect(base_url().'ManageAdmin/viewUsers');
+
        }
         $positions = array();
         $condition = null;
@@ -226,7 +222,7 @@ class ManageAdmin extends CI_Controller {
 
         public function seenmsgtoAdmin($idno,$seen){
             if($seen == FALSE){
-                $dateseen = date("Y-m-d h:i:sa");
+                $dateseen = date("Y-m-d h:i:s a");
                 $record = array('dateseen'=>$dateseen,
                                 'seen'=>TRUE);
                 if($this->contact->update($idno,$record)){
@@ -254,4 +250,30 @@ class ManageAdmin extends CI_Controller {
             $this->load->view('seenMsgToAdmin',$data);
             
         }
+        public function removemsgtoAdmin($idno){
+             $record = array('idno'=>$idno);   
+             $this->contact->remove($record);
+             redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
+        }
+
+        public function bookmarkmsgtoAdmin($idno){
+             $record = array('bookmarked'=>TRUE);   
+             $this->contact->update($idno,$record);
+             redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
+        }
+        public function unbookmarkmsgtoAdmin($idno){
+             $record = array('bookmarked'=>FALSE);   
+             $this->contact->update($idno,$record);
+             redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
+        }
+
+        public function manageProfile(){
+            $data['title'] = "Document Tracking System - Dashboard";
+            $user = $this->session->userdata('username');
+            $condition = array('username' => $user);
+            $userdata = $this->User->read($condition);
+            $data['userdata'] = $userdata;
+            $this->load->view('include/header',$data);
+            $this->load->view('manageProfile');
+        }    
 }?>

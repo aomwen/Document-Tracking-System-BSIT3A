@@ -32,12 +32,11 @@
 			return  $messages;
 		}
 		
-		public function update($data){
-			$this->db->where($data);
+		public function update($idno,$data){
+			$this->db->where('idno',$idno);
 			$this->db->update($this->table, $data);
 			return TRUE;	
 		}
-		
 		public function remove($data){
 			$this->db->where($data);
 			$this->db->delete($this->table);
