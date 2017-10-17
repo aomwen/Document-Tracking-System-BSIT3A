@@ -11,29 +11,29 @@
     </div>
     <div class="panel panel-default">    
       <div class="panel-body">
-        <form action="<?php base_url('FilesManipulation/sendFile')?>" method="post" enctype="multipart/form-data" id="formId">
+        <form method="post" enctype="multipart/form-data" id="formId">
           <div class="form-group row">
             <div class="col-sm-6">
-              <input type="text" class="form-control" placeholder="To:" name="receiver"/> 
+              <input type="text" class="form-control" placeholder="To:" name="receiver" id="receiver"/> 
             </div>
             <div class="col-sm-6">
-              <input type="text" class="form-control"  name="sender" readonly value="<?php echo $_SESSION['username'];?>" />
+              <input type="text" class="form-control"  name="sender" id="sender" readonly value="<?php echo $_SESSION['username'];?>" />
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Subject" name="fileDesc" />
+            <input type="text" class="form-control" placeholder="Subject" name="fileDesc" id="fileDesc" />
           </div>
           <div class="form-group">
             <label>Track #:</label>
-            <input type="text" class="form-control" value="<?php echo $tracknumber ?>" name="trackcode" readonly />
+            <input type="text" class="form-control" value="<?php echo $tracknumber ?>" name="trackcode" id="trackcode" readonly />
           </div>
           <div class="form-group">
             <label>Filename:</label>
-            <input type="text" class="form-control" placeholder="Filename" name="filename" />
+            <input type="text" class="form-control" placeholder="Filename" name="filename" id="Filename"/>
           </div>  
           <div class="form-group">
             <label>Attachment</label>
-            <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="userfile" />
+            <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="userfile" id="attach_file"/>
           </div>
           <div class="form-group">
             <div id="myProgress">
@@ -74,4 +74,28 @@
         }
     }
 }
+</script>
+<script>
+ $('#formId').on('submit',function(e){
+    e.preventDefault();
+    if($('#receiver').val() != '' && $('#sender').val() != '' && $('#fileDesc').val() != '' && $('#trackcode').val() != '' && $('#filename').val() != ''){
+
+          $.ajax({
+          url:"<?php echo base_url(); ?>FilesManipulation/sendFile", 
+          method:"POST",
+          data:new FormData(this),
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data){
+            $('#photo_profile').html(data);
+          }
+
+        });
+      
+  }else{
+        alert("Please Fill in the required fields.");
+  }
+  });
+
 </script>
