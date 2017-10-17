@@ -33,13 +33,13 @@
 					<div class="form-group row text-center">
 						<div class="col-sm-6">
 			            	<div class="col-sm-6 pull-left">';?>
-			            		<a href="#" class="inboxbtn btn btn-default" onClick="deleteInboxMess('<?php echo $d['trackcode'];?>')"><span class="glyphicon glyphicon-trash"> Delete</span></a>
-						<?php echo '<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-download-alt"> Download</span></a>
+			            		<a href="#" class="inboxbtn btn btn-danger" onClick="deleteInboxMess('<?php echo $d['trackcode'];?>')"><span class="glyphicon glyphicon-trash"> Delete</span></a>
+						<?php echo '<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'" class="inboxbtn btn btn-info"><span class="glyphicon glyphicon-download-alt"> Download</span></a>
 			            	</div>
 			            </div>	
 			            <div class="col-sm-6 pull-right">	
 			            	<div class="col-sm-6 pull-right ">
-			            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-share-alt"> Forward</span></a>
+			            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-primary"><span class="glyphicon glyphicon-share-alt"> Forward</span></a>
 			            	</div>		            	
 			            </div>	
 		          </div>
