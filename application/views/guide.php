@@ -5,7 +5,7 @@
 <div class="offices col-md-9">
 	<div class="panel-heading" id="head">
 	    <ol class="breadcrumb pull-right">
-	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
 	      <li class="active">Guide</li>
 	    </ol>    
 	    <h3><span class="glyphicon glyphicon-book"></span> Guide</h3>       

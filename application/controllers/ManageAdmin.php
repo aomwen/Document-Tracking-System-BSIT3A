@@ -68,10 +68,6 @@ class ManageAdmin extends CI_Controller {
         $this->regDoc->update($status,$trackcode);
         redirect(base_url().'ManageAdmin/viewDocuments');
     }
-
-
-
-
     
     public function viewUsers()
     {
@@ -224,7 +220,7 @@ class ManageAdmin extends CI_Controller {
 
         public function seenmsgtoAdmin($idno,$seen){
             if($seen == FALSE){
-                $dateseen = date("Y-m-d h:i:sa");
+                $dateseen = date("Y-m-d h:i:s a");
                 $record = array('dateseen'=>$dateseen,
                                 'seen'=>TRUE);
                 if($this->contact->update($idno,$record)){
@@ -251,6 +247,22 @@ class ManageAdmin extends CI_Controller {
             $this->load->view('profileAdmin',$data);
             $this->load->view('seenMsgToAdmin',$data);
             
+        }
+        public function removemsgtoAdmin($idno){
+             $record = array('idno'=>$idno);   
+             $this->contact->remove($record);
+             redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
+        }
+
+        public function bookmarkmsgtoAdmin($idno){
+             $record = array('bookmarked'=>TRUE);   
+             $this->contact->update($idno,$record);
+             redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
+        }
+        public function unbookmarkmsgtoAdmin($idno){
+             $record = array('bookmarked'=>FALSE);   
+             $this->contact->update($idno,$record);
+             redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
         }
 
         public function manageProfile(){

@@ -161,7 +161,7 @@ body{
 	width:270px;
 	height:175px;
 	text-align: center;	
-	padding:10px;
+	/*padding:10px;*/
 	background:linear-gradient(to bottom, #57bc90 0%, #77c9d4 60%);
 }
 .user-header img{
@@ -178,7 +178,7 @@ body{
 	margin-top: 10px;
 }
 .user-menu span{
-	color:#ffffff;
+	color:#015249;
 }
 .user-header p small{
 	font-size:12px;
@@ -209,12 +209,12 @@ body{
 	padding:10px;
 	background-color: #015249;
 }
-/*.dropdown-menu{
+.dropdown-menu{
 	height:auto;
-	overflow-y:scroll; 
+	/*overflow-y:scroll;*/ 
 	max-height: 400px;
 	position: absolute;
-}*/
+}
 #mainNavBar ul li a span{
 	color:#015249;
 }

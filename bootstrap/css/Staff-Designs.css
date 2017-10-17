@@ -22,7 +22,7 @@
 	border:1px solid #ccc;
 	border-radius:4px;
 	font-size:15px;
-	color:#aaa;
+	color:#000;
 	font-family: 'Lato', sans-serif;
 }
 .panel-body form button{
@@ -101,6 +101,9 @@
   text-transform:uppercase;
   border:0px;
 }
+.panel-footer button span .font{
+	font-family: 'Lato', sans-serif;
+}
 .panel-footer button:hover{
   background:#A5A5AF;
   color:#222;
@@ -123,6 +126,20 @@
 }
 .table-responsive #myTable tr td{
 	padding:4px;
+}
+#bookmarktbl{
+	font-size: 18px;
+	text-align:center;
+}
+#bookmarktbl thead tr{
+	text-align:center;
+}
+#bookmarktbl thead td{
+	text-align:center;
+	padding:20px;
+}
+.modal-dialog{
+	width:50%;
 }
 @media screen and (min-width:500px){
 	.buttonto{
