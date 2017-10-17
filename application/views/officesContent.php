@@ -1,13 +1,13 @@
 <head>
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
-		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+		<div class="row">
 		    <div id="content">
 		      	<div id="main-content">
 		      		<div class="panel-heading" id="head">
 		      			<ol class=" breadcrumb pull-right">
 		      				<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li>
-		      				<li class="Offices"></li>
+		      				<li class="active">Offices</li>
 		      			</ol>
 		      			<h3><span class="glyphicon glyphicon-map-marker"></span>
 		      				<?php foreach($colleges as $s){
