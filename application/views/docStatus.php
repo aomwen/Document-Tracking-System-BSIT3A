@@ -4,7 +4,7 @@
 <div class="docstat col-md-9">
 	<div class="panel-heading" id="head">
 	    <ol class="breadcrumb pull-right">
-	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
 	      <li class="active">Document Status</li>
 	    </ol>    
 	    <h3><span class="glyphicon glyphicon-signal"></span> Document Status</h3>       
@@ -13,7 +13,7 @@
 		<div class="panel-body">
 			<form class="pull-right searchbar">
 				<input type="text" id="myInputDocumentSearch" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
-				<a  class="btn" href="<?php base_url('DocumentStatus/mydocuments_view')?>"><span class="glyphicon glyphicon-repeat"></span></a>
+				<a  class="btn" href="<?php base_url('DocumentStatus/mydocuments_view')?>" title="Search"><span class="glyphicon glyphicon-repeat"></span></a>
 			</form>	
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 
@@ -21,7 +21,7 @@
 					<div class="panel-heading">
 						<?php 
 						echo '
-						<a href="'.base_url('DocumentInbox/viewInbox').'" style="text-decoration:none;color:black;">
+						<a href="'.base_url('DocumentInbox/viewInbox').'" style="text-decoration:none;color:black;" title="Inbox">
 							<span class="glyphicon glyphicon-inbox"></span>
 							&nbsp; Inbox
 							<span class="badge pull pull-right">'.$Flag[0].'</span>	
@@ -35,7 +35,7 @@
 					<div class="panel-heading">
 						<?php
 						echo '
-						<a href="'.base_url('DocumentSent/viewSent').'" style="text-decoration:none;color:black;">
+						<a href="'.base_url('DocumentSent/viewSent').'" style="text-decoration:none;color:black;" title="Sent">
 							<span class="glyphicon glyphicon-folder-open"></span>
 							&nbsp; Sent
 							<span class="badge pull pull-right">'.$Flag[1].'</span>
@@ -49,7 +49,7 @@
 					<div class="panel-heading">
 						<?php
 						echo '
-						<a href="'.base_url('DocumentDraft/viewDraft').'" style="text-decoration:none;color:black;">
+						<a href="'.base_url('DocumentDraft/viewDraft').'" style="text-decoration:none;color:black;" title="Draft">
 							<span class="glyphicon glyphicon-file"></span>
 							&nbsp; Draft
 							<span class="badge pull pull-right">'.$Flag[2].'</span>	
