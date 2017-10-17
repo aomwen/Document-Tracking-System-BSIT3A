@@ -34,3 +34,6 @@ div .panel #panel {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
+div .panel #panel p{
+    padding: 5 18px;
+}
