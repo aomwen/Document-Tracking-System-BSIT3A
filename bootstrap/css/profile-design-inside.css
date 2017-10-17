@@ -146,7 +146,7 @@ body{
 	border-bottom:solid thin #8c8c8c;
 }
 .profile-content{
-	padding:20px;
+/*	padding:20px;*/
 	background: #fff;
 	min-height:460px;
 }
@@ -209,13 +209,12 @@ body{
 	padding:10px;
 	background-color: #015249;
 }
-.dropdown-menu{
+/*.dropdown-menu{
 	height:auto;
 	overflow-y:scroll; 
 	max-height: 400px;
 	position: absolute;
-
-}
+}*/
 #mainNavBar ul li a span{
 	color:#015249;
 }
@@ -295,7 +294,7 @@ body{
 }
 @media screen and (min-width: 1000px){
 	.profile{
-		width:300px;
+		width:280px;
 	}
 	.profile-user-pic{
 		width:120px;
