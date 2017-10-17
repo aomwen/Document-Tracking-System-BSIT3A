@@ -17,6 +17,15 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavBar">        
         <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> <span class="glyphicon glyphicon-list-alt"></span>
+            <span class="caret "></span></a>
+              <ul class="dropdown-menu side-choice">
+                <li><a href="<?php echo base_url('ManageAdmin/viewmsgtoAdmin');?>"><span class="glyphicon glyphicon-star"></span><span>&nbsp; &nbsp; User Reviews </span></a></li>
+                <li><a href="<?php echo base_url('AdminOffices/manageColleges');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; &nbsp; Manage Offices </span></a></li>
+                <li><a href="<?php echo base_url('ManageAdmin/viewDocuments');?>"><span class="glyphicon glyphicon-signal"></span><span>&nbsp; &nbsp; Manage Registrar Status </span></a></li>
+                <li><a href="<?php echo base_url('ManageAdmin/viewUsers');?>"><span class="glyphicon glyphicon-user"></span><span>&nbsp; &nbsp; Manage Users </span></a></li>
+              </ul>
+          </li>
           <li class="dropdown notif-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span id="bell" class="glyphicon glyphicon-bell" style="color:#015249;"></span>
@@ -76,9 +85,9 @@
     </div>
   </nav>
 </div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3 profile">    
+<div class="container-fluid" style="border:5px solid orange">
+  <div class="row" style="border:2px solid blue">
+    <div class="col-md-3 profile" style="border:2px solid yellow">    
       <div class="profile-sidebar ">      
           <?php
           foreach($userdata as $us){
@@ -94,9 +103,8 @@
           </div>';  
           }?>
           <div class="profile-user-menu">
-            <div class="profile-user-button1">
-              <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
-              <a href="<?php echo base_url('ManageAdmin/manageProfile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> MANAGE </a>
+            <div class="profile-user-button text-center">
+              <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a>
             </div>  
           </div>  
           <div>
@@ -111,9 +119,7 @@
           </div>  
         </div>  
       </div>  
-    </div>        
-  </div>
-</div>    
+    </div>            
 <script>
   $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
