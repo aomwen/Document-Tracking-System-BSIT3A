@@ -54,7 +54,7 @@
 			text-align: center;
 		}
 	</style>
-	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+	<link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
 </head>
 <div class="docstat col-md-9">
 	<div class="panel-heading" id="head">
@@ -122,7 +122,7 @@
 	</div>	
 </div>
 <!--MODAL-->
-          <div class="modal fade" id="bookmarkedModal" role="dialog" style="margin-top: 30px;">
+        <div class="modal fade" id="bookmarkedModal" role="dialog" style="margin-top: 30px;">
             <div class="modal-dialog model-sm">
               <!-- Modal content-->
               <div class="modal-content">
@@ -130,12 +130,12 @@
               	 	<button type="button" class="close" data-dismiss="modal">&times;</button>
               		<h2 class="modal-title text-center">Bookmarked</h4>
               	</div>
-              	<div class="modal-body">
+              	<div class="modal-body" >
 	             	<div class="table-responsive" >
-	             		<table class="table-hover table-bordered  table-striped table-center text-center" id="bookmarktbl">
+	             		<table class="table-hover table-bordered  table-striped table-center text-center" id="bookmarktbl" >
 	             	
 	             				<tr>
-	             					<td>Id No.</td>
+	             					<td>ID Number</td>
 	             					<td>Email</td>
 	             					<td>Date Sent</td>
 	             					<td>Action</td>
@@ -170,7 +170,7 @@
 	             	</div>
 	            </div> 	
             </div>
-          </div>
+        </div>
           <!--MODAL END-->
 <script>
 function myFunction() {
