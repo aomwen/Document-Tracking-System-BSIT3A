@@ -47,6 +47,15 @@
 					</ol>
 					It is important to remember the track # of your document for easy tracking.
 				</p>
+			</div>
+			<button class="accordion">Where can I see the status of my documents?</button>
+			<div class="panel" id="panel">
+				<p>
+					<ol>
+						<li>Log in to your account.</li>
+						<li>Click the Document Status button on the menu on the left side of the screen.</li>
+					</ol>
+				</p>
 			</div>	
 		</div>	
 	</div>	
