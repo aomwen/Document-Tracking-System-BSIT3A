@@ -256,6 +256,17 @@ class ManageAdmin extends CI_Controller {
              redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
         }
 
+        public function bookmarkmsgtoAdmin($idno){
+             $record = array('bookmarked'=>TRUE);   
+             $this->contact->update($idno,$record);
+             redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
+        }
+        public function unbookmarkmsgtoAdmin($idno){
+             $record = array('bookmarked'=>FALSE);   
+             $this->contact->update($idno,$record);
+             redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
+        }
+
         public function manageProfile(){
             $data['title'] = "Document Tracking System - Dashboard";
             $user = $this->session->userdata('username');
