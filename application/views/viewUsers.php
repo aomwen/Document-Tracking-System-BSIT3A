@@ -1,6 +1,7 @@
 <head>
+	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 	<style>
-		.formstyle label{
+		/*.formstyle label{
 			font-size:16px;
 		}
 		.formstyle input{
@@ -60,20 +61,21 @@
 		.search{
 			width:400px;
 			margin-left: 15px;
-		}
+		}*/
 	</style>
-	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>	
 <div class="myinbox col-sm-9">
 	<div class="panel-heading" id="head">
 	    <ol class="breadcrumb pull-right">
-			<li><a href="<?php echo base_url('ManageAdmin/addUser'); ?>" class="btn btn-primary">Add</a></li>
 			<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
 			<li class="active">Manage User Profile</li>
 	    </ol>
-	<h3><span class="glyphicon glyphicon-inbox"></span> Manage User Profile</h3>       
+		<h3><span class="glyphicon glyphicon-inbox"></span> Manage User Profile</h3>       
 	</div>
-	<div class="panel panel-default">		
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<a href="<?php echo base_url('ManageAdmin/addUser'); ?>" class="btn btn-primary pull-right">Add</a>
+		</div>		
 		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
 				<tr>
@@ -111,6 +113,9 @@
 					}
 				?>
 			</table>
+		</div>
+	</div>
+</div>
 
 
 	<script type="text/javascript">

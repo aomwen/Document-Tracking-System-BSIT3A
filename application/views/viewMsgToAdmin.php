@@ -85,7 +85,7 @@
 		<div class="table-responsive">
 			<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
 				<tr>
-					<th>Id No.</th>
+					<th>ID Number</th>
 					<th>Email</th>
 					<th>Date Sent</th>
 					<th>Action</th>
