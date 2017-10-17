@@ -30,15 +30,15 @@
 						</div>
 						<div class="panel-collapse collapse" id="'.$dept.'">
 							<div class="panel-body">
-								<form action="'.base_url('AdminOffices/UpdateDepartment').'" method="POST">
+								<form method="POST" id="editDept_form">
 								<label>Department ID:</label>
 								<input type="text" name="deptId" class="form-control" value="'.$d['deptId'].'" readonly/>
 
 								<label>College:</label>
 								<input type="text" name="collegeId" class="form-control" value="'.$d['collegeId'].'" readonly/>
 								<label>Department:</label>
-								<input type="text" name="department" class="form-control" value="'.$d['department'].'" />
-								<input type="submit" value="Save" class="btn btn-info" />
+								<input type="text" name="department" class="form-control" value="'.$d['department'].'" id="departmentedit" />
+								<input type="submit" value="Save" class="btn btn-primary pull-right" />
 								</form>
 							</div>
 						</div>'
@@ -50,8 +50,7 @@
 		</div>	
 
 	</div>
-
-	 <script type="text/javascript">
+<script type="text/javascript">
       function deleteDepartment(dept,id){
        // console.log(id);
         var ans = confirm("Are you sure to delete this department?");
@@ -64,3 +63,30 @@
         }
       }
  </script>
+
+ <script>
+ $('#editDept_form').on('submit',function(e){
+    e.preventDefault();
+    if($('#departmentedit').val() != ''){
+    	
+          $.ajax({
+          url:"<?php echo base_url(); ?>AdminOffices/UpdateDepartment", 
+          method:"POST",
+          data:new FormData(this),
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data){
+      		  alert("Successfully updated the file.");
+          }
+
+        });
+        
+      
+  }else{
+        alert("Please Fill in the department field.");
+  }
+  });
+
+</script>
+

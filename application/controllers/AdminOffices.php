@@ -180,7 +180,7 @@ class AdminOffices extends CI_Controller
         $this->load->view('newDepartment');
     }
         
-        
+
     public function removeDepartment($department,$dept_idno)
     {
         $this->Dept->remove($department,$dept_idno);
@@ -192,7 +192,7 @@ class AdminOffices extends CI_Controller
         $collegeId = $_POST['collegeId'];
         $deptId = $_POST['deptId'];
         $this->Dept->update($collegeId, $department,$deptId);
-        redirect(base_url(). 'AdminOffices/manageColleges');
+        redirect(site_url('AdminOffices/manageColleges'),'refresh');
     }
 
     
