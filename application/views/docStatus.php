@@ -1,7 +1,7 @@
 <head>
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
-		<div col-xs-9 col-sm-9 col-md-9 col-lg-9">
+		<div class="row">
 		    <div id="content">
 		      	<div id="main-content">
 					<div class="panel-heading" id="head">
@@ -69,8 +69,8 @@
 									<th>Receiver</th>
 									<th>Date Created</th>
 									<th>Date received </th>
-									<th>status</th>
-									<th>action</th>
+									<th>Status</th>
+									<th>Action</th>
 								</tr>					
 								<?php
 								$thereis=false;
