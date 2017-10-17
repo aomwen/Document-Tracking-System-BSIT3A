@@ -2,15 +2,15 @@
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
 <div class="myinbox col-md-9">
-	<div class="panel panel-default"> 
-		<div class="panel-heading" id="head">
-		    <ol class="breadcrumb pull-right">
-		      <li><a href="<?php echo base_url('DocumentStatus/ViewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-		      <li><a href="<?php echo base_url('DocumentInbox/ViewInbox'); ?>">Inbox</a></li> 		      
-		      <li class="active">Track Number</li>
-		    </ol>    
-		    <h3><span class="glyphicon glyphicon-inbox"></span> Inbox</h3>       
-		</div>
+	<div class="panel-heading" id="head">
+	    <ol class="breadcrumb pull-right">
+	      <li><a href="<?php echo base_url('DocumentStatus/ViewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+	      <li><a href="<?php echo base_url('DocumentInbox/ViewInbox'); ?>">Inbox</a></li> 		      
+	      <li class="active">Track Number</li>
+	    </ol>    
+	    <h3><span class="glyphicon glyphicon-inbox"></span> Inbox</h3>       
+	</div>
+	<div class="panel panel-default"> 	
 		<div class="panel-body">
 			<?php
 			foreach($documents as $d){
