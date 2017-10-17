@@ -2,15 +2,14 @@
 <link href="<?php echo base_url('bootstrap/css/Admin-Designs.css'); ?>" rel="stylesheet" />
 
 <div class="regdoc col-md-9">
-
-	<div class="panel panel-default">
-		<div class="panel-heading" id="head">
-		    <ol class="breadcrumb pull-right">
-		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-		      <li class="active">Manage Registrar Status</li>
-		    </ol>    
-		    <h3><span class="glyphicon glyphicon-inbox"></span> Manage Registrar Status</h3>       
-		</div>
+	<div class="panel-heading" id="head">
+	    <ol class="breadcrumb pull-right">
+	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+	      <li class="active">Manage Registrar Status</li>
+	    </ol>    
+	    <h3><span class="glyphicon glyphicon-inbox"></span> Manage Registrar Status</h3>       
+	</div>
+	<div class="panel panel-default">		
 		<div class="panel-body">
 			<div class="row">
 			<div class="col-sm-4">
