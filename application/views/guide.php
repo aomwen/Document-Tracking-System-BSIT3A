@@ -13,6 +13,26 @@
 		</div>
 		<div class="panel-body">
 			<h3>Here are some guides on how to use the document tracking system:</h3>
+			<button class="accordion">How do I track a document?</button>
+			<div class="panel" id="panel">
+			  <p>
+			  	<ol>
+			  		<li>On the homepage, enter the track # of the document you wish to track.</li>
+			  		<li>A small window will appear that will display the information of the document based on the track # you entered.</li>
+			  	</ol>
+			  </p>
+			</div>
+			<button class="accordion">How do I send a comment?</button>
+			<div class="panel" id="panel">
+			  <p>
+			  	<ol>
+			  		<li>On the homepage, you can either click on the contact on the upper right side of the screen to move you to the contact section where you can contact the admin, or you can scroll down to the bottom of the page until you reach the contact section.</li>
+			  		<li>Type your name and email address.</li>
+			  		<li>Type your comments, suggestions, or clarifications.</li>
+			  		<li>Click the send button.</li>
+			  	</ol>
+			  </p>
+			</div>
 			<button class="accordion">How do I send a file?</button>
 			<div class="panel" id="panel">
 				<p>
@@ -27,27 +47,7 @@
 					</ol>
 					It is important to remember the track # of your document for easy tracking.
 				</p>
-			</div>
-			<button class="accordion">How do I send a comment?</button>
-			<div class="panel" id="panel">
-			  <p>
-			  	<ol>
-			  		<li>On the homepage, you can either click on the contact on the upper right side of the screen to move you to the contact section where you can contact the admin, or you can scroll down to the bottom of the page until you reach the contact section.</li>
-			  		<li>Type your name and email address.</li>
-			  		<li>Type your comments, suggestions, or clarifications.</li>
-			  		<li>Click the send button.</li>
-			  	</ol>
-			  </p>
-			</div>
-			<button class="accordion">How do I track a document?</button>
-			<div class="panel" id="panel">
-			  <p>
-			  	<ol>
-			  		<li>On the homepage, enter the track # of the document you wish to track.</li>
-			  		<li>A small window will appear that will display the information of the document based on the track # you entered.</li>
-			  	</ol>
-			  </p>
-			</div>
+			</div>	
 		</div>	
 	</div>	
 </div>
