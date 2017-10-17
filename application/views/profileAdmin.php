@@ -375,7 +375,7 @@
 			            </ul>
 			        </li>
 			        <li class="dropdown notif-menu">
-			            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Notification">
+			            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  title="Notification">
 			              <span id="bell" class="glyphicon glyphicon-bell" style="color:#015249;"></span>
 			            </a>
 			            <ul class="dropdown-menu">
