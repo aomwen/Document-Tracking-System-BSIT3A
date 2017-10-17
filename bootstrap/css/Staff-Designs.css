@@ -2,9 +2,11 @@
   margin-top:20px;
   background-color: #fff;
 }
-.myinbox, .mysent, .adddocu, .docstat, .myacc, .offices{/*
-	width:100%;
-	height:100%;*/
+.myinbox, .mysent, .adddocu, .docstat, .myacc, .offices{
+	margin-top: 75px;
+	margin-left: 21%;
+	width:79%;
+	height:100%;
 }
 #head{
   border-bottom:solid #015249;
@@ -107,7 +109,6 @@
   width: 100%;
   background-color: #ddd;
 }
-
 #myBar {
     width: 0%;
     height: 30px;
@@ -123,13 +124,12 @@
 .table-responsive #myTable tr td{
 	padding:4px;
 }
-@media screen and (min-width:100px){
+@media screen and (min-width:500px){
 	.buttonto{
 		display:inline;
 	}
-
 }
-@media screen and (min-width: 1000px){
+@media screen and (max-width: 1000px){
 	.buttonto{
 		display:none;
 	}
