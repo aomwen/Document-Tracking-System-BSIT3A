@@ -1,7 +1,7 @@
 <head>
 <link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
-		<div class="row">
+		<!-- <div class="row"> -->
 		    <div id="content">
 		      	<div id="main-content">
 					<div class="panel-heading" id="head">
