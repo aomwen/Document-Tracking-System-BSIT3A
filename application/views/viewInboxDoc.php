@@ -1,7 +1,7 @@
 <head>
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
-<div class="row">
+<!-- <div class="row">
 	<div class="myinbox col-md-9">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="head">
@@ -79,4 +79,33 @@ function FilterFunction() {
 		}
 	}
   }
-</script>
+</script> -->
+   <div class="row">
+      <div id="content">       
+        <div id="main-content">     
+          <div class="col-md-12 pull-right">
+            <div class="well">       
+              <div class="row">
+                <div class="col-md-12"> <!--BINAGO-->
+                  <h2>List of Product</h2>
+                  <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#product">Add Product</button>
+                    <div class="table-responsive">
+                      <table class="table table-hover table-bordered table-striped">
+                        <thead>       
+                          <tr>
+                            <th>Product ID</th>
+                            <th>Product Description</th>
+                            <th>Category ID</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>                                                          
+                      </table>  
+                    </div>                
+                </div>  
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>

@@ -76,47 +76,44 @@
     </div>
   </nav>
 </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3 profile">    
-        <div class="profile-sidebar ">
-          
-            <?php
-            foreach($userdata as $us){
-            echo '
-            <div class="profile-user-pic">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 profile">    
+      <div class="profile-sidebar ">      
+          <?php
+          foreach($userdata as $us){
+          echo '
+          <div class="profile-user-pic">
             <img src="'.$us['path'].'" alt="Profile Picture" class="img-responsive image-circle"/>
           </div>
           <div class="profile-user-title">
             <div class="profile-user-name">'.$us['firstname'].' '.$us['lastname'].'</div>
             <div class="profile-user-position">'.$us['position'].' </div>
             <div class="profile-user-position">'.$us['department'].' </div>
-            <div class="profile-user-position">'.$us['collegeId'].' </div>';
+            <div class="profile-user-position">'.$us['collegeId'].' </div>
+          </div>';  
           }?>
-            <div class="profile-user-menu">
-              <div class="profile-user-button1">
-                <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
-                <a href="<?php echo base_url('ManageAdmin/manageProfile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> MANAGE </a>
-              </div>  
-              <div class="profile-user-menu">
-                <ul class="nav">
-                  <li class="active"><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; &nbsp; Document Status </span></a></li>
-                  <li ><a href="<?php echo base_url('DocumentInbox/viewInbox'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; &nbsp; Inbox </span></a></li>
-                  <li ><a href="<?php echo base_url('DocumentSent/viewSent'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; &nbsp; Sent Documents </span></a></li>   
-                  <li ><a href="<?php echo base_url('DocumentDraft/viewDraft'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; &nbsp; Draft </span></a></li>                         
-
-                  <li><a href="<?php echo base_url('Guide/guide'); ?>"><span class="glyphicon glyphicon-book"></span><span>&nbsp; &nbsp; Guide </span></a></li>      
-                  <li><a href="<?php echo base_url('ManageAdmin/viewmsgtoAdmin');?>"><span class="glyphicon glyphicon-star"></span><span>&nbsp; &nbsp; User Reviews </span></a></li>
-                  <li><a href="<?php echo base_url('AdminOffices/manageColleges');?>"><span class="glyphicon glyphicon-map-marker"></span><span>&nbsp; &nbsp; Manage Offices </span></a></li>
-                  <li><a href="<?php echo base_url('ManageAdmin/viewDocuments');?>"><span class="glyphicon glyphicon-signal"></span><span>&nbsp; &nbsp;Manage Registrar Status </span></a></li>
-                  <li><a href="<?php echo base_url('ManageAdmin/viewUsers');?>"><span class="glyphicon glyphicon-user"></span><span>&nbsp; &nbsp;Manage Users </span></a></li>                  
-              </ul>
+          <div class="profile-user-menu">
+            <div class="profile-user-button1">
+              <a href="<?php echo base_url('FilesManipulation/sendFile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> COMPOSE </a> 
+              <a href="<?php echo base_url('ManageAdmin/manageProfile'); ?>" class="" role="button" style="margin-right: 5px;"><span class="glyphicon glyphicon-pencil"></span> MANAGE </a>
             </div>  
           </div>  
+          <div>
+            <div class="profile-user-menu">
+              <ul class="nav">
+                <li class="active"><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-stats"></span><span>&nbsp; &nbsp; Document Status </span></a></li>
+                <li ><a href="<?php echo base_url('DocumentInbox/viewInbox'); ?>"><span class="glyphicon glyphicon-inbox"></span><span>&nbsp; &nbsp; Inbox </span></a></li>
+                <li ><a href="<?php echo base_url('DocumentSent/viewSent'); ?>"><span class="glyphicon glyphicon-folder-open"></span><span>&nbsp; &nbsp; Sent Documents </span></a></li>   
+                <li ><a href="<?php echo base_url('DocumentDraft/viewDraft'); ?>"><span class="glyphicon glyphicon-file"></span><span>&nbsp; &nbsp; Draft </span></a></li>                         
+                <li><a href="<?php echo base_url('Guide/guide'); ?>"><span class="glyphicon glyphicon-book"></span><span>&nbsp; &nbsp; Guide </span></a></li>      
+              </ul>
+          </div>  
         </div>  
-      </div>        
-    </div>
-  </div>    
+      </div>  
+    </div>        
+  </div>
+</div>    
 <script>
   $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
