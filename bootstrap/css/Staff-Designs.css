@@ -117,6 +117,13 @@
     line-height: 30px; /* To center it vertically */
     color: white; 
 }
+.table-responsive #myTable tr th{
+	background-color: #015249;
+	color:#fff;
+}
+.table-responsive #myTable tr td{
+	padding:4px;
+}
 @media screen and (min-width:100px){
 	.buttonto{
 		display:inline;
