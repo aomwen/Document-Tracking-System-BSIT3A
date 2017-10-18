@@ -9,12 +9,12 @@
 	      					<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
 	      					<li class="active">Offices</li>
 	    				</ol>    
-	    				<h3><span class="glyphicon glyphicon-signal"></span> Offices</h3>  
+	    				<h3><span class="glyphicon glyphicon-map-marker"></span> Offices</h3>  
 					</div>         
 					<div class="panel panel-default">		
 						<div class="panel-body">
 		   					<div class="row" style="margin-right: 10px;">
-		   						<a href="<?php echo base_url('AdminOffices/addColleges'); ?>" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add</a>
+		   						<a href="<?php echo base_url('AdminOffices/addColleges'); ?>" class="btn btn-primary pull-right" title="Add Office"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add</a>
 							</div>
 							<div class="panel-heading">
 							<?php
@@ -29,8 +29,14 @@
 												<h4 class="text-primary">'.$col['collegefull'].' ('.$col['collegeId'].')</h4>'.$col['collegeDesc'].'
 											</div>
 										</a>
-										<a href="'.base_url('AdminOffices/updateCollege/'.$col['collegeId']).'"><span class="glyphicon glyphicon-edit"></span></a>'; ?>
-										<a href="#" onClick="deleteCollege('<?php echo $col['collegeId'];?>')" ><span class="glyphicon glyphicon-remove-sign" style="color: black"></span></a>
+										<a href="'.base_url('AdminOffices/updateCollege/'.$col['collegeId']).'" title="Edit" class="btn btn-success">
+											<span class="glyphicon glyphicon-edit"></span>
+											<span class="font">Edit</span>
+										</a>'; ?>
+										<a href="#" onClick="deleteCollege('<?php echo $col['collegeId'];?>')" class="btn btn-danger" title="Delete">
+											<span class="glyphicon glyphicon-remove-sign"></span>
+											<span class="font">Delete</span>
+										</a>
 								<?php echo '
 									</div>';
 									$thereis=true;
@@ -45,7 +51,6 @@
 				</div>
 			</div>	
 </div>
-<!--base_url('AdminOffices/removeCollege/'.$col['collegeId'])-->
  <script type="text/javascript">
       function deleteCollege(id){
        // console.log(id);
