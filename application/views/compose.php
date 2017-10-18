@@ -4,7 +4,7 @@
 <div class="adddocu col-sm-9">
     <div class="panel-heading" id="head">
         <ol class="breadcrumb pull-right">
-          <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+          <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
           <li class="active">Compose</li>
         </ol>    
         <h3><span class="glyphicon glyphicon-edit"></span> Compose</h3>
