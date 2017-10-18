@@ -1,4 +1,4 @@
-<!--My Documents --> 
+ <!--My Documents --> 
 <head>
 	<style>
 		.breadcrumb{
@@ -72,28 +72,26 @@
 		<div class="table-responsive">
 	        <table id="myTable" class="table table-hover table-striped">
 	        	<thead>
-	        		<th>Tracknumber</th>
-	        		<th>Filename</th>
+	        		<th>Route Code</th>
+	        		<th>File Code</th>
+	        		<th>File Name</th>
 	        		<th>Receiver</th>
-	        		<th>Date Received</th>
+	        		<th>Forward Date</th>
+	        		<th>Comment</th>
 	        	</thead>
 	          <tbody>
 	          <?php
 	          $thereis=false;
 	         foreach ($documents as $d){
-				if($d['sender']==$_SESSION['username']&&$d['sentDelete']==FALSE){
-			        if($d['seen']==FALSE){
-			        echo '
-			        <tr style="background-color: #f9f9f9;">';
-			        }else{
-			        echo '
-			        <tr >';
-			        }
+				if($d['sender']==$_SESSION['username']){
 			        echo'
-			            <td><a href="'.base_url('DocumentSent/viewSentMess/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
-			            <td>'.$d['filename'].'</a></td>
-			            <td>'.$d['sender'].'</td>
-			            <td>'.$d['datecreated'].'</td>
+			        <tr>
+			            <td><a href="'.base_url('DocumentSent/viewSentMess/'.$d['routeId'].'').'"><b>'.$d['routeId'].'</b></td>
+			            <td>'.$d['fileCode'].'</td>
+			            <td>'.$d['fileName'].'</a></td>
+			            <td>'.$d['receiver'].'</td>
+			            <td>'.$d['forwardDate'].'</td>
+			            <td>'.$d['forwardComment'].'</td>
 			        </tr>';
 			        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
 			            $thereis=true;

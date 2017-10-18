@@ -18,35 +18,33 @@
 			<div class="table-responsive">
 		        <table id="myTable" class="table table-hover table-striped">
 		        	<thead>
-		        		<th>Tracknumber</th>
-		        		<th>Filename</th>
+		        		<th>Route ID</th>
+		        		<th>File ID</th>
+		        		<th>File Name</th>
 		        		<th>Sender</th>
-		        		<th>Date Received</th>
+						<th>Forward Date</th>
+						<th>Comment</th>
 		        	</thead>
 		          <tbody>
 		          <?php
 		          $thereis=false;
 		         foreach ($documents as $d){
-					if($d['receiver']==$_SESSION['username']&&$d['inboxDelete']==FALSE){
-				        if($d['seen']==FALSE){
+					if($d['receiver']==$_SESSION['username']){
 				        echo '
-				        <tr style="background-color: #f9f9f9;">';
-				        }else{
-				        echo '
-				        <tr>';
-				        }
-				        echo'
-				            <td><a href="'.base_url('DocumentInbox/viewMessage/'.$d['trackcode'].'').'"><b>'.$d['trackcode'].'</b></td>
-				            <td>'.$d['filename'].'</a></td>
+				        <tr>
+				            <td><a href="'.base_url('DocumentInbox/viewMessage/'.$d['routeId'].'').'"><b>'.$d['routeId'].'</b></td>
+				            <td>'.$d['fileCode'].'</a></td>
+				            <td>'.$d['fileName'].'</td>
 				            <td>'.$d['sender'].'</td>
-				            <td>'.$d['datecreated'].'</td>
+				            <td>'.$d['forwardComment'].'</td>
 				        </tr>';
 				        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
 				            $thereis=true;
-				    	}
 				    }
-				    if($thereis==false){
-						echo '<tr><td colspan="4" class="text-danger" align="center">No documents received...</td></tr>';
+				    
+				}
+				if($thereis==false){
+						echo '<tr><td colspan="6" class="text-danger" align="center">No documents received...</td></tr>';
 					}
 
 		          ?> 

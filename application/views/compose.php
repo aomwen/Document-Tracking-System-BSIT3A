@@ -12,29 +12,26 @@
     </div>
       <div class="panel-body">
         <form action="<?php base_url('FilesManipulation/sendFile')?>" method="post" enctype="multipart/form-data" id="formId">
-          <div class="form-group row">
+         <div class="form-group row">
             <div class="col-sm-6">
-              <input type="text" class="form-control" placeholder="To:" name="receiver"/> 
-            </div>
-            <div class="col-sm-6">
-              <input type="text" class="form-control"  name="sender" readonly value="<?php echo $_SESSION['username'];?>" />
+              <label>By:</label>
+              <input type="text" class="form-control" placeholder="" name="fileAuthor" value="<?php echo $_SESSION['username'];?>" readonly/> 
             </div>
           </div>
-          
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Subject" name="fileDesc" />
-            </div>
-            <div class="form-group">
-              <label>Track #:</label>
-              <input type="text" class="form-control" value="<?php echo $tracknumber ?>" name="trackcode" readonly />
+              <label>File code:</label>
+              <input type="text" class="form-control" value="<?php echo $fileCode ?>" name="fileCode" readonly />
             </div>
             <div class="form-group">
               <label>Filename</label>
-              <input type="text" class="form-control" placeholder="Filename" name="filename" />
+              <input type="text" class="form-control" placeholder="File Name" name="fileName" />
             </div>
             <div class="form-group">
-              <label>Attach?</label>
-              <input class="btn btn-default btn-file" type="file" class="form-control" placeholder="Attach File" name="userfile" />
+              <input type="text" class="form-control" placeholder="Comment" name="fileComment" />
+            </div>
+            <div class="form-group">
+              <label>attach?</label>
+              <input class="btn btn-default btn-file"  type="file" class="form-control" placeholder="Attach File" name="filePath" id="file" />
             </div>
             <div class="form-group">
               <div id="myProgress">
@@ -43,9 +40,9 @@
             </div>
              </div>
            <div class="panel-footer">
-            <button type="reset" class="btn btn-primary"> <span class="glyphicon glyphicon-floppy-save">&nbsp;Save</span></button>
             <button type="reset" class="btn btn-primary"> <span class="glyphicon glyphicon-repeat">&nbsp;Reset</span></button>
-            <button type="submit" class="btn btn-primary" onClick="move()"> <span class="glyphicon glyphicon-envelope">&nbsp;Send</span></button>
+            <button type="submit" class="btn btn-primary" onclick="move()"> <span class="glyphicon glyphicon-envelope">&nbsp;Send</span></button>
+          </div>
         </form>
 
       </div>

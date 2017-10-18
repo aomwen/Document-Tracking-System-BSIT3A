@@ -16,16 +16,16 @@
 			foreach($documents as $d){
 				echo'
 				<div class="specific_inbox">
-					<h3><b>'.$d['trackcode'].'</b></h3>
+					<h3><b>'.$d['routeId'].'</b></h3>
 					<h5 class="pull-left">To: <b>'.$d['receiver'].'</b></h5>
-					<h5 class="pull-right">Received: '.$d['datecreated'].'</h5>
+					<h5 class="pull-right">Forward Date: '.$d['forwardDate'].'</h5>
 					<br />
 					<br />
-					<h5 class="pull-left">Filename: <b>'.$d['filename'].'</b></h5>
-					<h5 class="pull-right">seen: '.$d['dateReceived'].'</h5>
+					<h5 class="pull-left">File code: <b>'.$d['fileCode'].'</b></h5>
+					<h5 class="pull-left">File name: <b>'.$d['fileName'].'</b></h5>
 					<br />
 					<hr />
-					<h5 class="subject_inbox">'.$d['fileDesc'].'</h5>
+					<h5 class="subject_inbox">'.$d['forwardComment'].'</h5>
 					<br />
 					<hr />
 				</div>
@@ -33,13 +33,12 @@
 					<div class="form-group row text-center">
 						<div class="col-sm-6">
 			            	<div class="col-sm-6 pull-left">
-			            		<a href="'.base_url('DocumentInbox/removeInboxMess/'.$d['trackcode'].'').'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-trash"> Delete</span></a>
-								<a href="'.base_url('FilesManipulation/do_download/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-download-alt"> Download</span></a>
+								<a href="'.base_url('FilesManipulation/downloadFile/'.$d['fileCode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-download-alt"> Download</span></a>
 			            	</div>
 			            </div>	
 			            <div class="col-sm-6 pull-right">	
 			            	<div class="col-sm-6 pull-right ">
-			            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-share-alt"> Forward</span></a>
+			            		<a href="'.base_url('FilesManipulation/forwardFile/'.$d['fileCode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-share-alt"> Forward</span></a>
 			            	</div>		            	
 			            </div>	
 		          </div>

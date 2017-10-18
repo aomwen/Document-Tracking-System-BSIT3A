@@ -1,5 +1,5 @@
 <head>
-	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
+<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
 <div class="docstat col-md-9">
 	<div class="panel panel-default">
@@ -63,48 +63,39 @@
 			<table id="myTable" class="docstatus table-bordered table-hover table-striped table-center text-center" width="100%">
 
 				<tr>
-					<th>Track #</th>
-					<th>File name</th>
-					<th>Sender</th>
-					<th>Receiver</th>
+					<th>File ID</th>
+					<th>File code</th>
+					<th>File Name</th>
 					<th>Date Created</th>
-					<th>Date received </th>
-					<th>status</th>
+					<th>comment </th>
 					<th>action</th>
 				</tr>
 				<?php
-					$thereis=false;
 					foreach($documents as $d){
-						if($d['sender']==$_SESSION['username']||$d['receiver']==$_SESSION['username']){
-						echo '	<tr class="clickable-row">	
-									<td>'.$d['trackcode'].'</td>
-									<td>'.$d['filename'].'</td>
-									<td>'.$d['sender'].'</td>
-									<td>'.$d['receiver'].'</td>
-									<td>'.$d['datecreated'].'</td>
-									<td>'.$d['dateReceived'].'</td>
-									<td>'.$d['status'].'</td>
+						if($d['fileAuthor']==$_SESSION['username']){
+						echo '	<tr  class="clickable-row">	
+									<td>'.$d['fileId'].'</td>
+									<td><a href="'.base_url('DocumentStatus/mydocumentsRoute/'.$d['fileCode']).'">'.$d['fileCode'].'</a></td>
+									<td>'.$d['fileName'].'</td>
+									<td>'.$d['fileCreated'].'</td>
+									<td>'.$d['fileComment'].'</td>
 									<td>
-										<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'">Download</a>
+										<a href="'.base_url('FilesManipulation/forwardFile/'.$d['fileCode']).'"><span class="glyphicon glyphicon-share-alt"></span>
+										</a>
+										<a href="'.base_url('FilesManipulation/downloadFile/'.$d['fileCode']).'"><span class="glyphicon glyphicon-download-alt"></span>
+										</a>
+										<a href="'.base_url('FilesManipulation/removeFile/'.$d['fileCode']).'"><span class="glyphicon glyphicon-remove"></span>
+										</a>
 									</td>
 								</tr>
 							';
-							$thereis=true;
 						}
-					}
-					if($thereis==false){
-						echo '<tr><td colspan="8" class="text-danger" align="center">No document registered...</td></tr>';
 					}
 				?>
 			</table>
 		</div>
 	</div>	
 </div>
-<script>
-$(".clickable-row").click(function(){
-	window.location = "<?php echo base_url('DocumentStatus/mydocumentsRoute'); ?>";	
-});
-</script>
 <script>
 function FilterFunction() {
   var input, filter, table, tr, td, i, x,flag;
