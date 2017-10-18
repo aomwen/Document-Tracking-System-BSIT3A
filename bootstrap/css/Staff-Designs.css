@@ -34,6 +34,9 @@
 	background:#A5A5AF;
 	color:#222;
 }
+.panel-body form a span .font{
+	font-family: sans-serif;
+}
 .searchbar{
 	display:inline-flex;
 	font-size: 12px;

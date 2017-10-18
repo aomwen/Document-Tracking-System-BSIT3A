@@ -6,8 +6,8 @@
 		      	<div id="main-content">
 					<div class="panel-heading" id="head">
 					    <ol class="breadcrumb pull-right">
-					      	<li><a href="<?php echo base_url('DocumentStatus/ViewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-					      	<li><a href="<?php echo base_url('DocumentInbox/ViewInbox'); ?>">Inbox</a></li> 		      
+					      	<li><a href="<?php echo base_url('DocumentStatus/ViewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
+					      	<li><a href="<?php echo base_url('DocumentInbox/ViewInbox'); ?>" title="Inbox">Inbox</a></li> 		      
 					      	<li class="active">Track Number</li>
 					    </ol>    
 					    <h3><span class="glyphicon glyphicon-inbox"></span> Inbox</h3>       
@@ -35,13 +35,23 @@
 									<div class="form-group row text-center">
 										<div class="col-sm-6">
 							            	<div class="col-sm-6 pull-left">';?>
-							            		<a href="#" class="inboxbtn btn btn-default" onClick="deleteInboxMess('<?php echo $d['trackcode'];?>')"><span class="glyphicon glyphicon-trash"> Delete</span></a>
-										<?php echo '<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-download-alt"> Download</span></a>
+							            		<a href="#" class="inboxbtn btn btn-danger" onClick="deleteInboxMess('<?php echo $d['trackcode'];?>')" title="Delete">
+							            			<span class="glyphicon glyphicon-trash"></span>
+							            			<span class="font">Delete</span>
+							            		</a>
+												<?php echo '
+													<a href="'.base_url('FilesManipulation/downloadFile/'.$d['trackcode']).'" class="inboxbtn btn btn-success" title="Download">
+														<span class="glyphicon glyphicon-download-alt"></span>
+														<span class="font">Download</span>
+													</a>
 							            	</div>
 							            </div>	
 							            <div class="col-sm-6 pull-right">	
 							            	<div class="col-sm-6 pull-right ">
-							            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-default"><span class="glyphicon glyphicon-share-alt"> Forward</span></a>
+							            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-primary" title="Forward">
+							            			<span class="glyphicon glyphicon-share-alt"></span>
+							            			<span class="font">Forward</span>
+							            		</a>
 							            	</div>		            	
 							            </div>	
 						          </div>
