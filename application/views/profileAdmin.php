@@ -85,9 +85,9 @@
     </div>
   </nav>
 </div>
-<div class="container-fluid" style="border:5px solid orange">
-  <div class="row" style="border:2px solid blue">
-    <div class="col-md-3 profile" style="border:2px solid yellow">    
+<div class="container-fluid">
+  <div class="row" >
+    <div class="col-md-3 profile">    
       <div class="profile-sidebar ">      
           <?php
           foreach($userdata as $us){

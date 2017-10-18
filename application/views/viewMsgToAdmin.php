@@ -57,14 +57,14 @@
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
 <div class="docstat col-md-9">
-	<div class="panel panel-default">
-		<div class="panel-heading" id="head">
-		    <ol class="breadcrumb pull-right">
-		      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-		      <li class="active">User Review</li>
-		    </ol>    
-		    <h3><span class="glyphicon glyphicon-signal"></span> User Review</h3>       
-		</div>
+	<div class="panel-heading" id="head">
+	    <ol class="breadcrumb pull-right">
+	      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+	      <li class="active">User Review</li>
+	    </ol>    
+	    <h3><span class="glyphicon glyphicon-signal"></span> User Review</h3>       
+	</div>
+	<div class="panel panel-default">		
 		<!-- <div class="panel-body">
 				<input type="text" id="myInput" onkeyup="myFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
 				<button type="submit" class="find" value="Find"><span class="glyphicon glyphicon-search"></span></button>
@@ -130,7 +130,7 @@
 								<td>'.$mess['email'].'</td>
 								<td>'.$mess['datecreated'].'</td>
 								<td>	
-									<a href="'.base_url('ManageAdmin/seenMsgToAdmin/'.$mess['idno'].'/'.$mess['seen']).'"> Preview </a>|<a href="'.base_url('manageAdmin/removemsgtoAdmin/'.$mess['idno']).'"> Delete </a>|<a href="'.base_url('manageAdmin/bookmarkmsgtoAdmin/'.$mess['idno']).'">Bookmark </a>
+									<a href="'.base_url('ManageAdmin/seenMsgToAdmin/'.$mess['idno'].'/'.$mess['seen']).'"> Preview </a>|';?><a href="#" onClick="deleteMess('<?php echo $mess['idno'];?>')" > Delete </a><?php echo '|<a href="'.base_url('manageAdmin/bookmarkmsgtoAdmin/'.$mess['idno']).'">Bookmark </a>
 								</td>
 							</tr>
 
@@ -173,3 +173,17 @@ function myFunction() {
   }
 
 </script>
+ <script type="text/javascript">
+      function deleteMess(id){
+       // console.log(id);
+        var ans = confirm("Are you sure to delete this message?");
+       // alert(id);
+        if(ans==true){
+          //redirect to delete method
+          var url="<?php echo base_url('manageAdmin/removemsgtoAdmin/');?>"+id;
+          location.href = url;
+          alert("The message has been successfully deleted!");
+        }
+      }
+     
+ </script>

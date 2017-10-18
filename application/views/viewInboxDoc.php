@@ -1,7 +1,6 @@
 <head>
 	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
 </head>
-<div class="row">
 	<div class="myinbox col-md-9">
 		<div class="panel-heading" id="head">
 		    <ol class="breadcrumb pull-right">
