@@ -33,12 +33,18 @@
 					<div class="form-group row text-center">
 						<div class="col-sm-6">
 			            	<div class="col-sm-6 pull-left">
-			            		<a href="'.base_url('DocumentInbox/removeDraftMess/'.$d['trackcode'].'').'" class="inboxbtn btn btn-danger"><span class="glyphicon glyphicon-trash"> Delete</span></a>
+			            		<a href="'.base_url('DocumentInbox/removeDraftMess/'.$d['trackcode'].'').'" class="inboxbtn btn btn-danger" title="Delete">
+			            			<span class="glyphicon glyphicon-trash"></span>
+			            			<span class="font">Delete</span>
+			            		</a>
 			            	</div>
 			            </div>	
 			            <div class="col-sm-6 pull-right">	
 			            	<div class="col-sm-6 pull-right ">
-			            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-primary"><span class="glyphicon glyphicon-share-alt"> Forward</span></a>
+			            		<a href="'.base_url('FilesManipulation/forward/'.$d['trackcode']).'" class="inboxbtn btn btn-primary" title="Forward">
+			            			<span class="glyphicon glyphicon-share-alt"></span>
+			            			<span class="font">Forward</span>
+			            		</a>
 			            	</div>		            	
 			            </div>	
 		          </div>
