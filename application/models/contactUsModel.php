@@ -7,7 +7,20 @@
 			$this->db->insert($this->table, $data);
 			return TRUE;	
 		}
-		
+		public function check_duplicate($data){
+
+        $this->db->where($data);
+
+        $query = $this->db->get($this->table);
+
+        $count_row = $query->num_rows();
+
+        if ($count_row > 0) {
+            return TRUE; 
+         } else {
+            return FALSE; 
+         }
+    }
 		public function read($condition=null){
 			$this->db->select('*');
 			$this->db->from($this->table); 
