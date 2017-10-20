@@ -197,11 +197,12 @@ class ManageAdmin extends CI_Controller {
                 redirect(base_url().'ManageAdmin/viewUsers');
         }
     }
-
+/*
     public function removeUser($username){
         $this->User->deleteUser($username);
         redirect(base_url().'ManageAdmin/viewUsers');
     }
+*/
 
     // MESSAGES TO ADMIN
     public function viewmsgtoAdmin()

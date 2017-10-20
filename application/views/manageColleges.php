@@ -33,10 +33,10 @@
 											<span class="glyphicon glyphicon-edit"></span>
 											<span class="font">Edit</span>
 										</a>'; ?>
-										<a href="#" onClick="deleteCollege('<?php echo $col['collegeId'];?>')" class="btn btn-danger" title="Delete">
+										<!--<a href="#" onClick="deleteCollege('<?php echo $col['collegeId'];?>')" class="btn btn-danger" title="Delete">
 											<span class="glyphicon glyphicon-remove-sign"></span>
 											<span class="font">Delete</span>
-										</a>
+										</a>-->
 								<?php echo '
 									</div>';
 									$thereis=true;
@@ -51,6 +51,7 @@
 				</div>
 			</div>	
 </div>
+<!--
  <script type="text/javascript">
       function deleteCollege(id){
        // console.log(id);
@@ -65,3 +66,4 @@
       }
      
  </script>
+ -->
