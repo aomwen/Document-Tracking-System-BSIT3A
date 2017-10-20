@@ -15,7 +15,9 @@
 						<div class="panel-body">
 							<a href="<?php echo base_url('ManageAdmin/addUser'); ?>" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Add User</a>
 
-							<a href="#" class="btn btn-success pull-right" data-toggle="modal" data-target="#addPositionModal"><span class="glyphicon glyphicon-plus"></span> Add Position</a>
+							<a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addPositionModal"><span class="glyphicon glyphicon-plus"></span> Add Position</a>
+
+							<a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addRoleModal"><span class="glyphicon glyphicon-plus"></span> Add Role</a>
 						</div>		
 						<div class="table-responsive">
 							<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
@@ -63,36 +65,60 @@
           <div class="modal fade" id="addPositionModal" role="dialog">
             <div class="modal-dialog model-sm">
               <!-- Modal content-->
-              <form role="form" method="post" class="modal-content" id="newpassword_form" >
+              <form role="form" method="post" class="modal-content" id="newposition_form" name="newposition_form">
               	                  
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Add Position</h4>
                   </div>
                   <div class="modal-body">
-                  	<div class="form-group">
-                      <label for="positionId">Position Id: </label>
-                      <input class="form-control" type="text" id="positionId" name="positionId" readonly />
-                    </div>
-                   
+         
                     <div class="form-group">
                       <label for="collegeId"> College Id: </label>
-                      <select id="collegeId" class="form-control">
-
+                      <select id="collegeId" class="form-control" name="collegeId">
+                      <?php		
+                      		foreach($colleges as $c){
+                      				echo '<option>'.$c['collegeId'].'</option>';
+                      		}
+                      ?>
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="position"> Position: </label>
                       <input class="form-control" type="text" id="position" name="position" />
                     </div>
-                     <div class="text-danger">
-                        <?php echo validation_errors(); ?>
-                    </div> 
                   
                   </div>
                   <div class="modal-footer">
                     <div class="form-group">
                       <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add Position</button>
+                    </div>
+                  </div>
+                 
+              </form>
+            </div>
+          </div>
+          <!--MODAL END-->
+          <!--MODAL FOR ADD ROLE-->
+          <div class="modal fade" id="addRoleModal" role="dialog">
+            <div class="modal-dialog model-sm">
+              <!-- Modal content-->
+              <form role="form" method="post" class="modal-content" id="newrole_form" name="newrole_form">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Role</h4>
+                  </div>
+                  <div class="modal-body">
+         
+                    <div class="form-group">
+                      <label for="role"> Role: </label>
+                      <input class="form-control" type="text" id="role" name="role" />
+                    </div>
+                  
+                  </div>
+                  <div class="modal-footer">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Add Role</button>
                     </div>
                   </div>
                  
@@ -116,3 +142,45 @@
      
  </script>
  -->
+ <!-- ADD POSITION -->
+ <script>
+
+  $('#newposition_form').on('submit',function(e){
+    e.preventDefault();
+    if($('#position').val() == '' || $('#collegeId').val() == ''){
+    	alert("Please Fill in all the fields.");
+    }else{
+    	  $.ajax({
+	      url:"<?php echo base_url(); ?>ManageAdmin/addPosition", 
+	      method:"POST",
+	      data:new FormData(this),
+	      contentType:false,
+	      cache:false,
+	      processData:false,
+	      success:function(data){
+	      	alert("Position successfully added");
+	      }
+	    });
+    }
+  });
+
+   $('#newrole_form').on('submit',function(e){
+    e.preventDefault();
+    if($('#role').val() == ''){
+    	alert("Please Fill in the role field.");
+    }else{
+    	  $.ajax({
+	      url:"<?php echo base_url(); ?>ManageAdmin/addRole", 
+	      method:"POST",
+	      data:new FormData(this),
+	      contentType:false,
+	      cache:false,
+	      processData:false,
+	      success:function(data){
+	      	alert("Role successfully added");
+	      }
+	    });
+    }
+  });
+
+</script>
