@@ -1,90 +1,55 @@
-<head>
-	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-</head>
-		<div class="row">
-		    <div id="content">
-		      	<div id="main-content">
-					<div class="panel-heading" id="head">
-					    <ol class="breadcrumb pull-right">
-					      <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
-					      <li class="active">Inbox</li>
-					    </ol>    
-					    <h3><span class="glyphicon glyphicon-inbox"></span> Inbox</h3>       
-					</div>
-					<div class="panel panel-default">		
-						<div class="panel-body">
-							<form class="pull-right searchbar">
-								<input type="text" id="myInputDocumentSearch" onkeyup="FilterFunction()" placeholder=" e.g. 592-***-**" name="tracknumber" class="search"/>
-								<a  class="btn" href="<?php base_url('DocumentStatus/mydocuments_view')?>" title="Search"><span class="glyphicon glyphicon-repeat"></span></a>
-							</form>
-						</div>
-						<div class="table-responsive">
-					        <div class="table-responsive">
-                    <table id="myTable" class="table table-hover table-striped">
-                      <thead>
-                        <th>Route ID</th>
-                        <th>File ID</th>
-                        <th>File Name</th>
-                        <th>Sender</th>
-                    <th>Forward Date</th>
-                    <th>Comment</th>
-                      </thead>
-                      <tbody>
-                      <?php
-                      $thereis=false;
-                     foreach ($documents as $d){
-                  if($d['receiver']==$_SESSION['username']){
-                        echo '
-                        <tr>
-                            <td><a href="'.base_url('DocumentInbox/viewMessage/'.$d['routeId'].'').'"><b>'.$d['routeId'].'</b></td>
-                            <td>'.$d['fileCode'].'</a></td>
-                            <td>'.$d['fileName'].'</td>
-                            <td>'.$d['sender'].'</td>
-                            <td>'.$d['forwardComment'].'</td>
-                        </tr>';
-                        // <td><span class="glyphicon glyphicon-paperclip"></span></td>
-                            $thereis=true;
-                    }
+		<!--page content-->
+		<div class="right_col" role="main">
+          <div>
+            
+            <div class="page-title">
+              <div class="title_left">
+                <h3 style="margin-top: 4%;">&nbsp; <span class="glyphicon glyphicon-inbox"></span> Inbox </h3>
+              </div>
+              <div class="title_right">
+                <div class="panel-heading" id="head">
+                  <ol class="breadcrumb pull-right">
+                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
+                      <li class="active"> Inbox </li>
+                  </ol>           
+                </div>
+              </div>  
+            </div>
 
-                }
-                if($thereis==false){
-                    echo '<tr><td colspan="6" class="text-danger" align="center">No documents received...</td></tr>';
-                  }
 
-                      ?> 
-                      </tbody>
-                    </table>
-					    </div>       
-			    		<!-- <div class="buttonto" style="margin-left: 95%; margin-top:25%;">
-							<a href="<?php echo base_url('FilesManipulation/do_upload'); ?>" class="btn btn-primary" role="button" style="width:55px; height:55px; border-radius: 50px;box-shadow: 2px 4px 10px #888888;"><span class="glyphicon glyphicon-pencil" style="font-size: 30px; top:5px;"></span></a>	
-						</div>	 -->				
-					</div>
-			    </div>    
-			</div>    
-	    </div>
-	</div>
-</div>	
-<script>
-function FilterFunction() {
-  var input, filter, table, tr, td, i, x,flag;
-  input = document.getElementById("myInputDocumentSearch");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-  	flag = false;
-  		for(x = 0; x < 4; x++){
-		    td = tr[i].getElementsByTagName("td")[x];
-		    if (td){
-		    // alert(td.innerHTML.toUpperCase());
-		      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-		        tr[i].style.display = "";
-		        flag=true;
-		      }else if (flag==false){
-		        tr[i].style.display = "none";
-		      }
-		    } 
-		}
-	}
-  }
-</script>
+            <div class="clearfix"></div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <div class="table-responsive">
+                       <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+	                        <th>Route ID</th>
+	                        <th>File ID</th>
+	                        <th>File Name</th>
+	                        <th>Sender</th>
+		                    <th>Forward Date</th>
+		                    <th>Comment</th>
+                      	</thead>
+                      	<tbody>
+	                      	<?php foreach($documents as $d):?> 
+	                        <tr>
+	                            <td><a href="<?php echo base_url('DocumentInbox/viewMessage/').$d['routeId']?>"><b><?php echo $d['routeId']?></b></a></td>
+	                            <td><?php echo $d['fileCode'] ?></td>
+	                            <td><?php echo $d['fileName'] ?></td>
+	                            <td><?php echo $d['sender'] ?> </td>
+	                            <td><?php echo $d['forwardDate'] ?></td>
+	                            <td><?php echo $d['forwardComment'] ?></td>
+	                        </tr>
+	                   		<?php endforeach?>
+				        </tbody>
+	                  </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>        
+          </div>
+        </div>    
+        <!-- /page content -->
+
