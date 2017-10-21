@@ -8,18 +8,18 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('filesModel','files');
         $this->load->model('usersModel','User');
+         
     }
     public function dashboardView(){
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
     	if(isset($_SESSION['username']))
         {
-             do
-            {
-                $fileCode = rand(0,9999);
-                $condition = array('fileCode'=>$fileCode);
-                $rs = $this->files->read($condition);
-            }while($rs);
-
-            $data['fileCode'] = $fileCode;
             $user = $_SESSION['username'];
             $condition = array('username' => $user);
             $userdata = $this->User->read($condition);

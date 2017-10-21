@@ -38,10 +38,10 @@
                           <td><?php echo $doc['fileName']?></td>
                           <td><?php echo $doc['fileCreated']?></td>
                           <td><?php echo $doc['fileComment']?></td>
-                          <td>
-                            <a href="<?php echo base_url('DocumentStatus/mydocumentsRoute/').$doc['fileCode']?>"><span class="glyphicon glyphicon-eye-open"></span></a>
-                            <a href="<?php echo base_url('FilesManipulation/downloadFile/').$doc['fileCode']?>"><span class="glyphicon glyphicon-download-alt"></span></a>
-                            <a href="<?php echo base_url('FilesManipulation/forwardFile/').$doc['fileCode']?>"><span class="glyphicon glyphicon-share-alt"></span></a>
+                          <td class="text-center">
+                            <a href="<?php echo base_url('DocumentStatus/mydocumentsRoute/').$doc['fileCode']?>" title="Preview"><span class="glyphicon glyphicon-eye-open"></span></a>
+                            <a href="<?php echo base_url('FilesManipulation/downloadFile/').$doc['fileCode']?>" title="Download"><span class="glyphicon glyphicon-download-alt"></span></a>
+                            <a href="<?php echo base_url('FilesManipulation/forwardFile/').$doc['fileCode']?>" title="Forward"><span class="glyphicon glyphicon-share-alt"></span></a>
                             </td>
                         </tr>
                         <?php endforeach;?>

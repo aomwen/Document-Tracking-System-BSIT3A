@@ -5,10 +5,13 @@ class AdminOffices extends CI_Controller
 {
 
     public function __construct(){
+
         parent::__construct();
+
         $this->load->model('usersModel','User');
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
+        $this->load->model('filesModel','files');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -16,7 +19,13 @@ class AdminOffices extends CI_Controller
     }
     
     public function manageColleges()
-    {
+    {   do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         $condition = null;
         $colleges = $this->Colleges->read($condition);
         $data['colleges'] = $colleges;
@@ -26,10 +35,15 @@ class AdminOffices extends CI_Controller
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
 
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);      
-        $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
         $this->load->view('manageColleges');
+        $this->load->view('include/footerNew');
     } 
 
   /*  public function removeCollege($collegeId)
@@ -40,6 +54,13 @@ class AdminOffices extends CI_Controller
 */
     public function addColleges()
     {
+       do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
             $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/assets/images/";
@@ -75,13 +96,26 @@ class AdminOffices extends CI_Controller
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
 
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);  
-        $this->load->view('profileAdmin');
-        $this->load->view('newColleges'); 
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
+        $this->load->view('NewColleges');
+        $this->load->view('include/footerNew');
     }      
     public function updateCollege($collegeId)
     {
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
+        $data['fileCode'] = $fileCode;
         $condition = array('collegeId' => $collegeId);
         $colleges = $this->Colleges->read($condition);
         $data['colleges'] = $colleges;
@@ -91,11 +125,15 @@ class AdminOffices extends CI_Controller
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
 
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);      
-        $this->load->view('profileAdmin',$data);
-        $this->load->view('editCollege',$data);
-    }
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
+        $this->load->view('editCollege');
+        $this->load->view('include/footerNew');    }
 
     public function updateCollegeInfo(){
         if($_SERVER['REQUEST_METHOD']=='POST')
@@ -124,6 +162,13 @@ class AdminOffices extends CI_Controller
 // Departments
     public function officeContent($collegeId)
     {
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         $data['title'] = "Document Tracking System - Dashboard";
         
         $user = $this->session->userdata('username');
@@ -139,13 +184,26 @@ class AdminOffices extends CI_Controller
         $colleges = $this->Colleges->read($condition);
         $data['collegefull']=$colleges;
 
-        $this->load->view('include/header',$data);      
-        $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
         $this->load->view('AdminDepartment');
+        $this->load->view('include/footerNew');
     }
 
     public function addDepartment($collegeId)
     {
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
             $department = $_POST['department'];
@@ -174,10 +232,15 @@ class AdminOffices extends CI_Controller
         $colleges = $this->Colleges->read($condition);
         $data['colleges'] = $colleges;
 
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);
-        $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
         $this->load->view('newDepartment');
+        $this->load->view('include/footerNew');
     }
         
     /*    

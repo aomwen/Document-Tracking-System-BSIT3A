@@ -10,6 +10,7 @@ class DocumentDraft extends CI_Controller {
         parent::__construct();
         $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
+        $this->load->model('filesModel','files');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -17,6 +18,13 @@ class DocumentDraft extends CI_Controller {
     }
     public function viewDraft()
     {
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         $data['title'] = "Document Tracking System - Dashboard";
 
         $user = $this->session->userdata('username');
@@ -39,6 +47,13 @@ class DocumentDraft extends CI_Controller {
 
     public function viewDraftMess($trackcode)
     {
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         date_default_timezone_set('Asia/Manila');
         $condition = Array('trackcode' => $trackcode);
         $data = array('seen' => TRUE,
