@@ -32,12 +32,12 @@ class AdminOffices extends CI_Controller
         $this->load->view('manageColleges');
     } 
 
-    public function removeCollege($collegeId)
+  /*  public function removeCollege($collegeId)
     {
         $this->Colleges->remove($collegeId);
         redirect(base_url(). 'AdminOffices/manageColleges');
     }
-
+*/
     public function addColleges()
     {
         if($_SERVER['REQUEST_METHOD']=='POST')
@@ -180,12 +180,12 @@ class AdminOffices extends CI_Controller
         $this->load->view('newDepartment');
     }
         
-
+    /*    
     public function removeDepartment($department,$dept_idno)
     {
         $this->Dept->remove($department,$dept_idno);
         redirect(base_url(). 'AdminOffices/manageColleges');
-    }
+    }*/
     public function UpdateDepartment()
     {
         $department = $_POST['department'];

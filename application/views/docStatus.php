@@ -72,6 +72,7 @@
 									<th>action</th>
 								</tr>
 								<?php
+									$thereis=false;
 									foreach($documents as $d){
 										if($d['fileAuthor']==$_SESSION['username']){
 										echo '	<tr  class="clickable-row">	
@@ -85,12 +86,15 @@
 														</a>
 														<a href="'.base_url('FilesManipulation/downloadFile/'.$d['fileCode']).'"><span class="glyphicon glyphicon-download-alt"></span>
 														</a>
-														<a href="'.base_url('FilesManipulation/removeFile/'.$d['fileCode']).'"><span class="glyphicon glyphicon-remove"></span>
-														</a>
+														
 													</td>
 												</tr>
 											';
+											$thereis=true;
 										}
+									}
+									if($thereis==false){
+										echo '<tr><td colspan="6" align="center" class="text-danger">No document as of the moment...</td></tr>';
 									}
 								?>
 							</table>

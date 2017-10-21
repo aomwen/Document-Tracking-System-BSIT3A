@@ -44,7 +44,7 @@
 												<td>'.$us['department'].'</td>
 												<td>'.$us['position'].'</td>
 												<td><a href="'.base_url('ManageAdmin/editUser/'.$us['username']).'" class="btn btn-info btn-sm">Edit</a>'; ?>
-												<a href="#" onClick="deleteUser('<?php echo $us['username'];?>')" class="btn btn-info btn-sm">Remove</a>
+												<a href="#" class="btn btn-danger btn-sm">Block</a>
 								<?php	echo '	</td>
 												';
 										$thereis=true;
@@ -100,7 +100,7 @@
             </div>
           </div>
           <!--MODAL END-->
-
+<!--
 	<script type="text/javascript">
       function deleteUser(id){
        // console.log(id);
@@ -115,3 +115,4 @@
       }
      
  </script>
+ -->
