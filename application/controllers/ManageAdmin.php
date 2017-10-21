@@ -5,39 +5,48 @@ class ManageAdmin extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
         $this->load->model('positionsModel','Positions');
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
         $this->load->model('registrarDocumentsModel','regDoc');
         $this->load->model('contactUsModel','contact');
+        $this->load->model('registrarDocTypeModel','documentType');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
         }
     }
+    //REGISTRAR DOCUMENT TRACKING
     public function viewDocuments(){
         do{
             $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
             $condition = array('regTrackcode'=>$tracknumber);
             $rs = $this->regDoc->read($condition);
         }while($rs);
-        $data['tracknumber'] = $tracknumber;   
+        $data['tracknumber'] = $tracknumber;
+
+        $documentTypes = array();
+        $condition = null;
+        $documentTypes = $this->documentType->read($condition);
+        $data['documentTypes'] = $documentTypes;
+
         $documents_status = array();
         $condition = null;
         $documents_status = $this->regDoc->read($condition);
         $data['documents_status'] = $documents_status;
+        
         $user = $this->session->userdata('username');
-        //getting userdata
-            $condition = array('username' => $user);
-            $userdata = $this->User->read($condition);
-            $data['userdata'] = $userdata; 
+        $condition = array('username' => $user);
+        $userdata = $this->User->read($condition);
+
+        $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data); 
         $this->load->view('profileAdmin',$data);
         $this->load->view('registrarDocuments', $data);
     }
+
     public function addRegDoc(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $trackcode = $_POST['trackcode'];
@@ -55,6 +64,7 @@ class ManageAdmin extends CI_Controller {
         }
         redirect(base_url(). 'ManageAdmin/viewDocuments');
     }
+
     public function registrarUpdate($trackcode,$status){
    
         $status = str_replace('%20',' ',$status);
@@ -68,7 +78,27 @@ class ManageAdmin extends CI_Controller {
         $this->regDoc->update($status,$trackcode);
         redirect(base_url().'ManageAdmin/viewDocuments');
     }
-    
+
+    public function addDocumentType(){
+         if($_SERVER['REQUEST_METHOD']=='POST'){
+            $docType = $_POST['docType'];
+            $record = array('docType'=>$docType,);
+        
+            $last_id = $this->documentType->create($record);
+        }
+    }
+
+    public function updateDocType(){
+         if($_SERVER['REQUEST_METHOD']=='POST'){
+         
+        $oldDocType = $_POST['typeId'];
+        $newDocType = $_POST['docType'];
+        $this->documentType->update($oldDocType,$newDocType);
+        }
+    }
+    //END OF REGISTRAR DOCUMENT TRACKING CONTROLLER.
+
+
     public function viewUsers()
     {
 
@@ -215,9 +245,11 @@ class ManageAdmin extends CI_Controller {
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-        $this->load->view('include/header',$data);
-        $this->load->view('profileAdmin');
-        $this->load->view('viewMsgToAdmin');
+        $this->load->view('include/headerNew',$data);
+        $this->load->view('sidebarAdmin');
+        $this->load->view('navbar'); 
+        $this->load->view('viewMsgToAdmin');    
+        $this->load->view('include/footerNew');   
     }
 
         public function seenmsgtoAdmin($idno,$seen){
@@ -282,5 +314,6 @@ class ManageAdmin extends CI_Controller {
                 $collegeId = $_POST['collegeId'];
                 $position  = $_POST['position'];
             }
-        }   
+        }  
+
 }?>
