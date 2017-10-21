@@ -13,7 +13,7 @@ class Account extends CI_Controller {
             $this->user = $this->session->userdata('username');
         }
     }
-
+   
     public function viewAccount()
     {
         do

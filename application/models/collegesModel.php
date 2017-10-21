@@ -9,7 +9,20 @@ class collegesModel extends CI_Model {
 		$this->db->insert($this->table, $data);
 		return TRUE;	
 	}
-	
+	public function check_duplicate($data){
+
+        $this->db->where($data);
+
+        $query = $this->db->get($this->table);
+
+        $count_row = $query->num_rows();
+
+        if ($count_row > 0) {
+            return TRUE; 
+         } else {
+            return FALSE; 
+         }
+    }
 	public function read($condition=null){
 		$this->db->select('*');
 		$this->db->from($this->table);
@@ -26,6 +39,20 @@ class collegesModel extends CI_Model {
                                 'collegeDean'=> $r['collegeDean'],
                                 );
                     $colleges[] = $info;
+        }
+		return $colleges;
+	}
+	public function getCollegeId(){
+		$this->db->select('collegeId');
+		$this->db->from($this->table);
+		$query=$this->db->get();
+		$rs = $query->result_array();		
+		$colleges = array();
+		foreach($rs as $r){
+                    $info = array(
+                                'collegeId'=> $r['collegeId'],
+                                );
+                    $colleges[]= $info;
         }
 		return $colleges;
 	}

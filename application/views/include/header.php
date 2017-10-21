@@ -27,8 +27,8 @@
         }
 
     </script> -->
-    <!-- onload="myFunction();" -->
-<body >
+    <!--onload="myFunction();" Ilalagay sa loob ng body-->
+<body>
 
 <!--<div id="loader">
 	<img src="<?php echo base_url('assets/images/loading_icon.gif'); ?>" style="width:200px;height:200px" class="img-responsive img-circle im-centered" />

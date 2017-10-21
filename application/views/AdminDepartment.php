@@ -33,7 +33,7 @@
 										<h4 class="panel-title">
 												<a class="text-center">'.$d['department'].'</a>
 												<a class="pull-right" data-toggle="collapse" data-parent="#accordion" href="#'.$dept.'"> <span class="glyphicon glyphicon-edit"></span> </a>';?>
-												<a class="pull-right" href="#" onClick="deleteDepartment('<?php echo $d['department'];?>','<?php echo $d['deptId'];?>')"> <span class="glyphicon glyphicon-remove-sign" style="color: black"></span> </a>
+												<!--<a class="pull-right" href="#" onClick="deleteDepartment('<?php echo $d['department'];?>','<?php echo $d['deptId'];?>')"> <span class="glyphicon glyphicon-remove-sign" style="color: black"></span> </a>-->
 								<?php echo '</h4>
 									</div>
 									<div class="panel-collapse collapse" id="'.$dept.'">
@@ -61,6 +61,7 @@
 		</div>
 	</div>		
 </div>
+<!--
 <script type="text/javascript">
       function deleteDepartment(dept,id){
        // console.log(id);
@@ -73,7 +74,7 @@
           alert("The department has been successfully deleted!");
         }
       }
-</script>
+</script>-->
  <script>
  $('#editDept_form').on('submit',function(e){
     e.preventDefault();

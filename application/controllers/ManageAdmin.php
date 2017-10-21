@@ -110,6 +110,7 @@ class ManageAdmin extends CI_Controller {
         $condition = null;
         $userdata = $this->User->read($condition);
         $data['userList'] = $userdata;
+        $data['colleges'] = $this->Colleges->getCollegeId();
 
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data);
@@ -227,11 +228,12 @@ class ManageAdmin extends CI_Controller {
                 redirect(base_url().'ManageAdmin/viewUsers');
         }
     }
-
+/*
     public function removeUser($username){
         $this->User->deleteUser($username);
         redirect(base_url().'ManageAdmin/viewUsers');
     }
+*/
 
     // MESSAGES TO ADMIN
     public function viewmsgtoAdmin()
@@ -308,12 +310,31 @@ class ManageAdmin extends CI_Controller {
             $this->load->view('include/header',$data);
             $this->load->view('manageProfile');
         } 
-        public function addPosition(){
-             if($_SERVER['REQUEST_METHOD']=='POST'){
-                $positionId = $_POST['positionId'];
-                $collegeId = $_POST['collegeId'];
-                $position  = $_POST['position'];
-            }
-        }  
-
+    public function addPosition(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $collegeId=$_POST['collegeId'];
+            $position=$_POST['position'];
+            $record=array('collegeId'=>$collegeId,
+                        'position'=>$position
+                );
+            $duplicate=$this->Positions->check_duplicate($record);
+            if($duplicate){
+                echo '<script type="text/javascript"> alert("Position already Exists"); </script>';   
+            }else{
+                $this->Positions->create($record);
+            } 
+        }
+    }
+    public function addRole(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $role=$_POST['role'];
+            $record=array('role'=>$role);
+            $duplicate=$this->Roles->check_duplicate($record);
+            if($duplicate){
+                echo '<script type="text/javascript"> alert("Role already Exists"); </script>';   
+            }else{
+                $this->Roles->create($record);
+            } 
+        }
+    }
 }?>

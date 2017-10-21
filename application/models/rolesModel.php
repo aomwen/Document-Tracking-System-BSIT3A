@@ -1,12 +1,14 @@
 <?php
 
-class registrarDocumentsModel extends CI_Model {
-    
-	private $table = "registrardocuments";
+class RolesModel extends CI_model {
+	private $table = "roles";
 	
 	public function create($data){
-		$this->db->insert($this->table, $data);
-		return TRUE;	
+		if(!$this->db->insert($this->table,$data))
+		{
+			$error = $this->db->error();
+			echo $error;
+		}
 	}
 	public function check_duplicate($data){
 
@@ -28,18 +30,16 @@ class registrarDocumentsModel extends CI_Model {
 		if( isset($condition) ) $this->db->where($condition);
 		
 		$query=$this->db->get();
-
-		return $query->result_array();		
+		$rs = $query->result_array();
+		$roles = array();
+		foreach($rs as $r){
+			$info = array(
+				'roleId'=>$r['roleId'],
+				'roles'=>$r['roles'],
+			);
+			$roles[] = $info;
+		}
+		return $roles;
 	}
 	
-	public function update($data,$condition){
-		$this->db->update($this->table, $data, $condition);
-		return TRUE;	
-	}
-	
-	public function remove($data){
-		$this->db->where('departments',$data);
-		$this->db->delete($this->table);
-		return TRUE;	
-	}
 }
