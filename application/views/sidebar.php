@@ -37,7 +37,7 @@
                   <li><a href="<?php echo base_url('DocumentSent/viewSent');?>"><i class="fa fa-send-o"></i> Sent </a></li>
                   <li><a href="<?php echo base_url('DocumentDraft/viewDraft');?>"><i class="fa fa-archive"></i> Drafts </a></li>
 
-                  <li><a href="media_gallery.php"><i class="fa fa-building"></i> Offices </a></li>
+                  <li><a href="<?php echo base_url('Office/viewOffice');?>"><i class="fa fa-building"></i> Offices </a></li>
                 </ul>
               </div>            
             </div>

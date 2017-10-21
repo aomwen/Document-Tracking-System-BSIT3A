@@ -35,13 +35,15 @@ class Office extends CI_Controller {
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
 
-        $this->load->view('include/header',$data);
-        if($_SESSION['username'] == "admin"){    
-            $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
         }else{
-            $this->load->view('profile');
-        }
-        $this->load->view('offices'); 
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
+        $this->load->view('offices');
+        $this->load->view('include/footerNew');
     }
 
     public function officeContent($collegeId){
@@ -68,13 +70,15 @@ class Office extends CI_Controller {
         $colleges = $this->Colleges->read($condition);
         $data['colleges']=$colleges;
 
-        $this->load->view('include/header',$data); 
-        if($_SESSION['username'] == "admin"){    
-            $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
         }else{
-            $this->load->view('profile');
-        }
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
         $this->load->view('officesContent');
+        $this->load->view('include/footerNew');
     }
 }
 ?>
