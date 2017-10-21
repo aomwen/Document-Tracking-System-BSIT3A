@@ -19,11 +19,13 @@ class ManageAdmin extends CI_Controller {
     }
     //REGISTRAR DOCUMENT TRACKING
     public function viewDocuments(){
-        do{
-            $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
-            $condition = array('regTrackcode'=>$tracknumber);
-            $rs = $this->regDoc->read($condition);
-        }while($rs);
+        // do{
+        //      $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
+        //  
+        //     $condition = array('regTrackcode'=>$tracknumber);
+        //     $rs = $this->regDoc->read($condition);
+        // }while($rs);
+        $tracknumber=null;
         $data['tracknumber'] = $tracknumber;
 
         $documentTypes = array();
@@ -45,6 +47,41 @@ class ManageAdmin extends CI_Controller {
         $this->load->view('include/header',$data); 
         $this->load->view('profileAdmin',$data);
         $this->load->view('registrarDocuments', $data);
+    }
+    public function getTrackCode($typeId_num){
+        date_default_timezone_set('Asia/Manila');
+         $year=date("Y");
+         $typeId='';
+         if($typeId_num<10){
+            $typeId='0'.$typeId_num;
+        }else{
+            $typeId=$typeId_num;
+        }
+       
+           
+        
+        $lastId=array('typeId'=>$typeId_num);
+        $regDoc_arr=$this->regDoc->getLastId($lastId);
+        $regDocId_num='';
+        if($regDoc_arr!=null){
+            $regDocId=$regDoc_arr['idno'];
+            $regDocId_num = substr($regDocId,-4);
+            $regDocId_num++;
+            if($regDocId_num<10){
+                    $new_num='000'.$regDocId_num;
+                }elseif($regDocId_num<100&&$regDocId_num>9){
+                    $new_num='00'.$regDocId_num;
+                }elseif($regDocId_num<1000&&$regDocId_num>99){
+                    $new_num='0'.$regDocId_num;
+                }else{
+                    $new_num=''.$regDocId_num;
+                }
+            $regDocId_num=$new_num;    
+        }else{
+            $regDocId_num='0001';
+        }
+      echo '<input type="text" value="'.$year.'-'.$typeId.'-'.$regDocId_num.'" name="trackcode" id="trackcode" class="form-control" readonly>';
+
     }
 
     public function addRegDoc(){
