@@ -6,7 +6,6 @@ class DocumentSent extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('filesModel','files');
-        $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
         $this->load->model('forwardRouteModel','Route');
         if(!isset($_SESSION['username']))
@@ -27,16 +26,20 @@ class DocumentSent extends CI_Controller {
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
+
+        $condition = array('sender' => $user);
+        $documents = $this->Route->read($condition);
+        $data['documents']=$documents;
         
-        $this->load->view('include/header',$data);
-        if($_SESSION['username'] == "admin")
-        {    
-            $this->load->view('profileAdmin');
-        }else
-        {
-            $this->load->view('profile');
-        }
-            $this->load->view('viewSentDoc');          
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
+        $this->load->view('viewSentDoc');
+        $this->load->view('include/footerNew');         
     }
 
     public function viewSentMess($routeId)
@@ -57,23 +60,14 @@ class DocumentSent extends CI_Controller {
         $data['documents']=$documents;
         $data['userdata'] = $userdata;
 
-        $this->load->view('include/header',$data);  
-        if($_SESSION['username'] == "admin"){    
-            $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
         }else{
-            $this->load->view('profile');
-        }
-        $this->load->view('viewSentMess');        
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
+        $this->load->view('viewSentMess');
+        $this->load->view('include/footerNew');         
     }
-
-    public function removeSentMess($trackcode){
-        $condition = Array('trackcode' => $trackcode);
-        $data = array('sentDelete' => TRUE);
-        $this->Files->deleteToSent($data,$condition);
-        echo '<script language="javascript">';
-        echo 'alert("Successfully removed")';
-        echo '</script>';
-        redirect(base_url('DocumentSent/viewSent'));
-    }
-
 }?>
