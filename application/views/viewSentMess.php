@@ -1,81 +1,76 @@
-<head>
-	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-</head>
-		<div class="row">
-		    <div id="content">
-		      	<div id="main-content">
-					<div class="panel-heading" id="head">
-					    <ol class="breadcrumb pull-right">
-					      	<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
-					      	<li><a href="<?php echo base_url('DocumentSent/viewSentDocu'); ?>" title="Sent items">Sent</a></li> 		      
-					      	<li class="active">Track Number</li>
-					    </ol>    
-					    <h3><span class="glyphicon glyphicon-folder-open"></span> Sent</h3>       
-					</div>
-					<div class="panel panel-default">		
-						<div class="panel-body">
-							<?php
-			foreach($documents as $d){
-				echo'
-				<div class="specific_inbox">
-					<h3><b>'.$d['routeId'].'</b></h3>
-					<h5 class="pull-left">To: <b>'.$d['receiver'].'</b></h5>
-					<h5 class="pull-right">Forward Date: '.$d['forwardDate'].'</h5>
-					<br />
-					<br />
-					<h5 class="pull-left">File code: <b>'.$d['fileCode'].'</b></h5>
-					<h5 class="pull-left">File name: <b>'.$d['fileName'].'</b></h5>
-					<br />
-					<hr />
-					<h5 class="subject_inbox">'.$d['forwardComment'].'</h5>
-					<br />
-					<hr />
-				</div>
-								<form>
-									<div class="form-group row text-center">
-										<div class="col-sm-6">
-							            	<div class="col-sm-6 pull-left">';
-							            	?>
-							            		<a href="#" class="inboxbtn btn btn-danger" onClick="deleteSentMess('<?php echo $d['fileCode'];?>')" title="Delete">
-							            			<span class="glyphicon glyphicon-trash"></span>
-							            			<span class="font">Delete</span>
-							            		</a>
-											<?php echo '
-												<a href="'.base_url('FilesManipulation/do_download/'.$d['fileCode']).'" class="inboxbtn btn btn-success" title="Download">
-													<span class="glyphicon glyphicon-download-alt"></span>
-													<span class="font">Download</span>
-												</a>
-							            	</div>
-							            </div>	
-							            <div class="col-sm-6 pull-right">	
-							            	<div class="col-sm-6 pull-right ">
-							            		<a href="'.base_url('FilesManipulation/forward/'.$d['fileCode']).'" class="inboxbtn btn btn-primary" title="Forward">
-							            			<span class="glyphicon glyphicon-share-alt" ></span>
-							            			<span class="font">Forward</span>
-							            		</a>
-							            	</div>		            	
-							            </div>	
-						          </div>
-								</form>';
-							}
-							?>
-						</div>
-					</div>
-			    </div>    
-			</div>    
-	    </div>
-	</div> 
-</div>	
- <script type="text/javascript">
-      function deleteSentMess(id){
-       // console.log(id);
-        var ans = confirm("Are you sure to delete this message?");
-       // alert(id);
-        if(ans==true){
-          //redirect to delete method
-          var url="<?php echo base_url('DocumentSent/removeSentMess/');?>"+id;
-          location.href = url;
-          alert("The message has been successfully deleted!");
-        }
-      }
- </script>
+<!-- page content -->
+        <div class="right_col" role="main">
+          <div>
+            <div class="page-title">
+              <div class="title_left">
+                <h3 style="margin-top: 4%;">&nbsp; <span class="glyphicon glyphicon-inbox"></span> Sent </h3>
+              </div>
+              <div class="title_right">
+                <div class="panel-heading" id="head">
+                  <ol class="breadcrumb pull-right">
+                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
+                      <li class="active"> Sent </li>
+                  </ol>           
+                </div>
+              </div>  
+            </div>
+
+
+            <div class="clearfix"></div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <div>
+                      <?php
+						foreach($documents as $d){
+							echo'
+							<div class="specific_inbox">
+								<h3><b>'.$d['routeId'].'</b></h3>
+								<h5 class="pull-left">To: <b>'.$d['receiver'].'</b></h5>
+								<h5 class="pull-right">Forward Date: '.$d['forwardDate'].'</h5>
+								<br />
+								<br />
+								<h5 class="pull-left">File code: <b>'.$d['fileCode'].'</b></h5>
+								<h5 class="pull-left">&nbsp; File name: <b>'.$d['fileName'].'</b></h5>
+								<br />
+								<hr />
+								<h5 class="subject_inbox">'.$d['forwardComment'].'</h5>
+								<br />
+								<hr />
+							</div>
+							<form>
+								<div class="form-group row text-center">
+									<div class="col-sm-6">
+						            	<div class="col-sm-6 pull-left">';
+						            	?>
+						            		<a href="#" class="inboxbtn btn btn-danger" onClick="deleteSentMess('<?php echo $d['fileCode'];?>')" title="Delete">
+						            			<span class="glyphicon glyphicon-trash"></span>
+						            			<span class="font">Delete</span>
+						            		</a>
+										<?php echo '
+											<a href="'.base_url('FilesManipulation/do_download/'.$d['fileCode']).'" class="inboxbtn btn btn-success" title="Download">
+												<span class="glyphicon glyphicon-download-alt"></span>
+												<span class="font">Download</span>
+											</a>
+						            	</div>
+						            </div>	
+						            <div class="col-sm-6 pull-right">	
+						            	<div class="col-sm-6 pull-right ">
+						            		<a href="'.base_url('FilesManipulation/forward/'.$d['fileCode']).'" class="inboxbtn btn btn-primary" title="Forward">
+						            			<span class="glyphicon glyphicon-share-alt" ></span>
+						            			<span class="font">Forward</span>
+						            		</a>
+						            	</div>		            	
+						            </div>	
+					          </div>
+							</form>';
+						}
+						?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>        
+          </div>
+        </div>    
+        <!-- /page content -->
