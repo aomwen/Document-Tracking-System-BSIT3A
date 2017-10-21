@@ -34,6 +34,7 @@
                 <ul class="nav side-menu">
                   <li><a href="<?php echo base_url('Dashboard/dashboardView');?>"><i class="fa fa-home"></i> Dashboard </a></li>
                   <li><a href="<?php echo base_url('DocumentStatus/viewDocuments');?>"><i class="fa fa-bar-chart"></i> Document Status </a></li>
+
                   <li><a href="<?php echo base_url('DocumentInbox/viewInbox');?>"><i class="fa fa-envelope"></i> Inbox </span></a></li>
                   <li><a href="<?php echo base_url('DocumentSent/viewSent');?>"><i class="fa fa-send-o"></i> Sent </a></li>
                   <li><a href="<?php echo base_url('DocumentDraft/viewDraft');?>"><i class="fa fa-archive"></i> Drafts </a></li>

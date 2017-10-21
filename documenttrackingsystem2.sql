@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2017 at 09:39 PM
+-- Generation Time: Oct 21, 2017 at 10:23 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -64,9 +64,9 @@ CREATE TABLE `contactus` (
 --
 
 INSERT INTO `contactus` (`idno`, `sender`, `email`, `content`, `datecreated`, `dateseen`, `seen`, `bookmarked`) VALUES
-(1, 'Mwen', 'mw.cabuang@gmail.com', 'HELLO FAFA', '2017-09-30 03:53:03', '2017-10-01 04:25:15pm', 1, 0),
+(1, 'Mwen', 'mw.cabuang@gmail.com', 'HELLO FAFA', '2017-09-30 03:53:03', '2017-10-01 04:25:15pm', 1, 1),
 (2, 'Giane Noda', 'giane.noda@gmail.com', 'Umutot ako kanina', '2017-09-30 12:55:16', '2017-10-03 05:44:06pm', 1, 0),
-(5, 'Mark Wendell Cabuang', 'aocabuang@gmail.com', 'why is it that you are not updating the functions?', '2017-10-12 10:18:07', '', 0, 0),
+(5, 'Mark Wendell Cabuang', 'aocabuang@gmail.com', 'why is it that you are not updating the functions?', '2017-10-12 10:18:07', '2017-10-21 04:01:16 pm', 1, 0),
 (6, 'Luis Felipe Lazaro', 'luisfelipelazaro@gmail.com', 'isheteyo isheteyo naninai nai nai HAHHAHA', '2017-10-12 10:42:53', '', 0, 0),
 (7, 'mwen', 'mwen@gmail.com', '13man', '2017-10-14 05:51:19', '', 0, 0),
 (8, 'Mark Wendell Cabuang', 'AoCabuang@gmail.com', '', '2017-10-14 23:47:19', '', 0, 0);
@@ -98,42 +98,6 @@ INSERT INTO `departments` (`deptId`, `collegeId`, `department`, `departmentHead`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `documents`
---
-
-CREATE TABLE `documents` (
-  `id` int(2) NOT NULL,
-  `trackcode` varchar(10) NOT NULL,
-  `filename` varchar(100) NOT NULL,
-  `fileDesc` varchar(400) NOT NULL,
-  `path` varchar(400) NOT NULL,
-  `sender` varchar(100) NOT NULL,
-  `receiver` varchar(100) NOT NULL,
-  `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateReceived` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status` varchar(100) NOT NULL,
-  `seen` tinyint(1) NOT NULL,
-  `sentDelete` tinyint(1) NOT NULL,
-  `inboxDelete` tinyint(1) NOT NULL,
-  `draft` tinyint(1) NOT NULL,
-  `draftDelete` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `documents`
---
-
-INSERT INTO `documents` (`id`, `trackcode`, `filename`, `fileDesc`, `path`, `sender`, `receiver`, `datecreated`, `dateReceived`, `status`, `seen`, `sentDelete`, `inboxDelete`, `draft`, `draftDelete`) VALUES
-(95, '757-854-79', 'test6.jpg', 'test6', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', '1', '7896', '2017-10-15 15:12:24', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 0, 0),
-(96, '356-080-69', 'savetest1.jpg', 'savetest1', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', '1', '7896', '2017-10-15 15:16:17', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 1, 0),
-(97, '845-753-89', 'heyah.jpg', 'heyah', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', '7896', '1', '2017-10-16 13:57:41', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 0, 0),
-(98, '446-956-05', 'test 2.jpg', 'test 2', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', 'aomwen', 'admin', '2017-10-16 13:59:26', '2017-10-18 03:49:33', 'received', 1, 0, 0, 0, 0),
-(99, '662-222-57', 'test 4.jpg', 'test 4', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', 'aomwen', 'rbituonan', '2017-10-16 14:22:35', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 0, 0),
-(100, '348-197-27', 'test.jpg', 'test', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', 'aomwen', 'rbituonan', '2017-10-16 14:22:52', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 1, 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `files`
 --
 
@@ -153,7 +117,13 @@ CREATE TABLE `files` (
 
 INSERT INTO `files` (`fileId`, `fileName`, `fileAuthor`, `fileCode`, `fileCreated`, `fileComment`, `filePath`) VALUES
 (1, 'auditory of salary', 'aomwen', '4567', '2017-10-17 06:23:34', 'Recheck: all of the record properly', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg'),
-(2, 'Manual', 'admin', '6069', '2017-10-17 07:20:30', 'How to use the system', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg');
+(2, 'Manual', 'admin', '6069', '2017-10-17 07:20:30', 'How to use the system', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg'),
+(3, 'books', 'admin', '5569', '2017-10-20 04:13:49', 'hehehe', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/if_book_461367.png'),
+(6, 'Networking', 'aomwen', '7106', '2017-10-20 14:35:34', 'Laboratory Activiy', 'http://localhost/BEFOREABBIE/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf'),
+(7, 'mga ating nakaw', 'aomwen', '6565', '2017-10-20 15:11:45', 'nakaw namin tong budget', 'http://localhost/BEFOREABBIE/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf'),
+(8, 'compose test 1', 'aomwen', '9568', '2017-10-20 15:31:27', 'testing compose', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf'),
+(9, 'auditory of salary (Mathematics Dept)', 'aomwen', '8371', '2017-10-20 15:33:41', 'year 2017', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf'),
+(10, 'download test', 'aomwen', '1136', '2017-10-21 04:28:14', 'testing download', 'http://localhost/BEFOREABBIE/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf');
 
 -- --------------------------------------------------------
 
@@ -198,7 +168,28 @@ CREATE TABLE `positions` (
 --
 
 INSERT INTO `positions` (`positionId`, `collegeId`, `position`) VALUES
-(1, 'COS', 'Instructor I');
+(1, 'COE', 'Instructor III');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `registrardoctype`
+--
+
+CREATE TABLE `registrardoctype` (
+  `typeId` int(11) NOT NULL,
+  `docType` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `registrardoctype`
+--
+
+INSERT INTO `registrardoctype` (`typeId`, `docType`) VALUES
+(1, 'Certificate of Scholarship'),
+(2, 'Lost Registration Form'),
+(3, 'Transcript of Record'),
+(4, 'mmm');
 
 -- --------------------------------------------------------
 
@@ -209,7 +200,7 @@ INSERT INTO `positions` (`positionId`, `collegeId`, `position`) VALUES
 CREATE TABLE `registrardocuments` (
   `idno` int(11) NOT NULL,
   `regTrackcode` varchar(10) NOT NULL,
-  `docType` varchar(50) NOT NULL,
+  `typeId` int(11) NOT NULL,
   `dateAdmitted` varchar(30) NOT NULL,
   `dateReleased` varchar(30) NOT NULL,
   `status` varchar(30) NOT NULL
@@ -219,10 +210,8 @@ CREATE TABLE `registrardocuments` (
 -- Dumping data for table `registrardocuments`
 --
 
-INSERT INTO `registrardocuments` (`idno`, `regTrackcode`, `docType`, `dateAdmitted`, `dateReleased`, `status`) VALUES
-(3, '202-814-79', 'Lost Id', '2017-10-14', '2017-10-14', 'On going'),
-(2, '549-906-80', 'Lost Reg-Form', '2017-10-13', '****-**-**', 'pending'),
-(1, '627-490-81', 'Lost Reg-Form', '2017-10-13', '2017-10-13', 'Received');
+INSERT INTO `registrardocuments` (`idno`, `regTrackcode`, `typeId`, `dateAdmitted`, `dateReleased`, `status`) VALUES
+(1, '614-363-54', 1, '2017-10-20', '2017-10-20', 'For Pickup');
 
 -- --------------------------------------------------------
 
@@ -235,12 +224,16 @@ CREATE TABLE `roles` (
   `role` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `roles`
+-- Table structure for table `urls`
 --
 
-INSERT INTO `roles` (`roleId`, `role`) VALUES
-(1, 'admin');
+CREATE TABLE `urls` (
+  `roleId` int(11) NOT NULL,
+  `url` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -266,8 +259,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `username`, `password`, `path`, `email`, `position`, `collegeId`, `department`, `firstname`, `lastname`) VALUES
-(1, 'admin', 'admin', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'aocabuang@gmail.com', 'Administrator', 'Admin', 'Administration', 'Mark Wendell', 'Cabuang'),
-(7896, 'aomwen', '1234', '', 'AoCabuang@gmail.com', 'Instructor I', 'COS', 'Mathematics Department', 'Mark Wendell', 'Cabuang');
+(1, 'admin', 'admin', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/user/lashes2.jpg', 'aocabuang@gmail.com', 'Administrator', 'Admin', 'Administration', 'Mark Wendell', 'Cabuang'),
+(7896, 'aomwen', '123456', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/user/house1.jpg', 'AoCabuang@gmail.com', 'Instructor II', 'COS', 'Mathematics Department', 'Mark Wendell', 'Cabuang');
 
 --
 -- Indexes for dumped tables
@@ -292,13 +285,6 @@ ALTER TABLE `departments`
   ADD PRIMARY KEY (`deptId`);
 
 --
--- Indexes for table `documents`
---
-ALTER TABLE `documents`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `trackcode` (`trackcode`);
-
---
 -- Indexes for table `files`
 --
 ALTER TABLE `files`
@@ -316,6 +302,12 @@ ALTER TABLE `forwardroute`
 --
 ALTER TABLE `positions`
   ADD PRIMARY KEY (`positionId`);
+
+--
+-- Indexes for table `registrardoctype`
+--
+ALTER TABLE `registrardoctype`
+  ADD PRIMARY KEY (`typeId`);
 
 --
 -- Indexes for table `registrardocuments`
@@ -347,30 +339,30 @@ ALTER TABLE `users`
 ALTER TABLE `contactus`
   MODIFY `idno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `documents`
---
-ALTER TABLE `documents`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
---
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `fileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `fileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
   MODIFY `positionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `registrardoctype`
+--
+ALTER TABLE `registrardoctype`
+  MODIFY `typeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `registrardocuments`
 --
 ALTER TABLE `registrardocuments`
-  MODIFY `idno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `roleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `roleId` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

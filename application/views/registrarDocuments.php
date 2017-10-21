@@ -19,7 +19,9 @@
 									<form class="formstyle" method="post" id="file_form">
 										<div class="form-group">
 											<label>Track #:</label>
-											<input type="text" value="<?php echo $tracknumber?>" name="trackcode" class="form-control" readonly>
+											<div id="IDtype">
+											<input type="text" value="<?php echo $tracknumber?>" name="trackcode" id="trackcode" class="form-control" readonly>
+											</div>
 										</div>
 										<div class="form-group">	
 											<label>File Type:</label>
@@ -28,7 +30,7 @@
 												<?php
 													foreach($documentTypes as $d){
 														echo'
-															<option value="'.$d['docType'].'">'.$d['docType'].'</option>
+															<option value="'.$d['typeId'].'">'.$d['docType'].'</option>
 														';
 													}
 												?>
@@ -97,7 +99,7 @@
 								      <form class="formstyle" method="post" id="updateDocType">
 										<div class="form-group">	
 											<label>Document Type:</label>
-											<select class="form-control" name="typeId">
+											<select class="form-control" name="typeId" id="typeId">
 													<option selected disabled> -- Choose a Document Type -- </option>
 												<?php
 													foreach($documentTypes as $d){
@@ -134,7 +136,7 @@
 											foreach($documents_status as $d){
 												echo '	<tr>	
 															<td>'.$d['regTrackcode'].'</td>
-															<td>'.$d['docType'].'</td>
+															<td>'.$d['typeId'].'</td>
 															<td>'.$d['dateAdmitted'].'</td>
 															<td>'.$d['dateReleased'].'</td>
 															<td>'.$d['status'].'</td>
@@ -156,6 +158,24 @@
 			</div>
 		</div>
 <script>
+ $('#fileType').change(function(){
+ 	var typeId = $('#fileType option:selected').val();
+ 	$.ajax({
+          url:"<?php echo base_url(); ?>ManageAdmin/getTrackCode/"+typeId, 
+          method:"POST",
+          data:{typeId:typeId},
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data){
+      		$('#IDtype').html(data);
+          }
+
+        });
+
+ });
+ 
+ 
  $('#file_form').on('submit',function(e){
     e.preventDefault();
     if($('#file_type').val() != ''){
