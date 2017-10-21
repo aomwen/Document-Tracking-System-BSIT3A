@@ -11,7 +11,6 @@ class Access extends CI_Controller {
 
 //  LIST OF FUNCTIONS
 //     1) logIn
-//     2) sessionCheck
 //     3) logOut
 
     public function logIn()
@@ -29,7 +28,7 @@ class Access extends CI_Controller {
                 {
                     $session_data = array('username' => $username);
                     $this->session->set_userdata($session_data);
-                    redirect(base_url(). 'Access/sessionCheck');
+                    redirect(base_url(). 'Dashboard/dashboardView');
                 }else
                 {
                     $error = "Invalid username or Password!";
@@ -41,25 +40,6 @@ class Access extends CI_Controller {
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data);
         $this->load->view('login');
-    }
-
-    public function sessionCheck()
-    {
-        if(isset($_SESSION['username']))
-        {
-            $user = $_SESSION['username'];
-            $condition = array('username' => $user);
-            $userdata = $this->User->read($condition);
-            $data['userdata'] = $userdata;
-            $data['title'] = "Document Tracking System - Dashboard";
-            $data['userdata'] = $userdata;
-                $this->load->view('include/header',$data);
-            if($_SESSION['username'] == "admin"){    
-                $this->load->view('profileAdmin');
-            }else{      
-                $this->load->view('profile');
-            }
-        }
     }
 
     public function logOut(){
