@@ -1,68 +1,111 @@
-<style>
-	.formstyle label{
-		font-size:16px;
-	}
-	.formstyle input{
-		border-radius:5px;
-		margin-bottom: 10px;
+<div class="right_col" role="main">
+          <div>
+            <div class="page-title">
+              <div class="title_left">
+                <h3 style="margin-top: 4%;">&nbsp; <span class="glyphicon glyphicon-signal"></span> Add New User </h3>
+              </div>
+              <div class="title_right">
+                <div class="panel-heading" id="head">
+                  <ol class="breadcrumb pull-right">
+                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
+                      <li class="active">  Add New User </li>
+                  </ol>           
+                </div>
+              </div>  
+            </div>
 
-	}
-	.tbl1{
-		margin-top:20px;
-		padding:20px;
-		text-align:center;
-		font-size: 18px;
-	}
-	.tbl1 th{
-		text-align: center;
-		padding:5px;
-	}
-	.breadcrumb{
-	  margin-top:10px;
-	}
-	.myinbox{
-		margin-top: 75px;	
-		margin-left: 20%;
-		width:79%;
-		height:100%;
-	}
-	#head{
-	  border-bottom:solid #015249;
-	}
-	.panel-heading h3{
-	  color:#015249;
-	}
-	.panel-heading ol li a span{
-	  color:#015249;
-	}
-	.panel-body form input{
-		padding:15px 16px;
-		border:1px solid #ccc;
-		border-radius:4px;
-		font-size:15px;
-		color:#aaa;
-		font-family: 'Lato', sans-serif;
-	}
-	.panel-body form button{
-		background:#015249;
-		color:#fff;
-		width:40px;
-	}
-	.panel-body form button:hover{
-		background:#A5A5AF;
-		color:#222;
-	}
-	.searchbar{
-		display:inline-flex;
-		height: 35px;
-	}
-	.search{
-		width:400px;
-		margin-left: 15px;
-	}
-</style>	
-<script type="text/javascript">
-	function filterDept(){
+
+            <div class="clearfix"></div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">                  
+                  <div class="x_content">
+                    <div>
+                      <h4 class="pull-left">Add User</h4>
+                      <a href="<?php echo base_url('ManageAdmin/viewUsers')?>" class="btn btn-dark pull-right" role="button" title="Back"><span class="glyphicon glyphicon-back"></span>Back</a>
+                    </div> 
+                    <br />
+                    <hr />
+                    <form id="formUser" data-parsley-validate action="<?php echo base_url('ManageAdmin/addUser'); ?>" class="form-horizontal form-label-left">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Username:</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="username" id="username" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">First Name:</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="firstname" class="form-control col-md-7 col-xs-12" type="text" name="firstname">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Last Name</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="lastname" class="form-control col-md-7 col-xs-12" type="text" name="lastname">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address:</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="email" name="email" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">College/Office:</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" id="sel1" name="collegeId" onchange="filterDept()">
+                            <option selected disabled name="collegeId">Choose a College</option>
+                          	<?php foreach($colleges as $c){
+							echo '
+							<option value="'.$c['collegeId'].'">'.$c['collegeId'].'</option>
+							';
+							}?>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Department:</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" id="sel2" name="department">
+                          	<option selected disabled>Choose a Department</option>
+                          	<?php foreach($departments as $d){
+							echo '
+							<option value="'.$d['department'].'">'.$d['department'].'</option>
+							';
+							}?>
+						</select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Position:</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="position">
+                            <?php foreach($positions as $p){
+							echo '
+							<option value="'.$p['position'].'">'.$p['position'].'</option>
+							';
+						}?>
+                          </select>
+                        </div>
+                      </div>                      
+                      <div class="ln_solid"></div>
+                      <div class="form-group text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button">Cancel</button>
+                          <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>  
+                </div>
+              </div>
+            </div>        
+          </div>
+          <script type="text/javascript">
+        
+function filterDept(){
 		var collegeDept = {};
 		<?php
 		foreach($colleges as $c){
@@ -94,100 +137,6 @@
 	        }
 	    }
 	}
-</script>
-<div class="myinbox col-sm-9">
-	<div class="panel-heading" id="head">
-		<ol class="breadcrumb pull-right">
-			<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>"><span class="glyphicon glyphicon-home"></span></a></li> 
-			<li class="active">Add New User</li>
-	    </ol>
-	<h3><span class="glyphicon glyphicon-inbox"></span> Add New User</h3>
-	</div>
-	<div class="panel panel-default">		
-		<div class="panel-body">
-	       <form method="post" id="formUser">
-			<div class="col-sm-7 col-sm-offset-1" style="margin: auto;">
-				<div class="form-group">
-					<label>Username:</label>
-					<input type="text" name="username" placeholder="e.g. Admin" class="form-control" id="username"/>
-				</div>
-				<div class="form-group">
-					<label>First Name:</label>
-					<input type="text" name="firstname" class="form-control" id="firstname"/>
-				</div>
-				<div class="form-group">
-					<label>Last Name:</label>
-					<input type="text" name="lastname" class="form-control" id="lastname"/>
-				</div>
-				<div class="form-group">
-					<label>Email Address:</label>
-					<input type="text" name="email" class="form-control" id="email"/>
-				</div>
-				<div class="form-group">
-					<div class="dropdown">
-						<label for="sel1">College/Office</label>
-						<select  class="form-control" id="sel1" name="collegeId" onchange="filterDept()">
-						<?php foreach($colleges as $c){
-							echo '
-							<option value="'.$c['collegeId'].'">'.$c['collegeId'].'</option>
-							';
-						}?>
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="dropdown">
-						<label for="sel2">Department</label>
-						<select class="form-control" id="sel2" name="department">
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="dropdown">
-						<label for="sel2">Position</label>
-						<select class="form-control" id="sel2" name="position" id="position">
-						<?php foreach($positions as $p){
-							echo '
-							<option>'.$p['position'].'</option>
-							';
-						}?>
-						</select>
-					</div>
-				</div>
-				<div class="pull-right">
-				<input type="submit" value="Add" class="btn btn-primary" />
-				<input type="reset" value="Reset" class="btn btn-primary" />
-				</div>
-			</div>
-		</div>
-
-<script>
- $('#formUser').on('submit',function(e){
-    e.preventDefault();
-    if($('#username').val() != '' && $('#firstname').val() != '' && $('#lastname').val() != '' && $('#email').val() != '' && $('#collegeId').val() != '' && $('#department').val() != '' && $('#position').val() != ''){
-    	var email = $('#email').val();
-        
-        if (validateEmail(email)) {
-          $.ajax({
-          url:"<?php echo base_url(); ?>ManageAdmin/addUser", 
-          method:"POST",
-          data:new FormData(this),
-          contentType:false,
-          cache:false,
-          processData:false,
-          success:function(data){
-           alert('New User Successfully Added!');
-          }
-
-        });
-        }else{
-        	alert('Invalid Email Address');
-        }
-      
-  }else{
-        alert("Please Fill in the required fields.");
-  }
-  });
  function validateEmail(email) {
 	    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 	    if (filter.test(email)) {
@@ -197,5 +146,4 @@
 	        return false;
 	    }
 	}
-
-</script>
+          </script>

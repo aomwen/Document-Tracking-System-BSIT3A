@@ -16,6 +16,7 @@ class NotificationPath extends CI_Controller {
         $this->load->model('adminsettings_model','Dept');
         $this->load->model('registrardoc_model','Regdoc');
         $this->load->model('notification_model','Notif');
+        $this->load->model('filesModel','files');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -24,7 +25,14 @@ class NotificationPath extends CI_Controller {
     }
 
     public function notifToInbox($trackcode){
-
+        
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         $data['title'] = "Document Tracking System - Dashboard";
         //PROFILE DETAIL
         $user = $this->session->userdata('username');

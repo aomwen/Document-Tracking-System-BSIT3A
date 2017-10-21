@@ -5,8 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function __construct(){
 			parent::__construct();
 			$this->load->model('registrarDocumentsModel','regDoc');
-		
-		
 }		public function index(){	
 		    $regDocuments = array();
 	        $condition = null;
@@ -25,8 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        $data['regDocuments'] = $regDocuments;
 
 			$data['title'] = "Document Tracking System - Dashboard";
-			$this->load->view('include/header',$data);
-			$this->load->view('dashboard');
+			$this->load->view('dashboard',$data);
 		}
 	}
 

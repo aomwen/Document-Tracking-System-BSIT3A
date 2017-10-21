@@ -1,42 +1,42 @@
-<head>
-	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-</head>
-		<div class="row">
-		    <div id="content">
-		      	<div id="main-content">
-					<div class="panel-heading" id="head">
-					    <ol class="breadcrumb pull-right">
-					    	<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
-					      	<li class="active">Offices</li>
-					    </ol>    
-					    <h3><span class="glyphicon glyphicon-map-marker"></span> Offices</h3>       
-					</div>
-					<div class="panel panel-default">		
-						<div class="panel-body">
-							<?php
-							$thereis=false;
-							foreach($colleges as $col){
-								echo'
-								<div class="thumbnail text-center col-sm-3" style="background-color:lightgray; border-width: 2px;  height:25%; padding:10px;">
-									<a href="'.base_url('Office/officeContent/'.$col['collegeId']).'" style="text-decoration: none;">
-										<div style="color: black;">
-											<img class="img-responsive" src="'.$col['collegeLogo'].'" style=" height: 150px;  margin: auto; border-radius: 90%;">
-											<hr style="width:80%;"  />
-											<h4 class="text-primary">'.$col['collegefull'].' ('.$col['collegeId'].')</h4>
-											'.$col['collegeDesc'].'<br />
-										</div>
-									</a>
-								</div>';
-								$thereis=true;
-							}
-							if($thereis==false){
-									echo '<h4 class="text-danger">No college registered...</h4>';
-								}
-							?>
-						</div>	
-					</div>
-			    </div>    
-			</div>    
-	    </div>
-	</div> 
-</div>	
+		<div class="right_col" role="main">
+          <div>
+            <div class="page-title">
+              <div class="title_left">
+                <h3 style="margin-top: 4%;">&nbsp; <span class="glyphicon glyphicon-map-marker"></span> Offices </h3>
+              </div>
+              <div class="title_right">
+                <div class="panel-heading" id="head">
+                  <ol class="breadcrumb pull-right">
+                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
+                    <li class="active"> Offices </li>
+                  </ol>           
+                </div>
+              </div>  
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <div class="row">
+                    <?php foreach($colleges as $col):?>
+                    <div class="col-md-55">
+                        <div class="thumbnail">
+                          <div class="image view view-first">
+                            <a href="<?php echo base_url('Office/officeContent/'.$col['collegeId'])?>"><img style="width: 100%; display: block;" src="<?php echo $col['collegeLogo']?>" alt="image" /></a>
+                          </div>
+                          <div class="caption">
+                            <p class="text-center"><b><?php echo $col['collegefull']?></b></p>
+                            <p class="text-center"><?php echo $col['collegeDesc']?></p>
+                          </div>
+                        </div>
+                      </div>
+                    <?php endforeach;?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
