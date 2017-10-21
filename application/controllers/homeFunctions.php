@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             parent::__construct();
             $this->load->model('registrarDocumentsModel','regDoc');
             $this->load->model('contactUsModel','contact');
+        $this->load->model('filesModel','files');
         }
 
         public function contactUs()
@@ -26,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
          public function registrarTrackDoc(){
+            
             $data['title'] = "Document Tracking System - Dashboard";
             $this->load->view('include/header',$data);
             $this->load->view('registrarTrackDoc');

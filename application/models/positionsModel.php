@@ -4,8 +4,11 @@ class PositionsModel extends CI_model {
 	private $table = "positions";
 	
 	public function create($data){
-		$this->db->create($this->table, $data);
-		return TRUE;
+		if(!$this->db->insert($this->table,$data))
+		{
+			$error = $this->db->error();
+			echo $error;
+		}
 	}
 	public function check_duplicate($data){
 
@@ -37,6 +40,14 @@ class PositionsModel extends CI_model {
 				);
 				$positions[] = $info;
 			}return $positions;
+	}
+	public function get_lastId(){
+		$this->db->select('positionId');
+		$this->db->from($this->table);
+		$this->db->order_by('positionId', 'desc'); 
+		$this->db->limit(1);
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 	public function deletePosition($data){
 		$this->db->where();

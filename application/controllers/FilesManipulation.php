@@ -56,8 +56,16 @@ class FilesManipulation extends CI_Controller {
     }
 
     public function forwardFile($fileCode){
+        
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
            if( $_SERVER['REQUEST_METHOD']=='POST')
-           { 
+           {
                 $routeId= $_POST['routeId'];
                 $sender = $_POST['sender'];
                 $receiver = $_POST['receiver'];
@@ -127,7 +135,7 @@ class FilesManipulation extends CI_Controller {
             foreach($documents2 as $d2)
             {
                 $data = file_get_contents($d2['filePath']);
-                force_download($d2['fileName'], $data , TRUE);
+                force_download($d2['filePath'], NULL );
             }
             echo '
             <script>
@@ -153,6 +161,7 @@ class FilesManipulation extends CI_Controller {
                 header('Content-Transfer-Encoding: binary');
                 @readfile($path);
             }
+=======
         }
     }
 ?>

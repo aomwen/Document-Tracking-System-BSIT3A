@@ -42,6 +42,20 @@ class collegesModel extends CI_Model {
         }
 		return $colleges;
 	}
+	public function getCollegeId(){
+		$this->db->select('collegeId');
+		$this->db->from($this->table);
+		$query=$this->db->get();
+		$rs = $query->result_array();		
+		$colleges = array();
+		foreach($rs as $r){
+                    $info = array(
+                                'collegeId'=> $r['collegeId'],
+                                );
+                    $colleges[]= $info;
+        }
+		return $colleges;
+	}
 	
 	public function update($record,$ca){
 		$this->db->update($this->table, $record, $ca);

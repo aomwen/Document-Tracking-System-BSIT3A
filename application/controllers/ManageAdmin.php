@@ -5,39 +5,93 @@ class ManageAdmin extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
         $this->load->model('positionsModel','Positions');
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
         $this->load->model('registrarDocumentsModel','regDoc');
         $this->load->model('contactUsModel','contact');
+        $this->load->model('registrarDocTypeModel','documentType');
+        $this->load->model('filesModel','files');
+
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
         }
     }
+    //REGISTRAR DOCUMENT TRACKING
     public function viewDocuments(){
-        do{
-            $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
-            $condition = array('regTrackcode'=>$tracknumber);
-            $rs = $this->regDoc->read($condition);
+        // do{
+        //      $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
+        //  
+        //     $condition = array('regTrackcode'=>$tracknumber);
+        //     $rs = $this->regDoc->read($condition);
+        // }while($rs);
+        $tracknumber=null;
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
         }while($rs);
-        $data['tracknumber'] = $tracknumber;   
+        $data['fileCode'] = $fileCode;
+      
+        $documentTypes = array();
+        $condition = null;
+        $documentTypes = $this->documentType->read($condition);
+        $data['documentTypes'] = $documentTypes;
+
         $documents_status = array();
         $condition = null;
         $documents_status = $this->regDoc->read($condition);
         $data['documents_status'] = $documents_status;
+        
         $user = $this->session->userdata('username');
-        //getting userdata
-            $condition = array('username' => $user);
-            $userdata = $this->User->read($condition);
-            $data['userdata'] = $userdata; 
+        $condition = array('username' => $user);
+        $userdata = $this->User->read($condition);
+
+        $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/header',$data); 
         $this->load->view('profileAdmin',$data);
         $this->load->view('registrarDocuments', $data);
     }
+    public function getTrackCode($typeId_num){
+        date_default_timezone_set('Asia/Manila');
+         $year=date("Y");
+         $typeId='';
+         if($typeId_num<10){
+            $typeId='0'.$typeId_num;
+        }else{
+            $typeId=$typeId_num;
+        }
+       
+           
+        
+        $lastId=array('typeId'=>$typeId_num);
+        $regDoc_arr=$this->regDoc->getLastId($lastId);
+        $regDocId_num='';
+        if($regDoc_arr!=null){
+            $regDocId=$regDoc_arr['idno'];
+            $regDocId_num = substr($regDocId,-4);
+            $regDocId_num++;
+            if($regDocId_num<10){
+                    $new_num='000'.$regDocId_num;
+                }elseif($regDocId_num<100&&$regDocId_num>9){
+                    $new_num='00'.$regDocId_num;
+                }elseif($regDocId_num<1000&&$regDocId_num>99){
+                    $new_num='0'.$regDocId_num;
+                }else{
+                    $new_num=''.$regDocId_num;
+                }
+            $regDocId_num=$new_num;    
+        }else{
+            $regDocId_num='0001';
+        }
+      echo '<input type="text" value="'.$year.'-'.$typeId.'-'.$regDocId_num.'" name="trackcode" id="trackcode" class="form-control" readonly>';
+
+    }
+
     public function addRegDoc(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $trackcode = $_POST['trackcode'];
@@ -55,6 +109,7 @@ class ManageAdmin extends CI_Controller {
         }
         redirect(base_url(). 'ManageAdmin/viewDocuments');
     }
+
     public function registrarUpdate($trackcode,$status){
    
         $status = str_replace('%20',' ',$status);
@@ -68,10 +123,36 @@ class ManageAdmin extends CI_Controller {
         $this->regDoc->update($status,$trackcode);
         redirect(base_url().'ManageAdmin/viewDocuments');
     }
-    
+
+    public function addDocumentType(){
+         if($_SERVER['REQUEST_METHOD']=='POST'){
+            $docType = $_POST['docType'];
+            $record = array('docType'=>$docType,);
+        
+            $last_id = $this->documentType->create($record);
+        }
+    }
+
+    public function updateDocType(){
+         if($_SERVER['REQUEST_METHOD']=='POST'){
+         
+        $oldDocType = $_POST['typeId'];
+        $newDocType = $_POST['docType'];
+        $this->documentType->update($oldDocType,$newDocType);
+        }
+    }
+    //END OF REGISTRAR DOCUMENT TRACKING CONTROLLER.
+
+
     public function viewUsers()
     {
-
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         $condition = null;
         $condition = array('username' => $_SESSION['username']);
         $userdata = $this->User->read($condition);
@@ -80,15 +161,25 @@ class ManageAdmin extends CI_Controller {
         $condition = null;
         $userdata = $this->User->read($condition);
         $data['userList'] = $userdata;
+        $data['colleges'] = $this->Colleges->getCollegeId();
 
         $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);
-        $this->load->view('profileAdmin');
-        $this->load->view('ViewUsers');
+        $this->load->view('include/headerNew',$data);
+        $this->load->view('sidebarAdmin');
+        $this->load->view('navbar'); 
+        $this->load->view('viewUsers');     
+        $this->load->view('include/footerNew'); 
     }
 
     public function addUser()
     {
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
             do{
@@ -136,12 +227,21 @@ class ManageAdmin extends CI_Controller {
         $data['userdata'] = $userdata;
 
         $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);
-        $this->load->view('profileAdmin');
-        $this->load->view('newUser');
+        $this->load->view('include/headerNew',$data);
+        $this->load->view('sidebarAdmin');
+        $this->load->view('navbar'); 
+        $this->load->view('newUser');     
+        $this->load->view('include/footerNew'); 
             
     }
     public function editUser($username){
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
             //getting colleges
             $condition = null;
             $colleges = $this->Colleges->read($condition);
@@ -169,11 +269,14 @@ class ManageAdmin extends CI_Controller {
             $data['userList'] = $userdata;
             $_SESSION['userList']=$username;
             //end of getting userdata
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);      
-        $this->load->view('profileAdmin');
-        $this->load->view('editUser');
+         $data['title'] = "Document Tracking System - Dashboard";
+        $this->load->view('include/headerNew',$data);
+        $this->load->view('sidebarAdmin');
+        $this->load->view('navbar'); 
+        $this->load->view('editUser');     
+        $this->load->view('include/footerNew'); 
     }
+
     public function updateUser(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
                 $username = $_POST['username'];
@@ -197,17 +300,17 @@ class ManageAdmin extends CI_Controller {
                 redirect(base_url().'ManageAdmin/viewUsers');
         }
     }
-/*
-    public function removeUser($username){
-        $this->User->deleteUser($username);
-        redirect(base_url().'ManageAdmin/viewUsers');
-    }
-*/
 
     // MESSAGES TO ADMIN
     public function viewmsgtoAdmin()
     {
-
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         $condition = null ;
         $messages = $this->contact->read($condition);
         $data['messages'] = $messages;
@@ -216,39 +319,48 @@ class ManageAdmin extends CI_Controller {
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-        $this->load->view('include/header',$data);
-        $this->load->view('profileAdmin');
-        $this->load->view('viewMsgToAdmin');
+        $this->load->view('include/headerNew',$data);
+        $this->load->view('sidebarAdmin');
+        $this->load->view('navbar'); 
+        $this->load->view('viewMsgToAdmin');    
+        $this->load->view('include/footerNew');   
     }
 
-        public function seenmsgtoAdmin($idno,$seen){
-            if($seen == FALSE){
-                $dateseen = date("Y-m-d h:i:s a");
-                $record = array('dateseen'=>$dateseen,
-                                'seen'=>TRUE);
-                if($this->contact->update($idno,$record)){
-                }else{
-                    $error = "Error!!!";
-                    $data['error']=$error;
-                    redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
-                }
+    public function seenmsgtoAdmin($idno,$seen){
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
+        if($seen == FALSE){
+            $dateseen = date("Y-m-d h:i:s a");
+            $record = array('dateseen'=>$dateseen,
+                            'seen'=>TRUE);
+            if($this->contact->update($idno,$record)){
+            }else{
+                $error = "Error!!!";
+                $data['error']=$error;
+                redirect(base_url().'ManageAdmin/viewmsgtoAdmin');
             }
+        }
 
-            $condition = array('idno'=>$idno) ;
-            $messages = $this->contact->read($condition);
-        
-            $data['messages'] = $messages;
+        $condition = array('idno'=>$idno) ;
+        $messages = $this->contact->read($condition);
+    
+        $data['messages'] = $messages;
 
-            $user = $this->session->userdata('username');
-            $condition = array('username' => $user);
-            $userdata = $this->User->read($condition);
-            $data['userdata'] = $userdata;
+        $user = $this->session->userdata('username');
+        $condition = array('username' => $user);
+        $userdata = $this->User->read($condition);
+        $data['userdata'] = $userdata;
 
-            $success = "Account successfully created!";
-            $data['success']=$success;
-            $this->load->view('include/header');
-            $this->load->view('profileAdmin',$data);
-            $this->load->view('seenMsgToAdmin',$data);
+        $success = "Account successfully created!";
+        $data['success']=$success;
+        $this->load->view('include/header');
+        $this->load->view('profileAdmin',$data);
+        $this->load->view('seenMsgToAdmin',$data);
             
         }
         public function removemsgtoAdmin($idno){
@@ -269,6 +381,13 @@ class ManageAdmin extends CI_Controller {
         }
 
         public function manageProfile(){
+            do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
             $data['title'] = "Document Tracking System - Dashboard";
             $user = $this->session->userdata('username');
             $condition = array('username' => $user);
@@ -277,11 +396,31 @@ class ManageAdmin extends CI_Controller {
             $this->load->view('include/header',$data);
             $this->load->view('manageProfile');
         } 
-        public function addPosition(){
-             if($_SERVER['REQUEST_METHOD']=='POST'){
-                $positionId = $_POST['positionId'];
-                $collegeId = $_POST['collegeId'];
-                $position  = $_POST['position'];
-            }
-        }   
+    public function addPosition(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $collegeId=$_POST['collegeId'];
+            $position=$_POST['position'];
+            $record=array('collegeId'=>$collegeId,
+                        'position'=>$position
+                );
+            $duplicate=$this->Positions->check_duplicate($record);
+            if($duplicate){
+                echo '<script type="text/javascript"> alert("Position already Exists"); </script>';   
+            }else{
+                $this->Positions->create($record);
+            } 
+        }
+    }
+    public function addRole(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $role=$_POST['role'];
+            $record=array('role'=>$role);
+            $duplicate=$this->Roles->check_duplicate($record);
+            if($duplicate){
+                echo '<script type="text/javascript"> alert("Role already Exists"); </script>';   
+            }else{
+                $this->Roles->create($record);
+            } 
+        }
+    }
 }?>

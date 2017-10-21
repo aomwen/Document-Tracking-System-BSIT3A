@@ -31,6 +31,25 @@ class registrarDocumentsModel extends CI_Model {
 
 		return $query->result_array();		
 	}
+
+	public function getLastId($condition){
+		$this->db->select('idno');
+		$this->db->from($this->table);
+		$this->db->where($condition);
+		$this->db->order_by('idno', 'desc'); 
+		$this->db->limit(1);
+		$query = $this->db->get();
+		$rs=$query->result_array();
+		$lastId = array();
+	
+        foreach($rs as $r){
+            $info = array(
+            			'idno' => $r['idno'],
+                        );
+            $lastId = $info;
+        }
+        return $lastId;
+	}
 	
 	public function update($data,$condition){
 		$this->db->update($this->table, $data, $condition);

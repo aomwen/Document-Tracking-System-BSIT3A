@@ -5,8 +5,15 @@ class Account extends CI_Controller {
     public $user='';
     public function __construct(){
         parent::__construct();
-        $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
+        $this->load->model('filesModel','files');
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         if(!isset($_SESSION['username'])){
                      redirect().'Dts/index';
         }else{
@@ -20,15 +27,15 @@ class Account extends CI_Controller {
         $condition = array('username' => $this->user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-        $this->load->view('include/header',$data); 
-        if($_SESSION['username'] == "admin")
-        {    
-            $this->load->view('profileAdmin');
-        }else
-        {   
-            $this->load->view('profile');
-        }
+        $this->load->view('include/headerNew',$data);
+            if($_SESSION['username'] == "admin"){  
+                $this->load->view('sidebarAdmin');
+            }else{
+                $this->load->view('sidebar');     
+            } 
+        $this->load->view('navbar'); 
         $this->load->view('accountView');     
+        $this->load->view('include/footerNew');   
     }
 
     public function editProfile()
@@ -50,7 +57,6 @@ class Account extends CI_Controller {
     }
 
     public function updateInformation(){
-
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
