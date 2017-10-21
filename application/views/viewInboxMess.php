@@ -44,6 +44,7 @@
 														<span class="glyphicon glyphicon-download-alt"></span>
 														<span class="font">Download</span>
 													</a>
+													<a href="'.base_url('FilesManipulation/previewFile/'.$d['fileCode'].'').'" class="inboxbtn btn btn-default" target="_blank"><span class="glyphicon glyphicon-"> Preview</span></a>
 							            	</div>
 							            </div>	
 							            <div class="col-sm-6 pull-right">	
