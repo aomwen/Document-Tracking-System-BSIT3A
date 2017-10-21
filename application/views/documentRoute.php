@@ -8,7 +8,7 @@
                 <div class="panel-heading" id="head">
                   <ol class="breadcrumb pull-right">
                     <li><a href="<?php echo base_url('Dashboard/dashboardView');?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li>
-                    <li><a href="<?php echo base_url('Dashboard/dashboardView');?>" title="DocumentStatus"><span class="fa fa-bar-chart"></span></a></li> 
+                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments');?>" title="Document Status"><span class="fa fa-bar-chart"></span></a></li> 
                       <li class="active">Document Log</li>
                   </ol>           
                 </div>
