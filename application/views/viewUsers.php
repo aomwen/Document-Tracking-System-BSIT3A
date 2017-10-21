@@ -1,71 +1,86 @@
-<head>
-	<link href="<?php echo base_url('bootstrap/css/Staff-Designs.css'); ?>" rel="stylesheet" />
-</head>	
-<div col-xs-9 col-sm-9 col-md-9 col-lg-9">
-		    <div id="content">
-		      	<div id="main-content">
-					<div class="panel-heading" id="head">
-					    <ol class="breadcrumb pull-right">
-							<li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
-							<li class="active">Manage User Profile</li>
-					    </ol>
-						<h3><span class="glyphicon glyphicon-inbox"></span> Manage User Profile</h3>       
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<a href="<?php echo base_url('ManageAdmin/addUser'); ?>" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Add User</a>
+<!-- page content -->
+        <div class="right_col" role="main">
+          <div>
+            <div class="page-title">
+              <div class="title_left">
+                <h3 style="margin-top: 4%;">&nbsp; <span class="glyphicon glyphicon-signal"></span> Manage User Profile </h3>
+              </div>
+              <div class="title_right">
+                <div class="panel-heading" id="head">
+                  <ol class="breadcrumb pull-right">
+                    <li><a href="<?php echo base_url('Dashboard/dashboardView'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
+                      <li class="active"> Manage User Profile </li>
+                  </ol>           
+                </div>
+              </div>  
+            </div>
 
-							<a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addPositionModal"><span class="glyphicon glyphicon-plus"></span> Add Position</a>
 
-							<a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addRoleModal"><span class="glyphicon glyphicon-plus"></span> Add Role</a>
-						</div>		
-						<div class="table-responsive">
-							<table id="myTable" class="docstatus table-bordered table-hover table-responsive table-center text-center" width="100%">
-								<tr>
-									<th>Username</th>
-									<th>Password</th>
-									<th>First Name</th>
-									<th>Last Name</th>
-									<th>Email Address</th>
-									<th>College/Office</th>
-									<th>Department</th>
-									<th>Position</th>
-									<th>Action</th>
-								</tr>
-								<?php
-									$thereis=false;
-									foreach($userList as $us){
-										echo '
-											<tr>
-												<td>'.$us['username'].'</td>
-												<td>'.$us['password'].'</td>
-												<td>'.$us['firstname'].'</td>
-												<td>'.$us['lastname'].'</td>
-												<td>'.$us['email'].'</td>
-												<td>'.$us['collegeId'].'</td>
-												<td>'.$us['department'].'</td>
-												<td>'.$us['position'].'</td>
-												<td><a href="'.base_url('ManageAdmin/editUser/'.$us['username']).'" class="btn btn-info btn-sm">Edit</a>'; ?>
-												<a href="#" class="btn btn-danger btn-sm">Block</a>
-								<?php	echo '	</td>
-												';
-										$thereis=true;
-									}
-									if($thereis==false){
-										echo '<tr><td colspan="9">No user registered...</td></tr>';
-									}
-								?>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-</div>
+            <div class="clearfix"></div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-left top_search">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search for...">
+                      <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Go!</button>
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div class="pull-right">
+                    <a href="<?php echo base_url('ManageAdmin/addUser'); ?>" role="button" class="btn btn-dark" ><span class="glyphicon glyphicon-plus"></span> Add User</a>
+                    <a href="#" class="btn btn-dark" data-toggle="modal" role="button" data-target="#addPositionModal"><span class="glyphicon glyphicon-plus"></span> Add Position</a>
+                    <a href="#" class="btn btn-dark" data-toggle="modal" role="button" data-target="#addRoleModal"><span class="glyphicon glyphicon-plus"></span> Add Role</a>
+                  </div>  
+
+                  <div class="x_content">
+                    <div class="table-responsive">
+                      <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                          <td>Username</td>
+                          <td>Password</td>
+                          <td>First Name</td>
+                          <td>Last Name</td>
+                          <td>Email Address</td>
+                          <td>College/Office</td>
+                          <td>Department</td>
+                          <td>Position</td>
+                          <td>Action</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php  foreach($userList as $us):?>
+                              <tr>
+                                <td><?php echo $us['username']?></td>
+                                <td><?php echo $us['password']?></td>
+                                <td><?php echo $us['firstname']?></td>
+                                <td><?php echo $us['lastname']?></td>
+                                <td><?php echo $us['email']?></td>
+                                <td><?php echo $us['collegeId']?></td>
+                                <td><?php echo $us['department']?></td>
+                                <td><?php echo $us['position']?></td>
+                                <td><a href="<?php echo base_url('ManageAdmin/editUser/'.$us['username'])?>" class="btn btn-info btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm">Block</a>
+                                </td>
+                              </tr>
+                            <?php endforeach;?>
+                      </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>        
+          </div>
+        </div>    
+        <!-- /page content -->
    <!--MODAL FOR ADD POSITION-->
           <div class="modal fade" id="addPositionModal" role="dialog">
             <div class="modal-dialog model-sm">
               <!-- Modal content-->
-              <form role="form" method="post" class="modal-content" id="newposition_form" name="newposition_form">
+              <form role="form" method="post" class="modal-content" actio="<?php echo base_url('ManageAdmin/addPosition');?>" id="newposition_form" name="newposition_form">
               	                  
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -75,7 +90,7 @@
          
                     <div class="form-group">
                       <label for="collegeId"> College Id: </label>
-                      <select id="collegeId" class="form-control" name="collegeId">
+                      <select id="collegeIdpos" class="form-control" name="collegeId">
                       <?php		
                       		foreach($colleges as $c){
                       				echo '<option>'.$c['collegeId'].'</option>';
@@ -85,7 +100,7 @@
                     </div>
                     <div class="form-group">
                       <label for="position"> Position: </label>
-                      <input class="form-control" type="text" id="position" name="position" />
+                      <input class="form-control" type="text" id="positionpos" name="position" />
                     </div>
                   
                   </div>
@@ -99,6 +114,7 @@
             </div>
           </div>
           <!--MODAL END-->
+
           <!--MODAL FOR ADD ROLE-->
           <div class="modal fade" id="addRoleModal" role="dialog">
             <div class="modal-dialog model-sm">
@@ -125,62 +141,5 @@
               </form>
             </div>
           </div>
-          <!--MODAL END-->
-<!--
-	<script type="text/javascript">
-      function deleteUser(id){
-       // console.log(id);
-        var ans = confirm("Are you sure to delete this user?");
-       // alert(id);
-        if(ans==true){
-          //redirect to delete method
-          var url="<?php echo base_url('ManageAdmin/removeUser/');?>"+id;
-          location.href = url;
-          alert("The user has been successfully deleted!");
-        }
-      }
-     
- </script>
- -->
+
  <!-- ADD POSITION -->
- <script>
-
-  $('#newposition_form').on('submit',function(e){
-    e.preventDefault();
-    if($('#position').val() == '' || $('#collegeId').val() == ''){
-    	alert("Please Fill in all the fields.");
-    }else{
-    	  $.ajax({
-	      url:"<?php echo base_url(); ?>ManageAdmin/addPosition", 
-	      method:"POST",
-	      data:new FormData(this),
-	      contentType:false,
-	      cache:false,
-	      processData:false,
-	      success:function(data){
-	      	alert("Position successfully added");
-	      }
-	    });
-    }
-  });
-
-   $('#newrole_form').on('submit',function(e){
-    e.preventDefault();
-    if($('#role').val() == ''){
-    	alert("Please Fill in the role field.");
-    }else{
-    	  $.ajax({
-	      url:"<?php echo base_url(); ?>ManageAdmin/addRole", 
-	      method:"POST",
-	      data:new FormData(this),
-	      contentType:false,
-	      cache:false,
-	      processData:false,
-	      success:function(data){
-	      	alert("Role successfully added");
-	      }
-	    });
-    }
-  });
-
-</script>
