@@ -26,10 +26,15 @@ class AdminOffices extends CI_Controller
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
 
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);      
-        $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
         $this->load->view('manageColleges');
+        $this->load->view('include/footerNew');
     } 
 
   /*  public function removeCollege($collegeId)
@@ -75,10 +80,15 @@ class AdminOffices extends CI_Controller
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
 
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);  
-        $this->load->view('profileAdmin');
-        $this->load->view('newColleges'); 
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
+        $this->load->view('NewColleges');
+        $this->load->view('include/footerNew');
     }      
     public function updateCollege($collegeId)
     {
@@ -91,11 +101,15 @@ class AdminOffices extends CI_Controller
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
 
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);      
-        $this->load->view('profileAdmin',$data);
-        $this->load->view('editCollege',$data);
-    }
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
+        $this->load->view('editCollege');
+        $this->load->view('include/footerNew');    }
 
     public function updateCollegeInfo(){
         if($_SERVER['REQUEST_METHOD']=='POST')
@@ -139,9 +153,15 @@ class AdminOffices extends CI_Controller
         $colleges = $this->Colleges->read($condition);
         $data['collegefull']=$colleges;
 
-        $this->load->view('include/header',$data);      
-        $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
         $this->load->view('AdminDepartment');
+        $this->load->view('include/footerNew');
     }
 
     public function addDepartment($collegeId)
@@ -174,10 +194,15 @@ class AdminOffices extends CI_Controller
         $colleges = $this->Colleges->read($condition);
         $data['colleges'] = $colleges;
 
-        $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data);
-        $this->load->view('profileAdmin');
+        $this->load->view('include/headerNew',$data);
+        if($_SESSION['username'] == "admin"){  
+            $this->load->view('sidebarAdmin');
+        }else{
+            $this->load->view('sidebar');     
+        } 
+        $this->load->view('navbar'); 
         $this->load->view('newDepartment');
+        $this->load->view('include/footerNew');
     }
         
     /*    
