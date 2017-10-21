@@ -23,8 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        $data['regDocuments'] = $regDocuments;
 
 			$data['title'] = "Document Tracking System - Dashboard";
-			$this->load->view('include/header',$data);
-			$this->load->view('dashboard');
+			$this->load->view('dashboard',$data);
 		}
 	}
 

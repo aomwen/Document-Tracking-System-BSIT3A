@@ -1,0 +1,68 @@
+ a{
+ 	color:#e60000;
+ }
+ a.active,a:active,a:focus,a:hover{
+ 	color:#cc0000;
+ }
+ #mainNav{
+	background-color:#222;
+ }
+ #mainNav .navbar-toggler{
+	font-size:12px;
+	right:0;
+	padding:13px;
+	text-transform:uppercase;
+	color:#fff;
+	border:0;
+	background-color:#e60000;
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	text-transform:uppercase;
+ }
+ #mainNav .navbar-brand{
+	color:#e60000;
+	font-family: Courgette;
+	/*font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;*/
+ }
+ #mainNav .navbar-brand.active,#mainNav .navbar-brand:active,#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{
+	color:#cc0000;
+ }
+ #mainNav .navbar-nav .nav-item .nav-link{
+	font-size:90%;
+	font-weight:400;
+	padding:.75em 0;
+	letter-spacing:1px;
+	color:#fff;
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;text-transform:uppercase;
+ }
+ #mainNav .navbar-nav .nav-item .nav-link.active,#mainNav .navbar-nav .nav-item .nav-link:hover{
+	color:#e60000;
+ }
+ @media (min-width:992px){
+ 	#mainNav{
+		padding-top:25px;
+		padding-bottom:25px;
+		-webkit-transition:padding-top .3s,padding-bottom .3s;
+		-moz-transition:padding-top .3s,padding-bottom .3s;
+		transition:padding-top .3s,padding-bottom .3s;
+		border:none;
+		background-color:transparent
+	}
+ 	#mainNav .navbar-brand{
+ 		font-size:1.75em;
+ 		-webkit-transition:all .3s;
+ 		-moz-transition:all .3s;
+ 		transition:all .3s
+ 	}
+ 	#mainNav .navbar-nav .nav-item .nav-link{
+ 		padding:1.1em 1em!important
+ 	}
+ 	#mainNav.navbar-shrink{
+ 		padding-top:0;
+ 		padding-bottom:0;
+ 		background-color:#222
+ 	}
+ 	#mainNav.navbar-shrink .navbar-brand{
+ 		font-size:1.25em;
+ 		padding:12px 0
+ 	}
+ }
