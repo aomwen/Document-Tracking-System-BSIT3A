@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2017 at 12:34 PM
+-- Generation Time: Oct 21, 2017 at 08:17 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -65,9 +65,9 @@ CREATE TABLE IF NOT EXISTS `contactus` (
 --
 
 INSERT INTO `contactus` (`idno`, `sender`, `email`, `content`, `datecreated`, `dateseen`, `seen`, `bookmarked`) VALUES
-(1, 'Mwen', 'mw.cabuang@gmail.com', 'HELLO FAFA', '2017-09-30 11:53:03', '2017-10-01 04:25:15pm', 1, 0),
+(1, 'Mwen', 'mw.cabuang@gmail.com', 'HELLO FAFA', '2017-09-30 11:53:03', '2017-10-01 04:25:15pm', 1, 1),
 (2, 'Giane Noda', 'giane.noda@gmail.com', 'Umutot ako kanina', '2017-09-30 20:55:16', '2017-10-03 05:44:06pm', 1, 0),
-(5, 'Mark Wendell Cabuang', 'aocabuang@gmail.com', 'why is it that you are not updating the functions?', '2017-10-12 18:18:07', '', 0, 0),
+(5, 'Mark Wendell Cabuang', 'aocabuang@gmail.com', 'why is it that you are not updating the functions?', '2017-10-12 18:18:07', '2017-10-21 04:01:16 pm', 1, 0),
 (6, 'Luis Felipe Lazaro', 'luisfelipelazaro@gmail.com', 'isheteyo isheteyo naninai nai nai HAHHAHA', '2017-10-12 18:42:53', '', 0, 0),
 (7, 'mwen', 'mwen@gmail.com', '13man', '2017-10-14 13:51:19', '', 0, 0),
 (8, 'Mark Wendell Cabuang', 'AoCabuang@gmail.com', '', '2017-10-15 07:47:19', '', 0, 0);
@@ -100,44 +100,6 @@ INSERT INTO `departments` (`deptId`, `collegeId`, `department`, `departmentHead`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `documents`
---
-
-CREATE TABLE IF NOT EXISTS `documents` (
-  `id` int(2) NOT NULL AUTO_INCREMENT,
-  `trackcode` varchar(10) NOT NULL,
-  `filename` varchar(100) NOT NULL,
-  `fileDesc` varchar(400) NOT NULL,
-  `path` varchar(400) NOT NULL,
-  `sender` varchar(100) NOT NULL,
-  `receiver` varchar(100) NOT NULL,
-  `datecreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateReceived` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status` varchar(100) NOT NULL,
-  `seen` tinyint(1) NOT NULL,
-  `sentDelete` tinyint(1) NOT NULL,
-  `inboxDelete` tinyint(1) NOT NULL,
-  `draft` tinyint(1) NOT NULL,
-  `draftDelete` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `trackcode` (`trackcode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
-
---
--- Dumping data for table `documents`
---
-
-INSERT INTO `documents` (`id`, `trackcode`, `filename`, `fileDesc`, `path`, `sender`, `receiver`, `datecreated`, `dateReceived`, `status`, `seen`, `sentDelete`, `inboxDelete`, `draft`, `draftDelete`) VALUES
-(95, '757-854-79', 'test6.jpg', 'test6', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', '1', '7896', '2017-10-15 23:12:24', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 0, 0),
-(96, '356-080-69', 'savetest1.jpg', 'savetest1', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', '1', '7896', '2017-10-15 23:16:17', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 1, 0),
-(97, '845-753-89', 'heyah.jpg', 'heyah', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', '7896', '1', '2017-10-16 21:57:41', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 0, 0),
-(98, '446-956-05', 'test 2.jpg', 'test 2', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', 'aomwen', 'admin', '2017-10-16 21:59:26', '2017-10-18 11:49:33', 'received', 1, 0, 0, 0, 0),
-(99, '662-222-57', 'test 4.jpg', 'test 4', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', 'aomwen', 'rbituonan', '2017-10-16 22:22:35', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 0, 0),
-(100, '348-197-27', 'test.jpg', 'test', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg', 'aomwen', 'rbituonan', '2017-10-16 22:22:52', '0000-00-00 00:00:00', 'pending', 0, 0, 0, 1, 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `files`
 --
 
@@ -151,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `files` (
   `filePath` varchar(300) NOT NULL,
   PRIMARY KEY (`fileId`),
   UNIQUE KEY `fileCode` (`fileCode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `files`
@@ -159,7 +121,13 @@ CREATE TABLE IF NOT EXISTS `files` (
 
 INSERT INTO `files` (`fileId`, `fileName`, `fileAuthor`, `fileCode`, `fileCreated`, `fileComment`, `filePath`) VALUES
 (1, 'auditory of salary', 'aomwen', '4567', '2017-10-17 14:23:34', 'Recheck: all of the record properly', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg'),
-(2, 'Manual', 'admin', '6069', '2017-10-17 15:20:30', 'How to use the system', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg');
+(2, 'Manual', 'admin', '6069', '2017-10-17 15:20:30', 'How to use the system', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/bg4.jpg'),
+(3, 'books', 'admin', '5569', '2017-10-20 12:13:49', 'hehehe', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/if_book_461367.png'),
+(6, 'Networking', 'aomwen', '7106', '2017-10-20 22:35:34', 'Laboratory Activiy', 'http://localhost/BEFOREABBIE/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf'),
+(7, 'mga ating nakaw', 'aomwen', '6565', '2017-10-20 23:11:45', 'nakaw namin tong budget', 'http://localhost/BEFOREABBIE/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf'),
+(8, 'compose test 1', 'aomwen', '9568', '2017-10-20 23:31:27', 'testing compose', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf'),
+(9, 'auditory of salary (Mathematics Dept)', 'aomwen', '8371', '2017-10-20 23:33:41', 'year 2017', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf'),
+(10, 'download test', 'aomwen', '1136', '2017-10-21 12:28:14', 'testing download', 'http://localhost/BEFOREABBIE/Document-Tracking-System-BSIT3A/uploads/lab-2_6_2.pdf');
 
 -- --------------------------------------------------------
 
@@ -211,6 +179,28 @@ INSERT INTO `positions` (`positionId`, `collegeId`, `position`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `registrardoctype`
+--
+
+CREATE TABLE IF NOT EXISTS `registrardoctype` (
+  `typeId` int(11) NOT NULL AUTO_INCREMENT,
+  `docType` varchar(100) NOT NULL,
+  PRIMARY KEY (`typeId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `registrardoctype`
+--
+
+INSERT INTO `registrardoctype` (`typeId`, `docType`) VALUES
+(1, 'Certificate of Scholarship'),
+(2, 'Lost Registration Form'),
+(3, 'Transcript of Record'),
+(4, 'mmm');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `registrardocuments`
 --
 
@@ -223,16 +213,14 @@ CREATE TABLE IF NOT EXISTS `registrardocuments` (
   `status` varchar(30) NOT NULL,
   UNIQUE KEY `regTrackcode` (`regTrackcode`),
   KEY `idno` (`idno`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `registrardocuments`
 --
 
 INSERT INTO `registrardocuments` (`idno`, `regTrackcode`, `docType`, `dateAdmitted`, `dateReleased`, `status`) VALUES
-(3, '202-814-79', 'Lost Id', '2017-10-14', '2017-10-14', 'On going'),
-(2, '549-906-80', 'Lost Reg-Form', '2017-10-13', '****-**-**', 'pending'),
-(1, '627-490-81', 'Lost Reg-Form', '2017-10-13', '2017-10-13', 'Received');
+(1, '614-363-54', 'Certificate of Scholarship', '2017-10-20', '2017-10-20', 'For Pickup');
 
 -- --------------------------------------------------------
 
@@ -260,5 +248,5 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`userId`, `username`, `password`, `path`, `email`, `position`, `collegeId`, `department`, `firstname`, `lastname`) VALUES
-(1, 'admin', 'admin', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/', 'aocabuang@gmail.com', 'Administrator', 'Admin', 'Administration', 'Mark Wendell', 'Cabuang'),
-(7896, 'aomwen', '1234', '', 'AoCabuang@gmail.com', 'Teacher II', 'COS', 'Mathematics Department', 'Mark Wendell', 'Cabuang');
+(1, 'admin', 'admin', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/user/lashes2.jpg', 'aocabuang@gmail.com', 'Administrator', 'Admin', 'Administration', 'Mark Wendell', 'Cabuang'),
+(7896, 'aomwen', '123456', 'http://localhost/Document-Tracking-System-BSIT3A/uploads/user/house1.jpg', 'AoCabuang@gmail.com', 'Teacher II', 'COS', 'Mathematics Department', 'Mark Wendell', 'Cabuang');
