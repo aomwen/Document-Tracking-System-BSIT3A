@@ -6,7 +6,6 @@ class DocumentStatus extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('filesModel','files');
-        $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
@@ -19,6 +18,14 @@ class DocumentStatus extends CI_Controller {
   
     public function viewDocuments()
     {
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+
+        $data['fileCode'] = $fileCode;
         $data['title'] = "Document Tracking System - Dashboard";
  
         $user = $this->session->userdata('username');
@@ -26,14 +33,10 @@ class DocumentStatus extends CI_Controller {
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
  
-        $condition = array();
+        $condition = array('fileAuthor' => $_SESSION['username']);
         $documents = $this->files->read($condition);
         $data['documents'] = $documents;
-
-        $condition = null; 
-        $Flag = $this->Files->countFlag($condition);
-        $data['Flag'] = $Flag;
-
+        
         $condition = null;
         $departments = $this->Dept->read($condition);
         $data['departments'] = $departments;
@@ -46,19 +49,27 @@ class DocumentStatus extends CI_Controller {
         $user = $this->User->read($condition);
         $data['user'] = $user;
 
-        $this->load->view('include/header',$data); 
-        if($_SESSION['username'] == "admin")
-        {    
-            $this->load->view('profileAdmin',$data);
-        }else
-        {
-          $this->load->view('profile',$data);
-        }
-        $this->load->view('docStatus');           
+         $this->load->view('include/headerNew',$data);
+            if($_SESSION['username'] == "admin"){  
+                $this->load->view('sidebarAdmin');
+            }else{
+                $this->load->view('sidebar');     
+            } 
+        $this->load->view('navbar'); 
+        $this->load->view('documentStatus');
+        $this->load->view('include/footerNew');         
     }
 
     public function mydocumentsRoute($fileCode)
     {
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+
+        $data['fileCode'] = $fileCode;
         $data['title'] = "Document Tracking System - Dashboard";
  
         $user = $this->session->userdata('username');
@@ -70,15 +81,15 @@ class DocumentStatus extends CI_Controller {
         $documents = $this->Route->read($condition);
         $data['documents'] = $documents;
  
-        $this->load->view('include/header',$data); 
-        if($_SESSION['username'] == "admin")
-        {    
-            $this->load->view('profileAdmin',$data);
-        }else
-        {
-          $this->load->view('profile',$data);
-        }
-        $this->load->view('mydocumentsRoute');           
+        $this->load->view('include/headerNew',$data);
+            if($_SESSION['username'] == "admin"){  
+                $this->load->view('sidebarAdmin');
+            }else{
+                $this->load->view('sidebar');     
+            } 
+        $this->load->view('navbar'); 
+        $this->load->view('documentRoute');
+        $this->load->view('include/footerNew');              
     }    
 }
 ?>

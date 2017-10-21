@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group">
                   <label>Attachment</label>
-                  <input class="btn btn-default btn-file"  type="file" class="form-control" placeholder="Attach File" name="filePath" id="file" accept=".pdf" multiple/>
+                  <input class="btn btn-default btn-file"  type="file" class="form-control" placeholder="Attach File" name="filePath" id="file" accept=".pdf">
                 </div>
                 <div class="form-group">
                   <button type="reset" class="btn btn-primary" title="Reset">
