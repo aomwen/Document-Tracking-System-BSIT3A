@@ -34,19 +34,18 @@
                 <ul class="nav side-menu">
                   <li><a href="<?php echo base_url('Dashboard/dashboardView');?>"><i class="fa fa-home"></i> Dashboard </a></li>
                   <li><a href="<?php echo base_url('DocumentStatus/viewDocuments');?>"><i class="fa fa-bar-chart"></i> Document Status </a></li>
-                  <li><a href="inbox.php"><i class="fa fa-envelope"></i> Inbox </span></a></li>
-                  <li><a href="sent.php"><i class="fa fa-send-o"></i> Sent </a></li>
-                  <li><a href="drafts.php"><i class="fa fa-archive"></i> Drafts </a></li>
-                  <li><a href="media_gallery.php"><i class="fa fa-building"></i> Offices </a></li>
+                  <li><a href="<?php echo base_url('DocumentInbox/viewInbox');?>"><i class="fa fa-envelope"></i> Inbox </a></li>
+                  <li><a href="<?php echo base_url('DocumentSent/viewSent');?>"><i class="fa fa-send-o"></i> Sent </a></li>
+                  <li><a href="#"><i class="fa fa-building"></i> Offices </a></li>
                 </ul>
               </div>            
               <div class="menu_section">
                 <h3>Manage</h3>
                 <ul class="nav side-menu">
-                  <li><a href="<?php echo base_url('ManageAdmin/viewmsgtoAdmin');?>"><i class="fa fa-star"></i> User Reviews </a></li>
-                  <li><a href="manageOffices.php"><i class="fa fa-building"></i> Manage Offices </a></li>
-                  <li><a href="manageRegistrar.php"><i class="fa fa-bar-chart"></i> Manage Registrar Status </span></a></li>
-                  <li><a href="manageUsers.php"><i class="fa fa-user"></i> Manage Users </a></li>
+                  <li><a href="#"><i class="fa fa-star"></i> User Reviews </a></li>
+                  <li><a href="#"><i class="fa fa-building"></i> Manage Offices </a></li>
+                  <li><a href="#"><i class="fa fa-bar-chart"></i> Manage Registrar Status </span></a></li>
+                  <li><a href="#"><i class="fa fa-user"></i> Manage Users </a></li>
                 </ul>
               </div>            
             </div>
