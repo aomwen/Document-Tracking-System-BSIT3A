@@ -1,3 +1,4 @@
+
 <div class="right_col" role="main">
           <div>
             <div class="page-title">
@@ -104,6 +105,7 @@
 											</td>
 										</tr>
 
+
 										';
 										$thereis=true;
 								}
@@ -121,18 +123,4 @@
             </div>
         </div>
     </div>
-          <!--MODAL END-->
- <script type="text/javascript">
-      function deleteMess(id){
-       // console.log(id);
-        var ans = confirm("Are you sure to delete this message?");
-       // alert(id);
-        if(ans==true){
-          //redirect to delete method
-          var url="<?php echo base_url('manageAdmin/removemsgtoAdmin/');?>"+id;
-          location.href = url;
-          alert("The message has been successfully deleted!");
-        }
-      }
-     
- </script> -->
+
