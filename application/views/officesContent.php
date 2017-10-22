@@ -17,6 +17,56 @@
             </div>
 
             <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <div class="row">
+                      <!-- start accordion -->
+                      <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">   
+                          <?php
+                          $thereis=false;
+                          foreach($departments as $d){
+                            $dept = str_ireplace(' ','-',$d['department']);
+                            echo'
+                            <div class="panel">
+                              <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">  
+                                <h4 class="panel-title">'.$d['department'].'</h4>
+                              </a>
+                            </div>  
+                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                              <p>'.$d['departmentHead'].'<b>(head)</b></p>';
+                              foreach($userdata as $us){
+                                if($us['department'] == $d['department']){
+                                  echo '<p>'.$us['firstname'].' '.$us['lastname'].'<b>'.$us['position'].'</b></p>';
+                                }
+                                echo '
+                            </div>';
+                                }
+                                $thereis=true;
+                            }
+                            if($thereis==false){
+                              echo '<h4 class="text-danger">No department registered...</h4>';  
+                            }
+                            ?>  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end of accordion -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+
+            <div class="clearfix"></div>
               <div class="row">
                 <div class="col-md-12">
                   <div class="x_panel">

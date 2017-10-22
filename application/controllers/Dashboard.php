@@ -37,6 +37,10 @@ class Dashboard extends CI_Controller {
             $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
             $data['title'] = "Document Tracking System - Dashboard";
+
+            $condition = array('fileAuthor' => $_SESSION['username']);
+            $documents = $this->files->read($condition);
+            $data['documents'] = $documents;
             
             $this->load->view('include/headerNew',$data);
             if($_SESSION['username'] == "admin"){  
