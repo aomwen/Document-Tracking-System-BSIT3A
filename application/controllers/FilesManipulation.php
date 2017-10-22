@@ -56,8 +56,23 @@ class FilesManipulation extends CI_Controller {
     }
 
     public function forwardFile($fileCode){
+        
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
            if( $_SERVER['REQUEST_METHOD']=='POST')
            { 
+            do
+            {
+                $fileCode = rand(0,9999);
+                $condition = array('fileCode'=>$fileCode);
+                $rs = $this->files->read($condition);
+            }while($rs);
+            $data['fileCode'] = $fileCode;
                 $routeId= $_POST['routeId'];
                 $sender = $_POST['sender'];
                 $receiver = $_POST['receiver'];

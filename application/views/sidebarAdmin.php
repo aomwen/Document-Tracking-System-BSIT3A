@@ -46,7 +46,7 @@
                   <li><a href="<?php echo base_url('ManageAdmin/viewmsgtoAdmin');?>"><i class="fa fa-star"></i> User Reviews </a></li>
                   <li><a href="manageOffices.php"><i class="fa fa-building"></i> Manage Offices </a></li>
                   <li><a href="manageRegistrar.php"><i class="fa fa-bar-chart"></i> Manage Registrar Status </span></a></li>
-                  <li><a href="manageUsers.php"><i class="fa fa-user"></i> Manage Users </a></li>
+                  <li><a href="<?php echo base_url('ManageAdmin/viewUsers')?>"><i class="fa fa-user"></i> Manage Users </a></li>
                 </ul>
               </div>            
             </div>

@@ -5,10 +5,13 @@ class AdminOffices extends CI_Controller
 {
 
     public function __construct(){
+
         parent::__construct();
+
         $this->load->model('usersModel','User');
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
+        $this->load->model('filesModel','files');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -16,7 +19,13 @@ class AdminOffices extends CI_Controller
     }
     
     public function manageColleges()
-    {
+    {   do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         $condition = null;
         $colleges = $this->Colleges->read($condition);
         $data['colleges'] = $colleges;
@@ -40,6 +49,13 @@ class AdminOffices extends CI_Controller
 */
     public function addColleges()
     {
+       do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
             $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/assets/images/";
@@ -82,6 +98,14 @@ class AdminOffices extends CI_Controller
     }      
     public function updateCollege($collegeId)
     {
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
+        $data['fileCode'] = $fileCode;
         $condition = array('collegeId' => $collegeId);
         $colleges = $this->Colleges->read($condition);
         $data['colleges'] = $colleges;
@@ -124,6 +148,13 @@ class AdminOffices extends CI_Controller
 // Departments
     public function officeContent($collegeId)
     {
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         $data['title'] = "Document Tracking System - Dashboard";
         
         $user = $this->session->userdata('username');
@@ -146,6 +177,13 @@ class AdminOffices extends CI_Controller
 
     public function addDepartment($collegeId)
     {
+        do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
             $department = $_POST['department'];

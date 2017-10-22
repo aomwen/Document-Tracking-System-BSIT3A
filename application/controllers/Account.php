@@ -7,6 +7,13 @@ class Account extends CI_Controller {
         parent::__construct();
         $this->load->model('usersModel','User');
         $this->load->model('filesModel','files');
+         do
+        {
+            $fileCode = rand(0,9999);
+            $condition = array('fileCode'=>$fileCode);
+            $rs = $this->files->read($condition);
+        }while($rs);
+        $data['fileCode'] = $fileCode;
         if(!isset($_SESSION['username'])){
                      redirect().'Dts/index';
         }else{
@@ -16,14 +23,6 @@ class Account extends CI_Controller {
    
     public function viewAccount()
     {
-        do
-        {
-            $fileCode = rand(0,9999);
-            $condition = array('fileCode'=>$fileCode);
-            $rs = $this->files->read($condition);
-        }while($rs);
-        $data['fileCode'] = $fileCode;
-
         $data['title'] = "Document Tracking System - Dashboard";
         $condition = array('username' => $this->user);
         $userdata = $this->User->read($condition);
@@ -58,7 +57,6 @@ class Account extends CI_Controller {
     }
 
     public function updateInformation(){
-
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $email = $_POST['email'];
