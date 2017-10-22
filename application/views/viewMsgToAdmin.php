@@ -22,9 +22,9 @@
                   <div class="x_content">
                   	<div class="row">	
 						<div class="col-md-12">
-							<div class="panel panel-warning pull-right">
+							<div class="panel pull-right">
 								<div class="panel-heading">
-									<a href="#" style="text-decoration:none;color:#dd6f2d;" data-toggle="modal" data-target="#bookmarkedModal" title="Bookmarked">Bookmarked<span class="badge pull pull-right"></span>	
+									<a href="#" style="text-decoration:none;color:#dd6f2d;" data-toggle="modal" data-target="#bookmarkedModal" class="btn btn-default" title="Bookmarks"><span class="glyphicon glyphicon-star"></span><span class="badge pull pull-right"></span>	
 									</a>
 								</div> <!--/panel-hdeaing-->
 							</div> <!--/panel-->
