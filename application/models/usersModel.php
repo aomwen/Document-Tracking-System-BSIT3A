@@ -43,7 +43,9 @@ class usersModel extends CI_Model {
 				'position' => $r['position'],    
                 'department'=> $r['department'],
                 'path' => $r['path'],
-                'collegeId' => $r['collegeId'],           
+                'collegeId' => $r['collegeId'],  
+                'active' => $r['active'],
+                'roleId' => $r['roleId'],        
             );
             $userdata[] = $info;
         }
@@ -73,5 +75,21 @@ class usersModel extends CI_Model {
 			return true;
 		}	
 		return false;	
+	}
+	public function activeUser($username){
+		$this->db->select('active');
+		$this->db->from($this->table);
+		$this->db->where('username',$username);
+		$query=$this->db->get();
+		$rs= $query->result_array();
+		$activated = array();
+        foreach($rs as $r)
+        {
+            $info = array(  
+                'active' => $r['active'],        
+            );
+            $activated = $info;
+        }
+        return $activated['active'];
 	}
 }

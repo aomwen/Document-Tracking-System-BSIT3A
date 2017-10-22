@@ -35,7 +35,7 @@ class RolesModel extends CI_model {
 		foreach($rs as $r){
 			$info = array(
 				'roleId'=>$r['roleId'],
-				'roles'=>$r['roles'],
+				'role'=>$r['role'],
 			);
 			$roles[] = $info;
 		}
