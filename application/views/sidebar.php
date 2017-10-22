@@ -27,7 +27,10 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <button id="compose" class="btn btn-sm btn-success btn-block" type="button">ADD DOCUMENT</button>              
+                <ul class="nav side-menu">
+                <li><a id="compose" class="btn-success"><i class="glyphicon glyphicon-file"></i>CREATE</a></li>
+         <!--        <li><a id="forwardModal" class="btn-success"><i class="  glyphicon glyphicon-share-alt"></i>FORWARD</a></li>     -->
+                </ul>          
                 <br />              
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -35,7 +38,6 @@
                   <li><a href="<?php echo base_url('DocumentStatus/viewDocuments');?>"><i class="fa fa-bar-chart"></i> Document Status </a></li>
                   <li><a href="<?php echo base_url('DocumentInbox/viewInbox');?>"><i class="fa fa-envelope"></i> Inbox </span></a></li>
                   <li><a href="<?php echo base_url('DocumentSent/viewSent');?>"><i class="fa fa-send-o"></i> Sent </a></li>
-                  <li><a href="<?php echo base_url('DocumentDraft/viewDraft');?>"><i class="fa fa-archive"></i> Drafts </a></li>
                   <li><a href="<?php echo base_url('Office/viewOffice');?>"><i class="fa fa-building"></i> Offices </a></li>
                 </ul>
               </div>            

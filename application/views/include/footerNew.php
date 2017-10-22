@@ -54,6 +54,57 @@
             </div>
           </div>
     </div>
+    <!-- /Forward -->
+    <div class="forwardModal col-md-6 col-xs-12">
+      <div class="panel-heading" id="head">
+          ForwardDocument
+          <button type="button" class="close forwardModal-close">
+            <span>×</span>
+          </button>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+       <form action="<?php echo base_url('FilesManipulation/forwardFile')?>" method="post" enctype="multipart/form-data" id="forwardForm">
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <label >To:</label>
+              <select  class="form-control" id="receiver"  name="receiver" />
+                <option selected disabled> -- Choose a Receiver -- </option>
+                <?php foreach($user as $u){
+                  if($u['username']!= $_SESSION['username']){
+                  echo '<option value="'.$u['username'].'"><b>'.$u['username'].'</b> -('.$u['collegeId'].' - '.$u['department'].')</option>';
+                  }
+                }?>
+              </select> 
+            </div>
+            <div class="col-sm-6">
+              <label >From:</label>
+              <input type="text" class="form-control"  name="sender" readonly value="<?php echo $_SESSION['username']?>" />
+            </div>
+          </div>
+            <div class="form-group">
+              <label>Route code:</label>
+              <input type="text" class="form-control" value="<?php echo $routeId?>" name="routeId" readonly />
+            </div>
+            <div class="form-group">
+              <label>file Code:</label>
+              <input type="text" class="form-control" id="forwardFileCode" name="fileCode" readonly />
+            </div>
+            <div class="form-group">
+              <label>file Name:</label>
+              <input type="text" class="form-control" name="fileName" id="forwardFileName" readonly />
+            </div>
+            <div class="form-group">
+              <label>file Comment:</label>
+              <textarea class="form-control input-text text-area" name="forwardComment" cols="0" rows="0" placeholder="Comment"></textarea>
+            </div>
+           <div class="panel-footer">
+            <button type="reset" class="btn btn-primary"> <span class="glyphicon glyphicon-repeat">&nbsp;Reset </span></button>
+            <button type="submit" class="btn btn-primary" > <span class="glyphicon glyphicon-envelope">&nbsp;Send </span></button>
+            </div>
+        </form>
+      </div>
+    </div>
     <!-- /compose -->
 
     <!-- jQuery -->

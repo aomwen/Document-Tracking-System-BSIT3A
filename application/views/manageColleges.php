@@ -35,36 +35,29 @@
                           </div>
                         </div>
                       </div>
+                      <?php foreach($colleges as $col):?>
                       <div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <?php
-								$thereis=false;
-								foreach($colleges as $col){
-									echo'
-		                          	<img class="img-responsive" src="'.$col['collegeLogo'].'" style="width: 100%; display: block;" alt="College Logo" />
-		                            <div class="mask">
-		                              <div class="tools tools-bottom">
-		                              	<a href="'.base_url('AdminOffices/officeContent/'.$col['collegeId']).'"><span class="glyphicon glyphicon-eye-open"></span></a>
-		                                <a href="'.base_url('AdminOffices/updateCollege/'.$col['collegeId']).'"><i class="fa fa-pencil"></i></a>
-		                                <a href="#"><i class="fa fa-times"></i></a>
-		                              </div>
-		                            </div>'; 
-		                        ?>    
-								<?php echo '
-									</div>';
-									$thereis=true;
-								}
-								if($thereis==false){
-									echo '<h4 class="text-danger">No college registered...</h4>';
-								}
-							?>
+                          	<img class="img-responsive" src="<?php echo $col['collegeLogo']?>" style="width: 100%; display: block;" alt="College Logo" />
+                            <div class="mask">
+                              <div class="tools tools-bottom">
+                                <h6 class="text-center"><b>tools</b></h6>
+                              	<a href="<?php echo base_url('AdminOffices/officeContent/'.$col['collegeId'])?>"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                <a href="<?php echo base_url('AdminOffices/updateCollege/'.$col['collegeId'])?>"><i class="fa fa-pencil"></i></a>
+                              </div>
+                            </div>
+        									</div>
                           <div class="caption">
-                          	<p class="text-center">'.$col['collegefull'].' ('.$col['collegeId'].')</p>
-                          	<p class="text-center">'.$col['collegeDesc'].'</p>
-                          </div>                        
+                          	<p class="text-center"><?php echo $col['collegefull']?> ( <?php echo $col['collegeId']?>)</p>
+                          	<p class="text-center"><?php echo $col['collegeDesc']?></p>
+                          </div>
                         </div>
                       </div>
+                      <?php endforeach?>
+                      <?php if($colleges = null){
+                        echo '<h4 class="text-danger">No college registered...</h4>';
+                      }   ?> 
                     </div>
                   </div>
                 </div>
@@ -73,17 +66,3 @@
           </div>
         </div>
         <!-- /page content -->
-
- <script type="text/javascript">
-  function deleteCollege(id){
-   // console.log(id);
-    var ans = confirm("Do you want to delete this college?");
-   // alert(id);
-    if(ans==true){
-      //redirect to delete method
-      var url="<?php echo base_url('AdminOffices/removeCollege/');?>"+id;
-      location.href = url;
-      alert("The college has been successfully deleted!");
-    }
-  }  
- </script>        

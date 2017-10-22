@@ -2103,7 +2103,8 @@ button,
     width: 100%;
     display: inline-block
 }
-.compose {
+
+.compose, .forwardModal {
     padding: 0;
     position: fixed;
     bottom: 0;
@@ -2116,20 +2117,20 @@ button,
     z-index: 9999;
     display: none
 }
-.compose .compose-header {
+.compose .compose-header,.forwardModal .forwardModal-header {
     padding: 5px;
     background: #169F85;
     color: #fff;
     border-top-left-radius: 5px
 }
-.compose .compose-header .close {
+.compose .compose-header .close,.forwardModal .forwardModal-header .close {
     text-shadow: 0 1px 0 #ffffff;
     line-height: .8
 }
-.compose .compose-body .editor.btn-toolbar {
+.compose .compose-body .editor.btn-toolbar,.forwardModal .forwardModal-body .editor.btn-toolbar  {
     margin: 0
 }
-.compose .compose-body .editor-wrapper {
+.compose .compose-body .editor-wrapper,.forwardModal .forwardModal-body .editor-wrapper {
     height: 100%;
     min-height: 50px;
     max-height: 180px;
@@ -2138,7 +2139,7 @@ button,
     border-right: none;
     overflow: auto
 }
-.compose .compose-footer {
+.compose .compose-footer,.forwardModal .forwardModal-footer {
     padding: 10px
 }
 .editor.btn-toolbar {
