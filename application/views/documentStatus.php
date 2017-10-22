@@ -7,6 +7,7 @@
               <div class="title_right">
                 <div class="panel-heading" id="head">
                   <ol class="breadcrumb pull-right">
+                    <li><a href="" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#manageStatusModal">Manage Status</a></li>
                     <li><a href="<?php echo base_url('Dashboard/dashboardView');?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li>
                       <li class="active">Document Status</li>
                   </ol>           
@@ -53,6 +54,61 @@
               </div>
             </div>
           </div>
+
+          <!--MANAGE STATUS -->
+          <div id="manageStatusModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h3 class="modal-title" style="text-align: center;">Manage Status</h3>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" href="#typelist">Status List</a></li>
+                      <li><a data-toggle="tab" href="#addtype">Add Status</a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div id="typelist" class="tab-pane fade in active">
+                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                          <thead>
+                      <tr>
+                        <td>Status Id</td>
+                        <td>Status</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php foreach($status as $s):?>
+                      <tr>  
+                        <td><?php echo $s['statusId']?></td>
+                        <td><?php echo $s['filestatus']?></td>
+                      <?php endforeach;?>
+                      </tr>
+                      </tbody>
+                    </table>
+                      </div>
+                      <div id="addtype" class="tab-pane fade">
+                        <form class="formstyle" method="post" action="<?php echo base_url('DocumentStatus/addStatus/')?>" id="addStatus">
+                      <div class="form-group">  
+                        <label>Status:</label>
+                        <input type="text" name="status" class="form-control" id="status" />
+                      </div>
+                      <div class="form-group">  
+                        <input type="submit" role="button" class="btn btn-primary pull-right" value="Add Status" />
+                      </div>  
+                    </form>
+                      </div>
+                     
+                    </div>
+                </div>
+            </div>
+
+            </div>
+          </div>
+              
+            
         <!-- /page content -->
         <script type="text/javascript">
           function sendfileCode(filecode,filename){

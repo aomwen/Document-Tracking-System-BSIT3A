@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->model('registrarDocumentsModel','regDoc');
             $this->load->model('contactUsModel','contact');
         $this->load->model('filesModel','files');
+        
         }
 
         public function contactUs()

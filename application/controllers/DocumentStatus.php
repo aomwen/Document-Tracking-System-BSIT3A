@@ -9,6 +9,7 @@ class DocumentStatus extends CI_Controller {
         $this->load->model('usersModel','User');
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
+        $this->load->model('statusModel','Status');
         $this->load->model('forwardRouteModel','Route');
         if(!isset($_SESSION['username']))
         {
@@ -43,7 +44,11 @@ class DocumentStatus extends CI_Controller {
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
- 
+        
+        $condition=null;
+        $status = $this->Status->read($condition);
+        $data['status'] = $status;
+
         $condition = array('fileAuthor' => $_SESSION['username']);
         $documents = $this->files->read($condition);
         $data['documents'] = $documents;
@@ -95,6 +100,23 @@ class DocumentStatus extends CI_Controller {
         $this->load->view('navbar'); 
         $this->load->view('documentRoute');
         $this->load->view('include/footerNew');              
-    }    
+    }
+    public function addStatus(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $filestatus=$_POST['status'];
+            $record=array(
+                        'filestatus'=>$filestatus
+                );
+            $duplicate=$this->Status->check_duplicate($record);
+            if($duplicate){
+                echo '<script type="text/javascript"> alert("Position already Exists"); </script>';   
+            }else{
+                $this->Status->create($record);
+            } 
+        }
+        redirect('DocumentStatus/viewDocuments','refresh');
+
+    }
+
 }
 ?>

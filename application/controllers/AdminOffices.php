@@ -9,6 +9,7 @@ class AdminOffices extends CI_Controller
         $this->load->model('departmentsModel','Dept');
         $this->load->model('collegesModel','Colleges');
         $this->load->model('filesModel','files');
+        $this->load->model('statusModel','Status');
         $this->load->model('forwardRouteModel','Route');
         if(!isset($_SESSION['username']))
         {
@@ -76,28 +77,36 @@ class AdminOffices extends CI_Controller
         $data['fileCode'] = $fileCode;
 
         if($_SERVER['REQUEST_METHOD']=='POST')
-        {
-            $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/uploads/college/";
-            $config['allowed_types'] = 'png|jpg|jpeg';
-            $config['max_size']     = '1000000kb';
-            $config['overwrite'] = TRUE;
-            $config['max_width'] = '1024';
-            $config['max_height'] = '768';
-            $this->load->library('upload', $config);
-            $this->upload->do_upload('collegeLogo');
-            $name = $this->upload->data('file_name');
-            $location = base_url().'uploads/college/'.$name.'';
-            move_uploaded_file($name, $location);
-            $collegeId = $_POST['collegeId'];
+        {   $collegeId = $_POST['collegeId'];
             $collegefull = $_POST['collegefull'];
-            $collegeDesc = $_POST['collegeDesc'];
-            $collegeDean  = $_POST['collegeDean'];
-            $record = array('collegeId'=>$collegeId,
-                            'collegefull'=>$collegefull,
-                            'collegeDesc'=>$collegeDesc,
-                            'collegeDean' => $collegeDean,
-                            'collegeLogo'=>$location);
-            $this->Colleges->create($record);
+            $check_data = array('collegeId'=>$collegeId,
+                                'collegefull'=>$collegefull
+                );
+            if(!$this->Colleges->check_duplicate($check_data)){
+                $config['upload_path'] =dirname($_SERVER["SCRIPT_FILENAME"])."/uploads/college/";
+                $config['allowed_types'] = 'png|jpg|jpeg';
+                $config['max_size']     = '1000000kb';
+                $config['overwrite'] = TRUE;
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('collegeLogo');
+                $name = $this->upload->data('file_name');
+                $location = base_url().'uploads/college/'.$name.'';
+                move_uploaded_file($name, $location);
+                
+                $collegeDesc = $_POST['collegeDesc'];
+                $collegeDean  = $_POST['collegeDean'];
+                $record = array('collegeId'=>$collegeId,
+                                'collegefull'=>$collegefull,
+                                'collegeDesc'=>$collegeDesc,
+                                'collegeDean' => $collegeDean,
+                                'collegeLogo'=>$location);
+                $this->Colleges->create($record);
+            }else{
+                echo '<script type="text/javascript"> alert("College Already exist!");
+                            </script>';
+            }
         }
 
         $condition = null;
