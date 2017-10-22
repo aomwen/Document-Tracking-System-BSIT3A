@@ -4,7 +4,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view" >
             <div class="navbar nav_title" style="border: 0; background-color: #323232; " >
-              <a href="index.html" class="site_title" ><span>Document Tracking</span></a>
+              <a href="index.html" class="site_title"><span>TUP Document Tracking</span></a>
             </div>
 
             <div class="clearfix"></div>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title><?php echo $title;?></title>
-
+    <link rel="icon" href="<?php echo base_url('assets/images/logo.png'); ?>" type="image/png">
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets/vendors/bootstrap/dist/css/bootstrap.min.css')?>" rel="stylesheet">
     <!-- Font Awesome -->
