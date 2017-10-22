@@ -3,8 +3,9 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
+            <div class="navbar nav_title" style="border: 0; background-color: #323232;">
               <a href="index.html" class="site_title"><span>Document Tracking</span></a>
+              <!-- <img class="pull-left" src="<?php echo base_url('assets/images/LOGOO.png');?>" id="logo"/> -->
             </div>
 
             <div class="clearfix"></div>
@@ -27,10 +28,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <ul class="nav side-menu">
-                <li><a id="compose" class="btn-success"><i class="glyphicon glyphicon-file"></i>CREATE</a></li>
-         <!--        <li><a id="forwardModal" class="btn-success"><i class="  glyphicon glyphicon-share-alt"></i>FORWARD</a></li>     -->
-                </ul>          
+                <button id="compose" class="btn btn-sm btn-danger btn-block" type="button">ADD DOCUMENT</button>   
                 <br />              
                 <h3>General</h3>
                 <ul class="nav side-menu">
