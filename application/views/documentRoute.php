@@ -24,8 +24,10 @@
                       <thead>
                         <tr>
                           <th>RouteId</th>
+                          <th>File Code</th>
                           <th>File Name</th>
                           <th>Forward Date</th>
+                          <th>Comment</th>
                           <th>sender</th>
                           <th>receiver</th>
                         </tr>

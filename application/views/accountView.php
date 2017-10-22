@@ -1,5 +1,4 @@
         <div class="right_col" role="main">
-          <div>
             <div class="page-title">
               <div class="title_left">
                 <h3 style="margin-top: 4%;">&nbsp; <span class="glyphicon glyphicon-signal"></span> Account Settings</h3>
@@ -15,17 +14,15 @@
             </div>
 
             <div class="clearfix"></div>
-
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">         
                     <div class="row">
-                        <?php foreach($userdata as $us){
-                          echo '
+                        <?php foreach($userdata as $us):?>
                         <div class="col-md-3">
                           <div class="well">
                           <div id="photo_profile">
-                          <img src="';if($us['path']!=null){ echo $us['path'];}else{ echo base_url('assets/images/pic.png'); } echo'" alt="Profile Picture" class="img-responsive img-thumbnail" id="profilepic"/>
+                          <img src="<?php if($us['path']!=null){ echo $us['path'];}else{ echo base_url('assets/images/pic.png'); }?>" alt="Profile Picture" class="img-responsive img-thumbnail" id="profilepic"/>
                           </div>
                           <br />
                           <br />
@@ -35,16 +32,16 @@
                           </div>  
                         </div>
                         <div class="col-md-8 col-md-offset-1">
-                          <h3 class="text-primary">'.$us['firstname'].' '.$us['lastname'].' </h3>
-                          <h5><em>'.$us['email'].'</em></h5>
+                          <h3 class="text-primary"><?php echo $us['firstname'].' '.$us['lastname']?> </h3>
+                          <h5><em><?php echo $us['email']?></em></h5>
                           <br />
-                          <h5><b class="text-primary">Username: </b>'.$us['username'].'</h5>
+                          <h5><b class="text-primary">Username: </b><?php echo $us['username']?></h5>
                           
-                          <h5><b class="text-primary">Position: </b>'.$us['position'].'</h5>
+                          <h5><b class="text-primary">Position: </b><?php echo $us['position']?></h5>
                         
-                          <h5><b class="text-primary">College/Office: </b>'.$us['collegeId'].'</h5>
-                          <h5><b class="text-primary">Department: </b>'.$us['department'].'</h5>
-                          ';}?>
+                          <h5><b class="text-primary">College/Office: </b><?php echo $us['collegeId']?></h5>
+                          <h5><b class="text-primary">Department: </b><?php echo $us['department']?></h5>
+                          <?php endforeach;?>
                         <div>
                       </div>    
                     </div>
@@ -130,12 +127,12 @@
           <!--MODAL END-->
 
           <!--MODAL-->
-          <?php foreach($userdata as $us){ ?>
+          <?php foreach($userdata as $us): ?>
 					
           <div class="modal fade" id="editInfoProfile" role="dialog">
             <div class="modal-dialog model-sm">
               <!-- Modal content-->
-              <form role="form" method="post" class="modal-content" id="save_edit" action="<?php echo base_url('account/updateInformation'); ?>">
+              <form role="form" method="post" class="modal-content" id="save_edit" action="<?php echo base_url('account/updateInformation') ?>">
                 
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -145,27 +142,27 @@
                     <!--choose banner-->
                      <div class="form-group">
                         <label class="control-label">First Name:</label>
-                            <input type="text" value="<?php echo $us['firstname'];?>" class="form-control" name="first_name" id=first_name>
+                            <input type="text" value="<?php echo $us['firstname']?>" class="form-control" name="first_name" id=first_name>
                       </div>
                      <div class="form-group">
                         <label class="control-label ">Last Name:</label>
-                            <input type="text" value="<?php echo $us['lastname'];?>" class="form-control" name="last_name" id=last_name >   
+                            <input type="text" value="<?php echo $us['lastname']?>" class="form-control" name="last_name" id=last_name >   
                       </div>  
                     <div class="form-group">
                       <label class="control-label ">Email Address:</label>
-                          <input type="text" value="<?php echo $us['email'];?>" id="email_input"class="form-control" name="email">
+                          <input type="text" value="<?php echo $us['email']?>" id="email_input"class="form-control" name="email">
                     </div>  
                     <div class="form-group">
                         <label class="control-label">Position:</label>
-                        <input type="text" class="form-control" value="<?php echo $us['position'];?>" name="position" id="position">
+                        <input type="text" class="form-control" value="<?php echo $us['position']?>" name="position" id="position" readonly>
                     </div>
                     <div class="form-group">
                       <label class="control-label">College/Office:</label>
-                      <input class="form-control" name="collegeId"  value="<?php echo $us['collegeId'];?>"readonly>          
+                      <input class="form-control" name="collegeId"  value="<?php echo $us['collegeId']?>"readonly>          
                     </div>
                     <div class="form-group">
                       <label class="control-label">Department:</label>
-                          <input type="text" value="<?php echo $us['department'];?>" class="form-control" name="department" readonly>
+                          <input type="text" value="<?php echo $us['department']?>" class="form-control" name="department" readonly>
                     </div> 
                   
                   </div>
@@ -180,5 +177,5 @@
               </form>
             </div>
           </div>
-        <?php ;}?>
+        <?php endforeach;?>
           <!--MODAL END-->
