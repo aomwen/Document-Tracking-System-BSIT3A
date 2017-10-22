@@ -59,9 +59,7 @@
                         echo '<h4 class="text-danger">No college registered...</h4>';
                       }   ?> 
                     </div>
-                        '; 
-                          }
-              ?>
+                        
                   </div>
                 </div>
               </div>

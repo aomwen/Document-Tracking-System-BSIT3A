@@ -54,15 +54,15 @@
                         <tbody>
                         <?php  foreach($userList as $us):?>
                               <tr>
-                                <td><?php echo $us['username']?></td>
-                                <td><?php echo $us['password']?></td>
-                                <td><?php echo $us['firstname']?></td>
-                                <td><?php echo $us['lastname']?></td>
-                                <td><?php echo $us['email']?></td>
-                                <td><?php echo $us['collegeId']?></td>
-                                <td><?php echo $us['department']?></td>
-                                <td><?php echo $us['position']?></td>
-                                <td><?php foreach($roles as $r){if($us['roleId']==$r['roleId']){echo $r['role'];} }?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['username']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['password']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['firstname']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['lastname']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['email']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['collegeId']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['department']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['position']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php foreach($roles as $r){if($us['roleId']==$r['roleId']){echo $r['role'];} }?></td>
                                 <td><a href="<?php echo base_url('ManageAdmin/editUser/'.$us['username'])?>" class="btn btn-info btn-sm">Edit</a>
                                 <?php if($us['active']==1){?>
                                 <a href="<?php echo base_url('ManageAdmin/deactivateUser/'.$us['username'])?>" class="btn btn-danger btn-sm">Deactivate</a>
