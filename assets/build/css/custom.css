@@ -144,7 +144,7 @@ html , body{
     padding: 0 0 4px 0
 }
 .left_col {
-    background: #2A3F54
+    background: #323232;
 }
 .nav-sm .container.body .col-md-3.left_col {
     min-height: 100%;
@@ -324,9 +324,9 @@ html , body{
 .nav-sm li li span.fa {
     display: inline-block
 }
-.nav_menu {
+.nav_menu { /*nav menu */
     float: left;
-    background: #EDEDED;
+    background: #e7554b;
     border-bottom: 1px solid #D9DEE4;
     margin-bottom: 10px;
     width: 100%;
@@ -351,7 +351,7 @@ html , body{
     position: fixed
 }
 body .container.body .right_col {
-    background: #F7F7F7
+    background: #fafafa;
 }
 .nav-md .container.body .right_col {
     padding: 10px 20px 0;
@@ -360,7 +360,7 @@ body .container.body .right_col {
 .nav_title {
     width: 230px;
     float: left;
-    background: #2A3F54;
+    background: #323232;
     border-radius: 0;
     height: 57px
 }
@@ -483,16 +483,16 @@ body .container.body .right_col {
 .navbar-nav>li>a {
     color: #fff !important
 }
-.top_nav .nav>li>a:focus,
+.top_nav .nav>li>a:focus, /*color nung hover sa navbar*/
 .top_nav .nav>li>a:hover,
 .top_nav .nav .open>a,
 .top_nav .nav .open>a:focus,
 .top_nav .nav .open>a:hover {
-    background: #D9DEE4
+    background: #e34135;
 }
 body {
-    color: #73879C;
-    background: #2A3F54;
+    color: #323232;
+    background: #323232;
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -730,7 +730,7 @@ a:focus {
 .nav.side-menu>li>a:hover {
     color: #F2F5F7 !important
 }
-.nav.side-menu>li>a:hover,
+.nav.side-menu>li>a:hover, /*side bar hover*/
 .nav>li>a:focus {
     text-decoration: none;
     background: transparent
@@ -788,8 +788,8 @@ a:focus {
     padding: 13px 15px 12px
 }
 .nav.side-menu>li.current-page,
-.nav.side-menu>li.active {
-    border-right: 5px solid #1ABB9C
+.nav.side-menu>li.active { /*color nung red sa gilif ng menu */
+    border-right: 5px solid #d9534f;
 }
 .nav li.current-page {
     background: rgba(255, 255, 255, 0.05)
@@ -802,7 +802,7 @@ a:focus {
 }
 .nav.side-menu>li.active>a {
     text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
-    background: linear-gradient(#334556, #2C4257), #2A3F54;
+    background: linear-gradient(#334556, #2C4257), #323232;
     box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0
 }
 .navbar-brand,
@@ -1672,7 +1672,7 @@ span.right {
     padding: 5px 0 0 0;
     position: fixed;
     width: 230px;
-    background: #2A3F54;
+    background: #323232;
 	z-index:999;
 }
 .sidebar-footer a {
@@ -1682,12 +1682,12 @@ span.right {
     font-size: 17px;
     display: block;
     float: left;
-    background: #172D44;
+    background: #323232;
     cursor: pointer;
 }
-.sidebar-footer a:hover {
+/*.sidebar-footer a:hover {
     background: #425567
-}
+}*/
 .tile_count {
     margin-bottom: 20px;
     margin-top: 20px
@@ -2114,7 +2114,7 @@ button,
     border-bottom: 0;
     border-top-left-radius: 5px;
     z-index: 9999;
-    display: none
+    display: none;
 }
 .compose .compose-header {
     padding: 5px;
@@ -2348,12 +2348,12 @@ a.btn-danger {
     background: #26B99A;
     border: 1px solid #169F85
 }
-.btn-success:hover,
+.btn-success:hover, /*add document*/
 .btn-success:focus,
 .btn-success:active,
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
-    background: #169F85
+    background: #169F85;
 }
 .btn-dark {
     color: #E9EDEF;
@@ -2363,7 +2363,7 @@ a.btn-danger {
 .btn-dark:hover,
 .btn-dark:focus,
 .btn-dark:active,
-.btn-dark.active,
+.btn-dark.active, /*button:dark*/;
 .open .dropdown-toggle.btn-dark {
     color: #FFFFFF;
     background-color: #394D5F;

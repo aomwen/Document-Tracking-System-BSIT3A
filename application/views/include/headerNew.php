@@ -28,7 +28,7 @@
     <link href="<?php echo base_url('assets/vendors/bootstrap-daterangepicker/daterangepicker.css')?>" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<?php echo base_url('assets/build/css/custom.min.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/build/css/custom.css')?>" rel="stylesheet">
 
     <!-- Datatables -->
     <link href="<?php echo base_url('assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')?>" rel="stylesheet">
