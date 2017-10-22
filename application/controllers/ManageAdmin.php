@@ -15,6 +15,7 @@ class ManageAdmin extends CI_Controller {
         $this->load->model('filesModel','files');
         $this->load->model('rolesModel','Roles');
         $this->load->model('forwardRouteModel','Route');
+        $this->load->model('statusModel','Status');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -44,7 +45,7 @@ class ManageAdmin extends CI_Controller {
         $user = $this->session->userdata('username');
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
-
+        $data['status']=$this->Status->read(null);
         $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/headerNew',$data);
@@ -168,7 +169,7 @@ class ManageAdmin extends CI_Controller {
         $data['userList'] = $userdata;
         $data['colleges'] = $this->Colleges->getCollegeId();
         $data['roles'] = $this->Roles->read();
-
+        $data['status']=$this->Status->read(null);
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/headerNew',$data);
         $this->load->view('sidebarAdmin');
@@ -239,7 +240,7 @@ class ManageAdmin extends CI_Controller {
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-
+        $data['status']=$this->Status->read(null);
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/headerNew',$data);
         $this->load->view('sidebarAdmin');
@@ -288,6 +289,7 @@ class ManageAdmin extends CI_Controller {
             $data['userList'] = $userdata;
             $_SESSION['userList']=$username;
             //end of getting userdata
+        $data['status']=$this->Status->read(null);
          $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/headerNew',$data);
         $this->load->view('sidebarAdmin');
@@ -353,6 +355,7 @@ class ManageAdmin extends CI_Controller {
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
+        $data['status']=$this->Status->read(null);
         $this->load->view('include/headerNew',$data);
         $this->load->view('sidebarAdmin');
         $this->load->view('navbar'); 
@@ -389,7 +392,7 @@ class ManageAdmin extends CI_Controller {
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-
+        $data['status']=$this->Status->read(null);
         $success = "Account successfully created!";
         $data['success']=$success;
         $this->load->view('include/header');
@@ -427,6 +430,7 @@ class ManageAdmin extends CI_Controller {
             $condition = array('username' => $user);
             $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
+            $data['status']=$this->Status->read(null);
             $this->load->view('include/header',$data);
             $this->load->view('manageProfile');
         } 

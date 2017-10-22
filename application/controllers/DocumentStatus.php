@@ -90,7 +90,7 @@ class DocumentStatus extends CI_Controller {
         $condition = array('fileCode' => $fileCodeRoute);
         $documents = $this->Route->read($condition);
         $data['documents'] = $documents;
- 
+        $data['status']=$this->Status->read(null);
         $this->load->view('include/headerNew',$data);
             if($_SESSION['username'] == "admin"){  
                 $this->load->view('sidebarAdmin');

@@ -10,6 +10,7 @@ class AdminOffices extends CI_Controller
         $this->load->model('collegesModel','Colleges');
         $this->load->model('filesModel','files');
         $this->load->model('statusModel','Status');
+        $data['status']=$this->Status->read(null);
         $this->load->model('forwardRouteModel','Route');
         if(!isset($_SESSION['username']))
         {
@@ -51,7 +52,8 @@ class AdminOffices extends CI_Controller
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-
+        $data['status']=$this->Status->read(null);
+        
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/headerNew',$data);
         $this->load->view('sidebarAdmin');   
@@ -117,7 +119,7 @@ class AdminOffices extends CI_Controller
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-
+        $data['status']=$this->Status->read(null);
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/headerNew',$data); 
         $this->load->view('sidebarAdmin');
@@ -155,7 +157,7 @@ class AdminOffices extends CI_Controller
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-
+        $data['status']=$this->Status->read(null);
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/headerNew',$data);
          $this->load->view('sidebarAdmin');
@@ -245,7 +247,7 @@ class AdminOffices extends CI_Controller
         $condition = array('collegeId' => $collegeId);
         $colleges = $this->Colleges->read($condition);
         $data['collegefull']=$colleges;
-
+        $data['status']=$this->Status->read(null);
         $this->load->view('include/headerNew',$data); 
         $this->load->view('sidebarAdmin');
         $this->load->view('navbar'); 
@@ -297,7 +299,7 @@ class AdminOffices extends CI_Controller
         $condition = array('collegeId' => $collegeId);
         $colleges = $this->Colleges->read($condition);
         $data['colleges'] = $colleges;
-
+        $data['status']=$this->Status->read(null);
         $this->load->view('include/headerNew',$data);
         if($_SESSION['username'] == "admin"){  
             $this->load->view('sidebarAdmin');

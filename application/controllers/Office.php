@@ -9,6 +9,7 @@ class Office extends CI_Controller {
         $this->load->model('departmentsModel','Departments');
         $this->load->model('collegesModel','Colleges');
         $this->load->model('filesModel','files');
+        $this->load->model('statusModel','Status');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -34,13 +35,14 @@ class Office extends CI_Controller {
         $condition = array('username' => $user);
         $userdata = $this->User->read($condition);
         $data['userdata'] = $userdata;
-
+        $data['status']=$this->Status->read(null);
         $this->load->view('include/headerNew',$data);
         if($_SESSION['username'] == "admin"){  
             $this->load->view('sidebarAdmin');
         }else{
             $this->load->view('sidebar');     
         } 
+        
         $this->load->view('navbar'); 
         $this->load->view('offices');
         $this->load->view('include/footerNew');
@@ -69,7 +71,7 @@ class Office extends CI_Controller {
         $condition = array('collegeId' => $collegeId);
         $colleges = $this->Colleges->read($condition);
         $data['colleges']=$colleges;
-
+        $data['status']=$this->Status->read(null);
         $this->load->view('include/headerNew',$data);
         if($_SESSION['username'] == "admin"){  
             $this->load->view('sidebarAdmin');

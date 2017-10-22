@@ -36,6 +36,16 @@
                   <label>Filename</label>
                   <input type="text" class="form-control" placeholder="File Name" name="fileName" />
                 </div>
+                 <div class="form-group">
+                  <label>Status:</label>
+                  <select class="form-control" name="status" id="status">
+                    <?php
+                      foreach ($status as $s) {
+                        echo '<option>'.$s['filestatus'].'</option>';
+                      }
+                    ?>
+                  </select>
+                </div>
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Comment" name="fileComment" />
                 </div>
@@ -93,6 +103,16 @@
             <div class="form-group">
               <label>file Name:</label>
               <input type="text" class="form-control" name="fileName" id="forwardFileName" readonly />
+            </div>
+            <div class="form-group">
+              <label>Status:</label>
+              <select class="form-control" name="status" id="status">
+                <?php
+                  foreach ($status as $s) {
+                    echo '<option>'.$s['filestatus'].'</option>';
+                  }
+                ?>
+              </select>
             </div>
             <div class="form-group">
               <label>file Comment:</label>

@@ -9,6 +9,7 @@ class Dashboard extends CI_Controller {
         $this->load->model('filesModel','files');
         $this->load->model('usersModel','User');
         $this->load->model('forwardRouteModel','Route');
+        $this->load->model('statusModel','Status');
          if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -41,7 +42,9 @@ class Dashboard extends CI_Controller {
             $condition = array('fileAuthor' => $_SESSION['username']);
             $documents = $this->files->read($condition);
             $data['documents'] = $documents;
-            
+            $condition = null;
+            $status = $this->Status->read($condition);
+            $data['status'] = $status;
             $this->load->view('include/headerNew',$data);
             if($_SESSION['username'] == "admin"){  
                 $this->load->view('sidebarAdmin');

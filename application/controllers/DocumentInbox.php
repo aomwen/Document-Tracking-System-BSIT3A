@@ -8,6 +8,7 @@ class DocumentInbox extends CI_Controller {
         $this->load->model('filesModel','files');
         $this->load->model('usersModel','User');
         $this->load->model('forwardRouteModel','Route');
+        $this->load->model('statusModel','Status');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -33,7 +34,7 @@ class DocumentInbox extends CI_Controller {
         $condition = array('receiver' => $user);
         $documents = $this->Route->read($condition);
         $data['documents']=$documents;
-        
+        $data['status']=$this->Status->read(null);
         $this->load->view('include/headerNew',$data);
         if($_SESSION['username'] == "admin"){  
             $this->load->view('sidebarAdmin');
@@ -68,7 +69,7 @@ class DocumentInbox extends CI_Controller {
         $documents = $this->Route->read($condition);
         $data['documents']=$documents;
         $data['userdata'] = $userdata;
-
+        $data['status']=$this->Status->read(null);
         $this->load->view('include/headerNew',$data);
         if($_SESSION['username'] == "admin"){  
             $this->load->view('sidebarAdmin');

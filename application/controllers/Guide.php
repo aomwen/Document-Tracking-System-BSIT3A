@@ -11,6 +11,7 @@ class Guide extends CI_Controller {
         $this->load->model('documentsModel','Files');
         $this->load->model('usersModel','User');
         $this->load->model('filesModel','files');
+        $this->load->model('statusModel','Status');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
