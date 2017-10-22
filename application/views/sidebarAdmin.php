@@ -1,10 +1,10 @@
 <body class="nav-md">
-    <div class="container body">
+    <div class="container body" >
       <div class="main_container">
         <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><span>Document Tracking</span></a>
+          <div class="left_col scroll-view" >
+            <div class="navbar nav_title" style="border: 0; background-color: #323232; " >
+              <a href="index.html" class="site_title" ><span>Document Tracking</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -28,7 +28,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <button id="compose" class="btn btn-sm btn-success btn-block" type="button">ADD DOCUMENT</button>              
+                <button id="compose" class="btn btn-sm btn-danger btn-block" type="button">ADD DOCUMENT</button>              
                 <br />              
                 <h3>General</h3>
                 <ul class="nav side-menu">
