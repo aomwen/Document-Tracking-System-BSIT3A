@@ -136,7 +136,7 @@
 					<?php foreach($documents_status as $d): ?>
 						<tr>	
 							<td><?php echo $d['regTrackcode']?></td>
-							<td><?php echo $d['docType']?></td>
+							<td><?php foreach($documentTypes as $dt){if($d['typeId']==$dt['typeId']){echo $dt['docType'];}} ?></td>
 							<td><?php echo $d['dateAdmitted']?></td>
 							<td><?php echo $d['dateReleased']?></td>
 							<td><?php echo $d['status']?></td>

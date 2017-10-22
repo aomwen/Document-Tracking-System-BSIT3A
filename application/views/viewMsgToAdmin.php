@@ -101,7 +101,7 @@
 											<td>'.$mess['email'].'</td>
 											<td>'.$mess['datecreated'].'</td>
 											<td>	
-												<a href="'.base_url('ManageAdmin/seenMsgToAdmin/'.$mess['idno'].'/'.$mess['seen']).'"> Preview </a>|';?><a href="#" onClick="deleteMess('<?php echo $mess['idno'];?>')" > Delete </a><?php echo '|<a href="'.base_url('manageAdmin/unbookmarkmsgtoAdmin/'.$mess['idno']).'">Unbookmark </a>
+												<a href="'.base_url('ManageAdmin/seenMsgToAdmin/'.$mess['idno'].'/'.$mess['seen']).'"> Preview </a>';?><?php echo '|<a href="'.base_url('manageAdmin/unbookmarkmsgtoAdmin/'.$mess['idno']).'">Unbookmark </a>
 											</td>
 										</tr>
 
