@@ -42,6 +42,7 @@ a{
 	color:#e7554b;
 }
 a:hover,a:focus{
+
 	text-decoration: none;
 	color:#e7554b;
 }
@@ -81,6 +82,15 @@ ul, ol{
 .color{
 	text-shadow: 1px 1px #e3e3e3;
 	color: rgba(231,85,75,1);
+}
+a.fa.fa-remove {
+	padding: 10px 15px;
+	color: #fff;
+	border: 2px solid #b4b4b4;
+	border-radius: 50%;
+	font-size: 24px;
+	margin-top: 200px;
+	transition: all 0.5s;
 }
 a.fa.fa-angle-down {
 	padding: 10px 15px;

@@ -65,10 +65,6 @@
                 document.getElementById("resultContainer").innerHTML = "no record found";
             }
               }
-
-        function closeme(){
-            window.location.reload()
-        }
     </script>
   </head>
   <body id="page-top">
@@ -112,7 +108,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" size="50" placeholder="Track Code" id="myInputDocumentSearch" required />
                         <div class="input-group-btn">
-                            <button type="button" class="btn btn-info" onclick="FilterFunction()" data-toggle="modal" data-target="#modaltrack" title="Track"><span class="fa fa-search"></span></button>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modaltrack" title="Track"><span class="fa fa-search"></span></button>
                         </div>
                 </div>
                 <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
@@ -126,7 +122,7 @@
             <div class="modal-content">
                 <div class="modal-header"> 
                     <h2 class="modal-title">Track Code</h2>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <a href="<?php echo base_url('DTS/index');?>"><span class="fa fa-remove"></span></a>
                 </div>
                 <div class="modal-body">
                     <div class="table-responsive">
@@ -329,8 +325,8 @@
                         <p>Please use the contact form beside to get in touch with us.<br/>Thanks!</p>
                     </div>
                     <div class="col-md-6 caption">
-                        <form class="form" method="POST" action="<?php echo base_url('HomeFunction/msgtoAdmin');?>">
-                            <input class="input-text" type="text" name="author" placeholder="Name">
+                        <form class="form" method="POST" action="<?php echo base_url('homeFunctions/contactUs');?>">
+                            <input class="input-text" type="text" name="sender" placeholder="Name">
                             <input class="input-text" type="text" name="email" placeholder="Yourname@gmail.com">
                             <textarea class="input-text text-area" name="content" cols="0" rows="0" placeholder="Comment"></textarea>
                             <input class="input-btn" type="submit" value="Send">

@@ -1,4 +1,4 @@
-<!-- page content -->
+      <!-- page content -->
         <div class="right_col" role="main">
           <div>
             <div class="page-title">
@@ -47,22 +47,28 @@
                           <td>College/Office</td>
                           <td>Department</td>
                           <td>Position</td>
+                          <td>Role</td>
                           <td>Action</td>
                         </tr>
                         </thead>
                         <tbody>
                         <?php  foreach($userList as $us):?>
                               <tr>
-                                <td><?php echo $us['username']?></td>
-                                <td><?php echo $us['password']?></td>
-                                <td><?php echo $us['firstname']?></td>
-                                <td><?php echo $us['lastname']?></td>
-                                <td><?php echo $us['email']?></td>
-                                <td><?php echo $us['collegeId']?></td>
-                                <td><?php echo $us['department']?></td>
-                                <td><?php echo $us['position']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['username']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['password']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['firstname']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['lastname']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['email']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['collegeId']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['department']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php echo $us['position']?></td>
+                                <td <?php if($us['active']==0){ echo "style='background-color:#dadada'";}?>><?php foreach($roles as $r){if($us['roleId']==$r['roleId']){echo $r['role'];} }?></td>
                                 <td><a href="<?php echo base_url('ManageAdmin/editUser/'.$us['username'])?>" class="btn btn-info btn-sm">Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm">Block</a>
+                                <?php if($us['active']==1){?>
+                                <a href="<?php echo base_url('ManageAdmin/deactivateUser/'.$us['username'])?>" class="btn btn-danger btn-sm">Deactivate</a>
+                                <?php }else{?>
+                                <a href="<?php echo base_url('ManageAdmin/activateUser/'.$us['username'])?>" class="btn btn-success btn-sm">Activate</a>
+                                <?php }?>
                                 </td>
                               </tr>
                             <?php endforeach;?>
@@ -88,7 +94,7 @@
                   </div>
                   <div class="modal-body">
          
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label for="collegeId"> College Id: </label>
                       <select id="collegeIdpos" class="form-control" name="collegeId">
                       <?php		
@@ -97,7 +103,7 @@
                       		}
                       ?>
                       </select>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                       <label for="position"> Position: </label>
                       <input class="form-control" type="text" id="positionpos" name="position" />

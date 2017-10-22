@@ -8,8 +8,9 @@
               <div class="title_right">
                 <div class="panel-heading" id="head">
                   <ol class="breadcrumb pull-right">
-                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
-                      <li class="active"> Inbox </li>
+                    <li><a href="<?php echo base_url('Dashboard/dashboarView')?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
+                   	<li><a href="<?php echo base_url('DocumentInbox/viewInbox');?>"><i class="fa fa-envelope"></i> Inbox </span></a></li> 
+                      <li class="active"> Message </li>
                   </ol>           
                 </div>
               </div>  
@@ -21,53 +22,37 @@
                 <div class="x_panel">
                   <div class="x_content">
                     <div class="specific_inbox">
-                     <?php
-		                foreach($documents as $d){
-		                  echo'
-		                  <div>
-		                    <h3><b>'.$d['routeId'].'</b></h3>
-		                    <h5 class="pull-left">To: <b>'.$d['receiver'].'</b></h5>
-		                    <h5 class="pull-right">Forward Date: '.$d['forwardDate'].'</h5>
-		                    <br />
-		                    <br />
-		                    <h5 class="pull-left">File code: <b>'.$d['fileCode'].'</b></h5>
-		                    <h5 class="pull-left">&nbsp; File name: <b>'.$d['fileName'].'</b></h5>
-		                    <br />
-		                    <hr />
-		                    <h5 class="subject_inbox">'.$d['forwardComment'].'</h5>
-		                    <br />
-		                    <hr />
-		                  </div>
-							<form>
-								<div class="form-group row text-center">
-									<div class="col-sm-6">
-						            	<div class="col-sm-6 pull-left">';?>
-						            		<a href="#" class="inboxbtn btn btn-danger" onClick="deleteInboxMess('<?php echo $d['fileCode'];?>')" title="Delete">
-						            			<span class="glyphicon glyphicon-trash"></span>
-						            			<span class="font">Delete</span>
-						            		</a>
-											<?php echo '
-												<a href="'.base_url('FilesManipulation/downloadFile/'.$d['fileCode']).'" class="inboxbtn btn btn-success" title="Download">
-													<span class="glyphicon glyphicon-download-alt"></span>
-													<span class="font">Download</span>
-												</a>
-						            	</div>
-						            </div>	
-						            <div class="col-sm-6 pull-right">	
-						            	<div class="col-sm-6 pull-right ">
-						            		<a href="'.base_url('FilesManipulation/forward/'.$d['fileCode']).'" class="inboxbtn btn btn-primary" title="Forward">
-						            			<span class="glyphicon glyphicon-share-alt"></span>
-						            			<span class="font">Forward</span>
-						            		</a>
-						            	</div>		            	
-						            </div>	
-					          </div>
-							</form>';
-						}
-						?>
+                    	<?php foreach($documents as $d):?>
+                      <h3><b><?php echo $d['routeId']?></b></h3>
+                      <h5 class="pull-left">From: <?php echo $d['sender']?>
+                      <h5 class="pull-left">to: <?php echo $d['receiver']?>
+                      <h5 class="pull-right">Forward Date: <?php echo $d['forwardCreated']?></h5>
+                      <br />
+                      <br />
+                      <h5 class="pull-left">File code: <?php echo $d['fileCode']?></h5>
+                      <h5 class="pull-left">&nbsp;  File name:<?php echo $d['fileName']?></h5>
+                      <br />
+                      <hr />
+                      <h5 class="subject_inbox"><?php echo $d['forwardComment']?></h5>
+                      <br />
+                      <hr />
+                      </div>
                     <form>
+                    <div class="form-group row text-center">
+                      <div class="col-sm-6">
+                        <div class="col-sm-6 pull-left">
+                          <button class="inboxbtn btn btn-dark"><span class="glyphicon glyphicon-trash"> Delete</span></button>
+                          <button class="inboxbtn btn btn-dark"><span class="glyphicon glyphicon-download-alt"> Download</span></button>
+                        </div>
+                      </div>  
+                      <div class="col-sm-6 pull-right"> 
+                        <div class="col-sm-6 pull-right ">
+                          <button class="inboxbtn btn btn-dark"><span class="glyphicon glyphicon-share-alt"> Forward</span></button>
+                        </div>                  
+                      </div>  
+                  <?php endforeach?>
+                    </div>
                   </div>
-
                 </div>
               </div>
             </div>        

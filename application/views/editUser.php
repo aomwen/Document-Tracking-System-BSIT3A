@@ -133,6 +133,18 @@
 						</select>
 					</div>
 				</div>
+				<div class="form-group">
+					<div class="dropdown">
+						<label for="sel2">Role</label>
+						<select class="form-control" id="sel2" name="position">
+						<?php foreach($roles as $r){
+							echo '
+							<option value='.$r['roleId'].'>'.$r['role'].'</option>
+						';
+						}?>
+						</select>
+					</div>
+				</div>
 				<input type="submit" value="save" class="btn btn-info" />
 				<input type="reset" value="reset" class="btn btn-info" />
 			</form>

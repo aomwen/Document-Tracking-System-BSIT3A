@@ -35,7 +35,6 @@ class PositionsModel extends CI_model {
 			foreach($rs as $r){
 				$info = array(
 					'pos_idno'=>$r['positionId'],
-					'college_acronym'=>$r['collegeId'],
 					'position'=>$r['position'],
 				);
 				$positions[] = $info;

@@ -11,7 +11,7 @@ class Access extends CI_Controller {
 
 //  LIST OF FUNCTIONS
 //     1) logIn
-//     3) logOut
+//     2) logOut
 
     public function logIn()
     {
@@ -25,10 +25,15 @@ class Access extends CI_Controller {
                 $username = $this->input->post('Username');
                 $password = $this->input->post('Password');
                 if($this->User->login($username,$password))
-                {
-                    $session_data = array('username' => $username);
-                    $this->session->set_userdata($session_data);
-                    redirect(base_url(). 'Dashboard/dashboardView');
+                {   if($this->User->activeUser($username)){
+                        $session_data = array('username' => $username);
+                        $this->session->set_userdata($session_data);
+                        redirect(base_url(). 'Dashboard/dashboardView');
+                    }else{
+                        $error = "This account has been deactivated!";
+                        $data['error']=$error;       
+                    }
+                    
                 }else
                 {
                     $error = "Invalid username or Password!";

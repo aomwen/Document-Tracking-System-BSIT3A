@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	            $info = array(
 	            			'idno' => $r['idno'],
 	                        'regTrackcode'=> $r['regTrackcode'],
-	                        'docType'=> $r['docType'],
+	                        'typeId'=> $r['typeId'],
 	                        'dateAdmitted'=> $r['dateAdmitted'],
 	                        'dateReleased' => $r['dateReleased'],
 	                        'status'=> $r['status'],  

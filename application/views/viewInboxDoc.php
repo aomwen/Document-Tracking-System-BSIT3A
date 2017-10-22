@@ -15,14 +15,12 @@
                 </div>
               </div>  
             </div>
-
-
             <div class="clearfix"></div>
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
                     <div class="table-responsive">
-                       <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                       <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap">
                         <thead>
 	                        <th>Route ID</th>
 	                        <th>File ID</th>
@@ -42,7 +40,7 @@
 	                            <td><?php echo $d['forwardComment'] ?></td>
 	                        </tr>
 	                   		<?php endforeach?>
-				        </tbody>
+				              </tbody>
 	                  </table>
                     </div>
                   </div>

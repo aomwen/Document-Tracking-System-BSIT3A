@@ -31,17 +31,16 @@ class FilesManipulation extends CI_Controller {
             $config['allowed_types'] = 'pdf|PDF';
             $config['max_size']     = 2000000;
             $config['overwrite'] = TRUE;
-            $config['remove_spaces'] = TRUE;    
+            $config['file_name'] = $_POST['fileName'];
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
 
             $fileCode= $_POST['fileCode'];
             $fileAuthor = $_POST['fileAuthor'];
             $fileComment = $_POST['fileComment'];
-
+            $fileName = $_POST['fileName'];
             $this->upload->do_upload('filePath');
             // $fileName = $_POST['fileName'].$this->upload->data('file_ext');
-            $fileName = $_POST['fileName'];
             $name= $this->upload->data('file_name');
             $location = base_url().'uploads/'.$name.'';
             $record = array(
@@ -55,113 +54,52 @@ class FilesManipulation extends CI_Controller {
         }
     }
 
-    public function forwardFile($fileCode){
-        
-         do
-        {
-            $fileCode = rand(0,9999);
-            $condition = array('fileCode'=>$fileCode);
-            $rs = $this->files->read($condition);
-        }while($rs);
-        $data['fileCode'] = $fileCode;
-           if( $_SERVER['REQUEST_METHOD']=='POST')
-           {
-                $routeId= $_POST['routeId'];
-                $sender = $_POST['sender'];
-                $receiver = $_POST['receiver'];
-                $forwardComment = $_POST['forwardComment'];
-                $fileName = $_POST['fileName'];
-                $fileCode = $_POST['fileCode'];
-                if(isset($_POST['allowLog'])){ $allowLog = TRUE; }else{ $allowLog = FALSE; }
-                if(isset($_POST['allowForward'])){$allowForward = TRUE; }else{ $allowForward = FALSE;}
-                $record = array('routeId'=>$routeId,
-                                'fileName'=>$fileName,
-                                'fileCode'=>$fileCode,
-                                'forwardComment'=>$forwardComment,
-                                'sender'=>$sender, 
-                                'receiver'=>$receiver,
-                                'allowLog' => $allowLog,
-                                'allowForward' => $allowForward);
-                $this->Route->create($record);
-                redirect(base_url().'DocumentStatus/viewDocuments');
-            }
-
-            $condition = array( 'fileCode' => $fileCode );
-            $documents = $this->files->read($condition);
-            $data['documents'] = $documents;
-
-            $user = $this->session->userdata('username');
-            $condition = array('username' => $user);
-            $userdata = $this->User->read($condition);
-            $data['userdata'] = $userdata;
-
-            $condition = null;
-            $users = $this->User->read($condition);
-            $data['users'] = $users;
-
-            $condition = null;
-            $departments = $this->Dept->read($condition);
-            $data['departments'] = $departments;
-            
-            $condition = null;
-            $colleges = $this->Colleges->read($condition);
-            $data['colleges'] = $colleges;
-
-            $data['title'] = "Document Tracking System - Dashboard";
-            do
-            {
-                $routeId = rand(0,9999);
-                $condition = array('routeId'=>$routeId);
-                $rs = $this->Route->read($condition);
-            }while($rs);
-
-            $data['routeId'] = $routeId;
-            $this->load->view('include/header',$data);
-
-            if($_SESSION['username'] == "admin")
-            {    
-                $this->load->view('profileAdmin');
-            }else
-            {
-                $this->load->view('profile');
-            }
-            $this->load->view('forwardDocument');
-        }
-
-           public function downloadFile($fileCode)
-        {
-            $condition = array('fileCode'=>$fileCode);
-            $documents2 = $this->files->read($condition);
-            foreach($documents2 as $d2)
-            {
-                $data = file_get_contents($d2['filePath']);
-                force_download($d2['filePath'], NULL );
-            }
-            echo '
-            <script>
-                alert("'.$documents2.'");
-                console.log('.$documents2.');
-            </script>';
-        }
-
-        public function previewFile($fileCode)
-        {
-            $condition = array('trackcode'=>$trackcode);
-            $documents = $this->files->read($condition);
-            foreach($files as $f){
-                $record = array(
-                $filePath = $f['filePath'],
-                $fileName = $f['fileName']);
-
-            $file_parts = pathinfo($filePath);
-            
-            if($file_parts['extension'] == "pdf"){
-                header('Content-type: application/pdf');
-                header('Content-disposition: inline; filename= "'.$fileName.'"');
-                header('Content-Transfer-Encoding: binary');
-                @readfile($path);
-            }
-=======
+    public function forwardFile(){
+       if( $_SERVER['REQUEST_METHOD']=='POST')
+       {
+            $routeId= $_POST['routeId'];
+            $sender = $_POST['sender'];
+            $receiver = $_POST['receiver'];
+            $forwardComment = $_POST['forwardComment'];
+            $fileName = $_POST['fileName'];
+            $fileCode = $_POST['fileCode'];
+            $record = array('routeId'=>$routeId,
+                            'fileName'=>$fileName,
+                            'fileCode'=>$fileCode,
+                            'forwardComment'=>$forwardComment,
+                            'sender'=>$sender, 
+                            'receiver'=>$receiver,);
+            $this->Route->create($record);
+            redirect(base_url().'DocumentStatus/viewDocuments');
         }
     }
+
+    public function downloadFile($fileCode)
+    {
+        $condition = array('fileCode'=>$fileCode);
+        $documents2 = $this->files->read($condition);
+        foreach($documents2 as $d2)
+        {
+            $file_parts = pathinfo($d2['filePath']);
+            echo '<script>alert("'.$d2['filePath'].'");</script>';
+            $data = file_get_contents($d2['filePath']);
+            force_download($d2['fileName'].'.'.$file_parts['extension'], $data);
+        }
+    }
+
+    public function previewFile($fileCode)
+    {
+        $condition = array('fileCode'=>$fileCode);
+        $files = $this->files->read($condition);
+        foreach($files as $f){
+            $record = array(
+            $filePath = $f['filePath'],
+            $fileName = $f['fileName']); 
+            header('Content-type: application/pdf');
+            header('Content-disposition: inline; filename= "'.$fileName.'"');
+            header('Content-Transfer-Encoding: binary');
+            readfile($filePath);
+        }
+    }
+}
 ?>

@@ -34,6 +34,7 @@
 									<a class="pull-left" title="Back to home" href="<?php echo base_url('DTS/index');?>" ><span class="glyphicon glyphicon-circle-arrow-left"></span> Back to Home</a>		
 								</form>	
 							</div>
+
 						</div>
 					</div>
 				</div>

@@ -8,7 +8,11 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('filesModel','files');
         $this->load->model('usersModel','User');
-         
+        $this->load->model('forwardRouteModel','Route');
+         if(!isset($_SESSION['username']))
+        {
+            redirect().'Dts/index';
+        }
     }
     public function dashboardView(){
         do
@@ -18,6 +22,14 @@ class Dashboard extends CI_Controller {
             $rs = $this->files->read($condition);
         }while($rs);
         $data['fileCode'] = $fileCode;
+
+        do
+        {
+            $routeId = rand(0,9999);
+            $condition = array('routeId'=>$routeId);
+            $rs = $this->Route->read($condition);
+        }while($rs);
+        $data['routeId'] = $routeId;
     	if(isset($_SESSION['username']))
         {
             $user = $_SESSION['username'];
@@ -25,6 +37,10 @@ class Dashboard extends CI_Controller {
             $userdata = $this->User->read($condition);
             $data['userdata'] = $userdata;
             $data['title'] = "Document Tracking System - Dashboard";
+
+            $condition = array('fileAuthor' => $_SESSION['username']);
+            $documents = $this->files->read($condition);
+            $data['documents'] = $documents;
             
             $this->load->view('include/headerNew',$data);
             if($_SESSION['username'] == "admin"){  
