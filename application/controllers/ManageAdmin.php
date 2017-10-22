@@ -14,6 +14,7 @@ class ManageAdmin extends CI_Controller {
         $this->load->model('registrarDocTypeModel','documentType');
         $this->load->model('filesModel','files');
         $this->load->model('rolesModel','Roles');
+        $this->load->model('forwardRouteModel','Route');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -46,9 +47,11 @@ class ManageAdmin extends CI_Controller {
 
         $data['userdata'] = $userdata; 
         $data['title'] = "Document Tracking System - Dashboard";
-        $this->load->view('include/header',$data); 
-        $this->load->view('profileAdmin',$data);
-        $this->load->view('registrarDocuments', $data);
+        $this->load->view('include/headerNew',$data);
+        $this->load->view('sidebarAdmin');
+        $this->load->view('navbar'); 
+        $this->load->view('registrarDocuments');
+        $this->load->view('include/footerNew');    
     }
     public function getTrackCode($typeId_num){
         date_default_timezone_set('Asia/Manila');
@@ -147,6 +150,14 @@ class ManageAdmin extends CI_Controller {
             $rs = $this->files->read($condition);
         }while($rs);
         $data['fileCode'] = $fileCode;
+         do
+        {
+            $routeId = rand(0,9999);
+            $condition = array('routeId'=>$routeId);
+            $rs = $this->Route->read($condition);
+        }while($rs);
+
+        $data['routeId'] = $routeId;
         $condition = null;
         $condition = array('username' => $_SESSION['username']);
         $userdata = $this->User->read($condition);
@@ -175,6 +186,13 @@ class ManageAdmin extends CI_Controller {
             $rs = $this->files->read($condition);
         }while($rs);
         $data['fileCode'] = $fileCode;
+         do
+        {
+            $routeId = rand(0,9999);
+            $condition = array('routeId'=>$routeId);
+            $rs = $this->Route->read($condition);
+        }while($rs);
+        $data['routeId'] = $routeId;
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
             do{
@@ -182,6 +200,7 @@ class ManageAdmin extends CI_Controller {
                 $condition = array('idno'=>$idnum);
                 $rs = $this->regDoc->read($condition);
             }while($rs);
+
             $idno = $idnum;
             $username = $_POST['username'];
             $password =  "12345";

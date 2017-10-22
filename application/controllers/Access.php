@@ -11,7 +11,7 @@ class Access extends CI_Controller {
 
 //  LIST OF FUNCTIONS
 //     1) logIn
-//     3) logOut
+//     2) logOut
 
     public function logIn()
     {

@@ -37,9 +37,7 @@ class forwardRouteModel extends CI_Model {
 		                        'forwardDate' => $r['forwardDate'],
 		                        'forwardComment' => $r['forwardComment'],
 		                        'sender' => $r['sender'],
-		                        'receiver' => $r['receiver'],
-		                        'allowLog' => $r['allowLog'],
-		                        'allowForward' => $r['allowForward'],     
+		                        'receiver' => $r['receiver'],   
                                 );
                     $documents[] = $info;
             }

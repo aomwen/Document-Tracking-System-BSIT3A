@@ -22,6 +22,14 @@ class DocumentSent extends CI_Controller {
             $condition = array('fileCode'=>$fileCode);
             $rs = $this->files->read($condition);
         }while($rs);
+        do
+        {
+            $routeId = rand(0,9999);
+            $condition = array('routeId'=>$routeId);
+            $rs = $this->Route->read($condition);
+        }while($rs);
+
+        $data['routeId'] = $routeId;
 
         $data['fileCode'] = $fileCode;
         $condition = null;
@@ -58,6 +66,13 @@ class DocumentSent extends CI_Controller {
             $condition = array('fileCode'=>$fileCode);
             $rs = $this->files->read($condition);
         }while($rs);
+        do
+        {
+            $routeId = rand(0,9999);
+            $condition = array('routeId'=>$routeId);
+            $rs = $this->Route->read($condition);
+        }while($rs);
+        $data['routeId'] = $routeId;
 
         $data['fileCode'] = $fileCode;
         $data['title'] = "Document Tracking System - Dashboard";

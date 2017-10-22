@@ -8,8 +8,9 @@
               <div class="title_right">
                 <div class="panel-heading" id="head">
                   <ol class="breadcrumb pull-right">
-                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li>  
-                    <li class="active"> Manage Offices </li>
+                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="<?php echo base_url('adminOffices/manageColleges'); ?>" title="colleges"><span class="fa fa-building"></span></a></li>  
+                    <li class="active"> Edit College </li>
                   </ol>           
                 </div>
               </div>  
@@ -61,10 +62,10 @@
 
 
         <!--MODAL-->
-        <div class="modal fade" id="ImageLogoModal" role="dialog" style="margin-top:5%;">
+        <div class="modal fade" id="ImageLogoModal"  role="dialog" style="margin-top:5%;">
           <div class="modal-dialog model-sm">
             <!-- Modal content-->
-            <form role="form" method="post" class="modal-content" enctype="multipart/form-data" id="newprofile_form" >       
+            <form role="form" method="post" class="modal-content" action="<?php echo base_url('AdminOffices/updateProfileImage/'.$_SESSION['collegeId'])?>" enctype="multipart/form-data" id="collegeprofile_form" >       
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Change Logo Image</h4>
@@ -91,11 +92,11 @@
         <!--MODAL END-->
 
         <!--MODAL-->
-        <?php foreach($colleges as $ca){ ?>
+        <?php foreach($colleges as $ca): ?>
         <div class="modal fade" id="editInfoCollege" role="dialog" style="margin-top:5%;">
           <div class="modal-dialog model-sm">
             <!-- Modal content-->
-            <form role="form" method="post" class="modal-content" id="save_edit" >
+            <form action="<?php echo base_url('AdminOffices/updateCollegeInfo'); ?>" role="form" method="post" class="modal-content" id="collegeinfo" >
               
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -105,19 +106,19 @@
                   <!--choose banner-->
                    <div class="form-group">
                       <label class="control-label">College Id:</label>
-                          <input type="text" value="<?php echo $ca['collegeId'];?>" class="form-control" name="collegeId" id="collegeId">
+                          <input type="text" value="<?php echo $ca['collegeId']?>" class="form-control" name="collegeId" id="collegeId">
                     </div>
                    <div class="form-group">
                       <label class="control-label ">College Name:</label>
-                          <input type="text" value="<?php echo $ca['collegefull'];?>" class="form-control" name="collegefull" id="collegefull">   
+                          <input type="text" value="<?php echo $ca['collegefull']?>" class="form-control" name="collegefull" id="collegefull">   
                     </div>  
                   <div class="form-group">
                     <label class="control-label ">College Dean:</label>
-                        <input type="text" value="<?php echo $ca['collegeDean'];?>" id="collegeDean" class="form-control" name="collegeDean">
+                        <input type="text" value="<?php echo $ca['collegeDean']?>" id="collegeDean" class="form-control" name="collegeDean">
                   </div>  
                   <div class="form-group">
                       <label class="control-label">College Description:</label>
-                      <textarea class="form-control" name="collegeDesc" id="collegeDesc"><?php echo $ca['collegeDesc'];?></textarea>
+                      <textarea class="form-control" name="collegeDesc" id="collegeDesc"><?php echo $ca['collegeDesc']?></textarea>
                   </div> 
                 
                 </div>
@@ -131,62 +132,5 @@
             </form>
           </div>
         </div>
-      <?php ;}?>
+      <?php endforeach;?>
         <!--MODAL END-->
-
-<!--NEW IMAGE-->
-<script>
-  $('#newprofile_form').on('submit',function(e){
-    e.preventDefault();
-    if($('#newprofile').val() == ''){
-
-      alert("Please Select a File");
-    }else{
-      var filename = $('#newprofile').val();
-      var valid_extensions = /(\.jpg|\.jpeg|\.png)$/i;   
-      if(valid_extensions.test(filename))
-      { 
-         $.ajax({
-          url:"<?php echo base_url(); ?>AdminOffices/updateProfileImage/<?php foreach($colleges as $ca){ echo $ca['collegeId'];}?>", 
-          method:"POST",
-          data:new FormData(this),
-          contentType:false,
-          cache:false,
-          processData:false,
-          success:function(data){
-            $('#photo_profile').html(data);
-          }
-        });
-      }
-      else
-      {
-         alert('Invalid File! Please use .jpg .jpeg .png for the image upload');
-      }    
-    }
-  });
-
-</script>
-
-
-<!--EDIT INFORMATION-->
-<script >
-  $(document).ready(function() {
-     $('#save_edit').on('submit',function(e){
-     		e.preventDefault();
-          
-              $.ajax({
-  		        url:"<?php echo base_url(); ?>AdminOffices/updateCollegeInfo", 
-  		        method:"POST",
-  		        data:new FormData(this),
-  		        contentType:false,
-  		        cache:false,
-  		        processData:false,
-  		        success:function(data){
-  		          alert("Information has been successfully Changed!");
-  		          location.href = "<?php echo base_url(); ?>AdminOffices/manageColleges";
-  		        }
-  		      });
-      });
-
-  });
-</script>
