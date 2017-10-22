@@ -5,7 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function __construct(){
 			parent::__construct();
 			$this->load->model('registrarDocumentsModel','regDoc');
-}		public function index(){	
+			if(isset($_SESSION['username']))
+	        {
+	            redirect('Dashboard/dashboardview','refresh');
+	        }	
+		}		
+		public function index(){	
 		    $regDocuments = array();
 	        $condition = null;
 	        $rs = $this->regDoc->read($condition);
