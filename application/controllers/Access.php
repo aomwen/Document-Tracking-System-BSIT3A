@@ -14,7 +14,10 @@ class Access extends CI_Controller {
 //     2) logOut
 
     public function logIn()
-    {
+    {   if(isset($_SESSION['username']))
+            {
+                redirect('Dashboard/dashboardview','refresh');
+            }
         $error=null;
         if($_SERVER['REQUEST_METHOD']=='POST')
         {
