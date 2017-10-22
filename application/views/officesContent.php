@@ -24,8 +24,7 @@
                   <div class="x_content">
                     <div class="row">
                       <!-- start accordion -->
-                      <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
-                            
+                      <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">   
                           <?php
                           $thereis=false;
                           foreach($departments as $d){

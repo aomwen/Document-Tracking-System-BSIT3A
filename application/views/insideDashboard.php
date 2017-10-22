@@ -46,7 +46,6 @@
                 </div>
                 <div class="x_content">
                   <div class="dashboard-widget-content">
-
                     <ul class="list-unstyled timeline widget">
                       <li>
                         <div class="block">
@@ -165,7 +164,6 @@
                   </div>
                 </div>
               </div>  
-
               <div class="x_panel">
                 <div class="x_title">
                   <a href="<?php echo base_url('DocumentStatus/mydocumentsRoute'); ?>"><h4>Documents Route</h4></a>
