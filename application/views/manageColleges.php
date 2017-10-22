@@ -35,13 +35,14 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-55">
+               <?php
+                
+                foreach($colleges as $col){ 
+                  echo'<div class="col-md-55">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <?php
-								$thereis=false;
-								foreach($colleges as $col){
-									echo'
+                            
+								        	
 		                          	<img class="img-responsive" src="'.$col['collegeLogo'].'" style="width: 100%; display: block;" alt="College Logo" />
 		                            <div class="mask">
 		                              <div class="tools tools-bottom">
@@ -49,23 +50,17 @@
 		                                <a href="'.base_url('AdminOffices/updateCollege/'.$col['collegeId']).'"><i class="fa fa-pencil"></i></a>
 		                                <a href="#"><i class="fa fa-times"></i></a>
 		                              </div>
-		                            </div>'; 
-		                        ?>    
-								<?php echo '
-									</div>';
-									$thereis=true;
-								}
-								if($thereis==false){
-									echo '<h4 class="text-danger">No college registered...</h4>';
-								}
-							?>
+		                            </div>
+                        </div>
                           <div class="caption">
                           	<p class="text-center">'.$col['collegefull'].' ('.$col['collegeId'].')</p>
                           	<p class="text-center">'.$col['collegeDesc'].'</p>
                           </div>                        
-                        </div>
-                      </div>
+                      </div><!--end of thumbnail-->
                     </div>
+                        '; 
+                          }
+              ?>
                   </div>
                 </div>
               </div>

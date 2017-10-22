@@ -47,6 +47,7 @@
                           <td>College/Office</td>
                           <td>Department</td>
                           <td>Position</td>
+                          <td>Role</td>
                           <td>Action</td>
                         </tr>
                         </thead>
@@ -61,8 +62,13 @@
                                 <td><?php echo $us['collegeId']?></td>
                                 <td><?php echo $us['department']?></td>
                                 <td><?php echo $us['position']?></td>
+                                <td><?php foreach($roles as $r){if($us['roleId']==$r['roleId']){echo $r['role'];} }?></td>
                                 <td><a href="<?php echo base_url('ManageAdmin/editUser/'.$us['username'])?>" class="btn btn-info btn-sm">Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm">Block</a>
+                                <?php if($us['active']==1){?>
+                                <a href="<?php echo base_url('ManageAdmin/deactivateUser/'.$us['username'])?>" class="btn btn-danger btn-sm">Deactivate</a>
+                                <?php }else{?>
+                                <a href="<?php echo base_url('ManageAdmin/activateUser/'.$us['username'])?>" class="btn btn-success btn-sm">Activate</a>
+                                <?php }?>
                                 </td>
                               </tr>
                             <?php endforeach;?>
@@ -88,7 +94,7 @@
                   </div>
                   <div class="modal-body">
          
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label for="collegeId"> College Id: </label>
                       <select id="collegeIdpos" class="form-control" name="collegeId">
                       <?php		
@@ -97,7 +103,7 @@
                       		}
                       ?>
                       </select>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                       <label for="position"> Position: </label>
                       <input class="form-control" type="text" id="positionpos" name="position" />

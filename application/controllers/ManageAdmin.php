@@ -13,7 +13,7 @@ class ManageAdmin extends CI_Controller {
         $this->load->model('contactUsModel','contact');
         $this->load->model('registrarDocTypeModel','documentType');
         $this->load->model('filesModel','files');
-
+        $this->load->model('rolesModel','Roles');
         if(!isset($_SESSION['username']))
         {
             redirect().'Dts/index';
@@ -21,12 +21,6 @@ class ManageAdmin extends CI_Controller {
     }
     //REGISTRAR DOCUMENT TRACKING
     public function viewDocuments(){
-        // do{
-        //      $tracknumber = rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9).'-'.rand(0,9).rand(0,9).rand(0,9);
-        //  
-        //     $condition = array('regTrackcode'=>$tracknumber);
-        //     $rs = $this->regDoc->read($condition);
-        // }while($rs);
         $tracknumber=null;
         do
         {
@@ -162,6 +156,7 @@ class ManageAdmin extends CI_Controller {
         $userdata = $this->User->read($condition);
         $data['userList'] = $userdata;
         $data['colleges'] = $this->Colleges->getCollegeId();
+        $data['roles'] = $this->Roles->read();
 
         $data['title'] = "Document Tracking System - Dashboard";
         $this->load->view('include/headerNew',$data);
@@ -257,6 +252,11 @@ class ManageAdmin extends CI_Controller {
             $positions = $this->Positions->read($condition);
             $data['positions'] = $positions;
             //end of getting positions
+            //getting positions
+            $condition = null;
+            $roles = $this->Roles->read($condition);
+            $data['roles'] = $roles;
+            //end of getting positions
             $user = $username;
             //getting userdata1
             $condition = array('username' => $_SESSION['username']);
@@ -296,9 +296,24 @@ class ManageAdmin extends CI_Controller {
                                 'collegeId'=>$collegeId,
                                 'department'=>$department,
                                 'position'=>$position,);
-                $this->User->update($record,$condition);
+                $this->User->update($condition,$record);
                 redirect(base_url().'ManageAdmin/viewUsers');
         }
+    }
+    public function deactivateUser($username){               
+        $condition=array('username'=>$username);
+        $record=array('active'=>0);
+        $this->User->update($condition,$record);
+        redirect(base_url().'ManageAdmin/viewUsers');
+        
+    }
+    public function activateUser($username){
+         
+        $condition=array('username'=>$username);
+        $record=array('active'=>1);
+        $this->User->update($condition,$record);
+        redirect(base_url().'ManageAdmin/viewUsers');
+
     }
 
     // MESSAGES TO ADMIN
@@ -398,9 +413,8 @@ class ManageAdmin extends CI_Controller {
         } 
     public function addPosition(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $collegeId=$_POST['collegeId'];
             $position=$_POST['position'];
-            $record=array('collegeId'=>$collegeId,
+            $record=array(
                         'position'=>$position
                 );
             $duplicate=$this->Positions->check_duplicate($record);
