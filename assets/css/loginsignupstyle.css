@@ -1,20 +1,34 @@
+body{
+	background: url('<?php echo base_url('assets/images/03.jpg'); ?>'); 
+	background-size: cover; 
+	background-position: center; 
+	background-attachment: fixed; 
+	background-repeat: no-repeat; 
+}
+.overlay{
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(17%,rgba(0,0,0,0.73)), color-stop(35%,rgba(0,0,0,0.66)), color-stop(62%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.4))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* IE10+ */
+	/*background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* W3C */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.53) 17%, rgba(0,0,0,0.46) 35%, rgba(0,0,0,0.35) 62%, rgba(0,0,0,0.2) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 ); /* IE6-9 */
+	height: auto;
+	background-attachment: fixed;
+	padding: 80px 0;
+}
 .input-group{
-	/*margin-top: 15px;*/
 	margin-top:5%;
-	/*margin-bottom: 15px;*/
 	margin-bottom: 4%;
 }
 #input-btn{
-	font-family: 'Dosis', sans-serif;
-	/*width:175px;
-	height:50px;*/
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
 	letter-spacing: 0px;
-	background:#015249;
+	background:#e7554b;
 	border-radius:3px;
 	color:#ffffff;
-	/*font-size:16px;*/
 	text-transform:uppercase;
-	/*font-weight:600;*/
 	border:0px;
 	padding:10px;
 	transition:all 0.3s ease-in-out;
@@ -26,8 +40,9 @@
 	color: #222;
 }
 h3,h2{
-	font-family: sans-serif;
-	color:#015249;
+	/*font-family: sans-serif;*/
+	font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+	color:#e7554b;
 	font-weight: 600;
 }
 .input-group-addon{
