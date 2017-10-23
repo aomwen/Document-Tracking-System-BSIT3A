@@ -57,10 +57,10 @@
                           <select class="form-control" id="sel1" name="collegeId" onchange="filterDept()">
                             <option selected disabled name="collegeId">Choose a College</option>
                           	<?php foreach($colleges as $c){
-							echo '
-							<option value="'.$c['collegeId'].'">'.$c['collegeId'].'</option>
-							';
-							}?>
+              							echo '
+              							<option value="'.$c['collegeId'].'">'.$c['collegeId'].'</option>
+              							';
+              							}?>
                           </select>
                         </div>
                       </div>
@@ -70,11 +70,11 @@
                           <select class="form-control" id="sel2" name="department">
                           	<option selected disabled>Choose a Department</option>
                           	<?php foreach($departments as $d){
-							echo '
-							<option value="'.$d['department'].'">'.$d['department'].'</option>
-							';
-							}?>
-						</select>
+                							echo '
+                							<option value="'.$d['department'].'">'.$d['department'].'</option>
+                							';
+                							}?>
+                						</select>
                         </div>
                       </div>
                       <div class="form-group">
@@ -82,10 +82,10 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="position">
                             <?php foreach($positions as $p){
-							echo '
-							<option value="'.$p['position'].'">'.$p['position'].'</option>
-							';
-						}?>
+                  						echo '
+                  						<option value="'.$p['position'].'">'.$p['position'].'</option>
+                  						';
+                  					}?>
                           </select>
                         </div>
                       </div>                      
@@ -103,8 +103,7 @@
               </div>
             </div>        
           </div>
-          <script type="text/javascript">
-        
+<script type="text/javascript">
 function filterDept(){
 		var collegeDept = {};
 		<?php
@@ -126,7 +125,6 @@ function filterDept(){
 	        departmentList.remove(0);
 	    }
 	    var dept = collegeDept[selCollege];
-	    alert(dept);
 	    if (dept) {
 	        var i;
 	        for (i = 0; i < dept.length; i++) {

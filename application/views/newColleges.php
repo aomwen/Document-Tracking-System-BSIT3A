@@ -8,8 +8,9 @@
               <div class="title_right">
                 <div class="panel-heading" id="head">
                   <ol class="breadcrumb pull-right">
-                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li> 
-                      <li class="active"> Manage Offices </li>
+                    <li><a href="<?php echo base_url('DocumentStatus/viewDocuments'); ?>" title="Home"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="<?php echo base_url('adminOffices/manageColleges'); ?>" title="Colleges"><span class="fa fa-building"></span></a></li> 
+                      <li class="active"> Add College </li>
                   </ol>           
                 </div>
               </div>  
@@ -25,7 +26,7 @@
                     </div> 
                     <br />
                     <hr />
-                    <form role="form" method="post" id="newCollege_form" class="form-horizontal form-label-left">
+                    <form role="form" method="POST" id="newCollege_form" action="<?php echo base_url('AdminOffices/addColleges');?>" class="form-horizontal form-label-left">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">College Acronym/College ID:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -53,7 +54,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">College Logo: </label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="file" name="collegeLogo" id="collegeLogo"/>
+                            <input type="file" name="collegeLogo" accept="image/*" id="collegeLogo"/>
                           </div>  
                       </div>
                       <div class="ln_solid"></div>
@@ -71,38 +72,3 @@
           </div>
         </div>    
         <!-- /page content -->
-
-<script>
-
-  $('#newCollege_form').on('submit',function(e){
-    e.preventDefault();
-    if($('#collegeId').val() != '' && $('#collegeName').val() != '' && $('#collegeDesc').val() != '' && $('#collegeDean').val() != ''){
-	    if($('#collegeLogo').val() == ''){
-
-	      alert("Please Select a File");
-	    }else{
-	     var filename = $('#newprofile').val();
-	      var valid_extensions = /(\.jpg|\.jpeg|\.png)$/i;   
-	      if(valid_extensions.test(filename)){
-	         $.ajax({
-	        url:"<?php echo base_url(); ?>AdminOffices/addColleges", 
-	        method:"POST",
-	        data:new FormData(this),
-	        contentType:false,
-	        cache:false,
-	        processData:false,
-	        success:function(data){
-	          $('#photo_profile').html(data);
-	        }
-
-	      });
-	     }else{
-	      alert('Invalid File! Please use .jpg .jpeg .png for the college logo');
-	     }
-	    }
-	}else{
-		    alert("All fields are required! Please Fill in");
-	}
-  });
-
-</script>
