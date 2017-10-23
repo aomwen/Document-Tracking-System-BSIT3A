@@ -34,14 +34,15 @@
                         <?php foreach($documents as $doc):?>
                         <tr>
                           <td><?php echo $doc['fileId']?></td>
-                          <td><a href="<?php echo base_url('DocumentStatus/mydocumentsRoute/').$doc['fileCode']?>"><?php echo $doc['fileCode']?></a></td>
+                          <td><a href="<?php echo base_url('DocumentStatus/mydocumentsRoute/'.$doc['fileCode'])?>"><?php echo $doc['fileCode']?></a></td>
                           <td><?php echo $doc['fileName']?></td>
                           <td><?php echo $doc['fileCreated']?></td>
                           <td><?php echo $doc['fileComment']?></td>
                           <td class="text-center">
-                            <a href="<?php echo base_url('DocumentStatus/mydocumentsRoute/').$doc['fileCode']?>" title="Preview"><span class="glyphicon glyphicon-eye-open"></span></a>
+                            <a href="<?php echo base_url('DocumentStatus/mydocumentsRoute/').$doc['fileCode']?>" title="View Log"><span class=" glyphicon glyphicon-list-alt"></span></a>
+                            <a href="<?php echo base_url('FilesManipulation/previewFile/').$doc['fileCode']?>" title="View File"><span class="glyphicon glyphicon-eye-open"></span></a>
                             <a href="<?php echo base_url('FilesManipulation/downloadFile/').$doc['fileCode']?>" title="Download"><span class="glyphicon glyphicon-download-alt"></span></a>
-                            <a href="<?php echo base_url('FilesManipulation/forwardFile/').$doc['fileCode']?>" title="Forward"><span class="glyphicon glyphicon-share-alt"></span></a>
+                            <a  onclick="sendfileCode('<?php echo $doc['fileCode']?>','<?php echo $doc['fileName']?>');" ><span class="glyphicon glyphicon-share-alt"></span></a>
                             </td>
                         </tr>
                         <?php endforeach;?>
@@ -52,5 +53,11 @@
               </div>
             </div>
           </div>
-        </div>
         <!-- /page content -->
+        <script type="text/javascript">
+          function sendfileCode(filecode,filename){
+              $("#forwardFileCode").val(filecode);
+              $("#forwardFileName").val(filename);
+              $('.forwardModal').slideToggle();
+            }
+      </script>
