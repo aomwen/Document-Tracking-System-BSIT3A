@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title><?php echo $title; ?></title>
+	<title>TUP Document Tracking System</title>
 
 	<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 	<meta name="author" content="Team Bah" />
@@ -9,7 +9,7 @@
 	<link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
 	<!--<link href="<?php echo base_url('assets/css/default.css'); ?>" rel="stylesheet" />-->
 	<link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
-    <link rel="icon" href="<?php echo base_url('assets/images/doctrack_logo.png'); ?>" type="image/png"> 	
+    <link rel="icon" href="<?php echo base_url('assets/images/logo.png'); ?>" type="image/png"> 	
 
 	<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>

@@ -45,11 +45,13 @@ class Dashboard extends CI_Controller {
             $this->load->view('include/headerNew',$data);
             if($_SESSION['username'] == "admin"){  
                 $this->load->view('sidebarAdmin');
+                $this->load->view('navbar');
+                $this->load->view('insideDashboardAdmin');
             }else{
-                $this->load->view('sidebar');     
+                $this->load->view('sidebar');
+                $this->load->view('navbar'); 
+                $this->load->view('insideDashboard');     
             } 
-            $this->load->view('navbar'); 
-            $this->load->view('insideDashboard');
             $this->load->view('include/footerNew');
         }
     }
