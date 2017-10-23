@@ -33,6 +33,7 @@
     jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
 
 })(jQuery,'smartresize');
+
 /**
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -2398,6 +2399,16 @@ if (typeof NProgress != 'undefined') {
 		
 			$('#compose, .compose-close').click(function(){
 				$('.compose').slideToggle();
+			});
+		
+		};
+
+		function init_forwardModal() {
+		
+			if( typeof ($.fn.slideToggle) === 'undefined'){ return; }
+			console.log('init_forwardModal');
+			$('#forwardModal, .forwardModal-close').click(function(){
+				$('.forwardModal').slideToggle();
 			});
 		
 		};
@@ -5063,6 +5074,7 @@ if (typeof NProgress != 'undefined') {
 		init_starrr();
 		init_calendar();
 		init_compose();
+		init_forwardModal();
 		init_CustomNotification();
 		init_autosize();
 		init_autocomplete();
